@@ -1,0 +1,262 @@
+[
+  {
+    "id": "Q-2024-001",
+    "banca": "CEBRASPE",
+    "orgao": "Polícia Federal",
+    "cargo": "Agente de Polícia Federal",
+    "ano": 2024,
+    "disciplina": "Direito Constitucional",
+    "assunto": "Direitos e Garantias Fundamentais",
+    "subassunto": "Inviolabilidade de Domicílio",
+    "modalidade": "CERTO_ERRADO",
+    "enunciado": "A casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, durante a noite, por determinação judicial.",
+    "alternativas": [
+      {
+        "id": "C",
+        "texto": "Certo"
+      },
+      {
+        "id": "E",
+        "texto": "Errado"
+      }
+    ],
+    "gabarito": "E",
+    "explicacao": "Art. 5º, XI, CF/88: A determinação judicial só autoriza o ingresso durante o DIA ('por determinação judicial, durante o dia'). Durante a noite, somente com consentimento do morador, ou em caso de flagrante delito, desastre, ou socorro.",
+    "dificuldade": "FACIL"
+  },
+  {
+    "id": "Q-2024-002",
+    "banca": "FGV",
+    "orgao": "Receita Federal",
+    "cargo": "Auditor-Fiscal da Receita Federal",
+    "ano": 2023,
+    "disciplina": "Direito Administrativo",
+    "assunto": "Atos Administrativos",
+    "subassunto": "Atributos do Ato",
+    "modalidade": "MULTIPLA_ESCOLHA",
+    "enunciado": "A prerrogativa da Administração Pública de executar diretamente seus atos e decisões, impondo medidas coercitivas sem a necessidade de prévia intervenção do Poder Judiciário, decorre do atributo da:",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Presunção de legitimidade e veracidade."
+      },
+      {
+        "id": "B",
+        "texto": "Imperatividade."
+      },
+      {
+        "id": "C",
+        "texto": "Autoexecutoriedade."
+      },
+      {
+        "id": "D",
+        "texto": "Tipicidade."
+      },
+      {
+        "id": "E",
+        "texto": "Inviolabilidade discricionária."
+      }
+    ],
+    "gabarito": "C",
+    "explicacao": "A autoexecutoriedade consiste na faculdade que tem a Administração de decidir e executar diretamente sua decisão por seus próprios meios, sem necessidade de intervenção prévia do Poder Judiciário.",
+    "dificuldade": "MEDIA"
+  },
+  {
+    "id": "Q-2024-003",
+    "banca": "FCC",
+    "orgao": "TRT 2ª Região",
+    "cargo": "Analista Judiciário",
+    "ano": 2023,
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Sintaxe",
+    "subassunto": "Crase e Regência",
+    "modalidade": "MULTIPLA_ESCOLHA",
+    "enunciado": "Assinale a alternativa em que o sinal indicativo de crase foi empregado em estrita conformidade com a norma-padrão da língua portuguesa.",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Os servidores compareceram à reuniões periódicas para dirimir dúvidas."
+      },
+      {
+        "id": "B",
+        "texto": "O projeto foi encaminhado àquela comissão permanente de fiscalização."
+      },
+      {
+        "id": "C",
+        "texto": "Eles começaram à redigir os relatórios conclusivos imediatamente."
+      },
+      {
+        "id": "D",
+        "texto": "Referiu-se à Vossa Excelência com deferência e respeito institucional."
+      },
+      {
+        "id": "E",
+        "texto": "O pagamento foi realizado à prazo determinado pelo conselho gestor."
+      }
+    ],
+    "gabarito": "B",
+    "explicacao": "Ocorre crase na fusão da preposição 'a' exigida por 'encaminhado' com o pronome demonstrativo 'aquela' (a + aquela = àquela). Nas outras alternativas: A (antes de plural sem artigo), C (antes de verbo), D (antes de pronome de tratamento) e E (antes de palavra masculina) não há crase.",
+    "dificuldade": "MEDIA"
+  },
+  {
+    "id": "Q-2024-004",
+    "banca": "CEBRASPE",
+    "orgao": "INSS",
+    "cargo": "Técnico do Seguro Social",
+    "ano": 2022,
+    "disciplina": "Direito Previdenciário",
+    "assunto": "Segurados da Previdência Social",
+    "subassunto": "Segurado Especial",
+    "modalidade": "CERTO_ERRADO",
+    "enunciado": "O produtor rural pessoa física que exerça suas atividades em regime de economia familiar, sem empregados permanentes, é considerado segurado especial da Previdência Social.",
+    "alternativas": [
+      {
+        "id": "C",
+        "texto": "Certo"
+      },
+      {
+        "id": "E",
+        "texto": "Errado"
+      }
+    ],
+    "gabarito": "C",
+    "explicacao": "Correto, nos termos do art. 12, VII da Lei nº 8.213/1991 e art. 195, § 8º da CF/88, o produtor que trabalha individualmente ou em regime de economia familiar sem empregados permanentes qualifica-se como segurado especial.",
+    "dificuldade": "FACIL"
+  },
+  {
+    "id": "Q-2024-005",
+    "banca": "VUNESP",
+    "orgao": "TJ-SP",
+    "cargo": "Escrevente Técnico Judiciário",
+    "ano": 2023,
+    "disciplina": "Informática",
+    "assunto": "Segurança da Informação",
+    "subassunto": "Malwares e Ameaças",
+    "modalidade": "MULTIPLA_ESCOLHA",
+    "enunciado": "Um tipo específico de software malicioso que restringe o acesso ao sistema infectado, frequentemente criptografando os arquivos do usuário, e cobra um resgate financeiro para restabelecer o acesso é denominado:",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Spyware"
+      },
+      {
+        "id": "B",
+        "texto": "Ransomware"
+      },
+      {
+        "id": "C",
+        "texto": "Adware"
+      },
+      {
+        "id": "D",
+        "texto": "Worm"
+      },
+      {
+        "id": "E",
+        "texto": "Keylogger"
+      }
+    ],
+    "gabarito": "B",
+    "explicacao": "Ransomware é a ameaça virtual que bloqueia o acesso aos dados ou ao sistema através de criptografia e exige o pagamento de resgate (ransom) para a liberação da chave de decodificação.",
+    "dificuldade": "FACIL"
+  },
+  {
+    "id": "Q-2024-006",
+    "banca": "CEBRASPE",
+    "orgao": "TCU",
+    "cargo": "Auditor Federal de Controle Externo",
+    "ano": 2022,
+    "disciplina": "Direito Constitucional",
+    "assunto": "Organização dos Poderes",
+    "subassunto": "Poder Legislativo e Fiscalização Contábil",
+    "modalidade": "CERTO_ERRADO",
+    "enunciado": "O Tribunal de Contas da União é órgão subordinado ao Congresso Nacional, cabendo a este homologar os pareceres prévios sobre as contas prestadas pelo Presidente da República.",
+    "alternativas": [
+      {
+        "id": "C",
+        "texto": "Certo"
+      },
+      {
+        "id": "E",
+        "texto": "Errado"
+      }
+    ],
+    "gabarito": "E",
+    "explicacao": "O TCU é órgão constitucional autônomo e independente, que auxilia o Congresso Nacional no controle externo, mas a ele NÃO é subordinado hierarquicamente.",
+    "dificuldade": "DIFICIL"
+  },
+  {
+    "id": "Q-2024-007",
+    "banca": "FGV",
+    "orgao": "OAB",
+    "cargo": "Exame de Ordem Unificado",
+    "ano": 2024,
+    "disciplina": "Ética e Estatuto da OAB",
+    "assunto": "Incompatibilidades e Impedimentos",
+    "subassunto": "Exercício da Advocacia",
+    "modalidade": "MULTIPLA_ESCOLHA",
+    "enunciado": "Mariana, advogada regularmente inscrita na OAB, foi nomeada para exercer o cargo de Secretária Municipal de Finanças em determinado município. Diante dessa situação, consoante o Estatuto da Advocacia e da OAB (Lei nº 8.906/1994):",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Fica apenas impedida de advogar contra a Fazenda Pública que a remunera."
+      },
+      {
+        "id": "B",
+        "texto": "Encontra-se em situação de incompatibilidade definitiva, devendo ter cancelada sua inscrição."
+      },
+      {
+        "id": "C",
+        "texto": "Encontra-se em situação de incompatibilidade temporária, acarretando a suspensão do exercício profissional enquanto durar a investidura."
+      },
+      {
+        "id": "D",
+        "texto": "Poderá continuar advogando nas causas de natureza exclusivamente privada e cível."
+      },
+      {
+        "id": "E",
+        "texto": "Deverá prestar compromisso especial no Conselho Seccional para obter autorização provisória."
+      }
+    ],
+    "gabarito": "C",
+    "explicacao": "Conforme o art. 28, III da Lei 8.906/94, o exercício de cargos de direção da administração pública direta ou indireta é incompatível com a advocacia. Por ter caráter temporário, gera o licenciamento/suspensão (art. 12, II), e não cancelamento definitivo.",
+    "dificuldade": "MEDIA"
+  },
+  {
+    "id": "Q-2024-008",
+    "banca": "FCC",
+    "orgao": "SEFAZ-SP",
+    "cargo": "Auditor Fiscal da Receita Estadual",
+    "ano": 2023,
+    "disciplina": "Raciocínio Lógico-Matemático",
+    "assunto": "Lógica Proposicional",
+    "subassunto": "Equivalências e Negações Lógicas",
+    "modalidade": "MULTIPLA_ESCOLHA",
+    "enunciado": "Considere a proposição condicional: 'Se o candidato estuda com método, então é aprovado no certame'. A negação lógica dessa proposição é equivalente a:",
+    "alternativas": [
+      {
+        "id": "A",
+        "texto": "Se o candidato não estuda com método, então não é aprovado no certame."
+      },
+      {
+        "id": "B",
+        "texto": "O candidato não estuda com método ou não é aprovado no certame."
+      },
+      {
+        "id": "C",
+        "texto": "O candidato estuda com método e não é aprovado no certame."
+      },
+      {
+        "id": "D",
+        "texto": "Se o candidato é aprovado no certame, então estudou com método."
+      },
+      {
+        "id": "E",
+        "texto": "O candidato não estuda com método e é aprovado no certame."
+      }
+    ],
+    "gabarito": "C",
+    "explicacao": "A negação de uma condicional 'P -> Q' é dada por 'P ^ ~Q' (regra do 'mantém a primeira E nega a segunda'): 'O candidato estuda com método E não é aprovado no certame'.",
+    "dificuldade": "FACIL"
+  }
+]
