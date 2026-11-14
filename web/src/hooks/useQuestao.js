@@ -8,9 +8,11 @@ export function useQuestao(progresso) {
   const [filtros, setFiltros] = useState({
     banca: 'TODAS',
     disciplina: 'TODAS',
+    cargo: 'TODOS',
     ano: 'TODOS',
-    modalidade: 'TODAS',
-    status: 'TODAS', // TODAS, ACERTOS, ERROS, NAO_RESOLVIDAS, FAVORITAS
+    nivel: 'TODOS',
+    assunto: 'TODOS',
+    status: 'TODAS', // TODAS, ACERTOS, ERROS, NAO_RESOLVIDAS, FAVORITAS, ANULADAS
     busca: ''
   });
 
@@ -18,7 +20,6 @@ export function useQuestao(progresso) {
     async function carregar() {
       try {
         setCarregando(true);
-        // Suporta tanto deploy relativo (GH Pages) quanto raiz (Vercel)
         const baseUrl = import.meta.env.BASE_URL || './';
         const url = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}questoes.json`;
         const res = await fetch(url);
@@ -37,58 +38,60 @@ export function useQuestao(progresso) {
     carregar();
   }, []);
 
-  // Extrair opções dinâmicas para os filtros
+  // Opções dinâmicas para os filtros
   const opcoesFiltro = useMemo(() => {
     const bancas = new Set();
     const disciplinas = new Set();
+    const cargos = new Set();
     const anos = new Set();
-    const modalidades = new Set();
+    const niveis = new Set();
+    const assuntos = new Set();
 
     todasQuestoes.forEach(q => {
       if (q.banca) bancas.add(q.banca);
       if (q.disciplina) disciplinas.add(q.disciplina);
+      if (q.cargo) cargos.add(q.cargo);
       if (q.ano) anos.add(String(q.ano));
-      if (q.modalidade) modalidades.add(q.modalidade);
+      if (q.nivel) niveis.add(q.nivel);
+      if (q.assunto) assuntos.add(q.assunto);
     });
 
     return {
       bancas: Array.from(bancas).sort(),
       disciplinas: Array.from(disciplinas).sort(),
+      cargos: Array.from(cargos).sort(),
       anos: Array.from(anos).sort((a, b) => b - a),
-      modalidades: Array.from(modalidades).sort()
+      niveis: Array.from(niveis).sort(),
+      assuntos: Array.from(assuntos).sort()
     };
   }, [todasQuestoes]);
 
   // Aplicar filtros e busca
   const questoesFiltradas = useMemo(() => {
     return todasQuestoes.filter(q => {
-      // Filtro de Banca
       if (filtros.banca !== 'TODAS' && q.banca !== filtros.banca) return false;
-
-      // Filtro de Disciplina
       if (filtros.disciplina !== 'TODAS' && q.disciplina !== filtros.disciplina) return false;
-
-      // Filtro de Ano
+      if (filtros.cargo !== 'TODOS' && q.cargo !== filtros.cargo) return false;
       if (filtros.ano !== 'TODOS' && String(q.ano) !== String(filtros.ano)) return false;
+      if (filtros.nivel !== 'TODOS' && q.nivel !== filtros.nivel) return false;
+      if (filtros.assunto !== 'TODOS' && q.assunto !== filtros.assunto) return false;
 
-      // Filtro de Modalidade
-      if (filtros.modalidade !== 'TODAS' && q.modalidade !== filtros.modalidade) return false;
-
-      // Filtro de Status de Resolução
+      // Status do usuário
       const respostaInfo = progresso.respostas[q.id];
       const resolvida = !!respostaInfo;
       const acertou = respostaInfo?.acertou;
       const ehFavorita = progresso.favoritos.includes(q.id);
 
+      if (filtros.status === 'ANULADAS' && !q.anulada) return false;
       if (filtros.status === 'ACERTOS' && (!resolvida || !acertou)) return false;
       if (filtros.status === 'ERROS' && (!resolvida || acertou)) return false;
       if (filtros.status === 'NAO_RESOLVIDAS' && resolvida) return false;
       if (filtros.status === 'FAVORITAS' && !ehFavorita) return false;
 
-      // Busca textual (enunciado, cargo, órgão, assunto)
+      // Busca textual ampla
       if (filtros.busca.trim()) {
         const termo = filtros.busca.toLowerCase();
-        const textoCompleto = `${q.enunciado} ${q.orgao} ${q.cargo} ${q.assunto} ${q.subassunto || ''}`.toLowerCase();
+        const textoCompleto = `${q.enunciado} ${q.orgao || ''} ${q.cargo || ''} ${q.assunto || ''} ${q.id || ''}`.toLowerCase();
         if (!textoCompleto.includes(termo)) return false;
       }
 
@@ -104,8 +107,10 @@ export function useQuestao(progresso) {
     setFiltros({
       banca: 'TODAS',
       disciplina: 'TODAS',
+      cargo: 'TODOS',
       ano: 'TODOS',
-      modalidade: 'TODAS',
+      nivel: 'TODOS',
+      assunto: 'TODOS',
       status: 'TODAS',
       busca: ''
     });

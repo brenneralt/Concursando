@@ -1,0 +1,671 @@
+{
+  "provas": [
+    {
+      "arquivo": "agente_administrativo_BarradeSaoMiguel_2024.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2024,
+      "orgao": "PREFEITURA MUNICIPAL DE BARRA DE SÃO MIGUEL",
+      "cargo": "Agente Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "gabarito_BarradeSaoMiguel_2024.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "AGENTE ADMINISTRATIVO",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LINGUA PORTUGUESA – 1 A 10",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO – 11 A 15",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "ATUALIDADES – 16 A 20",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "CONHECIMENTOS ESPECÍFICOS – 21 A 40",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "agente_administrativo_Iguaracy_2022.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE IGUARACY",
+      "cargo": "Agente Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "gabarito_Iguaracy_2022.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGOS: AGENTE ADMINISTRATIVO, MOTORISTA, RECEPCIONISTA E TÉCNICO EM CONTROLE INTERNO.",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 20
+        },
+        {
+          "cabecalho": "CARGO: AGENTE ADMINISTRATIVO/ RECEPCIONISTA",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 21,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "I - LÍNGUA PORTUGUESA (1 A 10) - Peso 2,5",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "II – RACIOCÍNIO LÓGICO (11 A 15) - Peso 2,5",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "III – ATUALIDADES (16 A 20) - Peso 2,5",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "IV – CONHECIMENTOS ESPECIFÍCOS (21 A 40) - Peso 2,5",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        14,
+        40
+      ]
+    },
+    {
+      "arquivo": "agente_administrativo_SantaTerezinha_2022.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE SANTA TEREZINHA",
+      "cargo": "Auxiliar Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "gabarito_SantaTerezinha_2022.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGOS DE NÍVEL MÉDIO: Auxiliar Administrativo, Agente Administrativo, Motorista e Técnico Administrativo",
+          "respostas": 20,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 20
+        },
+        {
+          "cabecalho": "Auxiliar Administrativo, Agente Administrativo e Técnico Administrativo",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 21,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 10) 02 PONTOS",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "QUESTÕES - RACICÍNIO LÓGICO (11 – 15) 02 PONTOS",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "QUESTÕES – ATUALIDADES (16 – 20) 02 PONTOS",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40) 03 PONTOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "agente_administrativo_SãoDomingos.pdf",
+      "banca": "IGECAP",
+      "ano": 2026,
+      "orgao": "PREFEITURA MUNICIPAL DE SÃO DOMINGOS",
+      "cargo": "Agente Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "igecap_2026_Sao_Domingos_gabarito_definitivo.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "AGENTE ADMINISTRATIVO",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "I - LÍNGUA PORTUGUESA (1 A 10) - Peso 2",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "II – RACIOCÍNIO LÓGICO (11 A 15) - Peso 2",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "III – ATUALIDADES (16 A 20) - Peso 2",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "IV – CONHECIMENTOS ESPECÍFICOS - Peso 3",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "auxiliar_administrativo_CamaraBayaux.pdf",
+      "banca": "IGECAP",
+      "ano": 2026,
+      "orgao": "CÂMARA MUNICIPAL DE BAYEUX",
+      "cargo": "Auxiliar Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "igecap_2026_Bayeux_gabarito_definitivo.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "AUXILIAR ADMINISTRATIVO",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "I - LÍNGUA PORTUGUESA (1 A 10)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "II – RACIOCÍNIO LÓGICO (11 A 15)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "III – ATUALIDADES (16 A 20)",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "IV – CONHECIMENTOS ESPECÍFICOS (21 a",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2021_Vista_Serrana_agente_administrativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2021,
+      "orgao": "Prefeitura Municipal de Vista Serrana",
+      "cargo": "Agente Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2021_Vista_Serrana_agente_administrativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "COMUNS AOS CARGOS DE NÍVEL MÉDIO: AGENTE ADMINISTRATIVO ESCOLAR, AGENTE ADMINISTRATIVO, AGENTE DE COMBATE ÀS ENDEMIAS, AUXILIAR DE CONSULTÓRIO DENTÁRIO E CUIDAD",
+          "respostas": 20,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 20
+        },
+        {
+          "cabecalho": " AGENTE ADMINISTRATIVO",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 21,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 12)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 12
+        },
+        {
+          "header": "QUESTÕES – RACICÍNIO LÓGICO (13 – 16)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 13,
+          "fim": 16
+        },
+        {
+          "header": "QUESTÕES - ATUALIDADES (17 – 20)",
+          "disciplina": "Atualidades",
+          "inicio": 17,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40)",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2022_Afogados_auxiliar_administrativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE AFOGADOS DA INGAZEIRA",
+      "cargo": "Auxiliar Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2022_Afogados_auxiliar_administrativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGO: AUXILIAR ADMINISTRATIVO",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES – LINGUA PORTUGUESA (01 -10)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "QUESTÕES – RACIOCINIO LÓGICO – (11 A 15)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "QUESTÕES – ATUALIDADES (16 – 20)",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES – CONHECIMENTOS ESPECIFICOS (21",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2022_Afogados_tecnico_administrativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE AFOGADOS DA INGAZEIRA",
+      "cargo": "Técnico Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2022_Afogados_auxiliar_administrativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGO: TÉCNICO ADMINISTRATIVO",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES – LINGUA PORTUGUESA (01 -10)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "QUESTÕES – RACIOCINIO LÓGICO – (11 A 15)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "QUESTÕES – ATUALIDADES (16 – 20)",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES – CONHECIMENTOS ESPECIFICOS (21 – 40) 2,5 PONTOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2022_Lagoa_Itaenga_agente_legislativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE LAGOA DE ITAENGA",
+      "cargo": "Agente Legislativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2022_Lagoa_Itaenga_agente_legislativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGOS DE NÍVEL MÉDIO: Agente Legislativo, Assistente de Gabinete, Recepcionista e Auxiliar Administrativo.",
+          "respostas": 40,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 12) 02 PONTOS",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 12
+        },
+        {
+          "header": "QUESTÕES - RACICÍNIO LÓGICO (13 – 16) 02 PONTOS",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 13,
+          "fim": 16
+        },
+        {
+          "header": "QUESTÕES – ATUALIDADES (17 – 20) 02 PONTOS",
+          "disciplina": "Atualidades",
+          "inicio": 17,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40) 03 PONTOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        13
+      ]
+    },
+    {
+      "arquivo": "contemax_2022_Lagoa_Itaenga_assistente_legislativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE LAGOA DE ITAENGA",
+      "cargo": "Assistente Legislativo",
+      "nivel": "Superior",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2022_Lagoa_Itaenga_assistente_legislativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGOS DE NÍVEL SUPERIOR: Assistente de Controle Interno, Assistente Técnico, Assistente Legislativo, Secretário Legislativo e Tesoureiro",
+          "respostas": 20,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 20
+        },
+        {
+          "cabecalho": "II. Assistente Técnico, Assistente Legislativo, Secretário Legislativo",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 21,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 12) 02 PONTOS",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 12
+        },
+        {
+          "header": "QUESTÕES - RACICÍNIO LÓGICO (13 – 16) 02 PONTOS",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 13,
+          "fim": 16
+        },
+        {
+          "header": "QUESTÕES – ATUALIDADES (17 – 20) 02 PONTOS",
+          "disciplina": "Atualidades",
+          "inicio": 17,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40) 03 PONTOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        13
+      ]
+    },
+    {
+      "arquivo": "contemax_2023_Santa_Helena_assistente_administrativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2023,
+      "orgao": "PREFEITURA MUNICIPAL DE SANTA HELENA",
+      "cargo": "Assistente Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2023_Santa_Helena_assistente_administrativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "Assistente Administrativo",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "I – LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "II – RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "III – ATUALIDADES",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "IV- CONHECIMENTOS ESPECIFICOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2024_Cubati_auxiliar_administrativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2024,
+      "orgao": "PREFEITURA MUNICIPAL DE CUBATI",
+      "cargo": "Auxiliar Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": null,
+      "respostas_gabarito": 0,
+      "blocos_gabarito": [],
+      "disciplinas": [
+        {
+          "header": "I - LÍNGUA PORTUGUESA (1 A 10)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "II – RACIOCÍNIO LÓGICO (11 A 15)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "III – ATUALIDADES (16 A 20)",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "IV – CONHECIMENTOS ESPECÍFICOS (21 A 40)",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2024_Tamandare_tecnico_legislativo_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2024,
+      "orgao": "CÂMARA MUNICIPAL DE TAMANDARÉ",
+      "cargo": "Técnico Legislativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2024_Tamandare_tecnico_legislativo_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "TÉCNICO LEGISLATIVO",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "Língua Portuguesa – 1 a 10",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "Raciocínio Lógico – 11 a 15",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "Atualidades – 16 a 20",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "Conhecimentos Específicos – 21 a 40",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    }
+  ],
+  "gabaritos_sem_par": [
+    "contemax_2020_Alagoa_Nova_tecnico_enfermagem_gabarito.pdf",
+    "contemax_2021_Desterro_tecnico_enfermagem_gabarito.pdf",
+    "contemax_2022_Lagoa_Itaenga_tesoureiro_gabarito.pdf",
+    "contemax_2023_Poco_Jose_Moura_fiscal_tributos_gabarito.pdf"
+  ],
+  "questoes_sem_alternativas": [
+    {
+      "arquivo": "agente_administrativo_Iguaracy_2022.pdf",
+      "questoes": [
+        14,
+        40
+      ]
+    },
+    {
+      "arquivo": "contemax_2022_Lagoa_Itaenga_agente_legislativo_prova.pdf",
+      "questoes": [
+        13
+      ]
+    },
+    {
+      "arquivo": "contemax_2022_Lagoa_Itaenga_assistente_legislativo_prova.pdf",
+      "questoes": [
+        13
+      ]
+    }
+  ],
+  "ids_duplicados": [],
+  "total_questoes": 520
+}

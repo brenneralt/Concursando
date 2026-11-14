@@ -14,26 +14,21 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## 📊 Status Atual de Desenvolvimento
 
 - **Última Atualização:** 14/11/2026
-- **Status Geral:** Módulo 1 (Parser & Schema) e Módulo 2 (Frontend SPA Base) inicializados e funcionais.
+- **Status Geral:** Módulo 1 (Parser com PDFs reais IGECAP/CONTEMAX) concluído e validado. Módulo 2 (SPA) funcional com 520 questões reais.
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
 - [x] **Estrutura de Pastas:** Configurada conforme arquitetura (`data/`, `parser/`, `web/`).
-- [x] **Banco Inicial de Questões (`data/questoes.json`):**
-  - Questões reais/simuladas com padrão Cebraspe (Certo/Errado) e Múltipla Escolha (FGV, FCC, VUNESP).
-  - Metadados completos: `banca`, `orgao`, `cargo`, `ano`, `disciplina`, `assunto`, `subassunto`, `modalidade`, `enunciado`, `alternativas`, `gabarito`, `explicacao`.
+- [x] **Base Real IGECAP/CONTEMAX (`data/questoes.json`):**
+  - 520 questões reais extraídas de 13 cadernos (Nível Médio/Técnico Administrativo; expurgados cargos técnicos de saúde e ensino fundamental puro, ver decisão 4).
+  - Gabaritos oficiais pareados automaticamente (IGECAP 2026 SP/Ouricuri e Bayeux; CONTEMAX 2020–2024). 1 caderno sem gabarito local (Cubati).
+  - Metadados completos: `banca`, `orgao`, `cargo`, `ano`, `nivel`, `disciplina`, `assunto`, `enunciado`, `alternativas`, `gabarito`, `anulada`.
+  - Schema estrito validado: 12 chaves por questão, A–E, ids únicos, numeração 1–40 por caderno.
+  - 19 questões oficiais marcadas como anuladas (`gabarito: null`, `anulada: true`). 4 questões-imagem com alternativas vazias (Iguaracy Q14/Q40, Lagoa Itaenga Ag./Assist. Legislativo Q13) — preservar e reportar.
 - [x] **Módulo Parser (`parser/`):**
-  - `requirements.txt`: Dependências especificadas (`pypdf`, `pdfplumber`, `pydantic`, `tqdm`).
-  - `normalizar_banco.py`: Validador de schema, limpador de textos, deduplicador e sincronizador automático com `web/public/questoes.json`.
-  - `extrair_questoes.py`: Parser com regex para segmentação de questões de PDFs e pareamento com gabaritos oficiais.
-- [x] **Módulo Frontend (`web/`):**
-  - Setup React + Vite + Tailwind CSS.
-  - Configuração do `vite.config.js` com `base: './'` para suporte tanto à Vercel quanto ao GitHub Pages.
-  - Componente `Navbar`: Marca, contadores em tempo real e botão de desempenho.
-  - Componente `Filtros`: Busca textual, filtros por Banca, Disciplina, Ano, Modalidade e chips de status (Todas, Não Resolvidas, Acertos, Erros, Salvas).
-  - Componente `CardQuestao`: Seleção interativa de alternativas, gabarito instantâneo, gabarito comentado expansível e favoritar.
-  - Componente `Estatisticas`: Painel com taxa de assertividade e distribuição por matéria.
-  - Hooks `useQuestao` e `useLocalStorageProgress`: Persistência no navegador sem necessidade de backend.
+  - `requirements.txt`, `extrair_questoes.py`, `normalizar_banco.py`.
+  - Filtro administrativo aplica-se ao conjunto padrão; usar `--verbose` para ver o pareamento.
+- [x] **Módulo Frontend (`web/`):** React 18 + Vite + Tailwind; Navbar, Filtros, CardQuestao, Estatisticas, hooks de progresso em `localStorage`; build de produção OK.
 
 ---
 
@@ -59,22 +54,36 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 3. **Taxonomia Rigorosa:**
    - Toda questão obrigatoriamente passa por `parser/normalizar_banco.py`, que rejeita questões sem gabarito ou com IDs duplicados antes de publicar para o frontend.
 
+4. **Filtro Administrativo (escopo do produto):**
+   - `extrair_questoes.py` aplica um filtro que mantém apenas cadernos com cargo de perfil administrativo/técnico-administrativo ou legislativo (Agente/Auxiliar/Assistente Administrativo, Técnico Administrativo, Agente/Assistente/Técnico Legislativo).
+   - Exclui cargos técnicos de saúde (Técnico em Enfermagem), fiscais (Fiscal de Tributos) e fundamental puro (Auxiliar de Serviços Gerais), conforme briefing do produto. Saída: 520 questões de 13 cadernos.
+   - Pareamento prova↔gabarito é por tokens de cidade com tolerância a ano divergente (ex.: São Domingos 2021 no cabeçalho da prova, gabarito IGECAP 2026).
+
+5. **Decisões de extração de texto:**
+   - Extração via `pdftotext -raw` (duas colunas).
+   - Translineação com dicionário pt-BR (`/usr/share/dict/brazilian`): hífens de quebra de linha são fundidos quando a palavra existe no dicionário; hífens de prefixos/compostos/pronomes enclíticos/URLs são preservados.
+   - Textos de apoio antes da Q1 ou entre questões são anexados ao enunciado da questão seguinte.
+   - Rodapés, cabeçalhos de seção, "MODELO DE GABARITO" e linhas de pontos/peso são removidos.
+   - Alternativas vazias só ocorrem em questões-imagem (5 no total, identificadas no relatório).
+
 ---
 
 ## 🧪 Como Rodar e Testar
 
-### 1. Testar e Validar o Banco de Questões (Python):
+### 1. Extrair e Validar o Banco Real (Python):
 ```bash
-# Validar e sincronizar o banco com a pasta pública do frontend:
-python3 parser/normalizar_banco.py
+# Extrai as questões dos PDFs e pareia com os gabaritos (pasta padrão: ~/Downloads/Provas IGECAP):
+python3 parser/extrair_questoes.py --dir "/home/brenneralt/Downloads/Provas IGECAP" --out data/questoes.json --report data/relatorio_parser.json --verbose
 
-# Apenas verificar sem salvar alterações:
-python3 parser/normalizar_banco.py --dry-run
+# Valida, formata e sincroniza com o frontend:
+python3 parser/normalizar_banco.py
+python3 parser/normalizar_banco.py --dry-run   # apenas verifica
 ```
 
 ### 2. Rodar o Frontend Localmente (Node.js):
 ```bash
 cd web
+npm install
 npm run dev
 # Acesse no navegador: http://localhost:3000
 ```
@@ -83,4 +92,5 @@ npm run dev
 ```bash
 cd web
 npm run build
+# Gera web/dist/ com base './' (compatível Vercel e GitHub Pages)
 ```
