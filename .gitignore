@@ -49,3 +49,6 @@ Thumbs.db
 # Large raw PDF files (keep directory via .gitkeep)
 data/raw_pdfs/*.pdf
 !data/raw_pdfs/.gitkeep
+
+# Painéis HTML gerados pela busca no PCI
+painel_*.html

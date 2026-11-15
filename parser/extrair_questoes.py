@@ -120,7 +120,20 @@ def run_pdftotext(pdf_path: Path, mode: str = "raw") -> str:
 # Metadados (banca, ano, órgão, cargo, nível)
 # ---------------------------------------------------------------------------
 
-BANCA_NAMES = {"IGECAP": "IGECAP", "CONTEMAX": "CONTEMAX"}
+BANCA_NAMES = {
+    "IGECAP": "IGECAP",
+    "CONTEMAX": "CONTEMAX",
+    "CESGRANRIO": "CESGRANRIO",
+    "CEBRASPE": "CEBRASPE",
+    "CESPE": "CEBRASPE",
+    "FGV": "FGV",
+    "VUNESP": "VUNESP",
+    "FCC": "FCC",
+    "IBFC": "IBFC",
+    "AOCP": "AOCP",
+    "IDECAN": "IDECAN",
+    "QUADRIX": "QUADRIX",
+}
 
 NIVEL_POR_CARGO = {
     # Fundamental
@@ -208,13 +221,10 @@ def infer_nivel(cargo: str, text: str = "") -> str:
 
 def infer_banca(text: str, filename: str, ano: Optional[int] = None) -> str:
     upper = text.upper()
-    if "IGECAP" in upper:
-        return "IGECAP"
-    if "CONTEMAX" in upper:
-        return "CONTEMAX"
-    base = filename.lower()
-    if "contemax" in base:
-        return "CONTEMAX"
+    base = filename.upper()
+    for token, nome in BANCA_NAMES.items():
+        if re.search(rf"(?<![A-Z]){re.escape(token)}(?![A-Z])", upper) or token in base:
+            return nome
     if ano and ano >= 2025:
         return "IGECAP"
     return "CONTEMAX"
@@ -1421,9 +1431,10 @@ def slug(text: str, abbreviate_admin: bool = False) -> str:
 def make_id(prova: ProvaMeta, n: int) -> str:
     banca = slug(prova.banca)
     ano = prova.ano or 0
-    city = slug(prova.city)
+    # provas nacionais (ex.: Cesgranrio) podem não ter cidade; usa o órgão
+    local = slug(prova.city) or slug(prova.orgao) or "SEMLOCAL"
     cargo = slug(prova.cargo, abbreviate_admin=True)
-    return f"{banca}_{ano}_{city}_{cargo}_Q{n:02d}"
+    return f"{banca}_{ano}_{local}_{cargo}_Q{n:02d}"
 
 
 def classify_pdfs(folder: Path, include_subdirs: bool = False) -> tuple[list[Path], list[Path]]:
