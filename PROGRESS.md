@@ -37,6 +37,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - Ferramentas expostas: `pesquisar_provas`, `pesquisar_concursos`, `buscar_por_cargo`, `buscar_por_cidade`, `listar_concursos`.
   - CLI `buscar_provas.py` com saída em tabela, `--json`, `--csv` e `--html` (painel clicável com nomes de arquivo sugeridos para prova e gabarito).
   - `opencode.json` registra o servidor como `pci-concursos`, disponível para agentes OpenCode.
+  - Servidor conectado e validado no OpenCode em 15/11/2026: as 5 ferramentas aparecem em `tools["pci-concursos"]` e a busca "cesgranrio agente administrativo" retornou as 4 provas esperadas.
   - Testado: "cesgranrio agente administrativo" → 4 provas (FUNASA 2009, TCE/RO 2007, IBGE 2009, UNEMAT 2024); cargo "agente administrativo" na PB → 6 concursos; "legislativo" → 31 concursos.
 
 ---
