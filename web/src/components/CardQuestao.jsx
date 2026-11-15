@@ -30,6 +30,13 @@ export function CardQuestao({
   // Converte objeto alternativas {'A': '...', 'B': '...'} em array ordenado
   const alternativasList = Object.entries(questao.alternativas || {}).sort(([a], [b]) => a.localeCompare(b));
 
+  // O parser separa o texto de apoio do comando da questão por uma linha em
+  // branco (o apoio não tem linhas vazias internas). Quando existe apoio, ele
+  // é exibido em um bloco próprio e o restante vira o comando.
+  const separador = String(questao.enunciado || '').indexOf('\n\n');
+  const textoApoio = separador > 0 ? questao.enunciado.slice(0, separador) : null;
+  const comando = separador > 0 ? questao.enunciado.slice(separador + 2) : questao.enunciado;
+
   return (
     <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all hover:border-slate-300 mb-5">
       {/* Cabeçalho de Metadados / Catalogação */}
@@ -87,9 +94,21 @@ export function CardQuestao({
           ID: {questao.id}
         </div>
 
+        {/* Texto de apoio (quando a questão depende de um trecho/tabela/imagem) */}
+        {textoApoio && (
+          <details open className="mb-4 rounded-lg border border-slate-200 bg-slate-50/70">
+            <summary className="cursor-pointer select-none px-3 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800">
+              Texto de apoio
+            </summary>
+            <div className="px-4 pb-3 pt-1 text-slate-800 whitespace-pre-line leading-relaxed text-sm sm:text-base">
+              {textoApoio}
+            </div>
+          </details>
+        )}
+
         {/* Enunciado */}
         <div className="text-slate-900 text-sm sm:text-base leading-relaxed mb-6 whitespace-pre-line font-normal">
-          {questao.enunciado}
+          {comando}
         </div>
 
         {/* Alternativas */}

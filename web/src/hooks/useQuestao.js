@@ -1,20 +1,25 @@
 import { useState, useEffect, useMemo } from 'react';
 
+const FILTROS_INICIAIS = {
+  banca: 'TODAS',
+  disciplina: 'TODAS',
+  assunto: 'TODOS',
+  cargo: 'TODOS',
+  orgao: 'TODOS',
+  ano: 'TODOS',
+  nivel: 'TODOS',
+  status: 'TODAS', // TODAS, ACERTOS, ERROS, NAO_RESOLVIDAS, FAVORITAS, ANULADAS
+  ocultarAnuladas: false,
+  somenteComGabarito: false,
+  busca: ''
+};
+
 export function useQuestao(progresso) {
   const [todasQuestoes, setTodasQuestoes] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
 
-  const [filtros, setFiltros] = useState({
-    banca: 'TODAS',
-    disciplina: 'TODAS',
-    cargo: 'TODOS',
-    ano: 'TODOS',
-    nivel: 'TODOS',
-    assunto: 'TODOS',
-    status: 'TODAS', // TODAS, ACERTOS, ERROS, NAO_RESOLVIDAS, FAVORITAS, ANULADAS
-    busca: ''
-  });
+  const [filtros, setFiltros] = useState(FILTROS_INICIAIS);
 
   useEffect(() => {
     async function carregar() {
@@ -42,27 +47,30 @@ export function useQuestao(progresso) {
   const opcoesFiltro = useMemo(() => {
     const bancas = new Set();
     const disciplinas = new Set();
+    const assuntos = new Set();
     const cargos = new Set();
+    const orgaos = new Set();
     const anos = new Set();
     const niveis = new Set();
-    const assuntos = new Set();
 
     todasQuestoes.forEach(q => {
       if (q.banca) bancas.add(q.banca);
       if (q.disciplina) disciplinas.add(q.disciplina);
+      if (q.assunto) assuntos.add(q.assunto);
       if (q.cargo) cargos.add(q.cargo);
+      if (q.orgao) orgaos.add(q.orgao);
       if (q.ano) anos.add(String(q.ano));
       if (q.nivel) niveis.add(q.nivel);
-      if (q.assunto) assuntos.add(q.assunto);
     });
 
     return {
       bancas: Array.from(bancas).sort(),
       disciplinas: Array.from(disciplinas).sort(),
+      assuntos: Array.from(assuntos).sort(),
       cargos: Array.from(cargos).sort(),
+      orgaos: Array.from(orgaos).sort(),
       anos: Array.from(anos).sort((a, b) => b - a),
-      niveis: Array.from(niveis).sort(),
-      assuntos: Array.from(assuntos).sort()
+      niveis: Array.from(niveis).sort()
     };
   }, [todasQuestoes]);
 
@@ -71,10 +79,15 @@ export function useQuestao(progresso) {
     return todasQuestoes.filter(q => {
       if (filtros.banca !== 'TODAS' && q.banca !== filtros.banca) return false;
       if (filtros.disciplina !== 'TODAS' && q.disciplina !== filtros.disciplina) return false;
+      if (filtros.assunto !== 'TODOS' && q.assunto !== filtros.assunto) return false;
       if (filtros.cargo !== 'TODOS' && q.cargo !== filtros.cargo) return false;
+      if (filtros.orgao !== 'TODOS' && q.orgao !== filtros.orgao) return false;
       if (filtros.ano !== 'TODOS' && String(q.ano) !== String(filtros.ano)) return false;
       if (filtros.nivel !== 'TODOS' && q.nivel !== filtros.nivel) return false;
-      if (filtros.assunto !== 'TODOS' && q.assunto !== filtros.assunto) return false;
+
+      // Ausência de gabarito (null) e questões anuladas
+      if (filtros.ocultarAnuladas && q.anulada) return false;
+      if (filtros.somenteComGabarito && (q.gabarito === null || q.gabarito === undefined)) return false;
 
       // Status do usuário
       const respostaInfo = progresso.respostas[q.id];
@@ -91,7 +104,19 @@ export function useQuestao(progresso) {
       // Busca textual ampla
       if (filtros.busca.trim()) {
         const termo = filtros.busca.toLowerCase();
-        const textoCompleto = `${q.enunciado} ${q.orgao || ''} ${q.cargo || ''} ${q.assunto || ''} ${q.id || ''}`.toLowerCase();
+        const textoCompleto = [
+          q.enunciado,
+          q.orgao,
+          q.cargo,
+          q.assunto,
+          q.disciplina,
+          q.banca,
+          q.id,
+          ...Object.values(q.alternativas || {})
+        ]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
         if (!textoCompleto.includes(termo)) return false;
       }
 
@@ -104,16 +129,7 @@ export function useQuestao(progresso) {
   };
 
   const limparFiltros = () => {
-    setFiltros({
-      banca: 'TODAS',
-      disciplina: 'TODAS',
-      cargo: 'TODOS',
-      ano: 'TODOS',
-      nivel: 'TODOS',
-      assunto: 'TODOS',
-      status: 'TODAS',
-      busca: ''
-    });
+    setFiltros({ ...FILTROS_INICIAIS });
   };
 
   return {

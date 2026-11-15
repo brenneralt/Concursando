@@ -14,7 +14,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## 📊 Status Atual de Desenvolvimento
 
 - **Última Atualização:** 14/11/2026
-- **Status Geral:** Módulo 1 (Parser com PDFs reais IGECAP/CONTEMAX) concluído e validado. Módulo 2 (SPA) funcional com 520 questões reais.
+- **Status Geral:** Módulo 1 (Parser com PDFs reais IGECAP/CONTEMAX) concluído e validado. Módulo 2 (SPA) funcional com 520 questões reais, filtros no estilo QConcursos e texto de apoio compartilhado entre questões.
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
@@ -25,10 +25,13 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - Metadados completos: `banca`, `orgao`, `cargo`, `ano`, `nivel`, `disciplina`, `assunto`, `enunciado`, `alternativas`, `gabarito`, `anulada`.
   - Schema estrito validado: 12 chaves por questão, A–E, ids únicos, numeração 1–40 por caderno.
   - 19 questões oficiais marcadas como anuladas (`gabarito: null`, `anulada: true`). 4 questões-imagem com alternativas vazias (Iguaracy Q14/Q40, Lagoa Itaenga Ag./Assist. Legislativo Q13) — preservar e reportar.
+  - **114 questões com texto de apoio embutido** (antes eram 24): textos citados por várias questões ("questões 1 e 2", "de 1 a 8") e textos longos de Língua Portuguesa são replicados em cada questão atendida, para que o card faça sentido isoladamente (ver decisão 6).
 - [x] **Módulo Parser (`parser/`):**
   - `requirements.txt`, `extrair_questoes.py`, `normalizar_banco.py`.
   - Filtro administrativo aplica-se ao conjunto padrão; usar `--verbose` para ver o pareamento.
 - [x] **Módulo Frontend (`web/`):** React 18 + Vite + Tailwind; Navbar, Filtros, CardQuestao, Estatisticas, hooks de progresso em `localStorage`; build de produção OK.
+  - Filtros no estilo QConcursos: palavra-chave (enunciado, alternativas, cargo, órgão, assunto), Disciplina, Assunto, Banca, Instituição/Órgão, Ano, Cargo, Nível, exclusão de anuladas/sem gabarito e chips de status (Todas, Não resolvidas, Acertos, Erros, Salvas, Anuladas).
+  - `CardQuestao` separa o texto de apoio (bloco recolhível "Texto de apoio") do comando da questão.
 
 ---
 
@@ -62,9 +65,16 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 5. **Decisões de extração de texto:**
    - Extração via `pdftotext -raw` (duas colunas).
    - Translineação com dicionário pt-BR (`/usr/share/dict/brazilian`): hífens de quebra de linha são fundidos quando a palavra existe no dicionário; hífens de prefixos/compostos/pronomes enclíticos/URLs são preservados.
-   - Textos de apoio antes da Q1 ou entre questões são anexados ao enunciado da questão seguinte.
+   - Textos de apoio são anexados ao enunciado das questões que atendem (ver decisão 6).
    - Rodapés, cabeçalhos de seção, "MODELO DE GABARITO" e linhas de pontos/peso são removidos.
    - Alternativas vazias só ocorrem em questões-imagem (5 no total, identificadas no relatório).
+
+6. **Texto de apoio compartilhado (cards autônomos):**
+   - O texto de apoio é embutido no campo `enunciado` (schema continua com 12 chaves), separado do comando da questão por **uma linha em branco** (`\n\n`). O frontend usa a primeira linha em branco como separador e exibe o apoio em um bloco recolhível "Texto de apoio".
+   - Prioridade de propagação: (a) referências explícitas no texto — `questões 1 e 2`, `questões de 1 a 8`, `questão 5`; (b) texto longo (≥ 300 caracteres) sem referência — vale da questão seguinte até o fim da disciplina/seção; (c) texto curto (legenda, tirinha) — apenas a questão seguinte.
+   - Linhas vazias internas do apoio são removidas para que o separador `\n\n` seja único e inequívoco.
+   - Um bloco de apoio posterior substitui o anterior nas questões em comum (ex.: "TEXTO 3" e o poema de Afogados), evitando acumular textos que não se aplicam.
+   - Efeito: 114 questões passam a exibir o texto de apoio; `questoes.json` fica com ~878 KB crus, mas ~131 KB gzip (textos repetidos comprimem muito bem).
 
 ---
 

@@ -943,6 +943,55 @@ def extract_preamble(lines: list[str], first_question: int) -> list[str]:
     return preamble
 
 
+# Referências do texto de apoio às questões que ele atende.
+# Ex.: "responda as questões 1 e 2", "questões de 1 a 8", "questão 5".
+QUESTION_REF_RANGE_RE = re.compile(
+    r"quest[õo]es?\s*(?:de\s*)?(\d{1,2})\s*(?:a|até|–|—|-)\s*(\d{1,2})", re.I
+)
+QUESTION_REF_LIST_RE = re.compile(
+    r"quest[õo]es?[^\d]{0,25}((?:\d{1,2}\s*(?:,|e)\s*)+\d{1,2})", re.I
+)
+QUESTION_REF_SINGLE_RE = re.compile(r"quest[ãa]o\s*(\d{1,2})", re.I)
+
+
+def extract_question_refs(text: str) -> list[int]:
+    """
+    Devolve os números de questão citados explicitamente no texto de apoio
+    (ex.: "questões 1 e 2", "questões de 1 a 8", "questão 5").
+    Retorna lista vazia quando o texto não cita nenhuma questão.
+    """
+    refs: list[int] = []
+    for m in QUESTION_REF_RANGE_RE.finditer(text):
+        a, b = int(m.group(1)), int(m.group(2))
+        if 1 <= a <= b <= 40:
+            refs.extend(range(a, b + 1))
+    if not refs:
+        for m in QUESTION_REF_LIST_RE.finditer(text):
+            nums = [int(x) for x in re.findall(r"\d{1,2}", m.group(1))]
+            if nums and all(1 <= n <= 40 for n in nums):
+                refs.extend(nums)
+    if not refs:
+        for m in QUESTION_REF_SINGLE_RE.finditer(text):
+            n = int(m.group(1))
+            if 1 <= n <= 40:
+                refs.append(n)
+    return sorted(set(refs))
+
+
+# Textos de apoio longos sem referência explícita ("Leia o texto...") valem
+# para toda a disciplina/seção em que aparecem. Textos curtos (legendas,
+# tirinhas) ficam restritos à questão seguinte.
+LONG_SUPPORT_CHARS = 300
+
+
+def section_end_for(n: int, sections: list[dict]) -> int:
+    """Última questão da seção/disciplina que contém a questão n."""
+    for sec in sections:
+        if sec["inicio"] <= n <= sec["fim"]:
+            return sec["fim"]
+    return 40
+
+
 def parse_questions(text: str) -> list[dict]:
     """Extrai as questões 1..40 de um caderno de prova."""
     lines = clean_body_lines(text)
@@ -961,16 +1010,50 @@ def parse_questions(text: str) -> list[dict]:
             starts.append((i, expected))
             expected += 1
 
+    sections = parse_sections(text)
+
     questions = []
-    pending_support: list[str] = extract_preamble(lines, starts[0][0]) if starts else []
+    support_map: dict[int, list[str]] = {}
+
+    def add_support(support_lines: list[str], default_q: int) -> None:
+        """
+        Anexa o texto de apoio às questões que ele atende.
+
+        Prioridade: referências explícitas no texto > texto longo sem
+        referência (vale até o fim da seção) > apenas a questão seguinte.
+        Um bloco posterior substitui o anterior nas questões em comum.
+        """
+        if not support_lines:
+            return
+        text = " ".join(support_lines)
+        refs = extract_question_refs(text)
+        if not refs:
+            if len(text) >= LONG_SUPPORT_CHARS:
+                refs = list(
+                    range(default_q, section_end_for(default_q, sections) + 1)
+                )
+            else:
+                refs = [default_q]
+        for ref in refs:
+            support_map[ref] = support_lines
+
+    if starts:
+        add_support(extract_preamble(lines, starts[0][0]), 1)
+
     for k, (i, n) in enumerate(starts):
         j = starts[k + 1][0] if k + 1 < len(starts) else len(lines)
         block = lines[i:j]
         enunciado, options, support = parse_question_block(block)
-        if pending_support:
-            enunciado = "\n".join(pending_support + [enunciado]).strip()
         questions.append({"numero": n, "enunciado": enunciado, "alternativas": options})
-        pending_support = support
+        add_support(support, n + 1)
+
+    for q in questions:
+        sup = support_map.get(q["numero"])
+        if sup:
+            # remove linhas vazias internas para que a primeira linha em branco
+            # seja sempre o separador entre apoio e comando da questão
+            support_text = "\n".join(line for line in sup if line.strip())
+            q["enunciado"] = support_text + "\n\n" + q["enunciado"]
     return questions
 
 
