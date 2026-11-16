@@ -68,6 +68,10 @@ drop policy if exists progresso_update_own on progresso;
 create policy progresso_update_own on progresso
   for update using (auth.uid() = user_id);
 
+drop policy if exists progresso_delete_own on progresso;
+create policy progresso_delete_own on progresso
+  for delete using (auth.uid() = user_id);
+
 -- 4.3) Granularidade fina para o papel authenticated
 grant select on profiles to anon, authenticated;
 grant select on ranque to anon, authenticated;

@@ -118,7 +118,12 @@ export function useProgress() {
 
   async function removerRespostaRemota(questaoId) {
     if (!user) return;
-    await supabase.from('progresso').delete().eq('user_id', user.id).eq('questao_id', questaoId);
+    const { error } = await supabase
+      .from('progresso')
+      .delete()
+      .eq('user_id', user.id)
+      .eq('questao_id', questaoId);
+    if (error) console.warn('Falha ao remover resposta na nuvem:', error.message);
     await atualizarContadores(user.id);
   }
 
@@ -165,7 +170,10 @@ export function useProgress() {
         .from('progresso')
         .delete()
         .eq('user_id', user.id)
-        .then(() => atualizarContadores(user.id));
+        .then(({ error }) => {
+          if (error) console.warn('Falha ao zerar progresso na nuvem:', error.message);
+          return atualizarContadores(user.id);
+        });
     }
   };
 
