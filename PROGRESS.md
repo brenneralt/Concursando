@@ -46,7 +46,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 
 ## ⏳ O Que Falta Fazer (Backlog)
 - [ ] **Adaptar o parser para a Cesgranrio:** reconhecer banca, seções, cargos e formato de gabarito da Cesgranrio (hoje o parser assume IGECAP/CONTEMAX e cai em CONTEMAX por padrão). Painel com 2.718 provas Cesgranrio pronto em `painel_cesgranrio.html`.
-- [ ] **Backend com login (Supabase):** progresso por usuário + ranque compartilhado. Pendente: definir se o ranque mostra acertos/erros por questão de todos os usuários (A) ou ranking individual com privacidade parcial (B).
+- [ ] **Deploy no Vercel/GitHub Pages:** subir o frontend já com login/ranque (variáveis de ambiente do Supabase se necessário) e fazer o primeiro `git push` (aguarda autenticação do GitHub).
 - [ ] **Fluxo GitHub Actions:** Adicionar workflow para deploy automático no GitHub Pages ou Vercel CLI.
 - [ ] **Modo Simulado / Cronômetro:** Adicionar temporizador de prova com relatório final de tempo por questão.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.
