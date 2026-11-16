@@ -21,7 +21,8 @@ concurso-questoes/
 │   ├── extrair_questoes.py        # Extrai questões e pareia com gabarito
 │   ├── normalizar_banco.py        # Valida schema e sincroniza com o frontend
 │   ├── pci_mcp.py                 # Cliente do MCP público da PCI Concursos
-│   └── buscar_provas.py           # Busca provas/concursos e gera painel de download
+│   ├── buscar_provas.py           # Busca provas/concursos via MCP (até 50)
+│   └── raspador_pci.py            # Raspa o site do PCI (lista completa, sem limite de 50)
 └── web/                           # MÓDULO 2: Frontend SPA (React + Vite + Tailwind)
     ├── package.json
     ├── public/questoes.json       # Consumido via fetch pelo frontend
