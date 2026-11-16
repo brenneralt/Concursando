@@ -24,6 +24,8 @@ Uso:
   python3 parser/baixar_provas.py --orgao IBGE              # só um órgão
   python3 parser/baixar_provas.py --termo "agente" --ano 2009
   python3 parser/baixar_provas.py --importar <id> <prova.pdf> <gabarito.pdf>
+  python3 parser/baixar_provas.py --auto --orgao IBGE --limite 10 --espera 180
+     # automático: abre cada prova e vigia Downloads; você só resolve a verificação
 
 Nada aqui pula a verificação de segurança: sem você resolver o Turnstile no
 navegador, nenhum PDF é obtido.
@@ -181,6 +183,96 @@ def faltando(provas: list[dict], man: dict, o_que: str) -> int:
     return 0
 
 
+def detectar_e_salvar(prova_id: str, downloads: Path, inicio: float) -> str | None:
+    """Procura PDFs novos baixados desde `inicio` e salva no banco.
+
+    Retorna 'baixada', 'parcial' (só prova) ou None (nada novo).
+    """
+    pdfs = pdfs_recentes(downloads, inicio)
+    prova_pdf, gabarito_pdf = identificar(pdfs)
+
+    if not prova_pdf and not gabarito_pdf:
+        return None
+
+    # Prova: baixada agora ou já salva em rodada anterior
+    if prova_pdf:
+        shutil.copy2(prova_pdf, destino(prova_id, "prova"))
+        print(f"    ✔ prova: {prova_pdf.name} → {destino(prova_id,'prova').name}")
+    elif destino(prova_id, "prova").exists():
+        print("    (prova já estava salva de uma rodada anterior)")
+    elif gabarito_pdf:
+        shutil.copy2(gabarito_pdf, destino(prova_id, "gabarito"))
+        print(f"    ✔ gabarito: {gabarito_pdf.name} → {destino(prova_id,'gabarito').name}")
+        print("    ⚠ PROVA ainda NÃO baixada — a rodada ficará 'parcial'. Baixe também a prova.")
+        return "parcial"
+    else:
+        return None
+
+    # Gabarito: baixado agora, já salvo antes, ou ainda faltando
+    if gabarito_pdf:
+        shutil.copy2(gabarito_pdf, destino(prova_id, "gabarito"))
+        print(f"    ✔ gabarito: {gabarito_pdf.name} → {destino(prova_id,'gabarito').name}")
+        return "baixada"
+    if destino(prova_id, "gabarito").exists():
+        print("    (gabarito já estava salvo de uma rodada anterior)")
+        return "baixada"
+    print("    ⚠ GABARITO NÃO identificado. Sem ele a prova fica 'parcial' e não entra no banco.")
+    return "parcial"
+
+
+def modo_auto(provas: list[dict], limite: int | None, downloads: Path, espera: int) -> int:
+    """Sem perguntas: abre cada prova, espera os PDFs aparecerem em Downloads e segue."""
+    man = carregar_manifesto()
+    pendentes = [p for p in provas if status_de(man, p["id"]) != "baixada"]
+    if limite:
+        pendentes = pendentes[:limite]
+
+    if not pendentes:
+        print("Nada pendente. 🎉")
+        return 0
+
+    DIR_PDFS.mkdir(parents=True, exist_ok=True)
+    print(f"Modo automático: {len(pendentes)} prova(s) | espera de até {espera}s por download.")
+    print("Você só precisa resolver a verificação de segurança e clicar em baixar no navegador.\n")
+
+    ok = parc = falha = 0
+    for i, p in enumerate(pendentes, 1):
+        prova_id = p["id"]
+        link = p.get("link") or ""
+        titulo = f"{p.get('descricao','')} — {p.get('orgao','')} ({p.get('ano','?')})"
+        tem_prova, tem_gab = arquivos_no_banco(prova_id)
+        falta = "" if (tem_prova and tem_gab) else (" (já tem prova; falta o gabarito)" if tem_prova else "")
+        print(f"[{i}/{len(pendentes)}] {titulo}{falta}\n    id: {prova_id}\n    link: {link}")
+
+        inicio = time.time()
+        abriu = webbrowser.open(link) if link else False
+        if not abriu:
+            print("    ⚠ Não consegui abrir o navegador automaticamente. Abra o link acima manualmente.")
+
+        resultado = None
+        while time.time() - inicio < espera:
+            time.sleep(3)
+            resultado = detectar_e_salvar(prova_id, downloads, inicio)
+            if resultado:
+                break
+
+        if resultado is None:
+            print(f"    ⏰ Nada novo em {espera}s. Deixada como pendente para a próxima rodada.")
+            falha += 1
+            continue
+
+        if resultado == "baixada":
+            marcar(man, prova_id, "baixada", {"modo": "auto"})
+            ok += 1
+        else:
+            marcar(man, prova_id, "parcial", {"modo": "auto"})
+            parc += 1
+
+    print(f"\nRodada encerrada: {ok} completas, {parc} parciais (sem gabarito), {falha} sem download.")
+    print("Status completo em: python3 parser/baixar_provas.py --listar")
+    return 0
+
+
 def modo_interativo(provas: list[dict], limite: int | None, downloads: Path) -> int:
     man = carregar_manifesto()
     pendentes = [p for p in provas if status_de(man, p["id"]) != "baixada"]
@@ -222,41 +314,14 @@ def modo_interativo(provas: list[dict], limite: int | None, downloads: Path) -> 
                 marcar(man, prova_id, "pulada")
                 break
 
-            pdfs = pdfs_recentes(downloads, inicio)
-            prova_pdf, gabarito_pdf = identificar(pdfs)
-
-            if not prova_pdf and not gabarito_pdf:
+            resultado = detectar_e_salvar(prova_id, downloads, inicio)
+            if resultado is None:
                 print("    ⚠ Nenhum PDF novo encontrado na pasta de downloads.")
                 print("    (Os arquivos podem estar em outra pasta, ou o download ainda não terminou.)")
                 print("    Aperte ENTER para tentar de novo, ou 'p' para pular esta.")
                 continue
 
-            extra = {}
-            # Prova: baixada agora ou já salva em rodada anterior
-            if prova_pdf:
-                shutil.copy2(prova_pdf, destino(prova_id, "prova"))
-                extra["origem_prova"] = prova_pdf.name
-                print(f"    ✔ prova: {prova_pdf.name} → {destino(prova_id,'prova').name}")
-            elif destino(prova_id, "prova").exists():
-                print("    (prova já estava salva de uma rodada anterior)")
-            else:
-                print("    ⚠ Prova NÃO identificada entre os PDFs novos; nada salvo. Tente de novo.")
-                continue
-
-            # Gabarito: baixado agora, já salvo antes, ou ainda faltando
-            if gabarito_pdf:
-                shutil.copy2(gabarito_pdf, destino(prova_id, "gabarito"))
-                extra["origem_gabarito"] = gabarito_pdf.name
-                print(f"    ✔ gabarito: {gabarito_pdf.name} → {destino(prova_id,'gabarito').name}")
-                marcar(man, prova_id, "baixada", extra)
-            elif destino(prova_id, "gabarito").exists():
-                print("    (gabarito já estava salvo de uma rodada anterior)")
-                marcar(man, prova_id, "baixada", extra)
-            else:
-                print("    ⚠ GABARITO NÃO identificado. Sem ele a prova não entra no banco.")
-                print("    Baixe o gabarito e complete com:")
-                print(f"      python3 parser/baixar_provas.py --importar {prova_id} <prova.pdf> <gabarito.pdf>")
-                marcar(man, prova_id, "parcial", extra)
+            marcar(man, prova_id, resultado, {"modo": "interativo"})
             break
 
     print("\nConcluído. Veja o status com: python3 parser/baixar_provas.py --listar")
@@ -275,6 +340,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="Lista só o que está incompleto no disco (ex.: --faltando gabarito)")
     ap.add_argument("--importar", nargs="+", metavar="ARQ", help="--importar <id> <prova.pdf> [gabarito.pdf]")
     ap.add_argument("--ano", type=int, default=None, help="Filtra por ano (ex.: --ano 2009)")
+    ap.add_argument("--auto", action="store_true", help="Sem perguntas: abre cada prova, espera os PDFs em Downloads e segue")
+    ap.add_argument("--espera", type=int, default=120, help="Segundos de espera por download no modo --auto (padrão: 120)")
     args = ap.parse_args(argv)
 
     if args.importar:
@@ -307,6 +374,8 @@ def main(argv: list[str] | None = None) -> int:
         return faltando(provas, man, args.faltando)
 
     downloads = args.downloads or pasta_downloads()
+    if args.auto:
+        return modo_auto(provas, args.limite, downloads, args.espera)
     return modo_interativo(provas, args.limite, downloads)
 
 
