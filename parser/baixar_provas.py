@@ -18,7 +18,8 @@ trabalho braçal ao redor:
      prova: pendente | baixada | pulada | parcial.
 
 Uso:
-  python3 parser/baixar_provas.py --listar                  # resumo e pendências (todas)
+  python3 parser/baixar_provas.py --listar                  # status do acervo (todas)
+  python3 parser/baixar_provas.py --faltando gabarito       # só o que está sem gabarito
   python3 parser/baixar_provas.py                           # modo interativo (todas)
   python3 parser/baixar_provas.py --orgao IBGE              # só um órgão
   python3 parser/baixar_provas.py --termo "agente" --ano 2009
@@ -125,21 +126,59 @@ def importar(prova_id: str, prova_pdf: Path, gabarito_pdf: Path | None) -> int:
     destino(prova_id, "prova").write_bytes(prova_pdf.read_bytes())
     if gabarito_pdf:
         destino(prova_id, "gabarito").write_bytes(gabarito_pdf.read_bytes())
-    man = carregar_manifesto()
-    marcar(man, prova_id, "baixada", {"origem": "importado", "prova": str(prova_pdf), "gabarito": str(gabarito_pdf) if gabarito_pdf else None})
-    print(f"✔ {prova_id} importada para {DIR_PDFS}")
+        marcar(man := carregar_manifesto(), prova_id, "baixada", {"origem": "importado", "prova": str(prova_pdf), "gabarito": str(gabarito_pdf)})
+        print(f"✔ {prova_id} importada (prova + gabarito) para {DIR_PDFS}")
+    else:
+        marcar(man := carregar_manifesto(), prova_id, "parcial", {"origem": "importado", "prova": str(prova_pdf), "gabarito": None})
+        print(f"⚠ {prova_id}: só a prova foi importada. SEM GABARITO a questão não entra no banco.")
+        print(f"  Rode de novo com os dois arquivos: --importar {prova_id} prova.pdf gabarito.pdf")
     return 0
+
+
+def arquivos_no_banco(prova_id: str) -> tuple[bool, bool]:
+    """(tem_prova, tem_gabarito) lendo o que realmente está em data/raw_pdfs/."""
+    return destino(prova_id, "prova").exists(), destino(prova_id, "gabarito").exists()
 
 
 def listar(provas: list[dict], man: dict) -> None:
     total = len(provas)
-    baixadas = sum(1 for p in provas if status_de(man, p["id"]) == "baixada")
-    pendentes = total - baixadas
-    print(f"Acervo filtrado: {total} provas | baixadas: {baixadas} | pendentes: {pendentes}\n")
+    completas = soma_prova = soma_gab = 0
     for p in provas:
+        tem_prova, tem_gab = arquivos_no_banco(p["id"])
+        soma_prova += tem_prova
+        soma_gab += tem_gab
+        if tem_prova and tem_gab:
+            completas += 1
+    print(f"Acervo filtrado: {total} provas")
+    print(f"  prova no disco:    {soma_prova}")
+    print(f"  gabarito no disco: {soma_gab}  ← sem gabarito a questão não entra no banco")
+    print(f"  completas (prova+gabarito): {completas}\n")
+    print("Legenda: [✔ prova] [✔ gabarito] | status no manifesto\n")
+    for p in provas:
+        tem_prova, tem_gab = arquivos_no_banco(p["id"])
         st = status_de(man, p["id"])
         marca = {"baixada": "✔", "pulada": "–", "parcial": "~"}.get(st, " ")
-        print(f" [{marca}] {p.get('ano','?'):>4} | {p.get('orgao','?'):<28} | {(p.get('descricao') or '')[:55]:<55} | {p['id']}")
+        print(
+            f" [{marca}] {'P' if tem_prova else '·'}{'G' if tem_gab else '·'} | "
+            f"{p.get('ano','?'):>4} | {p.get('orgao','?'):<28} | {(p.get('descricao') or '')[:50]:<50} | {p['id']}"
+        )
+
+
+def faltando(provas: list[dict], man: dict, o_que: str) -> int:
+    """Lista provas com arquivo ausente no disco: 'prova', 'gabarito' ou 'ambos'."""
+    faltam = []
+    for p in provas:
+        tem_prova, tem_gab = arquivos_no_banco(p["id"])
+        if o_que == "prova" and not tem_prova:
+            faltam.append(p)
+        elif o_que == "gabarito" and tem_prova and not tem_gab:
+            faltam.append(p)
+        elif o_que == "ambos" and not (tem_prova and tem_gab):
+            faltam.append(p)
+    print(f"Provas sem {o_que}: {len(faltam)}")
+    for p in faltam:
+        print(f"  {p['id']}  ({p.get('orgao','?')} {p.get('ano','?')} — {p.get('descricao','')})")
+    return 0
 
 
 def modo_interativo(provas: list[dict], limite: int | None, downloads: Path) -> int:
@@ -166,13 +205,17 @@ def modo_interativo(provas: list[dict], limite: int | None, downloads: Path) -> 
         print(f"[{i}/{len(pendentes)}] {titulo}\n    id: {prova_id}\n    link: {link}")
 
         inicio = time.time()
+        tem_prova, tem_gab = arquivos_no_banco(prova_id)
+        if tem_prova and not tem_gab:
+            print("    ↳ a prova já está salva; nesta rodada falta SÓ o gabarito.")
+        elif tem_prova and tem_gab:
+            print("    ↳ prova e gabarito já no banco.")
         if link:
             webbrowser.open(link)
 
         while True:
             resp = input("    ENTER = já baixei | p = pular | q = sair > ").strip().lower()
             if resp in ("q", "sair"):
-                marcar(man, prova_id, status_de(man, prova_id))
                 print("Saindo. Progresso salvo no manifesto.")
                 return 0
             if resp in ("p", "pular"):
@@ -182,24 +225,37 @@ def modo_interativo(provas: list[dict], limite: int | None, downloads: Path) -> 
             pdfs = pdfs_recentes(downloads, inicio)
             prova_pdf, gabarito_pdf = identificar(pdfs)
 
-            if not prova_pdf:
+            if not prova_pdf and not gabarito_pdf:
                 print("    ⚠ Nenhum PDF novo encontrado na pasta de downloads.")
                 print("    (Os arquivos podem estar em outra pasta, ou o download ainda não terminou.)")
                 print("    Aperte ENTER para tentar de novo, ou 'p' para pular esta.")
                 continue
 
-            # Prova
-            shutil.copy2(prova_pdf, destino(prova_id, "prova"))
-            extra = {"origem_prova": prova_pdf.name}
+            extra = {}
+            # Prova: baixada agora ou já salva em rodada anterior
+            if prova_pdf:
+                shutil.copy2(prova_pdf, destino(prova_id, "prova"))
+                extra["origem_prova"] = prova_pdf.name
+                print(f"    ✔ prova: {prova_pdf.name} → {destino(prova_id,'prova').name}")
+            elif destino(prova_id, "prova").exists():
+                print("    (prova já estava salva de uma rodada anterior)")
+            else:
+                print("    ⚠ Prova NÃO identificada entre os PDFs novos; nada salvo. Tente de novo.")
+                continue
+
+            # Gabarito: baixado agora, já salvo antes, ou ainda faltando
             if gabarito_pdf:
                 shutil.copy2(gabarito_pdf, destino(prova_id, "gabarito"))
                 extra["origem_gabarito"] = gabarito_pdf.name
-                print(f"    ✔ prova: {prova_pdf.name} → {destino(prova_id,'prova').name}")
                 print(f"    ✔ gabarito: {gabarito_pdf.name} → {destino(prova_id,'gabarito').name}")
                 marcar(man, prova_id, "baixada", extra)
+            elif destino(prova_id, "gabarito").exists():
+                print("    (gabarito já estava salvo de uma rodada anterior)")
+                marcar(man, prova_id, "baixada", extra)
             else:
-                print(f"    ✔ prova: {prova_pdf.name} → {destino(prova_id,'prova').name}")
-                print(f"    ⚠ gabarito NÃO identificado (só prova salva). Baixe o gabarito e importe depois com --importar.")
+                print("    ⚠ GABARITO NÃO identificado. Sem ele a prova não entra no banco.")
+                print("    Baixe o gabarito e complete com:")
+                print(f"      python3 parser/baixar_provas.py --importar {prova_id} <prova.pdf> <gabarito.pdf>")
                 marcar(man, prova_id, "parcial", extra)
             break
 
@@ -215,6 +271,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--limite", type=int, default=None, help="Máximo de provas nesta sessão")
     ap.add_argument("--downloads", type=Path, default=None, help="Pasta de downloads (padrão: ~/Downloads)")
     ap.add_argument("--listar", action="store_true", help="Só lista o status do acervo filtrado")
+    ap.add_argument("--faltando", choices=["prova", "gabarito", "ambos"], default=None,
+                    help="Lista só o que está incompleto no disco (ex.: --faltando gabarito)")
     ap.add_argument("--importar", nargs="+", metavar="ARQ", help="--importar <id> <prova.pdf> [gabarito.pdf]")
     ap.add_argument("--ano", type=int, default=None, help="Filtra por ano (ex.: --ano 2009)")
     args = ap.parse_args(argv)
@@ -245,6 +303,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.listar:
         listar(provas, man)
         return 0
+    if args.faltando:
+        return faltando(provas, man, args.faltando)
 
     downloads = args.downloads or pasta_downloads()
     return modo_interativo(provas, args.limite, downloads)

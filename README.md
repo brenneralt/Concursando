@@ -135,7 +135,9 @@ navegador — mas o trabalho braçal em volta é automatizado pelo
 
 ```bash
 # Ver o status do acervo (todas as 2.718 provas Cesgranrio; --orgao IBGE p/ recorte)
+# As colunas P/G mostram o que já está no disco; --faltando lista o incompleto
 python3 parser/baixar_provas.py --listar
+python3 parser/baixar_provas.py --faltando gabarito
 
 # Modo interativo: abre cada página pendente no seu navegador,
 # você resolve a verificação e baixa prova + gabarito, e o script
