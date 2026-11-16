@@ -13,7 +13,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 
 ## 📊 Status Atual de Desenvolvimento
 
-- **Última Atualização:** 15/11/2026
+- **Última Atualização:** 16/11/2026
 - **Status Geral:** Módulo 1 (Parser com PDFs reais IGECAP/CONTEMAX) concluído e validado. Módulo 2 (SPA) funcional com 520 questões reais, filtros no estilo QConcursos e texto de apoio compartilhado entre questões. Módulo 3 (integração com o MCP público da PCI Concursos) implementado para descoberta de provas e concursos.
 
 ### ✅ O Que Já Está Feito e Testado
@@ -32,6 +32,8 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 - [x] **Módulo Frontend (`web/`):** React 18 + Vite + Tailwind; Navbar, Filtros, CardQuestao, Estatisticas, hooks de progresso em `localStorage`; build de produção OK.
   - Filtros no estilo QConcursos: palavra-chave (enunciado, alternativas, cargo, órgão, assunto), Disciplina, Assunto, Banca, Instituição/Órgão, Ano, Cargo, Nível, exclusão de anuladas/sem gabarito e chips de status (Todas, Não resolvidas, Acertos, Erros, Salvas, Anuladas).
   - `CardQuestao` separa o texto de apoio (bloco recolhível "Texto de apoio") do comando da questão.
+- [x] **Raspador direto do site PCI (`parser/raspador_pci.py`):** o MCP devolve só 50 provas por consulta; o raspador lê as páginas `/provas/<termo>/<n>` do site e junta o acervo inteiro (testado: 2.718 provas Cesgranrio em 55 páginas). Gera tabela, JSON, CSV e painel HTML. Requer `beautifulsoup4`.
+- [x] **Login e ranque com Supabase (backend):** `supabase/schema.sql` cria `profiles` (apelido único), `progresso` (por questão) e a view `ranque` (ranking de questões resolvidas por usuário), com RLS e trigger de criação de perfil. Frontend: `web/src/supabase.js` (cliente), `hooks/useProgress.js` (progresso local + sincronização na nuvem), telas `Login`, `ChooseNickname` e `Ranking`. Usuário escolhe apelido; ranque público por resoluções/acertos. `localStorage` continua como fallback off-line.
 - [x] **Integração com o MCP da PCI Concursos (`parser/pci_mcp.py`, `parser/buscar_provas.py`):**
   - Cliente JSON-RPC/Streamable HTTP (somente stdlib + `requests`) para o servidor público `https://mcp.pciconcursos.com.br/mcp`, sem login.
   - Ferramentas expostas: `pesquisar_provas`, `pesquisar_concursos`, `buscar_por_cargo`, `buscar_por_cidade`, `listar_concursos`.
@@ -43,7 +45,8 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ---
 
 ## ⏳ O Que Falta Fazer (Backlog)
-- [ ] **Adaptar o parser para a Cesgranrio:** reconhecer banca, seções, cargos e formato de gabarito da Cesgranrio (hoje o parser assume IGECAP/CONTEMAX e cai em CONTEMAX por padrão).
+- [ ] **Adaptar o parser para a Cesgranrio:** reconhecer banca, seções, cargos e formato de gabarito da Cesgranrio (hoje o parser assume IGECAP/CONTEMAX e cai em CONTEMAX por padrão). Painel com 2.718 provas Cesgranrio pronto em `painel_cesgranrio.html`.
+- [ ] **Backend com login (Supabase):** progresso por usuário + ranque compartilhado. Pendente: definir se o ranque mostra acertos/erros por questão de todos os usuários (A) ou ranking individual com privacidade parcial (B).
 - [ ] **Fluxo GitHub Actions:** Adicionar workflow para deploy automático no GitHub Pages ou Vercel CLI.
 - [ ] **Modo Simulado / Cronômetro:** Adicionar temporizador de prova com relatório final de tempo por questão.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.

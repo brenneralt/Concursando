@@ -1,7 +1,10 @@
 import React from 'react';
-import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw } from 'lucide-react';
+import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, LogIn, User } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
-export function Navbar({ stats, onOpenStats, onReset }) {
+export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
+  const navigate = useNavigate();
+
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -34,6 +37,15 @@ export function Navbar({ stats, onOpenStats, onReset }) {
           </div>
 
           <button
+            onClick={() => navigate('/ranking')}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
+            title="Ver ranque de questões resolvidas"
+          >
+            <Users className="w-4 h-4 text-sky-600" />
+            <span className="hidden sm:inline">Ranque</span>
+          </button>
+
+          <button
             onClick={onOpenStats}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
             title="Ver estatísticas detalhadas"
@@ -50,6 +62,26 @@ export function Navbar({ stats, onOpenStats, onReset }) {
             >
               <RotateCcw className="w-4 h-4" />
             </button>
+          )}
+
+          {user ? (
+            <button
+              onClick={onLogout}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors"
+              title={`Sair (${user.email})`}
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="hidden sm:inline">Sair</span>
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-sky-700 bg-sky-50 hover:bg-sky-100 rounded-lg transition-colors"
+              title="Entrar ou criar conta"
+            >
+              <LogIn className="w-4 h-4" />
+              <span className="hidden sm:inline">Entrar</span>
+            </Link>
           )}
         </div>
       </div>

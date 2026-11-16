@@ -1,23 +1,62 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Filtros } from './components/Filtros';
 import { CardQuestao } from './components/CardQuestao';
 import { Estatisticas } from './components/Estatisticas';
-import { useLocalStorageProgress } from './hooks/useLocalStorageProgress';
+import Login from './components/Login';
+import ChooseNickname from './components/ChooseNickname';
+import Ranking from './components/Ranking';
+import { useProgress } from './hooks/useProgress';
 import { useQuestao } from './hooks/useQuestao';
 import { AlertCircle, Loader2, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ITENS_POR_PAGINA = 5;
 
 export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/escolher-apelido" element={<ChooseNickname />} />
+        <Route path="/ranking" element={<Ranking />} />
+        <Route path="/*" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function LoginPage() {
+  const { login, cadastrar, user, authLoading } = useProgress();
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-sky-600 animate-spin" />
+      </div>
+    );
+  }
+  if (user) return <Navigate to="/" replace />;
+  return (
+    <Login
+      onLogin={(email, senha, apelido) =>
+        apelido ? cadastrar(email, senha, apelido) : login(email, senha)
+      }
+    />
+  );
+}
+
+function Main() {
   const {
     progresso,
+    user,
+    authLoading,
+    logout,
     registrarResposta,
     limparResposta,
     alternarFavorito,
     resetarProgresso,
     stats
-  } = useLocalStorageProgress();
+  } = useProgress();
 
   const {
     questoes,
@@ -51,10 +90,24 @@ export default function App() {
         stats={stats}
         onOpenStats={() => setModalStatsAberto(true)}
         onReset={resetarProgresso}
+        user={user}
+        onLogout={logout}
       />
 
       {/* Conteúdo Principal */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {/* Faixa de aviso */}
+        {!authLoading && !user && (
+          <div className="mb-4 px-4 py-2.5 bg-sky-50 border border-sky-200 rounded-lg text-xs text-sky-800 flex items-center justify-between gap-3">
+            <span>
+              Entre para aparecer no <strong>ranque</strong> e manter seu progresso salvo na nuvem.
+            </span>
+            <a href="/login" className="font-semibold underline hover:text-sky-900 whitespace-nowrap">
+              Entrar / criar conta
+            </a>
+          </div>
+        )}
+
         {/* Painel de Filtros e Busca */}
         <Filtros
           filtros={filtros}

@@ -56,6 +56,22 @@ Acesse no seu navegador: `http://localhost:3000`
 
 ---
 
+## ☁️ Login e ranque (Supabase)
+
+O progresso de cada usuário fica salvo na nuvem (Supabase) e há um **ranque
+público de questões resolvidas** com apelido escolhido.
+
+1. Cole o arquivo [`supabase/schema.sql`](supabase/schema.sql) no **SQL Editor**
+   do seu projeto Supabase (Settings → API mostra a URL e a chave pública).
+2. As credenciais já estão em `web/src/supabase.js` (URL + publishable key são
+   públicas; troque se mudar de projeto).
+3. No frontend, use **Entrar → Criar conta**, escolha o apelido e comece a
+   resolver questões. O ranque aparece no botão "Ranque" da navbar.
+
+> Sem login, o app continua funcionando off-line usando `localStorage`.
+
+---
+
 ## 🔎 Buscar provas e concursos (MCP da PCI Concursos)
 
 O projeto usa o **MCP público da PCI Concursos** (`https://mcp.pciconcursos.com.br/mcp`)
@@ -99,6 +115,18 @@ python3 parser/buscar_provas.py ferramentas
 ```
 
 ### Limitação importante
+
+O MCP devolve no máximo 50 provas por consulta. Para varrer o acervo inteiro
+(ex.: todas as 2.718 provas da Cesgranrio), use o raspador direto do site:
+
+```bash
+# Lista completa de um termo, com painel HTML, JSON e CSV
+python3 parser/raspador_pci.py "cesgranrio" \
+  --html painel_cesgranrio.html --json data/pci_cesgranrio.json --csv data/pci_cesgranrio.csv
+
+# Só as primeiras N páginas (cada página tem 50 provas)
+python3 parser/raspador_pci.py "cesgranrio agente administrativo" --paginas 5
+```
 
 O MCP **não entrega PDFs**: devolve o link da página da prova, onde o download é
 feito pelo navegador (o PCI usa verificação Turnstile). O fluxo é:
