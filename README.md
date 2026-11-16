@@ -139,9 +139,11 @@ navegador — mas o trabalho braçal em volta é automatizado pelo
 python3 parser/baixar_provas.py --listar
 python3 parser/baixar_provas.py --faltando gabarito
 
-# Modo interativo: abre cada página pendente no seu navegador,
-# você resolve a verificação e baixa prova + gabarito, e o script
-# identifica os PDFs na pasta de Downloads e salva com nome padronizado.
+# Modo automático (recomendado): abre cada página pendente no seu navegador e
+# vigia a pasta de Downloads; você só resolve a verificação e clica em baixar.
+python3 parser/baixar_provas.py --auto --orgao IBGE --limite 10 --espera 120
+
+# Modo interativo: o mesmo, mas pergunta ENTER a cada prova baixada.
 python3 parser/baixar_provas.py                 # todas
 python3 parser/baixar_provas.py --orgao IBGE    # só IBGE
 python3 parser/baixar_provas.py --termo agente --ano 2009
