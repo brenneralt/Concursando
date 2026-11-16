@@ -33,6 +33,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - Filtros no estilo QConcursos: palavra-chave (enunciado, alternativas, cargo, órgão, assunto), Disciplina, Assunto, Banca, Instituição/Órgão, Ano, Cargo, Nível, exclusão de anuladas/sem gabarito e chips de status (Todas, Não resolvidas, Acertos, Erros, Salvas, Anuladas).
   - `CardQuestao` separa o texto de apoio (bloco recolhível "Texto de apoio") do comando da questão.
 - [x] **Raspador direto do site PCI (`parser/raspador_pci.py`):** o MCP devolve só 50 provas por consulta; o raspador lê as páginas `/provas/<termo>/<n>` do site e junta o acervo inteiro (testado: 2.718 provas Cesgranrio em 55 páginas). Gera tabela, JSON, CSV e painel HTML. Requer `beautifulsoup4`.
+- [x] **Baixador manual-assistido (`parser/baixar_provas.py`):** como o PCI protege os PDFs com verificação de segurança (Turnstile), o download é feito por você no navegador; o script abre cada prova pendente, espera você baixar prova + gabarito na pasta de Downloads e salva tudo em `data/raw_pdfs/<id>_prova.pdf` / `<id>_gabarito.pdf` com status em `manifest.json` (`pendente`/`baixada`/`parcial`/`pulada`). Padrão: todas as 2.718 Cesgranrio; recortes com `--orgao IBGE`, `--termo`, `--ano`. Não contorna CAPTCHA.
 - [x] **Login e ranque com Supabase (backend):** `supabase/schema.sql` cria `profiles` (apelido único), `progresso` (por questão) e a view `ranque` (ranking de questões resolvidas por usuário), com RLS e trigger de criação de perfil. Frontend: `web/src/supabase.js` (cliente), `hooks/useProgress.js` (progresso local + sincronização na nuvem), telas `Login`, `ChooseNickname` e `Ranking`. Usuário escolhe apelido; ranque público por resoluções/acertos. `localStorage` continua como fallback off-line.
 - [x] **Integração com o MCP da PCI Concursos (`parser/pci_mcp.py`, `parser/buscar_provas.py`):**
   - Cliente JSON-RPC/Streamable HTTP (somente stdlib + `requests`) para o servidor público `https://mcp.pciconcursos.com.br/mcp`, sem login.
@@ -91,7 +92,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
    - O PCI publica um servidor MCP público e somente-leitura (`https://mcp.pciconcursos.com.br/mcp`), sem login, com busca de concursos e de provas anteriores.
    - O projeto usa esse MCP em vez de scraping: `parser/pci_mcp.py` fala JSON-RPC/Streamable HTTP e `parser/buscar_provas.py` oferece a CLI (tabela, JSON, CSV e painel HTML).
    - O MCP **não devolve PDFs**: devolve o link da página da prova. O download é feito pelo navegador, pois o PCI protege os arquivos com Cloudflare Turnstile. Não contornamos CAPTCHA.
-   - Fluxo: MCP encontra → painel HTML → usuário baixa prova e gabarito para `data/raw_pdfs/` → `extrair_questoes.py` → `normalizar_banco.py`.
+   - Fluxo: MCP/raspador encontra → `baixar_provas.py` abre as páginas → usuário resolve a verificação e baixa → PDFs padronizados em `data/raw_pdfs/` → `extrair_questoes.py` → `normalizar_banco.py`.
    - O servidor também fica registrado em `opencode.json` (`pci-concursos`), para agentes OpenCode consultarem direto.
    - O parser continua específico para IGECAP/CONTEMAX; importar Cesgranrio/FGV exige adaptar `parse_sections()`, `read_gabarito_meta()` e `infer_banca()`.
 

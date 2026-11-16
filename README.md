@@ -128,13 +128,29 @@ python3 parser/raspador_pci.py "cesgranrio" \
 python3 parser/raspador_pci.py "cesgranrio agente administrativo" --paginas 5
 ```
 
-O MCP **não entrega PDFs**: devolve o link da página da prova, onde o download é
-feito pelo navegador (o PCI usa verificação Turnstile). O fluxo é:
+O MCP **não entrega PDFs** e o site protege os arquivos com uma verificação
+de segurança (Turnstile). O download em si é sempre feito por você, no
+navegador — mas o trabalho braçal em volta é automatizado pelo
+`parser/baixar_provas.py` (não contorna a verificação; só organiza):
 
-1. O CLI (ou o agente) encontra as provas e gera o painel HTML.
-2. Você abre cada link, baixa **prova** e **gabarito** e salva em `data/raw_pdfs/`
-   com os nomes sugeridos (o arquivo do gabarito precisa conter `gabarito`).
-3. Roda o parser e o normalizador:
+```bash
+# Ver o status do acervo (todas as 2.718 provas Cesgranrio; --orgao IBGE p/ recorte)
+python3 parser/baixar_provas.py --listar
+
+# Modo interativo: abre cada página pendente no seu navegador,
+# você resolve a verificação e baixa prova + gabarito, e o script
+# identifica os PDFs na pasta de Downloads e salva com nome padronizado.
+python3 parser/baixar_provas.py                 # todas
+python3 parser/baixar_provas.py --orgao IBGE    # só IBGE
+python3 parser/baixar_provas.py --termo agente --ano 2009
+
+# Importar PDFs já baixados manualmente (sem passar pelo fluxo interativo)
+python3 parser/baixar_provas.py --importar <id-da-prova> prova.pdf gabarito.pdf
+```
+
+O status fica em `data/raw_pdfs/manifest.json` (`pendente`, `baixada`,
+`parcial`, `pulada`). Os arquivos ficam em `data/raw_pdfs/<id>_prova.pdf` e
+`<id>_gabarito.pdf`, prontos para o parser:
 ```bash
 python3 parser/extrair_questoes.py --dir "data/raw_pdfs" \
   --out data/questoes.json --report data/relatorio_parser.json --verbose
