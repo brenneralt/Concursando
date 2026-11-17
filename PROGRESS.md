@@ -13,8 +13,8 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 
 ## 📊 Status Atual de Desenvolvimento
 
-- **Última Atualização:** 16/11/2026
-- **Status Geral:** Módulo 1 (Parser com PDFs reais IGECAP/CONTEMAX) concluído e validado. Módulo 2 (SPA) funcional com 520 questões reais, filtros no estilo QConcursos e texto de apoio compartilhado entre questões. Módulo 3 (integração com o MCP público da PCI Concursos) implementado para descoberta de provas e concursos.
+- **Última Atualização:** 17/11/2026
+- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. Coleta do acervo Cesgranrio de nível médio/fundamental (1.300 cadernos) em andamento.
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
@@ -34,6 +34,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - `CardQuestao` separa o texto de apoio (bloco recolhível "Texto de apoio") do comando da questão.
 - [x] **Raspador direto do site PCI (`parser/raspador_pci.py`):** o MCP devolve só 50 provas por consulta; o raspador lê as páginas `/provas/<termo>/<n>` do site e junta o acervo inteiro (testado: 2.718 provas Cesgranrio em 55 páginas). Gera tabela, JSON, CSV e painel HTML. Requer `beautifulsoup4`.
 - [x] **Baixador de provas do PCI (`parser/baixar_provas_pci.py`):** as páginas `/provas/download/<slug>` são protegidas por Cloudflare Turnstile. Num Chromium real a verificação é resolvida automaticamente e a página libera URLs assinadas (`/provas/<id>/<hash>/arquivo.pdf`); o script **não contorna** nada — apenas baixa as URLs que o navegador liberou, a partir de um JSON de links (`data/links_pci_ibge.json` tem as 83 provas do IBGE já liberadas). Salva `data/raw_pdfs/<slug>_prova.pdf` / `<slug>_gabarito.pdf` e registra tudo em `manifest.json`, com `--forcar`, `--pausa`, `--dest` e `--manifesto`. O antigo fluxo manual (`baixar_provas.py`) foi removido por ser redundante.
+- [x] **Gabarito com uma coluna por versão (`gabarito_por_colunas`):** CHESF, BNDES, LIQUIGÁS e TRANSPETRO publicam um gabarito único com as respostas de todas as versões lado a lado. O parser lê o PDF em `-bbox-layout`, reconstrói as linhas pela coordenada y (`31 -` e `A` vêm em elementos separados), agrupa as respostas por x, atribui cada palavra do cabeçalho à coluna mais próxima e empilha a mesma coluna nas páginas seguintes. A escolha combina o nome do cargo com o total de questões do caderno; se não houver cabeçalho compatível e desempate claro, mantém a leitura antiga (nunca arrisca a versão errada). Questões sem gabarito não são publicadas (`questoes_sem_gabarito` no relatório).
 - [x] **Parser adaptado ao caderno Cesgranrio (`parser/extrair_questoes.py`):**
   - Ordem de leitura de duas colunas reconstruída por `pdftotext -bbox-layout` (o `-raw` embaralhava as questões).
   - Numeração isolada (`18` sozinho na linha) convertida em início de questão, com escolha da maior cadeia consecutiva e tolerância a inversões pontuais de diagramação.
@@ -54,10 +55,12 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ---
 
 ## ⏳ O Que Falta Fazer (Backlog)
-- [ ] **Adaptar o parser para a Cesgranrio:** reconhecer banca, seções, cargos e formato de gabarito da Cesgranrio (hoje o parser assume IGECAP/CONTEMAX e cai em CONTEMAX por padrão). Painel com 2.718 provas Cesgranrio pronto em `painel_cesgranrio.html`.
-- [ ] **Deploy no Vercel/GitHub Pages:** subir o frontend já com login/ranque (variáveis de ambiente do Supabase se necessário) e fazer o primeiro `git push` (aguarda autenticação do GitHub).
+- [x] **Adaptar o parser para a Cesgranrio:** banca, seções, cargos, numeração isolada, duas colunas e gabarito por cargo/versão. Painel com 2.718 provas Cesgranrio em `painel_cesgranrio.html`.
+- [x] **Primeiro push no GitHub:** `main` publicada em `github.com/brenneralt/Concursando`.
+- [ ] **Deploy no Vercel/GitHub Pages:** subir o frontend com login/ranque e conferir as variáveis do Supabase no painel do provedor.
 - [ ] **Fluxo GitHub Actions:** Adicionar workflow para deploy automático no GitHub Pages ou Vercel CLI.
 - [ ] **Modo Simulado / Cronômetro:** Adicionar temporizador de prova com relatório final de tempo por questão.
+- [ ] **Rodar o patch de RLS de exclusão de progresso** no SQL Editor do Supabase (`progresso_delete_own`, já presente em `supabase/schema.sql`) e apagar as contas de teste.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.
 - [ ] **Importador Drag-and-Drop no Frontend (Opcional):** Permitir upload local de novo `questoes.json` direto pela interface do usuário.
 - [ ] **Expansão do Banco:** Adicionar mais provas e PDFs em `data/raw_pdfs/` e rodar parser em lote.
