@@ -253,6 +253,107 @@
       "questoes_com_alternativa_vazia": []
     },
     {
+      "arquivo": "contemax_2020_Alagoa_Nova_tecnico_enfermagem_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2020,
+      "orgao": "PREFEITURA MUNICIPAL DE ALAGOA NOVA",
+      "cargo": "Técnico em Enfermagem",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2020_Alagoa_Nova_tecnico_enfermagem_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "TÉCNICO EM ENFERMAGEM",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 12)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 12
+        },
+        {
+          "header": "QUESTÕES – DADOS MUNICIPAIS (13 – 16)",
+          "disciplina": "Dados Municipais",
+          "inicio": 13,
+          "fim": 16
+        },
+        {
+          "header": "QUESTÕES - ATUALIDADES (17 – 20)",
+          "disciplina": "Atualidades",
+          "inicio": 17,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40)",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "contemax_2021_Desterro_tecnico_enfermagem_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2021,
+      "orgao": "Prefeitura Municipal de Desterro",
+      "cargo": "Técnico em Enfermagem",
+      "nivel": "Médio",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2021_Desterro_tecnico_enfermagem_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "COMUNS AOS CARGOS DE NÍVEL MÉDIO: Agente Comunitário de Saúde e Técnico em Enfermagem",
+          "respostas": 20,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 20
+        },
+        {
+          "cabecalho": "➢ TÉCNICO EM ENFERMAGEM",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 21,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 12)",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 12
+        },
+        {
+          "header": "QUESTÕES - RACICÍNIO LÓGICO (13 – 16)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 13,
+          "fim": 16
+        },
+        {
+          "header": "QUESTÕES - ATUALIDADES (17 – 20)",
+          "disciplina": "Atualidades",
+          "inicio": 17,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40) 03 PONTOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
       "arquivo": "contemax_2021_Vista_Serrana_agente_administrativo_prova.pdf",
       "banca": "CONTEMAX",
       "ano": 2021,
@@ -506,6 +607,109 @@
       ]
     },
     {
+      "arquivo": "contemax_2022_Lagoa_Itaenga_tesoureiro_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2022,
+      "orgao": "CÂMARA MUNICIPAL DE LAGOA DE ITAENGA",
+      "cargo": "Tesoureiro",
+      "nivel": "Superior",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2022_Lagoa_Itaenga_tesoureiro_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "CARGOS DE NÍVEL SUPERIOR: Assistente de Controle Interno, Assistente Técnico, Assistente Legislativo, Secretário Legislativo e Tesoureiro",
+          "respostas": 20,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 20
+        },
+        {
+          "cabecalho": "III. Tesoureiro",
+          "respostas": 20,
+          "bloco_comum": false,
+          "primeira": 21,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "QUESTÕES - LÍNGUA PORTUGUESA (1 – 12) 02 PONTOS",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 12
+        },
+        {
+          "header": "QUESTÕES - RACICÍNIO LÓGICO (13 – 16) 02 PONTOS",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 13,
+          "fim": 16
+        },
+        {
+          "header": "QUESTÕES – ATUALIDADES (17 – 20) 02 PONTOS",
+          "disciplina": "Atualidades",
+          "inicio": 17,
+          "fim": 20
+        },
+        {
+          "header": "QUESTÕES - CONHECIMENTOS ESPECÍFICOS (21 – 40) 03 PONTOS",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        13
+      ]
+    },
+    {
+      "arquivo": "contemax_2023_Poco_Jose_Moura_fiscal_tributos_prova.pdf",
+      "banca": "CONTEMAX",
+      "ano": 2023,
+      "orgao": "PREFEITURA MUNICIPAL DE POÇO DE JOSÉ DE MOURA",
+      "cargo": "Fiscal de Tributos",
+      "nivel": "Superior",
+      "questoes_extraidas": 40,
+      "gabarito": "contemax_2023_Poco_Jose_Moura_fiscal_tributos_gabarito.pdf",
+      "respostas_gabarito": 40,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "FISCAL DE TRIBUTOS",
+          "respostas": 40,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 40
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "I – LÍNGUA PORTUGUESA (1 a 10) Texto para as questões de 1 a 8.",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "II – RACIOCÍNIO LÓGICO (11 a 15)",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "III – ATUALIDADES (16 a 20)",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "IV. CONHECIMENTOS ESPECÍFICOS (21 A 40)",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
       "arquivo": "contemax_2023_Santa_Helena_assistente_administrativo_prova.pdf",
       "banca": "CONTEMAX",
       "ano": 2023,
@@ -639,12 +843,7 @@
       "questoes_com_alternativa_vazia": []
     }
   ],
-  "gabaritos_sem_par": [
-    "contemax_2020_Alagoa_Nova_tecnico_enfermagem_gabarito.pdf",
-    "contemax_2021_Desterro_tecnico_enfermagem_gabarito.pdf",
-    "contemax_2022_Lagoa_Itaenga_tesoureiro_gabarito.pdf",
-    "contemax_2023_Poco_Jose_Moura_fiscal_tributos_gabarito.pdf"
-  ],
+  "gabaritos_sem_par": [],
   "questoes_sem_alternativas": [
     {
       "arquivo": "agente_administrativo_Iguaracy_2022.pdf",
@@ -664,8 +863,14 @@
       "questoes": [
         13
       ]
+    },
+    {
+      "arquivo": "contemax_2022_Lagoa_Itaenga_tesoureiro_prova.pdf",
+      "questoes": [
+        13
+      ]
     }
   ],
   "ids_duplicados": [],
-  "total_questoes": 520
+  "total_questoes": 680
 }
