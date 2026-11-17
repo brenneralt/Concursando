@@ -63,12 +63,19 @@ público de questões resolvidas** com apelido escolhido.
 
 1. Cole o arquivo [`supabase/schema.sql`](supabase/schema.sql) no **SQL Editor**
    do seu projeto Supabase (Settings → API mostra a URL e a chave pública).
-2. As credenciais já estão em `web/src/supabase.js` (URL + publishable key são
-   públicas; troque se mudar de projeto).
+2. Crie o arquivo de ambiente a partir do modelo e preencha com as credenciais
+   do projeto:
+   ```bash
+   cp web/.env.example web/.env
+   # edite web/.env e preencha VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY
+   ```
+   `web/.env` está no `.gitignore`; **nunca** comite as credenciais.
 3. No frontend, use **Entrar → Criar conta**, escolha o apelido e comece a
    resolver questões. O ranque aparece no botão "Ranque" da navbar.
 
 > Sem login, o app continua funcionando off-line usando `localStorage`.
+> Sem `web/.env`, o app também abre normalmente, mas login e ranque ficam
+> desativados com um aviso claro.
 
 ---
 
@@ -197,10 +204,17 @@ O build estático otimizado será gerado na pasta `web/dist/`.
 - **Root Directory:** `web`
 - **Build Command:** `npm run build`
 - **Output Directory:** `dist`
+- **Environment Variables:** cadastre `VITE_SUPABASE_URL` e
+  `VITE_SUPABASE_ANON_KEY` (Settings → Environment Variables) com os mesmos
+  valores do seu `web/.env`. Sem elas o site publica, mas login e ranque ficam
+  desativados.
 
 ### Hospedagem no GitHub Pages:
 - O Vite já está configurado com `base: './'` no [vite.config.js](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/web/vite.config.js).
 - Basta publicar a pasta `web/dist` ou utilizar a Action padrão do GitHub Pages.
+- A Action precisa receber as mesmas variáveis (`VITE_SUPABASE_URL` e
+  `VITE_SUPABASE_ANON_KEY`) via **Settings → Secrets and variables → Actions**;
+  elas são embutidas no bundle no momento do build.
 
 ---
 

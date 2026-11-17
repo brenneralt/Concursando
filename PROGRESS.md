@@ -52,6 +52,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - `--meta data/pci_cesgranrio.json` corrige cargo/órgão/ano a partir do JSON do raspador (o texto do PDF trunca nomes de cargo).
   - `parser/mesclar_questoes.py` mescla lotes extraídos no banco principal, sem duplicar ids e descartando questões com alternativas vazias (figuras/tabelas que o PDF não entrega em texto).
 - [x] **Login e ranque com Supabase (backend):** `supabase/schema.sql` cria `profiles` (apelido único), `progresso` (por questão) e a view `ranque` (ranking de questões resolvidas por usuário), com RLS e trigger de criação de perfil. Frontend: `web/src/supabase.js` (cliente), `hooks/useProgress.js` (progresso local + sincronização na nuvem), telas `Login`, `ChooseNickname` e `Ranking`. Usuário escolhe apelido; ranque público por resoluções/acertos. `localStorage` continua como fallback off-line.
+- [x] **Credenciais fora do código (17/11/2026):** `web/src/supabase.js` lê `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` de `import.meta.env`; o modelo versionado é `web/.env.example` e o `.env` real fica fora do Git (`.gitignore` da raiz e de `web/`). Se as variáveis não existirem, o cliente vira um stub inativo: o app abre e segue off-line com `localStorage`, e login/ranque mostram um aviso claro em vez de quebrar o build. Deploy precisa declarar as duas variáveis (Vercel: Settings → Environment Variables; Actions: Secrets).
 - [x] **Integração com o MCP da PCI Concursos (`parser/pci_mcp.py`, `parser/buscar_provas.py`):**
   - Cliente JSON-RPC/Streamable HTTP (somente stdlib + `requests`) para o servidor público `https://mcp.pciconcursos.com.br/mcp`, sem login.
   - Ferramentas expostas: `pesquisar_provas`, `pesquisar_concursos`, `buscar_por_cargo`, `buscar_por_cidade`, `listar_concursos`.
@@ -65,7 +66,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## ⏳ O Que Falta Fazer (Backlog)
 - [x] **Adaptar o parser para a Cesgranrio:** banca, seções, cargos, numeração isolada, duas colunas e gabarito por cargo/versão. Painel com 2.718 provas Cesgranrio em `painel_cesgranrio.html`.
 - [x] **Primeiro push no GitHub:** `main` publicada em `github.com/brenneralt/Concursando`.
-- [ ] **Deploy no Vercel/GitHub Pages:** subir o frontend com login/ranque e conferir as variáveis do Supabase no painel do provedor.
+- [ ] **Deploy no Vercel/GitHub Pages:** subir o frontend com login/ranque e cadastrar `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` no painel do provedor (Settings → Environment Variables / Secrets).
 - [ ] **Fluxo GitHub Actions:** Adicionar workflow para deploy automático no GitHub Pages ou Vercel CLI.
 - [ ] **Modo Simulado / Cronômetro:** Adicionar temporizador de prova com relatório final de tempo por questão.
 - [ ] **Rodar o patch de RLS de exclusão de progresso** no SQL Editor do Supabase (`progresso_delete_own`, já presente em `supabase/schema.sql`) e apagar as contas de teste.
@@ -115,6 +116,12 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
    - Fluxo: MCP/raspador encontra → `baixar_provas.py` abre as páginas → usuário resolve a verificação e baixa → PDFs padronizados em `data/raw_pdfs/` → `extrair_questoes.py` → `normalizar_banco.py`.
    - O servidor também fica registrado em `opencode.json` (`pci-concursos`), para agentes OpenCode consultarem direto.
    - O parser continua específico para IGECAP/CONTEMAX; importar Cesgranrio/FGV exige adaptar `parse_sections()`, `read_gabarito_meta()` e `infer_banca()`.
+
+8. **Segredos e configuração por ambiente:**
+   - Nenhuma credencial de serviço no código versionado. O frontend só usa a chave pública (`publishable`/anon), que é protegida por RLS, e mesmo assim vem de `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`.
+   - `web/.env` fica no `.gitignore` (raiz e `web/`); `web/.env.example` documenta as chaves sem valores reais.
+   - Chaves de serviço (`service_role`) e acesso administrativo ao banco **nunca** entram no frontend: operações privilegiadas rodam no SQL Editor ou em script local fora do repositório.
+   - O build do Vite embute qualquer `VITE_*` no bundle: só variáveis públicas podem usar esse prefixo.
 
 ---
 
