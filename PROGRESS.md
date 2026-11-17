@@ -14,7 +14,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## 📊 Status Atual de Desenvolvimento
 
 - **Última Atualização:** 17/11/2026
-- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. Coleta do acervo Cesgranrio de nível médio/fundamental (1.300 cadernos) em andamento.
+- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 4.700 questões (4.020 Cesgranrio novas + 680 IGECAP/CONTEMAX), 113 provas Cesgranrio de 31 órgãos.** A coleta do acervo Cesgranrio (1.262 cadernos restantes) está parada porque a extensão do navegador caiu; 287 cadernos (596 PDFs) já estão em `data/raw_pdfs/`.
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
@@ -34,7 +34,15 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - `CardQuestao` separa o texto de apoio (bloco recolhível "Texto de apoio") do comando da questão.
 - [x] **Raspador direto do site PCI (`parser/raspador_pci.py`):** o MCP devolve só 50 provas por consulta; o raspador lê as páginas `/provas/<termo>/<n>` do site e junta o acervo inteiro (testado: 2.718 provas Cesgranrio em 55 páginas). Gera tabela, JSON, CSV e painel HTML. Requer `beautifulsoup4`.
 - [x] **Baixador de provas do PCI (`parser/baixar_provas_pci.py`):** as páginas `/provas/download/<slug>` são protegidas por Cloudflare Turnstile. Num Chromium real a verificação é resolvida automaticamente e a página libera URLs assinadas (`/provas/<id>/<hash>/arquivo.pdf`); o script **não contorna** nada — apenas baixa as URLs que o navegador liberou, a partir de um JSON de links (`data/links_pci_ibge.json` tem as 83 provas do IBGE já liberadas). Salva `data/raw_pdfs/<slug>_prova.pdf` / `<slug>_gabarito.pdf` e registra tudo em `manifest.json`, com `--forcar`, `--pausa`, `--dest` e `--manifesto`. O antigo fluxo manual (`baixar_provas.py`) foi removido por ser redundante.
+- [x] **Banco Cesgranrio importado (17/11/2026):** 4.020 questões de 113 provas Cesgranrio (31 órgãos, 2005–2024), recortadas para nível médio/fundamental por `parser/filtrar_escopo.py` (descarta cargos cujo nome é área de formação e prefixos de nível superior: Analista, Tecnologista, Engenheiro, Auditor, etc.). Total do banco: 4.700 questões, 0 ids duplicados, 98,7% gabaritadas.
 - [x] **Gabarito com uma coluna por versão (`gabarito_por_colunas`):** CHESF, BNDES, LIQUIGÁS e TRANSPETRO publicam um gabarito único com as respostas de todas as versões lado a lado. O parser lê o PDF em `-bbox-layout`, reconstrói as linhas pela coordenada y (`31 -` e `A` vêm em elementos separados), agrupa as respostas por x, atribui cada palavra do cabeçalho à coluna mais próxima e empilha a mesma coluna nas páginas seguintes. A escolha combina o nome do cargo com o total de questões do caderno; se não houver cabeçalho compatível e desempate claro, mantém a leitura antiga (nunca arrisca a versão errada). Questões sem gabarito não são publicadas (`questoes_sem_gabarito` no relatório).
+- [x] **Desambiguação de versões do gabarito (17/11/2026):**
+  - Rótulos de coluna agora são frases (vãos > 12 pt), atribuídos por interseção horizontal; títulos que atravessam mais de duas colunas (nome da prova, "conhecimentos específicos") são ignorados.
+  - Comparação de cargo tolerante a abreviações (`SequenceMatcher`: "AG. ADMINISTRATIVO" casa com "Agente Administrativo"), o que resolveu TCE/RO 2007 (21-B para Agente Administrativo, 21-E para Controle Externo).
+  - Tabelas de uma coluna só viram "bloco comum" e nunca se misturam com a coluna de uma versão; completam a numeração só quando todas as colunas concordam.
+  - Gabaritos em grade horizontal (1-C | 2-A | 3-C em cada linha, caso BNDES 2013) são detectados e entregues à leitura por texto.
+  - `versao_do_caderno` lê "GABARITO N - PROVA AZUL" na capa do caderno; a cor da prova escolhe a coluna/página certa (Casa da Moeda 2005 é o caso de referência).
+  - Regra de segurança: se há versões conflitantes e nenhuma coluna cobre ao menos 95% do caderno, a prova é descartada (`provas_incompletas`) em vez de publicar resposta de outro cargo. 132 provas caíram nessa regra no lote atual.
 - [x] **Parser adaptado ao caderno Cesgranrio (`parser/extrair_questoes.py`):**
   - Ordem de leitura de duas colunas reconstruída por `pdftotext -bbox-layout` (o `-raw` embaralhava as questões).
   - Numeração isolada (`18` sozinho na linha) convertida em início de questão, com escolha da maior cadeia consecutiva e tolerância a inversões pontuais de diagramação.
@@ -63,7 +71,8 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 - [ ] **Rodar o patch de RLS de exclusão de progresso** no SQL Editor do Supabase (`progresso_delete_own`, já presente em `supabase/schema.sql`) e apagar as contas de teste.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.
 - [ ] **Importador Drag-and-Drop no Frontend (Opcional):** Permitir upload local de novo `questoes.json` direto pela interface do usuário.
-- [ ] **Expansão do Banco:** Adicionar mais provas e PDFs em `data/raw_pdfs/` e rodar parser em lote.
+- [ ] **Retomar a coleta Cesgranrio:** 287 de ~1.262 cadernos baixados. O worker de iframes/Turnstile roda na aba real do Chrome e grava `link_<slug>.json`; a extensão do navegador está offline (`browse status` = paired-offline) e o estado em `/tmp/opencode` foi limpo, então é preciso recriar receptor local + worker. Scripts e fila de links devem ficar no repositório (ex.: `data/pci_links/`) para sobreviver à limpeza de `/tmp`.
+- [ ] **Recuperar os 132 gabaritos ambíguos:** a maioria é de cadernos com várias versões na mesma página e cabeçalho fragmentado (LIQUIGÁS 2012–2018, FUNASA 2009, BNDES 2013). Próximo passo: segmentar cada linha de respostas em blocos pela reinicialização da numeração e casar os blocos com os rótulos de cor/versão por ordem de x.
 
 ---
 

@@ -4205,5 +4205,466 @@
     "origem": "https://www.pciconcursos.com.br/provas/13604319/0d082bc9792/cmb0109_gabarito.pdf"
    }
   ]
+ },
+ "gravador-de-valores-casa-da-moeda-cesgranrio-2005": {
+  "prova": [
+   {
+    "arquivo": "gravador-de-valores-casa-da-moeda-cesgranrio-2005_prova.pdf",
+    "bytes": 73048,
+    "origem": "https://www.pciconcursos.com.br/provas/13166816/0439e20f8fd/prova24_gravadorvalores.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "gravador-de-valores-casa-da-moeda-cesgranrio-2005_gabarito.pdf",
+    "bytes": 78503,
+    "origem": "https://www.pciconcursos.com.br/provas/13166816/e05c70c8267/cmb0105_gabarito_superior.pdf"
+   }
+  ]
+ },
+ "grupo-a-nivel-basico-i-alunos-publicos-prominp-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "grupo-a-nivel-basico-i-alunos-publicos-prominp-cesgranrio-2006_prova.pdf",
+    "bytes": 90877,
+    "origem": "https://www.pciconcursos.com.br/provas/14179136/0a8959175c6/prova01.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "grupo-a-nivel-basico-i-alunos-publicos-prominp-cesgranrio-2006_gabarito.pdf",
+    "bytes": 74018,
+    "origem": "https://www.pciconcursos.com.br/provas/14179136/618b27e4f15/gabaritos_prominp.pdf"
+   }
+  ]
+ },
+ "grupo-a-todas-as-categorias-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-a-todas-as-categorias-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 27158,
+    "origem": "https://www.pciconcursos.com.br/provas/12413716/08ff7c363ba/grupos_a_b.pdf"
+   },
+   {
+    "arquivo": "grupo-a-todas-as-categorias-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 200530,
+    "origem": "https://www.pciconcursos.com.br/provas/12413716/2760794346c/prova1.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-b-nivel-basico-ii-aluno-publicos-prominp-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "grupo-b-nivel-basico-ii-aluno-publicos-prominp-cesgranrio-2006_prova.pdf",
+    "bytes": 102659,
+    "origem": "https://www.pciconcursos.com.br/provas/14179239/8931f38bd08/prova02.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "grupo-b-nivel-basico-ii-aluno-publicos-prominp-cesgranrio-2006_gabarito.pdf",
+    "bytes": 74018,
+    "origem": "https://www.pciconcursos.com.br/provas/14179239/37f6e407b32/gabaritos_prominp.pdf"
+   }
+  ]
+ },
+ "grupo-b-todas-as-categorias-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-b-todas-as-categorias-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 27157,
+    "origem": "https://www.pciconcursos.com.br/provas/12413800/6a59289e2fe/grupos_a_b.pdf"
+   },
+   {
+    "arquivo": "grupo-b-todas-as-categorias-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 203401,
+    "origem": "https://www.pciconcursos.com.br/provas/12413800/a095d98729c/prova2.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-c-alunos-publicos-prominp-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "grupo-c-alunos-publicos-prominp-cesgranrio-2006_prova.pdf",
+    "bytes": 166691,
+    "origem": "https://www.pciconcursos.com.br/provas/14179321/81d43f5d524/prova03.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "grupo-c-alunos-publicos-prominp-cesgranrio-2006_gabarito.pdf",
+    "bytes": 74018,
+    "origem": "https://www.pciconcursos.com.br/provas/14179321/8772d9b41df/gabaritos_prominp.pdf"
+   }
+  ]
+ },
+ "grupo-c-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-c-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 27316,
+    "origem": "https://www.pciconcursos.com.br/provas/12413910/287a4d18e7a/grupos_c_d.pdf"
+   },
+   {
+    "arquivo": "grupo-c-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 264254,
+    "origem": "https://www.pciconcursos.com.br/provas/12413910/e0acf399fbb/prova3.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-d-tecnico-alunos-publicos-prominp-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "grupo-d-tecnico-alunos-publicos-prominp-cesgranrio-2006_prova.pdf",
+    "bytes": 103819,
+    "origem": "https://www.pciconcursos.com.br/provas/14179443/e86f68d92b6/prova04.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "grupo-d-tecnico-alunos-publicos-prominp-cesgranrio-2006_gabarito.pdf",
+    "bytes": 74022,
+    "origem": "https://www.pciconcursos.com.br/provas/14179443/364398db29a/gabaritos_prominp.pdf"
+   }
+  ]
+ },
+ "grupo-e-inspetor-i-inspetor-de-ensaios-nao-destrutivos-nivel-3-prominp-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "grupo-e-inspetor-i-inspetor-de-ensaios-nao-destrutivos-nivel-3-prominp-cesgranrio-2006_prova.pdf",
+    "bytes": 131920,
+    "origem": "https://www.pciconcursos.com.br/provas/14179514/92839a1d4ee/prova05.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "grupo-e-inspetor-i-inspetor-de-ensaios-nao-destrutivos-nivel-3-prominp-cesgranrio-2006_gabarito.pdf",
+    "bytes": 74008,
+    "origem": "https://www.pciconcursos.com.br/provas/14179514/1ebbb83cb56/gabaritos_prominp.pdf"
+   }
+  ]
+ },
+ "grupo-e-tecnico-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-e-tecnico-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 26340,
+    "origem": "https://www.pciconcursos.com.br/provas/12414109/f235025fe0e/grupo_e.pdf"
+   },
+   {
+    "arquivo": "grupo-e-tecnico-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 268728,
+    "origem": "https://www.pciconcursos.com.br/provas/12414109/fc92aa11178/prova5.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-ambiental-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-ambiental-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23558,
+    "origem": "https://www.pciconcursos.com.br/provas/12414209/985ea77252c/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-ambiental-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 230093,
+    "origem": "https://www.pciconcursos.com.br/provas/12414209/51d4fd39661/prova6.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-arquitetura-e-engenharia-civil-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-arquitetura-e-engenharia-civil-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23558,
+    "origem": "https://www.pciconcursos.com.br/provas/12414305/6b52d72cb3f/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-arquitetura-e-engenharia-civil-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 229042,
+    "origem": "https://www.pciconcursos.com.br/provas/12414305/7e311bd80f0/prova7.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-eletrica-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-eletrica-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23559,
+    "origem": "https://www.pciconcursos.com.br/provas/12414484/481f6a37589/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-eletrica-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 272333,
+    "origem": "https://www.pciconcursos.com.br/provas/12414484/a2117aa68af/prova8.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-informatica-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-informatica-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23559,
+    "origem": "https://www.pciconcursos.com.br/provas/12414543/8bde82af215/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-informatica-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 227090,
+    "origem": "https://www.pciconcursos.com.br/provas/12414543/29daf583964/prova9.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-logistica-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-logistica-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23558,
+    "origem": "https://www.pciconcursos.com.br/provas/12414647/678a1e19682/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-logistica-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 464278,
+    "origem": "https://www.pciconcursos.com.br/provas/12414647/c4cf5d3f907/prova10.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-mecanica-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-mecanica-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23558,
+    "origem": "https://www.pciconcursos.com.br/provas/12414711/5cd2ca69d40/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-mecanica-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 227387,
+    "origem": "https://www.pciconcursos.com.br/provas/12414711/7d1b2e7b33d/prova11.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-f-qualidade-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-f-qualidade-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 23558,
+    "origem": "https://www.pciconcursos.com.br/provas/12414876/58b195983ea/grupo_f.pdf"
+   },
+   {
+    "arquivo": "grupo-f-qualidade-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 282108,
+    "origem": "https://www.pciconcursos.com.br/provas/12414876/d99fa8fa48c/prova12.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupo-g-gerenciamento-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupo-g-gerenciamento-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 26436,
+    "origem": "https://www.pciconcursos.com.br/provas/12414954/efa7649c060/grupo_g.pdf"
+   },
+   {
+    "arquivo": "grupo-g-gerenciamento-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 244302,
+    "origem": "https://www.pciconcursos.com.br/provas/12414954/4bd8938b25f/prova13.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "grupos-d-eng-projetista-pdms-e-eng-desenhista-projetista-de-tubulacao-prominp-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "grupos-d-eng-projetista-pdms-e-eng-desenhista-projetista-de-tubulacao-prominp-cesgranrio-2009_prova.pdf",
+    "bytes": 27316,
+    "origem": "https://www.pciconcursos.com.br/provas/12414022/7d4ce3b0c4e/grupos_c_d.pdf"
+   },
+   {
+    "arquivo": "grupos-d-eng-projetista-pdms-e-eng-desenhista-projetista-de-tubulacao-prominp-cesgranrio-2009_prova_2.pdf",
+    "bytes": 278168,
+    "origem": "https://www.pciconcursos.com.br/provas/12414022/466f118559a/prova4.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "informatica-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "informatica-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 871837,
+    "origem": "https://www.pciconcursos.com.br/provas/31467223/3d04b03a3ef/informatica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "informatica-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 553379,
+    "origem": "https://www.pciconcursos.com.br/provas/31467223/bc01105b827/gabarito.pdf"
+   }
+  ]
+ },
+ "inspecao-de-equipamentos-e-instalacoes-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "inspecao-de-equipamentos-e-instalacoes-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 1925144,
+    "origem": "https://www.pciconcursos.com.br/provas/31467385/d5a42adce41/inspecao_de_equipamentos_e_instalaces.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspecao-de-equipamentos-e-instalacoes-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 553379,
+    "origem": "https://www.pciconcursos.com.br/provas/31467385/e2d52a1933a/gabarito.pdf"
+   }
+  ]
+ },
+ "inspetor-de-produtos-petrobras-cesgranrio-2005": {
+  "prova": [
+   {
+    "arquivo": "inspetor-de-produtos-petrobras-cesgranrio-2005_prova.pdf",
+    "bytes": 210126,
+    "origem": "https://www.pciconcursos.com.br/provas/11273517/ebaae00d23a/prova07.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspetor-de-produtos-petrobras-cesgranrio-2005_gabarito.pdf",
+    "bytes": 108808,
+    "origem": "https://www.pciconcursos.com.br/provas/11273517/bea2122fd2d/gabaritos_petrobras2005.pdf"
+   }
+  ]
+ },
+ "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2008": {
+  "prova": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2008_prova.pdf",
+    "bytes": 207963,
+    "origem": "https://www.pciconcursos.com.br/provas/10965231/8ba08a49e87/prova03.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2008_gabarito.pdf",
+    "bytes": 27936,
+    "origem": "https://www.pciconcursos.com.br/provas/10965231/8cab274b167/gabmedio_180508.pdf"
+   }
+  ]
+ },
+ "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2010": {
+  "prova": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2010_prova.pdf",
+    "bytes": 95726,
+    "origem": "https://www.pciconcursos.com.br/provas/14198465/bad38257873/3_prova_tarde_inspetor_seguranca_jr.pdf"
+   },
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2010_prova_2.pdf",
+    "bytes": 150876,
+    "origem": "https://www.pciconcursos.com.br/provas/14198465/ede8ecdacd2/prova_nivel_medio.pdf"
+   },
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2010_prova_3.pdf",
+    "bytes": 78081,
+    "origem": "https://www.pciconcursos.com.br/provas/14198465/d905e940557/respostas_aos_recursos.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2010_gabarito.pdf",
+    "bytes": 113030,
+    "origem": "https://www.pciconcursos.com.br/provas/14198465/130b9b1bf6e/petrobras0109_gabaritos.pdf"
+   }
+  ]
+ },
+ "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2011": {
+  "prova": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2011_prova.pdf",
+    "bytes": 125947,
+    "origem": "https://www.pciconcursos.com.br/provas/16107386/b259fc0d9ca/prova_22_inspetor_a_de_seguranca_interna_junior.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2011_gabarito.pdf",
+    "bytes": 568279,
+    "origem": "https://www.pciconcursos.com.br/provas/16107386/51efef1e8a1/gabaritos.pdf"
+   }
+  ]
+ },
+ "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2012": {
+  "prova": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2012_prova.pdf",
+    "bytes": 123626,
+    "origem": "https://www.pciconcursos.com.br/provas/17326012/3128d01110e/prova_30_inspetor_a_de_seguranca_interna_junior.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2012_gabarito.pdf",
+    "bytes": 734639,
+    "origem": "https://www.pciconcursos.com.br/provas/17326012/8f0205b1344/gabaritos.pdf"
+   }
+  ]
+ },
+ "inspetor-em-vigilancia-sanitaria-secad-to-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "inspetor-em-vigilancia-sanitaria-secad-to-cesgranrio-2009_prova.pdf",
+    "bytes": 185986,
+    "origem": "https://www.pciconcursos.com.br/provas/12305474/47f0989dd31/prova16.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "inspetor-em-vigilancia-sanitaria-secad-to-cesgranrio-2009_gabarito.pdf",
+    "bytes": 123756,
+    "origem": "https://www.pciconcursos.com.br/provas/12305474/2744775cdad/gabarito_superior.pdf"
+   }
+  ]
+ },
+ "instrumentador-cirurgico-unirio-cesgranrio-2016": {
+  "prova": [
+   {
+    "arquivo": "instrumentador-cirurgico-unirio-cesgranrio-2016_prova.pdf",
+    "bytes": 233812,
+    "origem": "https://www.pciconcursos.com.br/provas/25202857/9b2e0d5c23e/instrumentador_cirurgico.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "instrumentador-cirurgico-unirio-cesgranrio-2016_gabarito.pdf",
+    "bytes": 186195,
+    "origem": "https://www.pciconcursos.com.br/provas/25202857/1eca5c0aa85/gab_preliminar_todos_cargos.pdf"
+   }
+  ]
+ },
+ "prova-inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2011-87": {
+  "prova": [
+   {
+    "arquivo": "prova-inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2011-87_prova.pdf",
+    "bytes": 199797,
+    "origem": "https://www.pciconcursos.com.br/provas/15591801/32f35c9459d/prova_25_inspetor_a_de_seguranca_interna_jnior.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "prova-inspetor-de-seguranca-interna-junior-petrobras-cesgranrio-2011-87_gabarito.pdf",
+    "bytes": 699154,
+    "origem": "https://www.pciconcursos.com.br/provas/15591801/e539482ac99/gabaritos.pdf"
+   }
+  ]
  }
 }
