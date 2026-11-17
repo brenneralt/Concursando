@@ -1893,13 +1893,38 @@ def slug(text: str, abbreviate_admin: bool = False) -> str:
     return s.upper()
 
 
-def make_id(prova: ProvaMeta, n: int) -> str:
+def id_key(prova: ProvaMeta) -> tuple[str, int, str, str]:
+    """Chave "legível" do caderno (sem a versão), usada para detectar colisões."""
     banca = slug(prova.banca)
     ano = prova.ano or 0
     # provas nacionais (ex.: Cesgranrio) podem não ter cidade; usa o órgão
     local = slug(prova.city) or slug(prova.orgao) or "SEMLOCAL"
     cargo = slug(prova.cargo, abbreviate_admin=True)
-    return f"{banca}_{ano}_{local}_{cargo}_Q{n:02d}"
+    return banca, ano, local, cargo
+
+
+def make_id(prova: ProvaMeta, n: int, variante: int = 1) -> str:
+    banca, ano, local, cargo = id_key(prova)
+    sufixo = f"_V{variante}" if variante > 1 else ""
+    return f"{banca}_{ano}_{local}_{cargo}{sufixo}_Q{n:02d}"
+
+
+def variantes_de_id(provas: list[ProvaMeta]) -> dict[str, int]:
+    """Numera cadernos que compartilham banca/ano/órgão/cargo.
+
+    Sem isso, duas versões do mesmo cargo (ex.: Liquigás 2018 e 2018-45)
+    geram ids iguais e o merge descarta as questões da segunda.
+    """
+    grupos: dict[tuple[str, int, str, str], list[str]] = {}
+    for prova in provas:
+        grupos.setdefault(id_key(prova), []).append(prova.filename)
+    variantes: dict[str, int] = {}
+    for arquivos in grupos.values():
+        if len(arquivos) < 2:
+            continue
+        for indice, arquivo in enumerate(sorted(arquivos), 1):
+            variantes[arquivo] = indice
+    return variantes
 
 
 def classify_pdfs(folder: Path, include_subdirs: bool = False) -> tuple[list[Path], list[Path]]:
@@ -2111,6 +2136,7 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
     }
 
     paired_gabaritos = set()
+    variantes = variantes_de_id(provas)
     for prova in provas:
         gab = pairs.get(prova.filename)
         prova = merge_meta(prova, gab)
@@ -2191,7 +2217,7 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
             assunto = classificar_assunto(disciplina, q["enunciado"], alt)
 
             item = {
-                "id": make_id(prova, n),
+                "id": make_id(prova, n, variantes.get(prova.filename, 1)),
                 "banca": prova.banca,
                 "ano": prova.ano,
                 "orgao": prova.orgao,
