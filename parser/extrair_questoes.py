@@ -1477,6 +1477,252 @@ def gabarito_por_pagina(text: str, cargo: str) -> dict[int, str]:
     return respostas
 
 
+WORD_BBOX_POS_RE = re.compile(
+    r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>',
+    re.S,
+)
+ANSWER_PAIR_WORD_RE = re.compile(r"^(\d{1,2})\s*[-–:.]?\s*([A-Ea-e#])$")
+ANSWER_NUM_WORD_RE = re.compile(r"^(\d{1,2})\s*[-–:.]?$")
+ANSWER_LETTER_RE = re.compile(r"^[-–:.]?([A-Ea-e#])$")
+GABARITO_HEADER_NOISE_RE = re.compile(
+    r"(pcimarkpci|pciconcursos|www\.|^\s*$)|\S{40,}", re.I
+)
+GABARITO_HEADER_STOPWORDS = {
+    "prova", "provas", "nivel", "superior", "medio", "fundamental", "de", "da",
+    "do", "das", "dos", "em", "e", "a", "o", "para", "conhecimentos", "basicos",
+    "especificos", "gabarito", "i", "ii", "iii", "iv", "v",
+}
+
+
+def paginas_com_palavras(pdf_path: Path) -> list[dict]:
+    """Lê o PDF em -bbox-layout devolvendo páginas -> linhas -> palavras com x.
+
+    Cada página vira `{"largura": float, "linhas": [{"y": float, "palavras":
+    [(x0, x1, texto), ...]}]}`, o que permite separar colunas de gabaritos
+    com uma versão por cargo. As linhas são reconstruídas pela coordenada y:
+    o `-bbox-layout` costuma quebrar cada par "31 - A" em vários `<line>`.
+    """
+    try:
+        proc = subprocess.run(
+            ["pdftotext", "-enc", "UTF-8", "-bbox-layout", str(pdf_path), "-"],
+            capture_output=True,
+            check=False,
+        )
+        if proc.returncode != 0:
+            return []
+        saida = proc.stdout.decode("utf-8", errors="ignore")
+    except OSError:
+        return []
+
+    paginas = []
+    for largura_s, _, corpo in PAGE_BBOX_RE.findall(saida):
+        palavras = []
+        for x0_s, y0_s, x1_s, _, texto in WORD_BBOX_POS_RE.findall(corpo):
+            texto = html.unescape(texto).strip()
+            if texto:
+                palavras.append((float(x0_s), float(y0_s), float(x1_s), texto))
+        palavras.sort(key=lambda w: (w[1], w[0]))
+        linhas: list[dict] = []
+        for x0, y0, x1, texto in palavras:
+            if linhas and abs(y0 - linhas[-1]["y"]) <= 3:
+                linhas[-1]["palavras"].append((x0, x1, texto))
+            else:
+                linhas.append({"y": y0, "palavras": [(x0, x1, texto)]})
+        for linha in linhas:
+            linha["palavras"].sort()
+        paginas.append({"largura": float(largura_s), "linhas": linhas})
+    return paginas
+
+
+def pares_de_resposta(palavras: list[tuple[float, float, str]]) -> list[tuple[int, str, float]]:
+    """Encontra pares (questão, letra) numa linha, com o x do par.
+
+    O `-bbox-layout` da Cesgranrio costuma separar o par em palavras:
+    `"1-"` + `"D"`, ou `"31"` + `"-"` + `"A"`. Também aceita `"ANULADA"`.
+    """
+    pares = []
+    i = 0
+    while i < len(palavras):
+        x0, x1, texto = palavras[i]
+        casado = ANSWER_PAIR_WORD_RE.match(texto)
+        if casado:
+            n = int(casado.group(1))
+            if 1 <= n <= 99:
+                pares.append((n, casado.group(2).upper(), (x0 + x1) / 2))
+            i += 1
+            continue
+        numero = ANSWER_NUM_WORD_RE.match(texto)
+        if numero:
+            j = i + 1
+            letra = None
+            while j < len(palavras) and j <= i + 2:
+                if re.fullmatch(r"[-–:.]", palavras[j][2]):
+                    j += 1
+                    continue
+                achado = ANSWER_LETTER_RE.match(palavras[j][2])
+                if achado:
+                    letra = achado.group(1).upper()
+                    break
+                if re.fullmatch(r"ANULAD[AO]", palavras[j][2], re.I):
+                    letra = "#"
+                    break
+                break
+            if letra:
+                x_fim = palavras[min(j, len(palavras) - 1)][1]
+                pares.append((int(numero.group(1)), letra, (x0 + x_fim) / 2))
+                i = j + 1
+                continue
+        i += 1
+    return pares
+
+
+def gabarito_por_colunas(
+    path: Path, cargo: str, total_questoes: Optional[int] = None
+) -> dict[int, str]:
+    """Escolhe a coluna da versão certa num gabarito com várias provas.
+
+    A Cesgranrio publica um único PDF com as respostas de todas as versões
+    lado a lado (ex.: "PROVA 1 (TÉCNICO EM EDIFICAÇÕES)"). Cada bloco de
+    respostas vira uma âncora; as palavras do cabeçalho são atribuídas à
+    âncora mais próxima e as colunas equivalentes das páginas seguintes são
+    empilhadas. A escolha usa o nome do cargo e, quando disponível, o total
+    de questões do caderno. Devolve `{}` se nada casar com segurança.
+    """
+    alvo = set(norm_cargo_key(cargo).split())
+    if not alvo:
+        return {}
+
+    def tokens_de(texto: str) -> set[str]:
+        return set(norm_cargo_key(texto).split()) - GABARITO_HEADER_STOPWORDS
+
+    # 1) colunas de cada página, com as palavras do cabeçalho mais próximas
+    brutas: list[dict] = []
+    for pagina in paginas_com_palavras(path):
+        pares_pagina: list[tuple[int, str, float, float]] = []
+        linhas_com_par: list[float] = []
+        for linha in pagina["linhas"]:
+            achados = pares_de_resposta(linha["palavras"])
+            if achados:
+                linhas_com_par.append(linha["y"])
+            for n, letra, x in achados:
+                pares_pagina.append((n, letra, x, linha["y"]))
+        if not pares_pagina:
+            continue
+
+        xs = sorted({round(x, 1) for _, _, x, _ in pares_pagina})
+        grupos: list[list[float]] = []
+        for x in xs:
+            if grupos and x - grupos[-1][-1] <= 28:
+                grupos[-1].append(x)
+            else:
+                grupos.append([x])
+        if len(grupos) < 2:
+            continue
+
+        primeira_linha = min(linhas_com_par)
+        for grupo in grupos:
+            lo, hi = grupo[0] - 12, grupo[-1] + 12
+            respostas = [(n, letra) for n, letra, x, _ in pares_pagina if lo <= x <= hi]
+            if not respostas:
+                continue
+            ancora = sum(grupo) / len(grupo)
+            palavras_cab: list[str] = []
+            for linha in pagina["linhas"]:
+                if linha["y"] >= primeira_linha or linha["y"] < primeira_linha - 260:
+                    continue
+                for x0, x1, texto in linha["palavras"]:
+                    if GABARITO_HEADER_NOISE_RE.search(texto):
+                        continue
+                    centro = (x0 + x1) / 2
+                    if abs(centro - ancora) <= 70:
+                        palavras_cab.append(texto)
+            brutas.append(
+                {
+                    "x": ancora,
+                    "respostas": respostas,
+                    "tokens": tokens_de(" ".join(palavras_cab)),
+                }
+            )
+
+    if not brutas:
+        return {}
+
+    # 2) empilha a mesma coluna ao longo das páginas
+    pilhas: list[dict] = []
+    for coluna in brutas:
+        destino = None
+        for pilha in pilhas:
+            if abs(coluna["x"] - pilha["x"]) > 24:
+                continue
+            if coluna["tokens"] and pilha["tokens"] and not (coluna["tokens"] & pilha["tokens"]):
+                continue
+            destino = pilha
+            break
+        if destino is None:
+            pilhas.append(
+                {
+                    "x": coluna["x"],
+                    "respostas": list(coluna["respostas"]),
+                    "tokens": set(coluna["tokens"]),
+                    "paginas": 1,
+                }
+            )
+        else:
+            destino["respostas"].extend(coluna["respostas"])
+            destino["tokens"] |= coluna["tokens"]
+            destino["paginas"] += 1
+
+    def pontuar(pilha: dict) -> float:
+        if not pilha["tokens"]:
+            return 0.0
+        return len(alvo & pilha["tokens"]) / len(alvo)
+
+    def ajuste(pilha: dict) -> float:
+        """Quão bem a coluna cobre 1..N (N = questões do caderno)."""
+        if not total_questoes:
+            return 0.0
+        numeros = {n for n, _ in pilha["respostas"]}
+        presentes = sum(1 for n in range(1, total_questoes + 1) if n in numeros)
+        extras = sum(1 for n in numeros if n > total_questoes)
+        return presentes / total_questoes - extras / total_questoes
+
+    candidatas = [p for p in pilhas if pontuar(p) >= 0.6]
+    if not candidatas:
+        return {}
+
+    def chave(pilha: dict) -> tuple[float, float]:
+        return (ajuste(pilha), pontuar(pilha))
+
+    candidatas.sort(key=chave, reverse=True)
+    melhor = candidatas[0]
+    if len(candidatas) > 1:
+        empate = chave(candidatas[1])
+        if abs(empate[0] - chave(melhor)[0]) < 0.01 and abs(empate[1] - chave(melhor)[1]) < 0.01:
+            if candidatas[1]["tokens"] != melhor["tokens"]:
+                return {}
+
+    respostas: dict[int, str] = {}
+    for n, letra in melhor["respostas"]:
+        respostas.setdefault(n, letra)
+
+    # respostas comuns (bloco básico) podem estar em outra coluna/página:
+    # completa só o que vem antes do bloco específico e apenas quando todas
+    # as colunas concordam (é resposta comum a todos os cargos)
+    primeira = min(respostas) if respostas else 0
+    for n in range(1, primeira):
+        if n in respostas:
+            continue
+        letras = {
+            letra
+            for pilha in pilhas
+            for numero, letra in pilha["respostas"]
+            if numero == n
+        }
+        if len(letras) == 1:
+            respostas[n] = letras.pop()
+    return respostas
+
+
 def extract_gabarito_for_cargo(path: Path, cargo: str) -> tuple[dict[int, str], list[dict]]:
     """
     Extrai respostas de um gabarito para um cargo.
@@ -1860,6 +2106,7 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
         "provas_incompletas": [],
         "gabaritos_sem_par": [],
         "questoes_sem_alternativas": [],
+        "questoes_sem_gabarito": [],
         "ids_duplicados": [],
     }
 
@@ -1884,6 +2131,28 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
         answers, used_blocks = ({}, [])
         if gab:
             answers, used_blocks = extract_gabarito_for_cargo(gab.path, prova.cargo)
+            # gabaritos com uma coluna por versão: a coluna que casa com o
+            # cargo é mais confiável que a leitura misturada das versões.
+            # Só completa o bloco comum (números anteriores ao específico)
+            # com o que a leitura por blocos já tinha.
+            total = max((q["numero"] for q in questions), default=0)
+            por_coluna = gabarito_por_colunas(gab.path, prova.cargo, total)
+            cobertas = sum(1 for q in questions if q["numero"] in por_coluna)
+            if por_coluna and cobertas >= 0.8 * len(questions):
+                primeira = min(por_coluna)
+                for n, letra in answers.items():
+                    if n < primeira and n not in por_coluna:
+                        por_coluna[n] = letra
+                answers = por_coluna
+                used_blocks = [
+                    {
+                        "cabecalho": "coluna do cargo (tabela de versões)",
+                        "respostas": len(por_coluna),
+                        "bloco_comum": False,
+                        "primeira": min(por_coluna),
+                        "ultima": max(por_coluna),
+                    }
+                ]
 
         # cobertura baixa indica extração quebrada (numeração perdida, páginas
         # em imagem, caderno fora do padrão): melhor não publicar questões
@@ -1907,12 +2176,17 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
                 continue
 
         missing_alt = []
+        missing_gab = []
         for q in questions:
             n = q["numero"]
             opts = q["alternativas"]
             alt = {letter: opts.get(letter, "") for letter in "ABCDE"}
             gabarito = answers.get(n)
             anulada = gabarito == "#"
+            # sem gabarito não há como corrigir: melhor não publicar a questão
+            if gabarito is None:
+                missing_gab.append(n)
+                continue
             disciplina = discipline_for(n, sections)
             assunto = classificar_assunto(disciplina, q["enunciado"], alt)
 
@@ -1949,8 +2223,13 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
                 "blocos_gabarito": used_blocks,
                 "disciplinas": sections,
                 "questoes_com_alternativa_vazia": missing_alt,
+                "questoes_sem_gabarito": missing_gab,
             }
         )
+        if missing_gab:
+            report["questoes_sem_gabarito"].append(
+                {"arquivo": prova.filename, "questoes": missing_gab}
+            )
         if missing_alt:
             report["questoes_sem_alternativas"].append(
                 {"arquivo": prova.filename, "questoes": missing_alt}
