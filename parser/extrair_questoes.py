@@ -1647,9 +1647,39 @@ def gabarito_por_colunas(
     if not brutas:
         return {}
 
-    # 2) empilha a mesma coluna ao longo das páginas
+    # 2) funde subcolunas complementares da mesma página (versões de 30
+    # questões trazem LP/Matemática/Específicas lado a lado, cada uma com um
+    # pedaço da numeração). Colunas de versões diferentes repetem a mesma
+    # numeração e por isso não são fundidas.
+    def numeros(coluna: dict) -> set[int]:
+        return {n for n, _ in coluna["respostas"]}
+
+    def sobreposicao(a: dict, b: dict) -> float:
+        na, nb = numeros(a), numeros(b)
+        if not na or not nb:
+            return 0.0
+        return len(na & nb) / min(len(na), len(nb))
+
+    blocos: list[dict] = []
+    for coluna in sorted(brutas, key=lambda c: c["x"]):
+        if blocos:
+            ultimo = blocos[-1]
+            if ultimo["x"] <= coluna["x"] <= ultimo["x"] + 80 and sobreposicao(ultimo, coluna) < 0.3:
+                total_antigo = len(ultimo["respostas"])
+                ultimo["respostas"].extend(coluna["respostas"])
+                ultimo["tokens"] |= coluna["tokens"]
+                # x médio ponderado pelas respostas, para seguir a coluna
+                peso = len(coluna["respostas"])
+                ultimo["x"] = (ultimo["x"] * total_antigo + coluna["x"] * peso) / (total_antigo + peso)
+                continue
+        blocos.append(dict(coluna))
+
+    if not blocos:
+        return {}
+
+    # 3) empilha o mesmo bloco ao longo das páginas
     pilhas: list[dict] = []
-    for coluna in brutas:
+    for coluna in blocos:
         destino = None
         for pilha in pilhas:
             if abs(coluna["x"] - pilha["x"]) > 24:
@@ -2184,21 +2214,29 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
         # em imagem, caderno fora do padrão): melhor não publicar questões
         # desalinhadas do gabarito
         if min_cobertura > 0 and answers:
-            cobertura = len(questions) / len(answers)
-            if cobertura < min_cobertura:
+            # o gabarito pode trazer respostas de outros cargos (mais respostas
+            # que questões); o que não pode faltar é resposta para a questão.
+            total_questoes = max((q["numero"] for q in questions), default=0)
+            respondidas = sum(1 for q in questions if q["numero"] in answers)
+            cobertura = respondidas / len(questions) if questions else 0.0
+            excedente = max(answers) > total_questoes * 1.4 or len(answers) > total_questoes * 1.4
+            motivo = None
+            if excedente:
+                motivo = "gabarito com respostas de outro cargo"
+            elif cobertura < min_cobertura:
+                motivo = f"questões sem resposta (cobertura {cobertura:.0%})"
+            if motivo:
                 report["provas_incompletas"].append(
                     {
                         "arquivo": prova.filename,
                         "questoes_extraidas": len(questions),
                         "respostas_gabarito": len(answers),
                         "cobertura": round(cobertura, 3),
+                        "motivo": motivo,
                     }
                 )
                 if verbose:
-                    print(
-                        f"[!] {prova.filename}: {len(questions)} questões para "
-                        f"{len(answers)} respostas (cobertura {cobertura:.0%}) — ignorada"
-                    )
+                    print(f"[!] {prova.filename}: {motivo} — ignorada")
                 continue
 
         missing_alt = []
