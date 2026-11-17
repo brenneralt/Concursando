@@ -36,6 +36,7 @@ import subprocess
 import sys
 import unicodedata
 from dataclasses import dataclass, field, asdict
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Iterable, Optional
 
@@ -1577,16 +1578,19 @@ def pares_de_resposta(palavras: list[tuple[float, float, str]]) -> list[tuple[in
 
 
 def gabarito_por_colunas(
-    path: Path, cargo: str, total_questoes: Optional[int] = None
-) -> dict[int, str]:
+    path: Path,
+    cargo: str,
+    total_questoes: Optional[int] = None,
+    cor: Optional[str] = None,
+) -> Optional[dict[int, str]]:
     """Escolhe a coluna da versão certa num gabarito com várias provas.
 
     A Cesgranrio publica um único PDF com as respostas de todas as versões
-    lado a lado (ex.: "PROVA 1 (TÉCNICO EM EDIFICAÇÕES)"). Cada bloco de
-    respostas vira uma âncora; as palavras do cabeçalho são atribuídas à
-    âncora mais próxima e as colunas equivalentes das páginas seguintes são
-    empilhadas. A escolha usa o nome do cargo e, quando disponível, o total
-    de questões do caderno. Devolve `{}` se nada casar com segurança.
+    lado a lado (ex.: "PROVA 1 (TÉCNICO EM EDIFICAÇÕES)"). A página é cortada
+    em faixas de respostas (tabelas), cada tabela tem suas colunas agrupadas
+    por x e o cabeçalho logo acima é casado com a coluna pela ordem. A escolha
+    usa o nome do cargo e, quando disponível, o total de questões do caderno.
+    Devolve `{}` se nada casar com segurança.
     """
     alvo = set(norm_cargo_key(cargo).split())
     if not alvo:
@@ -1595,59 +1599,139 @@ def gabarito_por_colunas(
     def tokens_de(texto: str) -> set[str]:
         return set(norm_cargo_key(texto).split()) - GABARITO_HEADER_STOPWORDS
 
-    # 1) colunas de cada página, com as palavras do cabeçalho mais próximas
+    def rotulos_cabecalho(
+        pagina: dict, inicio: float, fim_anterior: float
+    ) -> tuple[list[tuple[float, float, str]], list[tuple[float, str]]]:
+        """Rótulos (frases) acima da tabela, com a faixa horizontal ocupada.
+
+        Cada linha é partida em frases por vãos maiores que o espaço entre
+        palavras; assim "PROVA 1 (AJUDANTE DE CARGA / DESCARGA I)" vira um
+        rótulo só, e não palavras soltas misturadas com a coluna vizinha.
+        """
+        limite = min(max(fim_anterior, inicio - 100), inicio - 8)
+        rotulos: list[tuple[float, float, str]] = []
+        palavras: list[tuple[float, str]] = []
+        for linha in pagina["linhas"]:
+            if linha["y"] >= inicio or linha["y"] < limite:
+                continue
+            atual: list[tuple[float, float, str]] = []
+            for x0, x1, texto in linha["palavras"]:
+                if GABARITO_HEADER_NOISE_RE.search(texto):
+                    continue
+                if not re.search(r"[A-Za-zÀ-ÿ]", texto):
+                    continue
+                palavras.append(((x0 + x1) / 2, texto))
+                if atual and x0 - atual[-1][1] > 12:
+                    rotulos.append(
+                        (atual[0][0], max(w[1] for w in atual), " ".join(w[2] for w in atual))
+                    )
+                    atual = []
+                atual.append((x0, x1, texto))
+            if atual:
+                rotulos.append(
+                    (atual[0][0], max(w[1] for w in atual), " ".join(w[2] for w in atual))
+                )
+        return rotulos, sorted(palavras)
+
+    # 1) faixas de respostas (tabelas) e colunas de cada faixa
     brutas: list[dict] = []
     for pagina in paginas_com_palavras(path):
-        pares_pagina: list[tuple[int, str, float, float]] = []
-        linhas_com_par: list[float] = []
+        linhas_respostas: list[tuple[float, list[tuple[int, str, float]]]] = []
         for linha in pagina["linhas"]:
             achados = pares_de_resposta(linha["palavras"])
             if achados:
-                linhas_com_par.append(linha["y"])
-            for n, letra, x in achados:
-                pares_pagina.append((n, letra, x, linha["y"]))
-        if not pares_pagina:
+                linhas_respostas.append((linha["y"], achados))
+        if not linhas_respostas:
             continue
 
-        xs = sorted({round(x, 1) for _, _, x, _ in pares_pagina})
-        grupos: list[list[float]] = []
-        for x in xs:
-            if grupos and x - grupos[-1][-1] <= 28:
-                grupos[-1].append(x)
+        # agrupa linhas vizinhas (espaçamento normal ~15pt) em tabelas
+        faixas: list[list[tuple[float, list[tuple[int, str, float]]]]] = []
+        for item in linhas_respostas:
+            if faixas and item[0] - faixas[-1][-1][0] <= 26:
+                faixas[-1].append(item)
             else:
-                grupos.append([x])
-        if len(grupos) < 2:
-            continue
+                faixas.append([item])
 
-        primeira_linha = min(linhas_com_par)
-        for grupo in grupos:
-            lo, hi = grupo[0] - 12, grupo[-1] + 12
-            respostas = [(n, letra) for n, letra, x, _ in pares_pagina if lo <= x <= hi]
-            if not respostas:
-                continue
-            ancora = sum(grupo) / len(grupo)
-            palavras_cab: list[str] = []
-            for linha in pagina["linhas"]:
-                if linha["y"] >= primeira_linha or linha["y"] < primeira_linha - 260:
+        fim_anterior = 0.0
+        for faixa in faixas:
+            pares_faixa = [
+                (n, letra, x, y)
+                for y, achados in faixa
+                for n, letra, x in achados
+            ]
+            inicio = faixa[0][0]
+            xs = sorted({round(x, 1) for _, _, x, _ in pares_faixa})
+            grupos: list[list[float]] = []
+            for x in xs:
+                if grupos and x - grupos[-1][-1] <= 28:
+                    grupos[-1].append(x)
+                else:
+                    grupos.append([x])
+
+            # gabarito em grade horizontal (1- C | 2- A | 3- C ... em cada
+            # linha): as "colunas" aqui são pedaços da mesma sequência, não
+            # versões diferentes; a leitura por texto resolve melhor
+            if len(grupos) >= 3:
+                passos = []
+                for grupo in grupos:
+                    lo_g, hi_g = grupo[0] - 1, grupo[-1] + 1
+                    nums = sorted(
+                        n for n, _, x, _ in pares_faixa if lo_g <= x <= hi_g
+                    )
+                    difs = {b - a for a, b in zip(nums, nums[1:])}
+                    if len(nums) < 3 or len(difs) != 1:
+                        passos = []
+                        break
+                    passos.append(difs.pop())
+                if passos and len(set(passos)) == 1 and passos[0] > 1:
+                    fim_anterior = max(y for y, _ in faixa)
                     continue
-                for x0, x1, texto in linha["palavras"]:
-                    if GABARITO_HEADER_NOISE_RE.search(texto):
+
+            if grupos:
+                rotulos, palavras = rotulos_cabecalho(pagina, inicio, fim_anterior)
+
+                for grupo in grupos:
+                    lo, hi = grupo[0] - 12, grupo[-1] + 12
+                    respostas = [
+                        (n, letra) for n, letra, x, _ in pares_faixa if lo <= x <= hi
+                    ]
+                    if not respostas:
                         continue
-                    centro = (x0 + x1) / 2
-                    if abs(centro - ancora) <= 70:
-                        palavras_cab.append(texto)
-            brutas.append(
-                {
-                    "x": ancora,
-                    "respostas": respostas,
-                    "tokens": tokens_de(" ".join(palavras_cab)),
-                }
-            )
+                    ancora = sum(grupo) / len(grupo)
+
+                    # rótulos que cobrem a coluna; títulos que atravessam a
+                    # página inteira (todas as versões) ficam de fora
+                    textos = []
+                    for x0, x1, texto in rotulos:
+                        cobertos = sum(1 for g in grupos if x0 <= (g[0] + g[-1]) / 2 <= x1)
+                        if cobertos > 2:
+                            continue
+                        if x1 >= lo and x0 <= hi:
+                            textos.append(texto)
+                    if not textos:
+                        textos = [
+                            texto
+                            for centro, texto in palavras
+                            if abs(centro - ancora) <= 55
+                        ]
+                    brutas.append(
+                        {
+                            "x": ancora,
+                            "respostas": respostas,
+                            "tokens": tokens_de(" ".join(textos)),
+                            "y": inicio,
+                            # tabela de uma coluna só costuma ser o bloco comum
+                            # a todas as versões; não pode ser confundida com
+                            # a coluna de uma versão
+                            "comum": len(grupos) == 1,
+                        }
+                    )
+            fim_anterior = max(y for y, _ in faixa)
 
     if not brutas:
         return {}
 
-    # 2) funde subcolunas complementares da mesma página (versões de 30
+    # 2) funde subcolunas complementares da mesma tabela (versões de 30
     # questões trazem LP/Matemática/Específicas lado a lado, cada uma com um
     # pedaço da numeração). Colunas de versões diferentes repetem a mesma
     # numeração e por isso não são fundidas.
@@ -1660,28 +1744,32 @@ def gabarito_por_colunas(
             return 0.0
         return len(na & nb) / min(len(na), len(nb))
 
-    blocos: list[dict] = []
-    for coluna in sorted(brutas, key=lambda c: c["x"]):
-        if blocos:
-            ultimo = blocos[-1]
-            if ultimo["x"] <= coluna["x"] <= ultimo["x"] + 80 and sobreposicao(ultimo, coluna) < 0.3:
+    blocos_agrupados: list[dict] = []
+    for coluna in sorted(brutas, key=lambda c: (c["y"], c["x"])):
+        if blocos_agrupados:
+            ultimo = blocos_agrupados[-1]
+            mesma_tabela = (
+                abs(ultimo["y"] - coluna["y"]) <= 26
+                and ultimo["comum"] == coluna["comum"]
+            )
+            if mesma_tabela and coluna["x"] - ultimo["x"] <= 80 and sobreposicao(ultimo, coluna) < 0.3:
                 total_antigo = len(ultimo["respostas"])
                 ultimo["respostas"].extend(coluna["respostas"])
                 ultimo["tokens"] |= coluna["tokens"]
-                # x médio ponderado pelas respostas, para seguir a coluna
                 peso = len(coluna["respostas"])
-                ultimo["x"] = (ultimo["x"] * total_antigo + coluna["x"] * peso) / (total_antigo + peso)
+                ultimo["x"] = (ultimo["x"] * total_antigo + coluna["x"] * peso) / (
+                    total_antigo + peso
+                )
                 continue
-        blocos.append(dict(coluna))
-
-    if not blocos:
-        return {}
+        blocos_agrupados.append(dict(coluna))
 
     # 3) empilha o mesmo bloco ao longo das páginas
     pilhas: list[dict] = []
-    for coluna in blocos:
+    for coluna in blocos_agrupados:
         destino = None
         for pilha in pilhas:
+            if pilha["comum"] != coluna["comum"]:
+                continue
             if abs(coluna["x"] - pilha["x"]) > 24:
                 continue
             if coluna["tokens"] and pilha["tokens"] and not (coluna["tokens"] & pilha["tokens"]):
@@ -1694,62 +1782,257 @@ def gabarito_por_colunas(
                     "x": coluna["x"],
                     "respostas": list(coluna["respostas"]),
                     "tokens": set(coluna["tokens"]),
-                    "paginas": 1,
+                    "comum": coluna["comum"],
                 }
             )
         else:
             destino["respostas"].extend(coluna["respostas"])
             destino["tokens"] |= coluna["tokens"]
-            destino["paginas"] += 1
 
     def pontuar(pilha: dict) -> float:
+        """Aderência do cabeçalho da coluna ao cargo.
+
+        Compara token a token com tolerância a abreviações do tipo
+        "AG. ADMINISTRATIVO" para "Agente Administrativo".
+        """
         if not pilha["tokens"]:
             return 0.0
-        return len(alvo & pilha["tokens"]) / len(alvo)
+        exato = len(alvo & pilha["tokens"]) / len(alvo)
+        if exato >= 0.99:
+            return 1.0
+        parecido = 0.0
+        for palavra in alvo:
+            parecido += max(
+                SequenceMatcher(None, palavra, token).ratio() for token in pilha["tokens"]
+            )
+        return max(exato, parecido / len(alvo))
+
+    if os.environ.get("DEBUG_GAB"):
+        print(f"[debug] {path.name} cargo={cargo!r} total={total_questoes}")
+        for i, pilha in enumerate(pilhas):
+            nums = {n for n, _ in pilha["respostas"]}
+            cob = (
+                sum(1 for n in range(1, total_questoes + 1) if n in nums) / total_questoes
+                if total_questoes
+                else 0.0
+            )
+            print(
+                f"   p{i} x={pilha['x']:.0f} n={len(nums)} pont={pontuar(pilha):.2f} "
+                f"cob={cob:.2f} {min(nums) if nums else '-'}..{max(nums) if nums else '-'} "
+                f"tokens={sorted(pilha['tokens'])}"
+            )
 
     def ajuste(pilha: dict) -> float:
         """Quão bem a coluna cobre 1..N (N = questões do caderno)."""
         if not total_questoes:
             return 0.0
-        numeros = {n for n, _ in pilha["respostas"]}
-        presentes = sum(1 for n in range(1, total_questoes + 1) if n in numeros)
-        extras = sum(1 for n in numeros if n > total_questoes)
+        numeros_pilha = {n for n, _ in pilha["respostas"]}
+        presentes = sum(1 for n in range(1, total_questoes + 1) if n in numeros_pilha)
+        extras = sum(1 for n in numeros_pilha if n > total_questoes)
         return presentes / total_questoes - extras / total_questoes
 
-    candidatas = [p for p in pilhas if pontuar(p) >= 0.6]
+    def sem_certeza() -> Optional[dict[int, str]]:
+        """Sem escolha segura: None avisa que a tabela tem versões misturadas."""
+        return None
+
+    def numeros_de(pilha: dict) -> set[int]:
+        return {n for n, _ in pilha["respostas"]}
+
+    letras_por_numero: dict[int, set[str]] = {}
+    for pilha in pilhas:
+        for n, letra in pilha["respostas"]:
+            letras_por_numero.setdefault(n, set()).add(letra)
+
+    def cobertura(respostas: dict[int, str]) -> float:
+        if not total_questoes:
+            return 1.0
+        presentes = sum(1 for n in range(1, total_questoes + 1) if n in respostas)
+        return presentes / total_questoes
+
+    def completar_unanimidade(respostas: dict[int, str]) -> None:
+        """Preenche buracos só quando todas as colunas concordam no número."""
+        for n, letras in letras_por_numero.items():
+            if total_questoes and n > total_questoes:
+                continue
+            if n not in respostas and len(letras) == 1:
+                respostas[n] = next(iter(letras))
+
+    conflitante = any(len(letras) > 1 for letras in letras_por_numero.values())
+
+    # sem divergência entre colunas não há versões misturadas: dá para somar
+    # os pedaços (LP/Matemática/Específicas) sem risco de trocar a versão
+    if not conflitante:
+        resposta_unica: dict[int, str] = {}
+        completar_unanimidade(resposta_unica)
+        return resposta_unica if cobertura(resposta_unica) >= 0.95 else {}
+
+    # há respostas divergentes: a tabela traz mais de uma versão e é preciso
+    # identificar qual coluna é a do cargo
+    # quando o caderno diz a cor da prova (ex.: PROVA AZUL), a coluna dessa
+    # cor é a certa — mais confiável que casar o nome do cargo
+    com_cor = [p for p in pilhas if not p["comum"] and cor in p["tokens"]]
+    if cor and com_cor:
+        candidatas = [p for p in com_cor if pontuar(p) >= 0.0]
+        candidatas.sort(key=lambda p: (len(numeros_de(p) & set(range(1, (total_questoes or 0) + 1))), pontuar(p)), reverse=True)
+        if total_questoes and cobertura({n: l for n, l in candidatas[0]["respostas"]}) < 0.95:
+            return sem_certeza()
+        respostas_cor: dict[int, str] = {}
+        for pilha in candidatas:
+            letras = dict(pilha["respostas"])
+            if any(n in respostas_cor and respostas_cor[n] != letra for n, letra in letras.items()):
+                continue
+            for n, letra in letras.items():
+                respostas_cor.setdefault(n, letra)
+        completar_unanimidade(respostas_cor)
+        if cobertura(respostas_cor) >= 0.95:
+            return respostas_cor
+
+    candidatas = [p for p in pilhas if not p["comum"] and pontuar(p) >= 0.45]
     if not candidatas:
-        return {}
+        # nenhum cabeçalho reconhecido: publica só o que é igual em todas as
+        # colunas (e confere com a leitura por cargo)
+        resposta_unica = {}
+        completar_unanimidade(resposta_unica)
+        if cobertura(resposta_unica) < 0.95:
+            return sem_certeza()
+        return resposta_unica
 
     def chave(pilha: dict) -> tuple[float, float]:
         return (ajuste(pilha), pontuar(pilha))
 
     candidatas.sort(key=chave, reverse=True)
     melhor = candidatas[0]
-    if len(candidatas) > 1:
-        empate = chave(candidatas[1])
-        if abs(empate[0] - chave(melhor)[0]) < 0.01 and abs(empate[1] - chave(melhor)[1]) < 0.01:
-            if candidatas[1]["tokens"] != melhor["tokens"]:
-                return {}
+
+    # só é ambíguo quando outra coluna repete a mesma numeração (versões
+    # concorrentes) com a mesma pontuação; colunas complementares somam
+    concorrentes = [c for c in candidatas[1:] if numeros_de(c) & numeros_de(melhor)]
+    if concorrentes:
+        segundo = max(concorrentes, key=chave)
+        if abs(chave(segundo)[0] - chave(melhor)[0]) < 0.01 and abs(chave(segundo)[1] - chave(melhor)[1]) < 0.01:
+            if segundo["tokens"] != melhor["tokens"]:
+                return sem_certeza()
 
     respostas: dict[int, str] = {}
     for n, letra in melhor["respostas"]:
+        if total_questoes and n > total_questoes:
+            continue
         respostas.setdefault(n, letra)
 
-    # respostas comuns (bloco básico) podem estar em outra coluna/página:
-    # completa só o que vem antes do bloco específico e apenas quando todas
-    # as colunas concordam (é resposta comum a todos os cargos)
-    primeira = min(respostas) if respostas else 0
-    for n in range(1, primeira):
-        if n in respostas:
+    # colunas complementares do mesmo cargo (blocos de LP/Matemática/
+    # Específicas com numeração própria) entram desde que não contradigam
+    for pilha in candidatas[1:]:
+        if pontuar(pilha) < 0.85 * pontuar(melhor):
             continue
-        letras = {
-            letra
-            for pilha in pilhas
-            for numero, letra in pilha["respostas"]
-            if numero == n
-        }
-        if len(letras) == 1:
-            respostas[n] = letras.pop()
+        letras = dict(pilha["respostas"])
+        if any(n in respostas and respostas[n] != letra for n, letra in letras.items()):
+            continue
+        for n, letra in letras.items():
+            if total_questoes and n > total_questoes:
+                continue
+            respostas.setdefault(n, letra)
+
+    completar_unanimidade(respostas)
+
+    # a coluna escolhida precisa cobrir o caderno
+    return respostas if cobertura(respostas) >= 0.95 else sem_certeza()
+
+
+CORES_PROVA = {
+    "amarela", "azul", "branca", "verde", "rosa", "roxa", "laranja", "cinza",
+}
+
+
+def versao_do_caderno(pdf_path: Path) -> dict[str, str]:
+    """Descobre a versão do caderno de prova (número do gabarito e cor).
+
+    A Cesgranrio imprime no próprio caderno "GABARITO 2 - PROVA AZUL"; isso
+    identifica sem margem de dúvida a coluna do gabarito oficial.
+    """
+    texto = run_pdftotext(pdf_path, "raw")[:12000]
+    versao: dict[str, str] = {}
+    acha = re.search(
+        r"GABARITO\s*(?:N[º°o]?\s*)?[:\-–]?\s*(\d{1,2})", texto, re.I
+    )
+    if acha:
+        versao["gabarito"] = acha.group(1)
+    for cor in sorted(CORES_PROVA):
+        if re.search(rf"\bPROVA\s+(?:COR\s+)?{cor}\b", texto, re.I):
+            versao["cor"] = cor
+            break
+    return versao
+
+
+def gabarito_por_pagina_de_versao(
+    path: Path, versao: dict[str, str], total_questoes: Optional[int] = None
+) -> Optional[dict[int, str]]:
+    """Lê a página do gabarito que pertence à versão do caderno.
+
+    Serve para gabaritos com uma página por cor de prova. Só aceita a página
+    quando o cabeçalho aponta uma única versão (a do caderno); páginas com
+    várias versões lado a lado continuam a cargo de `gabarito_por_colunas`.
+    """
+    if not versao or not path.exists():
+        return None
+
+    respostas: dict[int, str] = {}
+    usou_pagina = False
+    for pagina in paginas_com_palavras(path):
+        linhas_respostas = []
+        for linha in pagina["linhas"]:
+            achados = pares_de_resposta(linha["palavras"])
+            if achados:
+                linhas_respostas.append((linha["y"], achados))
+        if not linhas_respostas:
+            continue
+        primeira_linha = min(y for y, _ in linhas_respostas)
+        cabecalho = " ".join(
+            texto
+            for linha in pagina["linhas"]
+            if linha["y"] < primeira_linha
+            for _, _, texto in linha["palavras"]
+        )
+
+        cores = {cor for cor in CORES_PROVA if re.search(rf"\b{cor}\b", cabecalho, re.I)}
+        numeros = set(re.findall(r"GABARITO\s*(?:N[º°o]?\s*)?[:\-–]?\s*(\d{1,2})", cabecalho, re.I))
+        if len(cores) > 1 or len(numeros) > 1:
+            continue
+
+        if versao.get("cor"):
+            if cores != {versao["cor"]}:
+                continue
+        elif versao.get("gabarito"):
+            if numeros != {versao["gabarito"]}:
+                continue
+        else:
+            continue
+
+        da_pagina: dict[int, str] = {}
+        conflito = False
+        for _, achados in linhas_respostas:
+            for n, letra, _x in achados:
+                if total_questoes and n > total_questoes:
+                    continue
+                if n in da_pagina and da_pagina[n] != letra:
+                    conflito = True
+                    break
+                da_pagina[n] = letra
+            if conflito:
+                break
+        if conflito or not da_pagina:
+            continue
+
+        usou_pagina = True
+        for n, letra in da_pagina.items():
+            if n in respostas and respostas[n] != letra:
+                return None
+            respostas[n] = letra
+
+    if not usou_pagina or not respostas:
+        return None
+    if total_questoes:
+        presentes = sum(1 for n in range(1, total_questoes + 1) if n in respostas)
+        if presentes / total_questoes < 0.95:
+            return None
     return respostas
 
 
@@ -2192,7 +2475,32 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
             # Só completa o bloco comum (números anteriores ao específico)
             # com o que a leitura por blocos já tinha.
             total = max((q["numero"] for q in questions), default=0)
-            por_coluna = gabarito_por_colunas(gab.path, prova.cargo, total)
+            versao = versao_do_caderno(prova.path)
+            por_coluna = gabarito_por_colunas(
+                gab.path, prova.cargo, total, cor=versao.get("cor")
+            )
+            if por_coluna is None and versao:
+                por_coluna = gabarito_por_pagina_de_versao(
+                    gab.path, versao, total
+                )
+            if por_coluna is None:
+                # várias versões na mesma tabela e nenhuma coluna confiável:
+                # publicar exigiria adivinhar a versão do caderno
+                report["provas_incompletas"].append(
+                    {
+                        "arquivo": prova.filename,
+                        "questoes_extraidas": len(questions),
+                        "respostas_gabarito": len(answers),
+                        "cobertura": 0.0,
+                        "motivo": "gabarito com versões conflitantes (coluna indefinida)",
+                    }
+                )
+                if verbose:
+                    print(
+                        f"[!] {prova.filename}: gabarito com versões "
+                        "conflitantes e coluna indefinida — ignorada"
+                    )
+                continue
             cobertas = sum(1 for q in questions if q["numero"] in por_coluna)
             if por_coluna and cobertas >= 0.8 * len(questions):
                 primeira = min(por_coluna)

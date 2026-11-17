@@ -82,6 +82,40 @@ CARGOS_SUPERIORES = {
 }
 
 
+# cargos de nível superior que não aparecem como área de formação no nome,
+# mas cujo prefixo já denuncia a escolaridade (o caderno nem sempre traz o
+# nível no texto)
+PREFIXOS_SUPERIORES = {
+    "administrador",
+    "advogado",
+    "analista",
+    "arquiteto",
+    "auditor",
+    "bibliotecario",
+    "biologo",
+    "contador",
+    "economista",
+    "enfermeiro",
+    "engenheiro",
+    "estatistico",
+    "farmaceutico",
+    "fisico",
+    "fisioterapeuta",
+    "fonoaudiologo",
+    "geologo",
+    "matematico",
+    "medico",
+    "nutricionista",
+    "odontologo",
+    "pesquisador",
+    "professor",
+    "psicologo",
+    "quimico",
+    "tecnologista",
+    "veterinario",
+}
+
+
 def norm(texto: str) -> str:
     texto = unicodedata.normalize("NFKD", texto or "")
     texto = "".join(c for c in texto if not unicodedata.combining(c))
@@ -90,7 +124,9 @@ def norm(texto: str) -> str:
 
 def cargo_superior(cargo: str) -> bool:
     chave = norm(cargo)
-    if chave in CARGOS_SUPERIORES:
+    if chave in CARGOS_SUPERIORES or chave == "auditoria":
+        return True
+    if chave.split() and chave.split()[0] in PREFIXOS_SUPERIORES:
         return True
     # "Administração - Júnior", "Ciências Contábeis Júnior"... continuam sendo
     # a área de formação; já "Técnico em Administração" é cargo de nível médio.
