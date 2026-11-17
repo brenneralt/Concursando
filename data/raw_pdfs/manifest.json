@@ -3775,5 +3775,435 @@
     "origem": "https://www.pciconcursos.com.br/provas/11324579/1c3617127f6/gabarito_medio.pdf"
    }
   ]
+ },
+ "engenharia-mecanica-chesf-cesgranrio-2012": {
+  "prova": [
+   {
+    "arquivo": "engenharia-mecanica-chesf-cesgranrio-2012_prova.pdf",
+    "bytes": 209830,
+    "origem": "https://www.pciconcursos.com.br/provas/17400755/5e9f32ec0fe/prova_13_engenharia_mecanica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "engenharia-mecanica-chesf-cesgranrio-2012_gabarito.pdf",
+    "bytes": 257338,
+    "origem": "https://www.pciconcursos.com.br/provas/17400755/665dc1333f1/gabaritos.pdf"
+   }
+  ]
+ },
+ "engenharia-mecanica-junior-petrobras-distribuidora-cesgranrio-2011": {
+  "prova": [
+   {
+    "arquivo": "engenharia-mecanica-junior-petrobras-distribuidora-cesgranrio-2011_prova.pdf",
+    "bytes": 317745,
+    "origem": "https://www.pciconcursos.com.br/provas/16675123/aa6e3394ceb/prova_22_profissional_junior_formacao_engenharia_mecanica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "engenharia-mecanica-junior-petrobras-distribuidora-cesgranrio-2011_gabarito.pdf",
+    "bytes": 147141,
+    "origem": "https://www.pciconcursos.com.br/provas/16675123/3c9b932e1da/gabaritos.pdf"
+   }
+  ]
+ },
+ "engenharia-naval-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "engenharia-naval-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 795212,
+    "origem": "https://www.pciconcursos.com.br/provas/31470604/bda491fc711/engenharia_naval.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "engenharia-naval-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 612861,
+    "origem": "https://www.pciconcursos.com.br/provas/31470604/453f20ef601/gabarito.pdf"
+   }
+  ]
+ },
+ "engenharia-quimica-junior-petrobras-distribuidora-cesgranrio-2011": {
+  "prova": [
+   {
+    "arquivo": "engenharia-quimica-junior-petrobras-distribuidora-cesgranrio-2011_prova.pdf",
+    "bytes": 311621,
+    "origem": "https://www.pciconcursos.com.br/provas/16675260/d53c2bce7e6/prova_23_profissional_junior_formacao_engenharia_quimica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "engenharia-quimica-junior-petrobras-distribuidora-cesgranrio-2011_gabarito.pdf",
+    "bytes": 147144,
+    "origem": "https://www.pciconcursos.com.br/provas/16675260/a371d315a28/gabaritos.pdf"
+   }
+  ]
+ },
+ "engenharia-quimica-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "engenharia-quimica-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 783807,
+    "origem": "https://www.pciconcursos.com.br/provas/31470781/17af8823358/engenharia_quimica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "engenharia-quimica-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 612862,
+    "origem": "https://www.pciconcursos.com.br/provas/31470781/83bb9c92259/gabarito.pdf"
+   }
+  ]
+ },
+ "epidemiologista-sead-am-cesgranrio-2005": {
+  "prova": [
+   {
+    "arquivo": "epidemiologista-sead-am-cesgranrio-2005_prova.pdf",
+    "bytes": 55548,
+    "origem": "https://www.pciconcursos.com.br/provas/13362517/2b646bc4911/pdf_sead_epidemiologista.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "epidemiologista-sead-am-cesgranrio-2005_gabarito.pdf",
+    "bytes": 140030,
+    "origem": "https://www.pciconcursos.com.br/provas/13362517/f4a5130744a/gabaritos_sead.pdf"
+   }
+  ]
+ },
+ "escriturario-agente-comercial-banco-do-brasil-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "escriturario-agente-comercial-banco-do-brasil-cesgranrio-2023_prova.pdf",
+    "bytes": 428876,
+    "origem": "https://www.pciconcursos.com.br/provas/29658981/df5e14bfc3d/escriturario_agente_comercial.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-agente-comercial-banco-do-brasil-cesgranrio-2023_gabarito.pdf",
+    "bytes": 252617,
+    "origem": "https://www.pciconcursos.com.br/provas/29658981/c11a8b5b344/gabarito.pdf"
+   }
+  ]
+ },
+ "escriturario-agente-comercial-banco-do-brasil-s-a-cesgranrio-2021": {
+  "prova": [
+   {
+    "arquivo": "escriturario-agente-comercial-banco-do-brasil-s-a-cesgranrio-2021_prova.pdf",
+    "bytes": 315951,
+    "origem": "https://www.pciconcursos.com.br/provas/28520338/8f439c1c008/escriturario_agente_comercial.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-agente-comercial-banco-do-brasil-s-a-cesgranrio-2021_gabarito.pdf",
+    "bytes": 249484,
+    "origem": "https://www.pciconcursos.com.br/provas/28520338/be008af8f3b/gabrito.pdf"
+   }
+  ]
+ },
+ "escriturario-agente-de-tecnologia-banco-do-brasil-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "escriturario-agente-de-tecnologia-banco-do-brasil-cesgranrio-2023_prova.pdf",
+    "bytes": 728886,
+    "origem": "https://www.pciconcursos.com.br/provas/29659023/400daa668a9/escriturario_agente_de_tecnologia.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-agente-de-tecnologia-banco-do-brasil-cesgranrio-2023_gabarito.pdf",
+    "bytes": 252626,
+    "origem": "https://www.pciconcursos.com.br/provas/29659023/87958444baf/gabarito.pdf"
+   }
+  ]
+ },
+ "escriturario-agente-de-tecnologia-banco-do-brasil-s-a-cesgranrio-2021": {
+  "prova": [
+   {
+    "arquivo": "escriturario-agente-de-tecnologia-banco-do-brasil-s-a-cesgranrio-2021_prova.pdf",
+    "bytes": 650192,
+    "origem": "https://www.pciconcursos.com.br/provas/28520484/05fd83c23ec/escriturario_agente_de_tecnologia.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-agente-de-tecnologia-banco-do-brasil-s-a-cesgranrio-2021_gabarito.pdf",
+    "bytes": 249478,
+    "origem": "https://www.pciconcursos.com.br/provas/28520484/1b1cd87f393/gabrito.pdf"
+   }
+  ]
+ },
+ "escriturario-banco-do-brasil-cesgranrio-2010": {
+  "prova": [
+   {
+    "arquivo": "escriturario-banco-do-brasil-cesgranrio-2010_prova.pdf",
+    "bytes": 213049,
+    "origem": "https://www.pciconcursos.com.br/provas/14428573/b2adc9334b3/prova_amarela.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-banco-do-brasil-cesgranrio-2010_gabarito.pdf",
+    "bytes": 120262,
+    "origem": "https://www.pciconcursos.com.br/provas/14428573/88bc4c2be63/gabaritos_banco_do_brasil.pdf"
+   }
+  ]
+ },
+ "escriturario-banco-do-brasil-s-a-cesgranrio-2015-47": {
+  "prova": [
+   {
+    "arquivo": "escriturario-banco-do-brasil-s-a-cesgranrio-2015-47_prova.pdf",
+    "bytes": 339357,
+    "origem": "https://www.pciconcursos.com.br/provas/23268746/510e46855e3/prova_escriturario_gabarito_1.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-banco-do-brasil-s-a-cesgranrio-2015-47_gabarito.pdf",
+    "bytes": 248791,
+    "origem": "https://www.pciconcursos.com.br/provas/23268746/0a63f29ef76/gabaritos.pdf"
+   }
+  ]
+ },
+ "escriturario-banco-do-brasil-s-a-cesgranrio-2015": {
+  "prova": [],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-banco-do-brasil-s-a-cesgranrio-2015_gabarito.pdf",
+    "bytes": 380464,
+    "origem": "https://www.pciconcursos.com.br/provas/21999468/8a82e472fa5/escriturario_gabarito_1.pdf"
+   },
+   {
+    "arquivo": "escriturario-banco-do-brasil-s-a-cesgranrio-2015_gabarito_2.pdf",
+    "bytes": 115607,
+    "origem": "https://www.pciconcursos.com.br/provas/21999468/6b87444cce3/gabarito_1.pdf"
+   }
+  ]
+ },
+ "escriturario-banrisul-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "escriturario-banrisul-cesgranrio-2023_prova.pdf",
+    "bytes": 313150,
+    "origem": "https://www.pciconcursos.com.br/provas/29171612/fdcad4d8877/escriturario.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-banrisul-cesgranrio-2023_gabarito.pdf",
+    "bytes": 106831,
+    "origem": "https://www.pciconcursos.com.br/provas/29171612/b63bdc6b448/gabarito.pdf"
+   }
+  ]
+ },
+ "escriturario-bb-banco-do-brasil-cesgranrio-2012": {
+  "prova": [
+   {
+    "arquivo": "escriturario-bb-banco-do-brasil-cesgranrio-2012_prova.pdf",
+    "bytes": 167621,
+    "origem": "https://www.pciconcursos.com.br/provas/16959632/9a3aa1d5e4a/prova.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-bb-banco-do-brasil-cesgranrio-2012_gabarito.pdf",
+    "bytes": 604692,
+    "origem": "https://www.pciconcursos.com.br/provas/16959632/9fd2c87fe12/gabarito.pdf"
+   }
+  ]
+ },
+ "escriturario-versao-1-banco-do-brasil-s-a-cesgranrio-2018": {
+  "prova": [
+   {
+    "arquivo": "escriturario-versao-1-banco-do-brasil-s-a-cesgranrio-2018_prova.pdf",
+    "bytes": 457010,
+    "origem": "https://www.pciconcursos.com.br/provas/26510616/49f7c717c48/escriturario_versao_1.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "escriturario-versao-1-banco-do-brasil-s-a-cesgranrio-2018_gabarito.pdf",
+    "bytes": 124284,
+    "origem": "https://www.pciconcursos.com.br/provas/26510616/950a614e6c6/gabarito.pdf"
+   }
+  ]
+ },
+ "examinador-de-transito-detran-ac-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "examinador-de-transito-detran-ac-cesgranrio-2009_prova.pdf",
+    "bytes": 41982,
+    "origem": "https://www.pciconcursos.com.br/provas/12504886/e9c1d945dbf/agente_da_autoridade_de_transito_e_examinador_de_transito.pdf"
+   },
+   {
+    "arquivo": "examinador-de-transito-detran-ac-cesgranrio-2009_prova_2.pdf",
+    "bytes": 266549,
+    "origem": "https://www.pciconcursos.com.br/provas/12504886/9f6ef2e4688/prova_2_gabarito_4_verde_examinador_de_transito.pdf"
+   }
+  ],
+  "gabarito": []
+ },
+ "executivo-em-saude-secad-to-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "executivo-em-saude-secad-to-cesgranrio-2009_prova.pdf",
+    "bytes": 228701,
+    "origem": "https://www.pciconcursos.com.br/provas/12304785/5c2a393f5e3/prova09.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "executivo-em-saude-secad-to-cesgranrio-2009_gabarito.pdf",
+    "bytes": 123758,
+    "origem": "https://www.pciconcursos.com.br/provas/12304785/3d82350175f/gabarito_superior.pdf"
+   }
+  ]
+ },
+ "faixa-de-dutos-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "faixa-de-dutos-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 629291,
+    "origem": "https://www.pciconcursos.com.br/provas/31467107/503ae80516c/faixa_de_dutos.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "faixa-de-dutos-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 553384,
+    "origem": "https://www.pciconcursos.com.br/provas/31467107/9910119a17e/gabarito.pdf"
+   }
+  ]
+ },
+ "financas-e-orcamento-epe-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "financas-e-orcamento-epe-cesgranrio-2006_prova.pdf",
+    "bytes": 141216,
+    "origem": "https://www.pciconcursos.com.br/provas/10291169/332b5d56548/4.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "financas-e-orcamento-epe-cesgranrio-2006_gabarito.pdf",
+    "bytes": 73177,
+    "origem": "https://www.pciconcursos.com.br/provas/10291169/921383c5643/gabsup.pdf"
+   }
+  ]
+ },
+ "fisica-fundacao-osorio-cesgranrio-2026": {
+  "prova": [
+   {
+    "arquivo": "fisica-fundacao-osorio-cesgranrio-2026_prova.pdf",
+    "bytes": 1728551,
+    "origem": "https://www.pciconcursos.com.br/provas/36730824/f30bade4eff/fisica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "fisica-fundacao-osorio-cesgranrio-2026_gabarito.pdf",
+    "bytes": 174480,
+    "origem": "https://www.pciconcursos.com.br/provas/36730824/907dbfdd728/gabarito.pdf"
+   }
+  ]
+ },
+ "fisica-mec-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "fisica-mec-cesgranrio-2009_prova.pdf",
+    "bytes": 732478,
+    "origem": "https://www.pciconcursos.com.br/provas/12506406/86295898bf9/mec0109_prova03.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "fisica-mec-cesgranrio-2009_gabarito.pdf",
+    "bytes": 40298,
+    "origem": "https://www.pciconcursos.com.br/provas/12506406/186616295ff/mec_gabarito.pdf"
+   }
+  ]
+ },
+ "gas-e-bioenergia-epe-cesgranrio-2006": {
+  "prova": [
+   {
+    "arquivo": "gas-e-bioenergia-epe-cesgranrio-2006_prova.pdf",
+    "bytes": 232843,
+    "origem": "https://www.pciconcursos.com.br/provas/10291246/2c36e312b8a/5.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "gas-e-bioenergia-epe-cesgranrio-2006_gabarito.pdf",
+    "bytes": 73177,
+    "origem": "https://www.pciconcursos.com.br/provas/10291246/55576b6af6f/gabsup.pdf"
+   }
+  ]
+ },
+ "geofisica-junior-fisica-petrobras-cesgranrio-2011": {
+  "prova": [
+   {
+    "arquivo": "geofisica-junior-fisica-petrobras-cesgranrio-2011_prova.pdf",
+    "bytes": 648069,
+    "origem": "https://www.pciconcursos.com.br/provas/15591188/5b302afa232/prova_18_geofasico_a_jnior_fasica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "geofisica-junior-fisica-petrobras-cesgranrio-2011_gabarito.pdf",
+    "bytes": 699153,
+    "origem": "https://www.pciconcursos.com.br/provas/15591188/8c802fa2e4d/gabaritos.pdf"
+   }
+  ]
+ },
+ "geofisica-junior-geologia-petrobras-cesgranrio-2011": {
+  "prova": [
+   {
+    "arquivo": "geofisica-junior-geologia-petrobras-cesgranrio-2011_prova.pdf",
+    "bytes": 878986,
+    "origem": "https://www.pciconcursos.com.br/provas/15591206/3fa2ce65fc5/prova_19_geofasico_a_jnior_geologia.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "geofisica-junior-geologia-petrobras-cesgranrio-2011_gabarito.pdf",
+    "bytes": 699148,
+    "origem": "https://www.pciconcursos.com.br/provas/15591206/b816259cb97/gabaritos.pdf"
+   }
+  ]
+ },
+ "geografia-fundacao-osorio-cesgranrio-2026": {
+  "prova": [
+   {
+    "arquivo": "geografia-fundacao-osorio-cesgranrio-2026_prova.pdf",
+    "bytes": 2205802,
+    "origem": "https://www.pciconcursos.com.br/provas/36730951/8efdcb0262c/geografia.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "geografia-fundacao-osorio-cesgranrio-2026_gabarito.pdf",
+    "bytes": 174482,
+    "origem": "https://www.pciconcursos.com.br/provas/36730951/4991cbd6d09/gabarito.pdf"
+   }
+  ]
+ },
+ "gravador-de-valores-casa-da-moeda-cesgranrio-2009": {
+  "prova": [
+   {
+    "arquivo": "gravador-de-valores-casa-da-moeda-cesgranrio-2009_prova.pdf",
+    "bytes": 276936,
+    "origem": "https://www.pciconcursos.com.br/provas/13604319/b3724df4237/prova_41.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "gravador-de-valores-casa-da-moeda-cesgranrio-2009_gabarito.pdf",
+    "bytes": 261890,
+    "origem": "https://www.pciconcursos.com.br/provas/13604319/0d082bc9792/cmb0109_gabarito.pdf"
+   }
+  ]
  }
 }
