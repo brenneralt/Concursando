@@ -1872,12 +1872,29 @@ def gabarito_por_colunas(
     # cor é a certa — mais confiável que casar o nome do cargo
     com_cor = [p for p in pilhas if not p["comum"] and cor in p["tokens"]]
     if cor and com_cor:
-        candidatas = [p for p in com_cor if pontuar(p) >= 0.0]
-        candidatas.sort(key=lambda p: (len(numeros_de(p) & set(range(1, (total_questoes or 0) + 1))), pontuar(p)), reverse=True)
-        if total_questoes and cobertura({n: l for n, l in candidatas[0]["respostas"]}) < 0.95:
-            return sem_certeza()
+        # a coluna da cor traz só um pedaço da numeração quando o gabarito
+        # divide a prova em blocos (básicos 1..30, específicos 31..70): as
+        # colunas complementares ficam na mesma faixa horizontal, então entram
+        # junto — desde que não contradigam a coluna da cor
+        bases = [p["x"] for p in com_cor]
+        grupo_cor = [
+            p
+            for p in pilhas
+            if not p["comum"]
+            and (
+                cor in p["tokens"]
+                or any(abs(p["x"] - base) <= 24 for base in bases)
+            )
+        ]
+        grupo_cor.sort(
+            key=lambda p: (
+                len(numeros_de(p) & set(range(1, (total_questoes or 0) + 1))),
+                pontuar(p),
+            ),
+            reverse=True,
+        )
         respostas_cor: dict[int, str] = {}
-        for pilha in candidatas:
+        for pilha in grupo_cor:
             letras = dict(pilha["respostas"])
             if any(n in respostas_cor and respostas_cor[n] != letra for n, letra in letras.items()):
                 continue
@@ -1948,13 +1965,26 @@ def versao_do_caderno(pdf_path: Path) -> dict[str, str]:
     A Cesgranrio imprime no próprio caderno "GABARITO 2 - PROVA AZUL"; isso
     identifica sem margem de dúvida a coluna do gabarito oficial.
     """
-    texto = run_pdftotext(pdf_path, "raw")[:12000]
+    texto = run_pdftotext(pdf_path, "raw")[:20000]
     versao: dict[str, str] = {}
-    acha = re.search(
-        r"GABARITO\s*(?:N[º°o]?\s*)?[:\-–]?\s*(\d{1,2})", texto, re.I
-    )
-    if acha:
-        versao["gabarito"] = acha.group(1)
+
+    # O número tem de estar na MESMA linha de "GABARITO": em texto cru, o
+    # \s do regex antigo atravessava a quebra de linha e casava com dígitos da
+    # grade de respostas ("... seguinte gabarito:" + "06" da linha seguinte).
+    achados: list[str] = []
+    for linha in texto.splitlines():
+        if "GABARITO" not in linha.upper():
+            continue
+        achado = re.search(
+            r"GABARITO\s*(?:N[º°o]?)?\s*[:\-–]?\s*(\d{1,2})(?![\d/])", linha, re.I
+        )
+        if achado:
+            achados.append(achado.group(1))
+    if achados:
+        # a versão aparece repetida no cabeçalho de cada página; a moda vence
+        # empates ocasionais (rodapé, número de edital etc.)
+        versao["gabarito"] = max(set(achados), key=achados.count)
+
     for cor in sorted(CORES_PROVA):
         if re.search(rf"\bPROVA\s+(?:COR\s+)?{cor}\b", texto, re.I):
             versao["cor"] = cor
@@ -2029,6 +2059,174 @@ def gabarito_por_pagina_de_versao(
 
     if not usou_pagina or not respostas:
         return None
+    if total_questoes:
+        presentes = sum(1 for n in range(1, total_questoes + 1) if n in respostas)
+        if presentes / total_questoes < 0.95:
+            return None
+    return respostas
+
+
+def gabarito_em_blocos(
+    path: Path,
+    cargo: str,
+    versao: dict[str, str],
+    total_questoes: Optional[int] = None,
+) -> Optional[dict[int, str]]:
+    """Lê a versão certa quando cada versão ocupa um bloco da página.
+
+    Cobre os gabaritos em que a Cesgranrio publica as versões empilhadas: uma
+    por página (Banrisul 2023, BB 2021), duas na mesma página (IBGE 2014) ou
+    quatro blocos na mesma página (BB 2010). Cada bloco é aberto por um
+    cabeçalho "GABARITO N" (às vezes com "PROVA AZUL"), então as respostas são
+    lidas em ordem de leitura e só valem se formarem a sequência 1..N sem
+    repetição. Numa tabela com versões lado a lado os números se repetem em
+    cada coluna e a checagem falha, então esse formato continua a cargo de
+    `gabarito_por_colunas`.
+    """
+    if not versao or not path.exists():
+        return None
+
+    alvo = set(norm_cargo_key(cargo).split())
+
+    def tokens(texto: str) -> set[str]:
+        return set(norm_cargo_key(texto).split()) - GABARITO_HEADER_STOPWORDS
+
+    def aderencia_cargo(texto: str) -> float:
+        """0..1: quanto o cabeçalho do bloco fala do cargo do caderno."""
+        if not alvo:
+            return 0.0
+        base = norm_cargo_key(texto)
+        if norm_cargo_key(cargo) and norm_cargo_key(cargo) in base:
+            return 1.0
+        achados = tokens(texto)
+        if not achados:
+            return 0.0
+        comuns = alvo & achados
+        if not comuns:
+            parecido = sum(
+                max(SequenceMatcher(None, palavra, token).ratio() for token in achados)
+                for palavra in alvo
+            ) / len(alvo)
+            return 0.9 * parecido
+        # F1 dos tokens: penaliza tanto faltar palavra do cargo quanto sobrar
+        # palavra de outro cargo ("Escriturário – Agente Comercial" x
+        # "Agente de Tecnologia")
+        revocacao = len(comuns) / len(alvo)
+        precisao = len(comuns) / len(achados)
+        return 2 * precisao * revocacao / (precisao + revocacao)
+
+    candidatos: list[dict] = []
+    for pagina in paginas_com_palavras(path):
+        linhas = pagina["linhas"]
+        # cabeçalhos de versão da página
+        cabecalhos: list[dict] = []
+        for linha in linhas:
+            texto = " ".join(t for _, _, t in linha["palavras"])
+            if "GABARITO" not in texto.upper():
+                continue
+            numero = re.search(
+                r"GABARITO\s*(?:N[º°o]?)?\s*[:\-–]?\s*(\d{1,2})(?![\d/])",
+                texto,
+                re.I,
+            )
+            cores = {
+                cor
+                for cor in CORES_PROVA
+                if re.search(rf"\b{cor}\b", texto, re.I)
+            }
+            if numero or cores:
+                cabecalhos.append(
+                    {
+                        "y": linha["y"],
+                        "numero": numero.group(1) if numero else None,
+                        "cores": cores,
+                        "texto": texto,
+                    }
+                )
+        if not cabecalhos:
+            continue
+
+        # respostas de cada bloco (o último cabeçalho acima da linha manda)
+        blocos: dict[int, list[tuple[int, str, float, float]]] = {}
+        linhas_texto: list[tuple[float, str]] = []
+        for linha in linhas:
+            pares = pares_de_resposta(linha["palavras"])
+            if not pares:
+                texto = " ".join(t for _, _, t in linha["palavras"]).strip()
+                if texto:
+                    linhas_texto.append((linha["y"], texto))
+                continue
+            dono = None
+            for i, cab in enumerate(cabecalhos):
+                if cab["y"] < linha["y"] - 1:
+                    dono = i
+            if dono is None:
+                continue
+            blocos.setdefault(dono, []).extend(
+                (n, letra, x, linha["y"]) for n, letra, x in pares
+            )
+
+        for indice, respostas in blocos.items():
+            if len(respostas) < 5:
+                continue
+            # ordem de leitura: linha por linha, esquerda para a direita
+            ordenadas = sorted(respostas, key=lambda r: (round(r[3], 1), r[2]))
+            numeros = [n for n, _, _, _ in ordenadas]
+            if len(set(numeros)) != len(numeros):
+                continue
+            if numeros != sorted(numeros):
+                continue
+            if total_questoes and len(ordenadas) < 0.95 * total_questoes:
+                continue
+            cab = cabecalhos[indice]
+            # contexto do bloco: os cabeçalhos de texto acima dele na página
+            # (nome do órgão/cargo + rótulos das versões)
+            contexto = " ".join(texto for y, texto in linhas_texto if y <= cab["y"])
+            candidatos.append(
+                {
+                    "respostas": [(n, letra) for n, letra, _, _ in ordenadas],
+                    "numero": cab["numero"],
+                    "cores": cab["cores"],
+                    "cargo": aderencia_cargo(contexto),
+                    "y": cab["y"],
+                }
+            )
+
+    if not candidatos:
+        return None
+
+    if os.environ.get("DEBUG_GAB"):
+        print(f"[debug blocos] {path.name} cargo={cargo!r} versao={versao}")
+        for c in candidatos:
+            print(
+                f"   numero={c['numero']} cores={sorted(c['cores'])} "
+                f"n={len(c['respostas'])} cargo={c['cargo']:.2f} y={c['y']:.0f}"
+            )
+
+    # filtro pela versão do caderno (número do gabarito ou cor da prova)
+    if versao.get("cor"):
+        filtrados = [c for c in candidatos if versao["cor"] in c["cores"]]
+        if not filtrados:
+            filtrados = [c for c in candidatos if c["numero"] == versao.get("gabarito")]
+    elif versao.get("gabarito"):
+        filtrados = [c for c in candidatos if c["numero"] == versao["gabarito"]]
+    else:
+        filtrados = []
+    if not filtrados:
+        return None
+
+    melhor = max(filtrados, key=lambda c: c["cargo"])
+    # dois blocos empatados (mesma versão em cargos diferentes e sem nome que
+    # desempate): publicar exigiria adivinhar
+    rivais = [
+        c
+        for c in filtrados
+        if c is not melhor and abs(c["cargo"] - melhor["cargo"]) < 0.01
+    ]
+    if rivais:
+        return None
+
+    respostas = dict(melhor["respostas"])
     if total_questoes:
         presentes = sum(1 for n in range(1, total_questoes + 1) if n in respostas)
         if presentes / total_questoes < 0.95:
@@ -2479,6 +2677,8 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
             por_coluna = gabarito_por_colunas(
                 gab.path, prova.cargo, total, cor=versao.get("cor")
             )
+            if por_coluna is None and versao:
+                por_coluna = gabarito_em_blocos(gab.path, prova.cargo, versao, total)
             if por_coluna is None and versao:
                 por_coluna = gabarito_por_pagina_de_versao(
                     gab.path, versao, total
