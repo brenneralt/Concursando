@@ -64,6 +64,11 @@ def classificar(arquivos: list[dict]) -> tuple[list[dict], list[dict]]:
             gabaritos.append(arq)
         else:
             provas.append(arq)
+
+    # concursos com prova objetiva + dissertativa: só a objetiva tem questões
+    objetivas = [p for p in provas if "objetiva" in (p.get("arquivo") or "").lower()]
+    if objetivas:
+        provas = objetivas
     return provas, gabaritos
 
 
@@ -83,14 +88,25 @@ def baixar(sessao: requests.Session, url: str, referencia: str, destino: Path) -
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Baixa provas do PCI a partir de links liberados pelo navegador.")
-    ap.add_argument("--links", type=Path, required=True, help="JSON com os links liberados")
+    ap.add_argument("--links", type=Path, required=True, help="JSON com os links liberados (ou pasta com vários JSON)")
     ap.add_argument("--dest", type=Path, default=DEST_PADRAO, help="Pasta de destino (padrão: data/raw_pdfs)")
     ap.add_argument("--manifesto", type=Path, default=MANIFESTO_PADRAO, help="Manifesto de downloads")
     ap.add_argument("--forcar", action="store_true", help="Baixa de novo mesmo se o PDF já existir")
     ap.add_argument("--pausa", type=float, default=1.0, help="Pausa entre páginas, em segundos")
     args = ap.parse_args(argv)
 
-    itens = json.loads(args.links.read_text(encoding="utf-8"))
+    itens = json.loads(args.links.read_text(encoding="utf-8")) if args.links.is_file() else None
+    if itens is None:
+        # pasta: junta todos os JSON de links (um arquivo por prova)
+        itens = []
+        for arquivo in sorted(args.links.glob("*.json")):
+            try:
+                dados = json.loads(arquivo.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                continue
+            if isinstance(dados, dict):
+                dados = [dados]
+            itens.extend(d for d in dados if isinstance(d, dict) and d.get("id"))
     if isinstance(itens, dict):
         itens = itens.get("data") or itens.get("provas") or []
 

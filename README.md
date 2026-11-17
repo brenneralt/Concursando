@@ -160,6 +160,21 @@ python3 parser/extrair_questoes.py --dir data/raw_pdfs \
 python3 parser/normalizar_banco.py
 ```
 
+Para lotes grandes (todo o acervo Cesgranrio), dá para recortar por nível e por
+cargo já na extração, e exigir cobertura mínima do gabarito para descartar
+cadernos mal extraídos:
+
+```bash
+python3 parser/extrair_questoes.py --dir data/raw_pdfs \
+  --out /tmp/questoes_cesgranrio.json --report data/relatorio_cesgranrio.json \
+  --meta data/pci_cesgranrio.json --all-cargos \
+  --excluir-cargos "enfermagem,fiscal,servicos gerais,limpeza,cozinha,merendeira" \
+  --niveis "Fundamental,Médio" --min-cobertura 0.95 --verbose
+
+python3 parser/mesclar_questoes.py --novo /tmp/questoes_cesgranrio.json
+python3 parser/normalizar_banco.py
+```
+
 > O parser já entende o caderno padrão da Cesgranrio: duas colunas (ordem de
 > leitura reconstruída via `pdftotext -bbox-layout`), numeração isolada,
 > alternativas `(A)` e gabarito com uma página por cargo. `--meta` usa o JSON
