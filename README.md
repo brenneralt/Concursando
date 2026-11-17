@@ -128,42 +128,43 @@ python3 parser/raspador_pci.py "cesgranrio" \
 python3 parser/raspador_pci.py "cesgranrio agente administrativo" --paginas 5
 ```
 
-O MCP **não entrega PDFs** e o site protege os arquivos com uma verificação
-de segurança (Turnstile). O download em si é sempre feito por você, no
-navegador — mas o trabalho braçal em volta é automatizado pelo
-`parser/baixar_provas.py` (não contorna a verificação; só organiza):
+O MCP **não entrega PDFs** e o site protege os arquivos com a verificação
+Cloudflare Turnstile. Num Chromium real a verificação é resolvida
+automaticamente e a página libera URLs assinadas
+(`/provas/<id>/<hash>/arquivo.pdf`); não há contorno de CAPTCHA, só o uso do
+link que o próprio site liberou. O fluxo tem duas etapas:
+
+1. **Coletar os links liberados** (feito pelo agente no navegador, uma vez por
+   lote) e salvar num JSON no formato:
+   ```json
+   [{"id": "<slug>", "ok": true,
+     "arquivos": [{"arquivo": "prova.pdf", "href": "https://..."}]}]
+   ```
+   O recorte já coletado do IBGE está em `data/links_pci_ibge.json`
+   (83 provas, 166 arquivos).
+2. **Baixar os PDFs** com o script:
 
 ```bash
-# Ver o status do acervo (todas as 2.718 provas Cesgranrio; --orgao IBGE p/ recorte)
-# As colunas P/G mostram o que já está no disco; --faltando lista o incompleto
-python3 parser/baixar_provas.py --listar
-python3 parser/baixar_provas.py --faltando gabarito
-
-# Modo automático (recomendado): abre cada página pendente no seu navegador e
-# vigia a pasta de Downloads; você só resolve a verificação e clica em baixar.
-python3 parser/baixar_provas.py --auto --orgao IBGE --limite 10 --espera 120
-
-# Modo interativo: o mesmo, mas pergunta ENTER a cada prova baixada.
-python3 parser/baixar_provas.py                 # todas
-python3 parser/baixar_provas.py --orgao IBGE    # só IBGE
-python3 parser/baixar_provas.py --termo agente --ano 2009
-
-# Importar PDFs já baixados manualmente (sem passar pelo fluxo interativo)
-python3 parser/baixar_provas.py --importar <id-da-prova> prova.pdf gabarito.pdf
+python3 parser/baixar_provas_pci.py --links data/links_pci_ibge.json
+python3 parser/baixar_provas_pci.py --links data/links_pci_ibge.json --forcar
 ```
 
-O status fica em `data/raw_pdfs/manifest.json` (`pendente`, `baixada`,
-`parcial`, `pulada`). Os arquivos ficam em `data/raw_pdfs/<id>_prova.pdf` e
-`<id>_gabarito.pdf`, prontos para o parser:
+Os arquivos ficam em `data/raw_pdfs/<slug>_prova.pdf` e
+`<slug>_gabarito.pdf` (downloads já existentes são preservados, a menos que se
+use `--forcar`), com o registro em `data/raw_pdfs/manifest.json`. Depois:
+
 ```bash
-python3 parser/extrair_questoes.py --dir "data/raw_pdfs" \
-  --out data/questoes.json --report data/relatorio_parser.json --verbose
+python3 parser/extrair_questoes.py --dir data/raw_pdfs \
+  --out data/questoes_ibge.json --report data/relatorio_ibge.json \
+  --meta data/pci_cesgranrio.json --verbose
 python3 parser/normalizar_banco.py
 ```
 
-> O parser atual está calibrado para IGECAP/CONTEMAX. Provas de outras bancas
-> (Cesgranrio, FGV, etc.) podem exigir ajustes em `parse_sections()`,
-> `read_gabarito_meta()` e `infer_banca()`.
+> O parser já entende o caderno padrão da Cesgranrio: duas colunas (ordem de
+> leitura reconstruída via `pdftotext -bbox-layout`), numeração isolada,
+> alternativas `(A)` e gabarito com uma página por cargo. `--meta` usa o JSON
+> do raspador (`descricao`, `orgao`, `ano`) para corrigir cargo/órgão/ano —
+> o texto do PDF costuma truncar nomes de cargo.
 
 ---
 

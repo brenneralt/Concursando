@@ -1,0 +1,651 @@
+{
+  "provas": [
+    {
+      "arquivo": "agente-censitario-administrativo-ibge-cesgranrio-2009_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2009,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 50,
+      "gabarito": "agente-censitario-administrativo-ibge-cesgranrio-2009_gabarito.pdf",
+      "respostas_gabarito": 50,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 50,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 50
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        22,
+        25
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-de-informatica-ibge-cesgranrio-2009_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2009,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário de Informática",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-de-informatica-ibge-cesgranrio-2009_gabarito.pdf",
+      "respostas_gabarito": 60,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 60,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        22,
+        25,
+        52
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2006_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2006,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Municipal e Supervisor",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2006_gabarito.pdf",
+      "respostas_gabarito": 61,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "tabela única (primeira coluna)",
+          "respostas": 61,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 61
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "Língua Portuguesa",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "Raciocínio Lógico",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "Atualidades",
+          "disciplina": "Atualidades",
+          "inicio": 16,
+          "fim": 20
+        },
+        {
+          "header": "Conhecimentos Específicos",
+          "disciplina": "Conhecimentos Específicos",
+          "inicio": 21,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        19,
+        58
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2009_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2009,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Municipal e Supervisor",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2009_gabarito.pdf",
+      "respostas_gabarito": 60,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "tabela única (primeira coluna)",
+          "respostas": 60,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        17,
+        20,
+        27,
+        57
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2010_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2010,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Municipal e Supervisor",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2010_gabarito.pdf",
+      "respostas_gabarito": 57,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "tabela única (primeira coluna)",
+          "respostas": 57,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        16
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-ibge-cesgranrio-2009_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2009,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Municipal",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-municipal-ibge-cesgranrio-2009_gabarito.pdf",
+      "respostas_gabarito": 60,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 60,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        17,
+        20,
+        27,
+        57
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-ibge-cesgranrio-2010_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2010,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Municipal",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-municipal-ibge-cesgranrio-2010_gabarito.pdf",
+      "respostas_gabarito": 57,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 57,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        16
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-regional-ibge-cesgranrio-2009_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2009,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Regional",
+      "nivel": "Médio",
+      "questoes_extraidas": 57,
+      "gabarito": "agente-censitario-regional-ibge-cesgranrio-2009_gabarito.pdf",
+      "respostas_gabarito": 60,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 60,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        17,
+        20,
+        42
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-supervisor-ibge-cesgranrio-2010_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2010,
+      "orgao": "IBGE",
+      "cargo": "Agente Censitário Supervisor",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "agente-censitario-supervisor-ibge-cesgranrio-2010_gabarito.pdf",
+      "respostas_gabarito": 57,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 57,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        16
+      ]
+    },
+    {
+      "arquivo": "recenseador-ibge-cesgranrio-2006_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2006,
+      "orgao": "IBGE",
+      "cargo": "Recenseador",
+      "nivel": "Médio",
+      "questoes_extraidas": 50,
+      "gabarito": "recenseador-ibge-cesgranrio-2006_gabarito.pdf",
+      "respostas_gabarito": 50,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 50,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 50
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA II",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "MATEMÁTICA",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "CONHECIMENTOS GERAIS",
+          "disciplina": "Conhecimentos Gerais",
+          "inicio": 16,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        5
+      ]
+    },
+    {
+      "arquivo": "recenseador-ibge-cesgranrio-2009_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2009,
+      "orgao": "IBGE",
+      "cargo": "Recenseador",
+      "nivel": "Médio",
+      "questoes_extraidas": 50,
+      "gabarito": "recenseador-ibge-cesgranrio-2009_gabarito.pdf",
+      "respostas_gabarito": 50,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "página do cargo",
+          "respostas": 50,
+          "bloco_comum": false,
+          "primeira": 1,
+          "ultima": 50
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "MATEMÁTICA",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 11
+        },
+        {
+          "header": "LÍNGUA PORTUGUESA II",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": []
+    },
+    {
+      "arquivo": "tecnico-administrativo-ibge-cesgranrio-2006_prova.pdf",
+      "banca": "CESGRANRIO",
+      "ano": 2006,
+      "orgao": "IBGE",
+      "cargo": "Técnico Administrativo",
+      "nivel": "Médio",
+      "questoes_extraidas": 60,
+      "gabarito": "tecnico-administrativo-ibge-cesgranrio-2006_gabarito.pdf",
+      "respostas_gabarito": 60,
+      "blocos_gabarito": [
+        {
+          "cabecalho": "tabela única (primeira coluna)",
+          "respostas": 60,
+          "bloco_comum": true,
+          "primeira": 1,
+          "ultima": 60
+        }
+      ],
+      "disciplinas": [
+        {
+          "header": "LÍNGUA PORTUGUESA",
+          "disciplina": "Língua Portuguesa",
+          "inicio": 1,
+          "fim": 10
+        },
+        {
+          "header": "RACIOCÍNIO LÓGICO",
+          "disciplina": "Raciocínio Lógico",
+          "inicio": 11,
+          "fim": 15
+        },
+        {
+          "header": "CONHECIMENTOS GERAIS",
+          "disciplina": "Conhecimentos Gerais",
+          "inicio": 16,
+          "fim": 40
+        }
+      ],
+      "questoes_com_alternativa_vazia": [
+        16,
+        40
+      ]
+    }
+  ],
+  "provas_incompletas": [
+    {
+      "arquivo": "auxiliar-censitario-administrativo-ibge-cesgranrio-2006_prova.pdf",
+      "questoes_extraidas": 36,
+      "respostas_gabarito": 51,
+      "cobertura": 0.706
+    },
+    {
+      "arquivo": "recenseador-ibge-cesgranrio-2010_prova.pdf",
+      "questoes_extraidas": 0,
+      "respostas_gabarito": 20,
+      "cobertura": 0.0
+    }
+  ],
+  "gabaritos_sem_par": [
+    "administracao-escolar-ibge-cesgranrio-2013_gabarito.pdf",
+    "agente-de-pesquisa-e-mapeamento-ibge-cesgranrio-2007_gabarito.pdf",
+    "agente-de-pesquisas-e-mapeamento-ibge-cesgranrio-2014_gabarito.pdf",
+    "agente-de-pesquisas-e-mapeamento-ibge-cesgranrio-2016_gabarito.pdf",
+    "agente-de-pesquisas-por-telefone-ibge-cesgranrio-2014_gabarito.pdf",
+    "agente-de-pesquisas-por-telefone-ibge-cesgranrio-2016_gabarito.pdf",
+    "analise-agricola-ibge-cesgranrio-2010_gabarito.pdf",
+    "analise-de-sistemas-desenvolvimento-de-aplicacoes-ibge-cesgranrio-2010_gabarito.pdf",
+    "analise-de-sistemas-desenvolvimento-de-aplicacoes-ibge-cesgranrio-2013_gabarito.pdf",
+    "analise-de-sistemas-suporte-a-comunicacao-e-a-rede-ibge-cesgranrio-2010_gabarito.pdf",
+    "analise-de-sistemas-suporte-a-comunicacao-e-a-rede-ibge-cesgranrio-2013_gabarito.pdf",
+    "analise-de-sistemas-suporte-de-producao-e-rede-ibge-cesgranrio-2010_gabarito.pdf",
+    "analise-de-sistemas-suporte-ibge-cesgranrio-2010_gabarito.pdf",
+    "analise-de-sistemas-suporte-operacional-ibge-cesgranrio-2013_gabarito.pdf",
+    "analise-socioeconomica-ibge-cesgranrio-2010_gabarito.pdf",
+    "analista-censitario-de-geoprocessamento-ibge-cesgranrio-2014_gabarito.pdf",
+    "analista-ciencias-contabeis-ibge-cesgranrio-2013_gabarito.pdf",
+    "analista-orcamento-e-financas-ibge-cesgranrio-2013_gabarito.pdf",
+    "analista-planejamento-e-gestao-ibge-cesgranrio-2013_gabarito.pdf",
+    "analista-recursos-humanos-administracao-de-pessoal-ibge-cesgranrio-2013_gabarito.pdf",
+    "analista-recursos-humanos-desenvolvimento-de-pessoas-ibge-cesgranrio-2013-42_gabarito.pdf",
+    "analista-recursos-materiais-e-logistica-ibge-cesgranrio-2013_gabarito.pdf",
+    "arquivologia-ibge-cesgranrio-2013_gabarito.pdf",
+    "arquivologista-ibge-cesgranrio-2010_gabarito.pdf",
+    "assuntos-educacionais-ibge-cesgranrio-2010_gabarito.pdf",
+    "auditor-ibge-cesgranrio-2010_gabarito.pdf",
+    "auditoria-ibge-cesgranrio-2013_gabarito.pdf",
+    "biblioteconomista-ibge-cesgranrio-2010_gabarito.pdf",
+    "ciencias-contabeis-ibge-cesgranrio-2010_gabarito.pdf",
+    "designer-instrucional-ibge-cesgranrio-2013_gabarito.pdf",
+    "ecnico-em-informacoes-geograficas-e-ibge-cesgranrio-2013_gabarito.pdf",
+    "engenheiro-cartografico-ibge-cesgranrio-2010_gabarito.pdf",
+    "engenheiro-civil-ibge-cesgranrio-2010_gabarito.pdf",
+    "engenheiro-de-producao-ibge-cesgranrio-2010_gabarito.pdf",
+    "engenheiro-eletrico-ibge-cesgranrio-2010_gabarito.pdf",
+    "engenheiro-florestal-ibge-cesgranrio-2010_gabarito.pdf",
+    "estatistico-ibge-cesgranrio-2010_gabarito.pdf",
+    "geografo-ibge-cesgranrio-2010_gabarito.pdf",
+    "geologo-ibge-cesgranrio-2010_gabarito.pdf",
+    "geoprocessamento-ibge-cesgranrio-2010_gabarito.pdf",
+    "gestao-e-infraestrutura-ibge-cesgranrio-2010_gabarito.pdf",
+    "gestao-em-pesquisa-ibge-cesgranrio-2010_gabarito.pdf",
+    "historiador-ibge-cesgranrio-2010_gabarito.pdf",
+    "jornalista-ibge-cesgranrio-2010_gabarito.pdf",
+    "letras-portugues-ingles-ibge-cesgranrio-2010_gabarito.pdf",
+    "pedagogo-ibge-cesgranrio-2010_gabarito.pdf",
+    "planejamento-orcamento-e-financas-ibge-cesgranrio-2010_gabarito.pdf",
+    "producao-grafica-editorial-ibge-cesgranrio-2010_gabarito.pdf",
+    "programacao-visual-ibge-cesgranrio-2010_gabarito.pdf",
+    "recursos-humanos-ibge-cesgranrio-2010_gabarito.pdf",
+    "recursos-materiais-e-logistica-ibge-cesgranrio-2010_gabarito.pdf",
+    "supervisor-de-pesquisas-administracao-ibge-cesgranrio-2014_gabarito.pdf",
+    "supervisor-de-pesquisas-estatistica-ibge-cesgranrio-2014_gabarito.pdf",
+    "supervisor-de-pesquisas-geral-ibge-cesgranrio-2014_gabarito.pdf",
+    "supervisor-de-pesquisas-geral-ibge-cesgranrio-2016_gabarito.pdf",
+    "supervisor-de-pesquisas-gestao-ibge-cesgranrio-2016_gabarito.pdf",
+    "supervisor-de-pesquisas-suporte-gerencial-ibge-cesgranrio-2016_gabarito.pdf",
+    "supervisor-de-pesquisas-tecnologia-de-informacao-e-comunicacao-ibge-cesgranrio-2014_gabarito.pdf",
+    "supervisor-de-pesquisas-tecnologia-de-informacao-e-comunicacao-ibge-cesgranrio-2016_gabarito.pdf",
+    "tecnologista-analise-agricola-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-analise-pecuaria-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-analise-socioeconomica-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-biblioteconomia-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-cartografia-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-edicao-de-video-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-estatistica-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-geografia-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-geoprocessamento-ibge-cesgranrio-2013_gabarito.pdf",
+    "tecnologista-programacao-visual-ibge-cesgranrio-2013_gabarito.pdf"
+  ],
+  "questoes_sem_alternativas": [
+    {
+      "arquivo": "agente-censitario-administrativo-ibge-cesgranrio-2009_prova.pdf",
+      "questoes": [
+        22,
+        25
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-de-informatica-ibge-cesgranrio-2009_prova.pdf",
+      "questoes": [
+        22,
+        25,
+        52
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2006_prova.pdf",
+      "questoes": [
+        19,
+        58
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2009_prova.pdf",
+      "questoes": [
+        17,
+        20,
+        27,
+        57
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-e-supervisor-ibge-cesgranrio-2010_prova.pdf",
+      "questoes": [
+        16
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-ibge-cesgranrio-2009_prova.pdf",
+      "questoes": [
+        17,
+        20,
+        27,
+        57
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-municipal-ibge-cesgranrio-2010_prova.pdf",
+      "questoes": [
+        16
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-regional-ibge-cesgranrio-2009_prova.pdf",
+      "questoes": [
+        17,
+        20,
+        42
+      ]
+    },
+    {
+      "arquivo": "agente-censitario-supervisor-ibge-cesgranrio-2010_prova.pdf",
+      "questoes": [
+        16
+      ]
+    },
+    {
+      "arquivo": "recenseador-ibge-cesgranrio-2006_prova.pdf",
+      "questoes": [
+        5
+      ]
+    },
+    {
+      "arquivo": "tecnico-administrativo-ibge-cesgranrio-2006_prova.pdf",
+      "questoes": [
+        16,
+        40
+      ]
+    }
+  ],
+  "ids_duplicados": [],
+  "total_questoes": 687
+}

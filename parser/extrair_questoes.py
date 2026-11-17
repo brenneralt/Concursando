@@ -28,6 +28,7 @@ O script foi desenhado para os cadernos deste repositório:
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -114,6 +115,57 @@ def run_pdftotext(pdf_path: Path, mode: str = "raw") -> str:
             f"{proc.stderr.decode('utf-8', errors='ignore')[:300]}"
         )
     return proc.stdout.decode("utf-8", errors="ignore")
+
+
+PAGE_BBOX_RE = re.compile(r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>', re.S)
+LINE_BBOX_RE = re.compile(
+    r'<line xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</line>', re.S
+)
+WORD_BBOX_RE = re.compile(r"<word[^>]*>(.*?)</word>", re.S)
+
+
+def run_pdftotext_columns(pdf_path: Path) -> str:
+    """Extrai texto respeitando a ordem das colunas (cadernos Cesgranrio).
+
+    O `pdftotext -raw` lê a ordem do fluxo do PDF e embaralha questões quando
+    o caderno tem duas colunas. Aqui usamos `-bbox-layout` para agrupar as
+    linhas por coluna (esquerda/direita) e então ordená-las por y, gerando a
+    ordem de leitura correta. Cai para o modo raw em caso de erro.
+    """
+    try:
+        proc = subprocess.run(
+            ["pdftotext", "-enc", "UTF-8", "-bbox-layout", str(pdf_path), "-"],
+            capture_output=True,
+            check=False,
+        )
+        if proc.returncode != 0:
+            return run_pdftotext(pdf_path, "raw")
+        saida = proc.stdout.decode("utf-8", errors="ignore")
+    except OSError:
+        return run_pdftotext(pdf_path, "raw")
+
+    partes: list[str] = []
+    for largura_s, _, corpo in PAGE_BBOX_RE.findall(saida):
+        meio = float(largura_s) / 2
+        colunas: tuple[list, list, list] = ([], [], [])
+        for xmin_s, ymin_s, xmax_s, _, conteudo in LINE_BBOX_RE.findall(corpo):
+            palavras = [html.unescape(p).strip() for p in WORD_BBOX_RE.findall(conteudo)]
+            palavras = [p for p in palavras if p]
+            if not palavras:
+                continue
+            texto = " ".join(palavras)
+            xmin, ymin, xmax = float(xmin_s), float(ymin_s), float(xmax_s)
+            if xmax <= meio + 5:
+                colunas[0].append((ymin, xmin, texto))
+            elif xmin >= meio - 5:
+                colunas[1].append((ymin, xmin, texto))
+            else:
+                colunas[2].append((ymin, xmin, texto))
+        for grupo in colunas:
+            grupo.sort()
+            partes.extend(texto for _, _, texto in grupo)
+        partes.append("\f")
+    return "\n".join(partes)
 
 
 # ---------------------------------------------------------------------------
@@ -623,6 +675,9 @@ def discipline_for(n: int, sections: list[dict]) -> str:
 
 Q_RE = re.compile(r"^\s*(\d{1,2})\s*[.)](?!\d)\s*(.*)$")
 OPT_RE = re.compile(r"^\s*([a-eA-E])\s*[.)]\s*")
+# Cesgranrio numera a questão com um número isolado e usa "(A)" nas opções.
+OPT_PAREN_RE = re.compile(r"^\s*\(([a-eA-E])\)\s*")
+BARE_Q_RE = re.compile(r"^\s*(\d{1,2})\s*$")
 
 # Início de textos de apoio que aparecem entre as opções de uma questão e o
 # enunciado da questão seguinte.
@@ -765,13 +820,81 @@ def join_hyphenated_breaks(lines: list[str]) -> list[str]:
     return out
 
 
+def keep_question_numbers(lines: list[str]) -> list[str]:
+    """Transforma números de questão isolados em `N.` (formato Cesgranrio).
+
+    Cadernos da Cesgranrio trazem o número da questão sozinho na linha
+    ("18") e as alternativas como "(A)". Sem esta normalização, o número
+    seria descartado como número de página e a questão ficaria sem início.
+
+    Só considera candidato o número isolado que tem as cinco alternativas
+    "(A)".."(E)" logo abaixo; em seguida mantém a maior sequência crescente
+    de 1 em 1 (evita números de tabelas, páginas e figuras).
+    """
+    numeros_soltos: list[tuple[int, int]] = []
+    for i, line in enumerate(lines):
+        m = BARE_Q_RE.match(line)
+        if m:
+            numeros_soltos.append((i, int(m.group(1))))
+
+    candidatos: list[tuple[int, int]] = []
+    for pos, (i, numero) in enumerate(numeros_soltos):
+        # a janela vai até o provável número da questão seguinte (aceita até
+        # 3 posições de ruído) ou, no máximo, 160 linhas — questões com texto
+        # de apoio/tabelas longas empurram as alternativas bem para baixo
+        fim = min(i + 160, len(lines))
+        for j, valor in numeros_soltos[pos + 1 :]:
+            if valor > numero:
+                if valor - numero <= 3:
+                    fim = min(fim, j)
+                break
+        janela = " ".join(lines[i + 1 : fim])
+        letras = set(re.findall(r"\(([A-Ea-e])\)", janela))
+        if len(letras) >= 3:
+            candidatos.append((i, numero))
+    if not candidatos:
+        return lines
+
+    # maior cadeia de números consecutivos (ignora ruído de páginas/figuras)
+    ocorrencias: dict[int, list[int]] = {}
+    for indice, numero in candidatos:
+        ocorrencias.setdefault(numero, []).append(indice)
+    tamanho: dict[int, int] = {}
+    melhor_valor, melhor_tamanho = 0, 0
+    for numero in sorted(ocorrencias):
+        tamanho[numero] = tamanho.get(numero - 1, 0) + 1
+        if tamanho[numero] > melhor_tamanho:
+            melhor_valor, melhor_tamanho = numero, tamanho[numero]
+    if not melhor_valor:
+        return lines
+
+    # reconstrói a cadeia de trás para frente, preferindo a ocorrência mais
+    # próxima (números trocados de posição pela diagramação são tolerados)
+    inicio = melhor_valor - melhor_tamanho + 1
+    marcados: dict[int, int] = {}
+    limite: Optional[int] = None
+    for numero in range(melhor_valor, inicio - 1, -1):
+        opcoes = ocorrencias.get(numero, [])
+        if not opcoes:
+            break
+        if limite is None:
+            indice = opcoes[-1]
+        else:
+            indice = min(opcoes, key=lambda i: abs(i - limite))
+        marcados[indice] = numero
+        limite = indice
+
+    return [f"{marcados[i]}." if i in marcados else line for i, line in enumerate(lines)]
+
+
 def clean_body_lines(text: str) -> list[str]:
     """
     Remove cabeçalhos, rodapés e linhas de disciplina do corpo da prova.
     As faixas de disciplina já foram lidas separadamente em parse_sections().
     """
     out: list[str] = []
-    for raw in join_wrapped_headers(text).splitlines():
+    linhas = keep_question_numbers(join_wrapped_headers(text).splitlines())
+    for raw in linhas:
         s = collapse_spaces(raw)
         # o "MODELO DE GABARITO" no fim do caderno inicia um anexo que não
         # faz parte das questões
@@ -806,10 +929,10 @@ def find_option_markers(block: list[str]) -> list[tuple[int, int, int, str]]:
     """
     occ: list[tuple[int, int, int, str]] = []
     for li, line in enumerate(block):
-        m = OPT_RE.match(line)
+        m = OPT_RE.match(line) or OPT_PAREN_RE.match(line)
         if not m:
             continue
-        occ.append((li, m.start(1), m.end(), m.group(1).lower()))
+        occ.append((li, m.start(), m.end(), m.group(1).lower()))
         # alternativas inline: "a) b) c) d) e)"
         for mm in re.finditer(r"([b-eB-E])\s*\)", line[m.end():]):
             start = m.end() + mm.start(1)
@@ -929,6 +1052,10 @@ def extract_preamble(lines: list[str], first_question: int) -> list[str]:
     de instruções do caderno.
     """
     before = lines[:first_question]
+    # cadernos com bloco de instruções (Cesgranrio, por exemplo) não têm texto
+    # de apoio para a questão 1: o "preâmbulo" é só o manual do candidato
+    if any(re.search(r"LEIA ATENTAMENTE AS INSTRU", line, re.I) for line in before):
+        return []
     start = 0
     for idx, line in enumerate(before):
         if INSTRUCTION_LINE_RE.match(line.strip()):
@@ -1014,11 +1141,28 @@ def parse_questions(text: str) -> list[dict]:
 
     starts: list[tuple[int, int]] = []
     expected = 1
+    buracos: set[int] = set()
     for i, line in enumerate(lines):
         m = Q_RE.match(line)
-        if m and int(m.group(1)) == expected:
-            starts.append((i, expected))
-            expected += 1
+        if not m:
+            continue
+        n = int(m.group(1))
+        if n == expected:
+            starts.append((i, n))
+            expected = n + 1
+            while expected in buracos:
+                buracos.discard(expected)
+                expected += 1
+        elif n in buracos:
+            # número que apareceu fora de ordem (diagramação trocou duas
+            # questões de lugar); o bloco ainda é o do texto sob ele
+            starts.append((i, n))
+            buracos.discard(n)
+        elif n == expected + 1:
+            # inversão simples: a questão seguinte apareceu antes
+            buracos.add(expected)
+            starts.append((i, n))
+            expected = n + 1
 
     sections = parse_sections(text)
 
@@ -1064,6 +1208,7 @@ def parse_questions(text: str) -> list[dict]:
             # seja sempre o separador entre apoio e comando da questão
             support_text = "\n".join(line for line in sup if line.strip())
             q["enunciado"] = support_text + "\n\n" + q["enunciado"]
+    questions.sort(key=lambda q: q["numero"])
     return questions
 
 
@@ -1203,14 +1348,32 @@ def parse_gabarito_answers(body: list[str]) -> dict[int, str]:
     while i < len(body):
         line = body[i].strip()
 
-        # pares inline: "01 A 02 C ..."
+        # par isolado: "36 - D" (formato Cesgranrio)
+        par = re.fullmatch(r"\s*(\d{1,2})\s*[-–:.]?\s*([A-Ea-e#])\s*", line)
+        if par:
+            n = int(par.group(1))
+            if 1 <= n <= 99:
+                ans[n] = par.group(2).upper()
+            i += 1
+            continue
+
+        # questão anulada: "39 - Anul"
+        if re.search(r"\banul", line, re.I):
+            m_anul = re.match(r"\s*(\d{1,2})\b", line)
+            if m_anul and 1 <= int(m_anul.group(1)) <= 99:
+                ans[int(m_anul.group(1))] = "#"
+            i += 1
+            continue
+
+        # pares inline: "01 A 02 C ..." — em gabaritos com várias colunas
+        # (ex.: 4 versões do mesmo caderno) a primeira coluna é a oficial
         pairs = re.findall(
             r"(?<![\d])(\d{1,2})\s*[-–:.]?\s*([A-Ea-e#])(?![\w])", line
         )
         if len(pairs) >= 2 and re.fullmatch(r"[\d\sA-Ea-e#\-–:.]*", line):
             for n, a in pairs:
                 n = int(n)
-                if 1 <= n <= 40:
+                if 1 <= n <= 99 and n not in ans:
                     ans[n] = a.upper()
             i += 1
             continue
@@ -1229,7 +1392,7 @@ def parse_gabarito_answers(body: list[str]) -> dict[int, str]:
         only_ans = bool(toks) and re.fullmatch(r"[A-Ea-e#\s.\-–—]+", tmp2) is not None
 
         if only_nums:
-            nlist = [int(x) for x in nums if 1 <= int(x) <= 40]
+            nlist = [int(x) for x in nums if 1 <= int(x) <= 99]
             j = i + 1
             alist: list[str] = []
             while j < len(body):
@@ -1252,7 +1415,7 @@ def parse_gabarito_answers(body: list[str]) -> dict[int, str]:
                     start = nlist[0]
                     for k, a in enumerate(alist):
                         n = start + k
-                        if 1 <= n <= 40:
+                        if 1 <= n <= 99:
                             ans[n] = a
                 else:
                     for n, a in zip(nlist, alist):
@@ -1267,7 +1430,7 @@ def parse_gabarito_answers(body: list[str]) -> dict[int, str]:
                 nxt += 1
             for k, a in enumerate(toks):
                 n = nxt + k
-                if 1 <= n <= 40:
+                if 1 <= n <= 99:
                     ans[n] = a.upper()
             i += 1
             continue
@@ -1294,12 +1457,46 @@ def gabarito_heading_items(head: str) -> list[str]:
     return [norm_cargo_key(x) for x in items if norm_cargo_key(x)]
 
 
+def gabarito_por_pagina(text: str, cargo: str) -> dict[int, str]:
+    """Extrai respostas de gabaritos com uma página por cargo (Cesgranrio).
+
+    Cada página repete o cabeçalho com o nome do cargo e traz a sequência
+    completa (1..N) daquele cargo. Se nenhuma página casar com o cargo,
+    devolve vazio e o fluxo antigo (por blocos) assume.
+    """
+    alvo = norm_cargo_key(cargo)
+    if not alvo:
+        return {}
+    respostas: dict[int, str] = {}
+    for pagina in text.split("\f"):
+        linhas = pagina.splitlines()
+        cabecalho = norm_cargo_key(" ".join(linhas[:8]))
+        if alvo not in cabecalho:
+            continue
+        respostas.update(parse_gabarito_answers(linhas))
+    return respostas
+
+
 def extract_gabarito_for_cargo(path: Path, cargo: str) -> tuple[dict[int, str], list[dict]]:
     """
     Extrai respostas de um gabarito para um cargo.
     Retorna (dict 1..40 -> letra, lista de blocos usados).
     """
     text = run_pdftotext(path, "raw")
+
+    # Cesgranrio: uma página por cargo, com a sequência completa do cargo
+    por_pagina = gabarito_por_pagina(text, cargo)
+    if por_pagina:
+        return por_pagina, [
+            {
+                "cabecalho": "página do cargo",
+                "respostas": len(por_pagina),
+                "bloco_comum": False,
+                "primeira": min(por_pagina),
+                "ultima": max(por_pagina),
+            }
+        ]
+
     segments = split_gabarito_segments(text)
     target = norm_cargo_key(cargo)
 
@@ -1349,6 +1546,20 @@ def extract_gabarito_for_cargo(path: Path, cargo: str) -> tuple[dict[int, str], 
 
     merged = dict(common)
     merged.update(specific)
+    if not merged:
+        # fallback: gabarito de arquivo único (todas as versões na mesma
+        # tabela); usa a primeira coluna, que é a versão oficial do caderno
+        merged = parse_gabarito_answers(text.splitlines())
+        if merged:
+            used.append(
+                {
+                    "cabecalho": "tabela única (primeira coluna)",
+                    "respostas": len(merged),
+                    "bloco_comum": True,
+                    "primeira": min(merged),
+                    "ultima": max(merged),
+                }
+            )
     return merged, used
 
 
@@ -1362,6 +1573,11 @@ def city_similarity(a: set[str], b: set[str]) -> float:
     return len(a & b) / min(len(a), len(b))
 
 
+def base_slug(filename: str) -> str:
+    """Remove o sufixo de tipo (_prova/_gabarito) do nome do arquivo."""
+    return re.sub(r"_(prova|gabarito)(_\d+)?\.pdf$", "", filename, flags=re.I)
+
+
 def pair_gabaritos(
     provas: list[ProvaMeta], gabaritos: list[GabaritoMeta]
 ) -> dict[str, Optional[GabaritoMeta]]:
@@ -1370,6 +1586,9 @@ def pair_gabaritos(
         candidates = []
         for gab in gabaritos:
             score = city_similarity(prova.city_tokens, gab.city_tokens)
+            # nomes controlados pelo nosso baixador: mesmo slug = mesmo par
+            if base_slug(prova.filename) == base_slug(gab.filename):
+                score = 1.0
             if score < 0.6:
                 continue
             if prova.ano and gab.ano and prova.ano != gab.ano:
@@ -1446,6 +1665,13 @@ def classify_pdfs(folder: Path, include_subdirs: bool = False) -> tuple[list[Pat
     for path in pdfs:
         name = path.name.lower()
         if "edital" in name:
+            continue
+        # Nomes controlados pelo nosso baixador: <id>_prova.pdf / <id>_gabarito.pdf
+        if re.search(r"_gabarito(?:_\d+)?\.pdf$", name):
+            gabaritos.append(path)
+            continue
+        if re.search(r"_prova(?:_\d+)?\.pdf$", name):
+            provas.append(path)
             continue
         if "gabarito" in name:
             gabaritos.append(path)
@@ -1536,16 +1762,50 @@ def classificar_assunto(disciplina: str, enunciado: str, alternativas: dict) -> 
     return "Conhecimentos Gerais de Concursos"
 
 
-def is_target_admin_cargo(cargo: str) -> bool:
-    """Filtra apenas cargos administrativos reais, expurgando vigia, motorista, enfermagem, etc."""
+def cargo_permitido(
+    cargo: str,
+    incluir: Optional[list[str]] = None,
+    excluir: Optional[list[str]] = None,
+) -> bool:
+    """Decide se o cargo entra no recorte.
+
+    - `excluir`: trechos normalizados que nunca entram (enfermagem, fiscal...).
+    - `incluir`: se informado, o cargo precisa conter um destes trechos;
+      caso contrário vale o recorte administrativo/legislativo padrão.
+    """
     norm = norm_cargo_key(cargo)
-    expurgar = ["enfermagem", "vigia", "motorista", "guarda", "tesoureiro", "fiscal de tributos", "gari", "merendeira", "coveiro"]
-    if any(exp in norm for exp in expurgar):
+    padrao_excluir = [
+        "enfermagem", "vigia", "motorista", "guarda", "tesoureiro",
+        "fiscal de tributos", "gari", "merendeira", "coveiro",
+    ]
+    termos_excluir = [norm_key(t) for t in (excluir or [])] + padrao_excluir
+    if any(termo in norm for termo in termos_excluir if termo):
         return False
-    return any(target in norm for target in ["administrativo", "legislativo"])
+    alvos = [norm_key(t) for t in incluir] if incluir else ["administrativo", "legislativo"]
+    return any(alvo in norm for alvo in alvos if alvo)
 
 
-def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = False, admin_only: bool = True) -> tuple[list[dict], dict]:
+def is_target_admin_cargo(cargo: str, termos: Optional[list[str]] = None) -> bool:
+    """Compatibilidade: filtro administrativo padrão (ou lista de termos)."""
+    return cargo_permitido(cargo, incluir=termos)
+
+
+def carregar_meta(caminho: Path) -> dict[str, dict]:
+    """Lê um JSON de metadados (lista de provas do PCI) indexado pelo slug."""
+    dados = json.loads(caminho.read_text(encoding="utf-8"))
+    if isinstance(dados, dict):
+        itens = dados.get("data") or dados.get("provas") or []
+    else:
+        itens = dados
+    meta: dict[str, dict] = {}
+    for item in itens:
+        chave = item.get("id") or item.get("slug")
+        if chave:
+            meta[chave] = item
+    return meta
+
+
+def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = False, admin_only: bool = True, meta: Optional[dict] = None, cargos: Optional[list[str]] = None, excluir_cargos: Optional[list[str]] = None, niveis: Optional[list[str]] = None, min_cobertura: float = 0.0) -> tuple[list[dict], dict]:
     provas_paths, gabaritos_paths = classify_pdfs(folder, include_subdirs)
 
     if verbose:
@@ -1554,17 +1814,50 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
     provas = [read_prova_meta(p) for p in provas_paths]
     gabaritos = [read_gabarito_meta(p) for p in gabaritos_paths]
 
-    if admin_only:
-        provas_filtradas = [p for p in provas if is_target_admin_cargo(p.cargo)]
+    if meta:
+        for prova in provas:
+            info = meta.get(base_slug(prova.filename))
+            if not info:
+                continue
+            if info.get("descricao"):
+                prova.cargo = title_cargo(str(info["descricao"]))
+            if info.get("orgao"):
+                prova.orgao = str(info["orgao"])
+            if info.get("ano"):
+                prova.ano = int(info["ano"])
+            prova.nivel = infer_nivel(prova.cargo, prova.text)
+            # o slug do arquivo já carrega órgão/cargo; não é uma cidade
+            prova.city = ""
+
+    def cargo_aceito(cargo: str) -> bool:
+        norm = norm_cargo_key(cargo)
+        if excluir_cargos and any(norm_key(t) in norm for t in excluir_cargos if t):
+            return False
+        if cargos:
+            return any(norm_key(t) in norm for t in cargos if t)
+        if admin_only:
+            return is_target_admin_cargo(cargo)
+        return True
+
+    if admin_only or cargos or excluir_cargos:
+        provas_filtradas = [p for p in provas if cargo_aceito(p.cargo)]
         if verbose:
-            print(f"[i] Filtro administrativo aplicado: {len(provas_filtradas)} de {len(provas)} cadernos mantidos.")
+            print(f"[i] Filtro de cargos aplicado: {len(provas_filtradas)} de {len(provas)} cadernos mantidos.")
         provas = provas_filtradas
+
+    if niveis:
+        alvo = {nivel.lower() for nivel in niveis}
+        provas_nivel = [p for p in provas if (p.nivel or "").lower() in alvo]
+        if verbose:
+            print(f"[i] Filtro de nível aplicado: {len(provas_nivel)} de {len(provas)} cadernos mantidos.")
+        provas = provas_nivel
 
     pairs = pair_gabaritos(provas, gabaritos)
 
     dataset: list[dict] = []
     report = {
         "provas": [],
+        "provas_incompletas": [],
         "gabaritos_sem_par": [],
         "questoes_sem_alternativas": [],
         "ids_duplicados": [],
@@ -1579,9 +1872,39 @@ def build_dataset(folder: Path, include_subdirs: bool = False, verbose: bool = F
 
         sections = parse_sections(prova.text)
         questions = parse_questions(prova.text)
+        # cadernos em duas colunas (Cesgranrio) exigem a ordem reconstruída
+        if len(re.findall(r"^\s*\([A-Ea-e]\)", prova.text, re.M)) >= 3:
+            texto_colunas = run_pdftotext_columns(prova.path)
+            if texto_colunas and texto_colunas != prova.text:
+                questoes_colunas = parse_questions(texto_colunas)
+                if len(questoes_colunas) > len(questions):
+                    prova.text = texto_colunas
+                    questions = questoes_colunas
+                    sections = parse_sections(texto_colunas)
         answers, used_blocks = ({}, [])
         if gab:
             answers, used_blocks = extract_gabarito_for_cargo(gab.path, prova.cargo)
+
+        # cobertura baixa indica extração quebrada (numeração perdida, páginas
+        # em imagem, caderno fora do padrão): melhor não publicar questões
+        # desalinhadas do gabarito
+        if min_cobertura > 0 and answers:
+            cobertura = len(questions) / len(answers)
+            if cobertura < min_cobertura:
+                report["provas_incompletas"].append(
+                    {
+                        "arquivo": prova.filename,
+                        "questoes_extraidas": len(questions),
+                        "respostas_gabarito": len(answers),
+                        "cobertura": round(cobertura, 3),
+                    }
+                )
+                if verbose:
+                    print(
+                        f"[!] {prova.filename}: {len(questions)} questões para "
+                        f"{len(answers)} respostas (cobertura {cobertura:.0%}) — ignorada"
+                    )
+                continue
 
         missing_alt = []
         for q in questions:
@@ -1677,6 +2000,28 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
     )
     parser.add_argument("--include-subdirs", action="store_true", help="Inclui subpastas.")
     parser.add_argument("--all-cargos", action="store_true", help="Inclui todos os cargos, sem filtrar administrativos.")
+    parser.add_argument(
+        "--cargos",
+        default=None,
+        help="Lista de trechos de cargo a aceitar (separados por vírgula), no lugar do filtro administrativo padrão.",
+    )
+    parser.add_argument(
+        "--excluir-cargos",
+        default=None,
+        help="Lista de trechos de cargo a excluir (separados por vírgula), ex.: enfermagem,fiscal.",
+    )
+    parser.add_argument(
+        "--niveis",
+        default=None,
+        help="Níveis a manter, separados por vírgula (ex.: Fundamental,Médio).",
+    )
+    parser.add_argument(
+        "--min-cobertura",
+        type=float,
+        default=0.0,
+        help="Ignora cadernos cuja extração cobre menos que esta fração das respostas do gabarito (ex.: 0.95).",
+    )
+    parser.add_argument("--meta", default=None, help="JSON de metadados do PCI (id/descricao/orgao/ano) para enriquecer a base.")
     parser.add_argument("--verbose", action="store_true", help="Mostra o progresso.")
     args = parser.parse_args(list(argv) if argv is not None else None)
 
@@ -1685,9 +2030,32 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
         print(f"[!] Pasta não encontrada: {folder}", file=sys.stderr)
         return 1
 
+    meta = None
+    if args.meta:
+        meta_path = Path(args.meta).expanduser()
+        if not meta_path.is_absolute():
+            meta_path = Path.cwd() / meta_path
+        if not meta_path.exists():
+            print(f"[!] Metadados não encontrados: {meta_path}", file=sys.stderr)
+            return 1
+        meta = carregar_meta(meta_path)
+
     try:
-        admin_only = not args.all_cargos
-        dataset, report = build_dataset(folder, args.include_subdirs, args.verbose, admin_only=admin_only)
+        admin_only = (not args.all_cargos) or bool(args.cargos)
+        cargos = [c.strip() for c in args.cargos.split(",") if c.strip()] if args.cargos else None
+        excluir = [c.strip() for c in args.excluir_cargos.split(",") if c.strip()] if args.excluir_cargos else None
+        niveis = [n.strip() for n in args.niveis.split(",") if n.strip()] if args.niveis else None
+        dataset, report = build_dataset(
+            folder,
+            args.include_subdirs,
+            args.verbose,
+            admin_only=admin_only,
+            meta=meta,
+            cargos=cargos,
+            excluir_cargos=excluir,
+            niveis=niveis,
+            min_cobertura=args.min_cobertura,
+        )
     except RuntimeError as exc:
         print(f"[!] {exc}", file=sys.stderr)
         return 1
