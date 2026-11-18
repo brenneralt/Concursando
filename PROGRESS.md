@@ -14,7 +14,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## 📊 Status Atual de Desenvolvimento
 
 - **Última Atualização:** 17/11/2026
-- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 5.516 questões (4.836 Cesgranrio + 680 IGECAP/CONTEMAX), 130 provas, 21 órgãos Cesgranrio (2004–2024), 98,9% gabaritadas.** A coleta do acervo Cesgranrio roda por fila resumível: **1.473 cadernos de médio/fundamental no escopo, 332 já com PDF baixado (692 PDFs), 1.141 pendentes** em `data/pci_links/fila.json`.
+- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 5.516 questões (4.836 Cesgranrio + 680 IGECAP/CONTEMAX), 134 provas, 21 órgãos Cesgranrio (2004–2024), 98,9% gabaritadas.** A coleta do acervo Cesgranrio roda por fila resumível: **1.473 cadernos de médio/fundamental no escopo, 410 já com PDF baixado (838 PDFs), 1.076 pendentes** em `data/pci_links/fila.json`. Há **146 PDFs baixados ainda não extraídos** (entram no próximo `extrair_questoes.py`).
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
@@ -40,6 +40,8 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - `parser/coletor_links_pci.js` roda na aba real: abre um iframe **visível** por caderno, espera o próprio site escrever as URLs em `a.prova-pdf-link[data-acao="baixar"]` e devolve `{id, ok, arquivos[]}`. Nada é contornado: o link usado é o que o site entregou após a verificação.
   - Concorrência 1 é a única que funciona de forma estável (iframes simultâneos ou fora da viewport impedem o widget de renderizar). O ritmo é ~1 caderno a cada 15–40 s.
   - Procedimento de retomada em `README.md` (seção "Coleta resumível do PCI").
+  - Ganho medido em 17/11/2026: 410 cadernos com PDF (838 arquivos), 154 links liberados, 1.076 pendentes. Duas abas em paralelo (uma worker em cada) dobram o ritmo para ~18 cadernos/min; concorrência >1 **dentro** da mesma aba derruba a taxa de sucesso, mas abas separadas não se atrapalham.
+  - Ao pausar: `__pciParar()` nas abas (os workers param depois do caderno atual), drenar o último lote e rodar o downloader. Recarregar a aba mata o worker e é a forma de limpar workers zumbis.
 - [x] **Banco Cesgranrio importado em duas ondas (17/11/2026):** primeira carga de 4.389 questões de 103 provas; depois a coleta nova acrescentou **+447 questões de 14 provas** (BASA 2024, CEF 2024, TRANSPETRO 2023, ELETRONUCLEAR 2022, CNU 2024, Fundação Osório 2026…). Hoje são **4.836 questões Cesgranrio em 117 provas de 21 órgãos (2004–2024)**. Recorte por `parser/filtrar_escopo.py` (descarta cargos cujo nome é área de formação e prefixos de nível superior: Analista, Tecnologista, Engenheiro, Auditor, etc.). Total do banco: 5.516 questões (4.836 Cesgranrio + 680 IGECAP/CONTEMAX), 0 ids duplicados, 98,9% gabaritadas e 0,3% anuladas.
 - [x] **Leitura da versão do caderno e de gabaritos em blocos (17/11/2026):**
   - `versao_do_caderno` agora casa "GABARITO N" **na mesma linha** (antes o `\s` do regex atravessava a quebra de linha e capturava dígitos da grade de respostas: o caderno do Banrisul 2023 era lido como versão "06") e usa a moda das ocorrências, já que o número se repete no cabeçalho de cada página.
@@ -71,6 +73,40 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
   - `opencode.json` registra o servidor como `pci-concursos`, disponível para agentes OpenCode.
   - Servidor conectado e validado no OpenCode em 15/11/2026: as 5 ferramentas aparecem em `tools["pci-concursos"]` e a busca "cesgranrio agente administrativo" retornou as 4 provas esperadas.
   - Testado: "cesgranrio agente administrativo" → 4 provas (FUNASA 2009, TCE/RO 2007, IBGE 2009, UNEMAT 2024); cargo "agente administrativo" na PB → 6 concursos; "legislativo" → 31 concursos.
+
+---
+
+## ⏸️ Ponto de Retomada (17/11/2026, fim do dia)
+
+Estado exato ao pausar:
+
+| Item | Valor |
+|---|---|
+| Banco publicado | 5.516 questões (4.836 Cesgranrio em 117 provas + 680 IGECAP/CONTEMAX) |
+| PDFs em `data/raw_pdfs/` | 838 arquivos / 410 cadernos |
+| Fila do PCI | 1.473 no escopo · 154 links liberados · **1.076 pendentes** |
+| PDFs ainda não extraídos | **146** (baixados depois da extração v4) |
+| Coletores | parados (`rodando: false`) nas duas abas; workers ociosos |
+
+Para continuar amanhã:
+
+```bash
+# 1. receptor (se não estiver de pé)
+curl -s localhost:8765/status || setsid python3 parser/receptor_links.py --porta 8765
+
+# 2. extrair os 146 PDFs novos e publicar
+python3 parser/extrair_questoes.py --dir data/raw_pdfs \
+  --out /tmp/opencode/questoes_v5.json --report /tmp/opencode/relatorio_v5.json \
+  --meta data/pci_cesgranrio.json --all-cargos --min-cobertura 0.95
+python3 parser/filtrar_escopo.py --novo /tmp/opencode/questoes_v5.json --out /tmp/opencode/questoes_v5_medio.json
+python3 parser/mesclar_questoes.py --novo /tmp/opencode/questoes_v5_medio.json
+python3 parser/normalizar_banco.py && (cd web && npm run build)
+
+# 3. retomar a coleta: abrir uma página de download do PCI no navegador e
+#    window.__pciIniciar(fila, { concorrencia: 1 }) em cada aba (2 abas = ~18/min)
+#    drenar com __pciDrenar() e POST /lote; baixar com:
+python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.1
+```
 
 ---
 
