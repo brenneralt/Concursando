@@ -14,7 +14,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## 📊 Status Atual de Desenvolvimento
 
 - **Última Atualização:** 17/11/2026
-- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 6.022 questões (5.342 Cesgranrio + 680 IGECAP/CONTEMAX), 143 provas, 24 órgãos Cesgranrio (2004–2024), 99,0% gabaritadas.** A coleta do acervo Cesgranrio roda por fila resumível: **1.473 cadernos de médio/fundamental no escopo, 495 links liberados, 736 pendentes** em `data/pci_links/fila.json`, e 1.273 PDFs em `data/raw_pdfs/`.
+- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 6.022 questões (5.342 Cesgranrio + 680 IGECAP/CONTEMAX), 143 provas, 24 órgãos Cesgranrio (2004–2024), 99,0% gabaritadas.** A coleta do acervo Cesgranrio roda por fila resumível: **1.473 cadernos de médio/fundamental no escopo, 574 links liberados, 657 pendentes** em `data/pci_links/fila.json`, e 1.575 PDFs (746 cadernos) em `data/raw_pdfs/`.
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
@@ -76,17 +76,20 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 
 ---
 
-## ⏸️ Ponto de Retomada (17/11/2026, fim do dia)
+## ⏸️ Ponto de Retomada (18/11/2026, 11:30)
 
 Estado exato ao pausar:
 
 | Item | Valor |
 |---|---|
 | Banco publicado | 6.022 questões (5.342 Cesgranrio em 126 provas + 680 IGECAP/CONTEMAX) |
-| PDFs em `data/raw_pdfs/` | 1.273 arquivos |
-| Fila do PCI | 1.473 no escopo · 495 links liberados · **736 pendentes** |
-| PDFs ainda não extraídos | 0 (extração v6 cobriu os 1.273) |
-| Coletores | parados (`rodando: false`) nas duas abas; workers ociosos |
+| PDFs em `data/raw_pdfs/` | 1.575 arquivos / 746 cadernos |
+| Fila do PCI | 1.473 no escopo · 574 links liberados · **657 pendentes** |
+| PDFs ainda não extraídos | **302** (baixados depois da extração v6) |
+| Coletores | parados (`rodando: false`) nas duas abas; receptor e downloader encerrados |
+
+O que rendeu na sessão de 18/11: 294 + 302 PDFs baixados (1.273 → 1.575), 420 links
+novos na fila, +506 questões publicadas (5.516 → 6.022).
 
 Para continuar amanhã:
 
@@ -94,19 +97,26 @@ Para continuar amanhã:
 # 1. receptor (se não estiver de pé)
 curl -s localhost:8765/status || setsid python3 parser/receptor_links.py --porta 8765
 
-# 2. extrair os 146 PDFs novos e publicar
+# 2. extrair os 302 PDFs novos e publicar
 python3 parser/extrair_questoes.py --dir data/raw_pdfs \
-  --out /tmp/opencode/questoes_v5.json --report /tmp/opencode/relatorio_v5.json \
+  --out /tmp/opencode/questoes_v7.json --report /tmp/opencode/relatorio_v7.json \
   --meta data/pci_cesgranrio.json --all-cargos --min-cobertura 0.95
-python3 parser/filtrar_escopo.py --novo /tmp/opencode/questoes_v5.json --out /tmp/opencode/questoes_v5_medio.json
-python3 parser/mesclar_questoes.py --novo /tmp/opencode/questoes_v5_medio.json
+python3 parser/filtrar_escopo.py --novo /tmp/opencode/questoes_v7.json --out /tmp/opencode/questoes_v7_medio.json
+python3 parser/mesclar_questoes.py --novo /tmp/opencode/questoes_v7_medio.json
 python3 parser/normalizar_banco.py && (cd web && npm run build)
 
-# 3. retomar a coleta: abrir uma página de download do PCI no navegador e
-#    window.__pciIniciar(fila, { concorrencia: 1 }) em cada aba (2 abas = ~18/min)
+# 3. retomar a coleta: abrir UMA página do PCI e deixá-la em foco
+#    (aba em segundo plano tem os timers estrangulados e o worker quase para).
+#    window.__pciIniciar(fila, { concorrencia: 1 })
 #    drenar com __pciDrenar() e POST /lote; baixar com:
 python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.1
 ```
+
+> Medições de 18/11: uma aba **em foco** coleta ~6 cadernos/min e mantém ~90% de
+> sucesso; duas abas em paralelo caem para ~3/min porque a aba sem foco sofre
+> throttling de timers no Chrome (e concorrência >1 na mesma aba gera timeouts).
+> Dividir a fila com `?de=2&parte=I` continua útil quando as duas abas estão em
+> foco alternado.
 
 ---
 
@@ -119,7 +129,7 @@ python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.1
 - [ ] **Rodar o patch de RLS de exclusão de progresso** no SQL Editor do Supabase (`progresso_delete_own`, já presente em `supabase/schema.sql`) e apagar as contas de teste.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.
 - [ ] **Importador Drag-and-Drop no Frontend (Opcional):** Permitir upload local de novo `questoes.json` direto pela interface do usuário.
-- [ ] **Concluir a coleta Cesgranrio:** 332 de 1.473 cadernos do escopo já têm PDF (692 arquivos); faltam **1.141**. A infraestrutura está pronta e versionada (`parser/fila_pci.py`, `parser/receptor_links.py`, `parser/coletor_links_pci.js`, procedimento no README). É só reabrir a aba do PCI no navegador, subir o receptor e retomar a fila — o ritmo do Turnstile (~1 caderno/20 s) coloca o restante em ~6 h de coleta distribuída. Depois de cada lote: `baixar_provas_pci.py` → `extrair_questoes.py` → `filtrar_escopo.py` → `mesclar_questoes.py` → `normalizar_banco.py`.
+- [ ] **Concluir a coleta Cesgranrio:** 746 de 1.473 cadernos do escopo já têm PDF (1.575 arquivos); faltam **657 links**. A infraestrutura está pronta e versionada (`parser/fila_pci.py`, `parser/receptor_links.py`, `parser/coletor_links_pci.js`, procedimento no README). Retomando a ~6 cadernos/min numa aba em foco, o restante sai em ~2 h. Depois de cada lote: `baixar_provas_pci.py` → `extrair_questoes.py` → `filtrar_escopo.py` → `mesclar_questoes.py` → `normalizar_banco.py`.
 - [ ] **Recuperar os 124 gabaritos ambíguos restantes:** os formatos "uma versão por página", "versões empilhadas" e "coluna por cor com blocos complementares" já são lidos automaticamente. O que sobra são cadernos que **não dizem a versão em lugar nenhum** (UNEMAT 2024 "PROVAS 1 A 9", UNIRIO 2016/2019, AGERIO 2023, SEE-SP 2009): 54 provas de nível médio/fundamental, ~2.239 questões. Sem marcador de versão a escolha seria adivinhação, então elas ficam fora por decisão de segurança. Para resgatar: (a) usar as questões anuladas do caderno como impressão digital da versão (o `#` no gabarito identifica a coluna); (b) achar o número da prova em outra página/arquivo do PCI; (c) aceitar apenas as questões cuja resposta é igual em todas as versões (hoje a regra exige 95% de cobertura, o que descarta o caderno inteiro).
 
 ---
