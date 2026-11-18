@@ -188,6 +188,37 @@ python3 parser/normalizar_banco.py
 > do raspador (`descricao`, `orgao`, `ano`) para corrigir cargo/órgão/ano —
 > o texto do PDF costuma truncar nomes de cargo.
 
+### Coleta resumível do PCI (acervo Cesgranrio)
+
+O acervo inteiro não cabe numa sessão: o Turnstile libera ~1 caderno a cada
+15–40 s. Por isso a coleta é uma fila persistente, e cada peça pode ser
+retomada depois de uma queda.
+
+```bash
+# 1. Gera/atualiza a fila de cadernos de médio e fundamental ainda sem PDF
+python3 parser/fila_pci.py            # grava data/pci_links/fila.json
+
+# 2. Sobe o receptor local (porta 8765) que guarda os links liberados
+python3 parser/receptor_links.py --porta 8765
+
+# 3. Abre a URL de download de qualquer prova no navegador real, instala o
+#    coletor e alimenta a fila (o agente faz isso via `browse evaluate`):
+#      fetch('http://127.0.0.1:8765/coletor.js').then(r => r.text()) ...
+#      __pciIniciar([{ id, link }], { concorrencia: 1 })
+#    O iframe do coletor precisa ficar VISÍVEL: fora da viewport o widget do
+#    Turnstile não renderiza e a página nunca libera os links. Concorrência 1.
+#    Guarde os resultados: __pciDrenar() e envie em POST /lote.
+
+# 4. Baixa os PDFs dos links já liberados (pode repetir a qualquer momento)
+python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.2
+```
+
+`data/pci_links/fila.json` e `data/pci_links/coletados.json` são versionados;
+os `link_<slug>.json` não, porque as URLs assinadas expiram. O estado da coleta
+é sempre `fila − coletados`; rode `curl localhost:8765/status` para ver. Ao
+esvaziar a fila, repita do passo 1: ele recalcula o que ainda falta.
+
+
 ---
 
 ## 📦 Build para Produção & Deploy

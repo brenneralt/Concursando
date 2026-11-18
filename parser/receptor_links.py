@@ -109,6 +109,19 @@ class Handler(BaseHTTPRequestHandler):
                 },
             )
             return
+        if rota.path == "/coletor.js":
+            arquivo = ROOT / "parser" / "coletor_links_pci.js"
+            if not arquivo.exists():
+                self._responder(404, {"erro": "coletor não encontrado"})
+                return
+            dados = arquivo.read_text(encoding="utf-8").encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/javascript; charset=utf-8")
+            self.send_header("Content-Length", str(len(dados)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(dados)
+            return
         if rota.path == "/fila":
             limite = int(parse_qs(rota.query).get("limite", ["0"])[0] or 0)
             feitos = coletados()
@@ -134,40 +147,84 @@ class Handler(BaseHTTPRequestHandler):
             self._responder(200, {"ok": True})
             return
 
-        if rota.path != "/link":
+        if rota.path == "/lote":
+            itens = corpo.get("resultados") if isinstance(corpo, dict) else corpo
+            if not isinstance(itens, list):
+                self._responder(400, {"erro": "esperava uma lista de resultados"})
+                return
+            gravados = 0
+            PASTA.mkdir(parents=True, exist_ok=True)
+            with _lock:
+                for item in itens:
+                    slug = str(item.get("id") or "")
+                    if not slug:
+                        continue
+                    arquivos = [
+                        a
+                        for a in item.get("arquivos") or []
+                        if a.get("href") and a.get("arquivo")
+                    ]
+                    registro = {
+                        "id": slug,
+                        "ok": bool(item.get("ok")) and bool(arquivos),
+                        "arquivos": [
+                            {
+                                "arquivo": slug_seguro(str(a["arquivo"])),
+                                "href": a["href"],
+                            }
+                            for a in arquivos
+                        ],
+                        "motivo": item.get("motivo"),
+                        "recebido_em": datetime.now().isoformat(timespec="seconds"),
+                    }
+                    destino = PASTA / f"link_{slug_seguro(slug)}.json"
+                    destino.write_text(
+                        json.dumps(registro, ensure_ascii=False, indent=2),
+                        encoding="utf-8",
+                    )
+                    if registro["ok"]:
+                        registrar_coletado(slug)
+                    gravados += 1
+            print(f"[lote] {gravados} caderno(s) gravados")
+            self._responder(200, {"ok": True, "gravados": gravados})
+
+        elif rota.path == "/link":
+            slug = str(corpo.get("id") or "")
+            if not slug:
+                self._responder(400, {"erro": "id obrigatório"})
+                return
+
+            arquivos = [
+                a
+                for a in corpo.get("arquivos") or []
+                if a.get("href") and a.get("arquivo")
+            ]
+            registro = {
+                "id": slug,
+                "ok": bool(corpo.get("ok")) and bool(arquivos),
+                "arquivos": [
+                    {"arquivo": slug_seguro(str(a["arquivo"])), "href": a["href"]}
+                    for a in arquivos
+                ],
+                "motivo": corpo.get("motivo"),
+                "recebido_em": datetime.now().isoformat(timespec="seconds"),
+            }
+
+            PASTA.mkdir(parents=True, exist_ok=True)
+            destino = PASTA / f"link_{slug_seguro(slug)}.json"
+            with _lock:
+                destino.write_text(
+                    json.dumps(registro, ensure_ascii=False, indent=2),
+                    encoding="utf-8",
+                )
+                if registro["ok"]:
+                    registrar_coletado(slug)
+            estado = "ok" if registro["ok"] else "vazio"
+            print(f"[{estado}] {slug} ({len(registro['arquivos'])} arquivo(s))")
+            self._responder(200, {"ok": True, "arquivo": destino.name})
+
+        else:
             self._responder(404, {"erro": "rota desconhecida"})
-            return
-
-        slug = str(corpo.get("id") or "")
-        if not slug:
-            self._responder(400, {"erro": "id obrigatório"})
-            return
-
-        arquivos = [
-            a for a in corpo.get("arquivos") or [] if a.get("href") and a.get("arquivo")
-        ]
-        registro = {
-            "id": slug,
-            "ok": bool(corpo.get("ok")) and bool(arquivos),
-            "arquivos": [
-                {"arquivo": slug_seguro(str(a["arquivo"])), "href": a["href"]}
-                for a in arquivos
-            ],
-            "motivo": corpo.get("motivo"),
-            "recebido_em": datetime.now().isoformat(timespec="seconds"),
-        }
-
-        PASTA.mkdir(parents=True, exist_ok=True)
-        destino = PASTA / f"link_{slug_seguro(slug)}.json"
-        with _lock:
-            destino.write_text(
-                json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8"
-            )
-            if registro["ok"]:
-                registrar_coletado(slug)
-        estado = "ok" if registro["ok"] else "vazio"
-        print(f"[{estado}] {slug} ({len(registro['arquivos'])} arquivo(s))")
-        self._responder(200, {"ok": True, "arquivo": destino.name})
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -4666,5 +4666,773 @@
     "origem": "https://www.pciconcursos.com.br/provas/15591801/e539482ac99/gabaritos.pdf"
    }
   ]
+ },
+ "bloco-1-infraestrutura-exatas-e-engenharia-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-1-infraestrutura-exatas-e-engenharia-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 342321,
+    "origem": "https://www.pciconcursos.com.br/provas/33171072/21a444f908d/bloco_1_infraestrutura_exatas_e_engenharia_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-1-infraestrutura-exatas-e-engenharia-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321273,
+    "origem": "https://www.pciconcursos.com.br/provas/33171072/bc80e898b03/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-1-infraestrutura-exatas-e-engenharia-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-1-infraestrutura-exatas-e-engenharia-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 585991,
+    "origem": "https://www.pciconcursos.com.br/provas/33171165/75c41f0cfd1/bloco_1_infraestrutura_exatas_e_engenharia_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-1-infraestrutura-exatas-e-engenharia-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321268,
+    "origem": "https://www.pciconcursos.com.br/provas/33171165/ceb376d679f/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-2-tecnologia-dados-e-informacao-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-2-tecnologia-dados-e-informacao-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 388675,
+    "origem": "https://www.pciconcursos.com.br/provas/33171233/0f1f4d2055f/bloco_2_tecnologia_dados_e_informacao_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-2-tecnologia-dados-e-informacao-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321267,
+    "origem": "https://www.pciconcursos.com.br/provas/33171233/9c3139caadc/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-2-tecnologia-dados-e-informacao-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-2-tecnologia-dados-e-informacao-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 512128,
+    "origem": "https://www.pciconcursos.com.br/provas/33171317/07ab43754f7/bloco_2_tecnologia_dados_e_informacao_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-2-tecnologia-dados-e-informacao-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321273,
+    "origem": "https://www.pciconcursos.com.br/provas/33171317/66fc50938d1/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-3-ambiental-agrario-e-biologicas-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-3-ambiental-agrario-e-biologicas-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 340470,
+    "origem": "https://www.pciconcursos.com.br/provas/33171453/7bceab374e2/bloco_3_ambiental_agrario_e_biologicas_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-3-ambiental-agrario-e-biologicas-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321273,
+    "origem": "https://www.pciconcursos.com.br/provas/33171453/751f67b45ff/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-3-ambiental-agrario-e-biologicas-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-3-ambiental-agrario-e-biologicas-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 428950,
+    "origem": "https://www.pciconcursos.com.br/provas/33171544/af6701e8ee0/bloco_3_ambiental_agrario_e_biologicas_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-3-ambiental-agrario-e-biologicas-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321248,
+    "origem": "https://www.pciconcursos.com.br/provas/33171544/ec215357049/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-4-trabalho-e-saude-do-servidor-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-4-trabalho-e-saude-do-servidor-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 340057,
+    "origem": "https://www.pciconcursos.com.br/provas/33171644/d817cf0b8fa/bloco_4_trabalho_e_saude_do_servidor_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-4-trabalho-e-saude-do-servidor-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321268,
+    "origem": "https://www.pciconcursos.com.br/provas/33171644/f0c506a29ee/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-4-trabalho-e-saude-do-servidor-tarderabalho-e-saude-do-servidor-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-4-trabalho-e-saude-do-servidor-tarderabalho-e-saude-do-servidor-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 354466,
+    "origem": "https://www.pciconcursos.com.br/provas/33171731/f72e1349f86/bloco_4_trabalho_e_saude_do_servidor_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-4-trabalho-e-saude-do-servidor-tarderabalho-e-saude-do-servidor-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321271,
+    "origem": "https://www.pciconcursos.com.br/provas/33171731/a2755c36614/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-5-educacao-saude-desenvolvimento-social-e-direitos-humanos-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-5-educacao-saude-desenvolvimento-social-e-direitos-humanos-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 363826,
+    "origem": "https://www.pciconcursos.com.br/provas/33171800/9b0f2bfb2b2/bloco_5_educacao_saude_desenvolvimento_social_e_direitos_humanos_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-5-educacao-saude-desenvolvimento-social-e-direitos-humanos-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321274,
+    "origem": "https://www.pciconcursos.com.br/provas/33171800/87c96ed94e6/gabarito.pdf"
+   }
+  ]
+ },
+ "tecnico-bancario-i-banese-cesgranrio-2025": {
+  "prova": [
+   {
+    "arquivo": "tecnico-bancario-i-banese-cesgranrio-2025_prova.pdf",
+    "bytes": 417089,
+    "origem": "https://www.pciconcursos.com.br/provas/34494260/c4b4a7270f5/tecnico_bancario_i.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-bancario-i-banese-cesgranrio-2025_gabarito.pdf",
+    "bytes": 417089,
+    "origem": "https://www.pciconcursos.com.br/provas/34494260/b19760a8932/gabarito.pdf"
+   }
+  ]
+ },
+ "tecnico-bancario-iii-desenvolvimento-banese-cesgranrio-2025": {
+  "prova": [
+   {
+    "arquivo": "tecnico-bancario-iii-desenvolvimento-banese-cesgranrio-2025_prova.pdf",
+    "bytes": 1496196,
+    "origem": "https://www.pciconcursos.com.br/provas/34494485/4e748e9fb9a/tecnico_bancario_iii_desenvolvimento.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-bancario-iii-desenvolvimento-banese-cesgranrio-2025_gabarito.pdf",
+    "bytes": 417088,
+    "origem": "https://www.pciconcursos.com.br/provas/34494485/bd6dce291e4/gabarito.pdf"
+   }
+  ]
+ },
+ "tecnico-bancario-iii-suporte-banese-cesgranrio-2025": {
+  "prova": [
+   {
+    "arquivo": "tecnico-bancario-iii-suporte-banese-cesgranrio-2025_prova.pdf",
+    "bytes": 1412436,
+    "origem": "https://www.pciconcursos.com.br/provas/34494353/9f12211034f/tecnico_bancario_iii_suporte.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-bancario-iii-suporte-banese-cesgranrio-2025_gabarito.pdf",
+    "bytes": 417089,
+    "origem": "https://www.pciconcursos.com.br/provas/34494353/bf9fe81ac8c/gabarito.pdf"
+   }
+  ]
+ },
+ "assistente-social-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "assistente-social-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 355540,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/7e598c4c0e2/segundo_oficial_de_maquinas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "assistente-social-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 564229,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/661ed2b963f/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-5-educacao-saude-desenvolvimento-social-e-direitos-humanos-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-5-educacao-saude-desenvolvimento-social-e-direitos-humanos-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 451884,
+    "origem": "https://www.pciconcursos.com.br/provas/33171905/60c253b0e84/bloco_5_educacao_saude_desenvolvimento_social_e_direitos_humanos_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-5-educacao-saude-desenvolvimento-social-e-direitos-humanos-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321275,
+    "origem": "https://www.pciconcursos.com.br/provas/33171905/5bbb1bf7d8c/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-6-setores-economicos-e-regulacao-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-6-setores-economicos-e-regulacao-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 383016,
+    "origem": "https://www.pciconcursos.com.br/provas/33172013/8bcae7cd1be/bloco_6_setores_economicos_e_regulacao_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-6-setores-economicos-e-regulacao-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321256,
+    "origem": "https://www.pciconcursos.com.br/provas/33172013/c6c84248e32/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-6-setores-economicos-e-regulacao-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-6-setores-economicos-e-regulacao-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 546409,
+    "origem": "https://www.pciconcursos.com.br/provas/33172173/f4395e844f1/bloco_6_setores_economicos_e_regulacao_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-6-setores-economicos-e-regulacao-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321271,
+    "origem": "https://www.pciconcursos.com.br/provas/33172173/bb5efc96e39/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-7-gestao-governamental-e-administracao-publica-manha-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-7-gestao-governamental-e-administracao-publica-manha-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 511740,
+    "origem": "https://www.pciconcursos.com.br/provas/33172202/4f1c7860f90/bloco_7_gestao_governamental_e_administracao_publica_manha.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-7-gestao-governamental-e-administracao-publica-manha-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321274,
+    "origem": "https://www.pciconcursos.com.br/provas/33172202/0279d1a6168/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-7-gestao-governamental-e-administracao-publica-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-7-gestao-governamental-e-administracao-publica-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 420057,
+    "origem": "https://www.pciconcursos.com.br/provas/33172328/1830604cb5c/bloco_7_gestao_governamental_e_administracao_publica_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-7-gestao-governamental-e-administracao-publica-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321276,
+    "origem": "https://www.pciconcursos.com.br/provas/33172328/015b3f3020b/gabarito.pdf"
+   }
+  ]
+ },
+ "bloco-8-nivel-intermediario-tarde-cnu-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "bloco-8-nivel-intermediario-tarde-cnu-cesgranrio-2024_prova.pdf",
+    "bytes": 856922,
+    "origem": "https://www.pciconcursos.com.br/provas/33172550/0a0d35c3819/bloco_8_nivel_intermediario_tarde.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "bloco-8-nivel-intermediario-tarde-cnu-cesgranrio-2024_gabarito.pdf",
+    "bytes": 321260,
+    "origem": "https://www.pciconcursos.com.br/provas/33172550/18e62f7d403/gabarito.pdf"
+   }
+  ]
+ },
+ "cozinheiro-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "cozinheiro-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 324436,
+    "origem": "https://www.pciconcursos.com.br/provas/31471389/95c63c89467/cozinheiro.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "cozinheiro-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 564225,
+    "origem": "https://www.pciconcursos.com.br/provas/31471389/19fffa31d91/gabarito.pdf"
+   }
+  ]
+ },
+ "designer-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "designer-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 355536,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/7e598c4c0e2/segundo_oficial_de_maquinas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "designer-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 564224,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/661ed2b963f/gabarito.pdf"
+   }
+  ]
+ },
+ "educacao-fisica-fundacao-osorio-cesgranrio-2026": {
+  "prova": [
+   {
+    "arquivo": "educacao-fisica-fundacao-osorio-cesgranrio-2026_prova.pdf",
+    "bytes": 398872,
+    "origem": "https://www.pciconcursos.com.br/provas/36730727/e82073a4279/educacao_fisica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "educacao-fisica-fundacao-osorio-cesgranrio-2026_gabarito.pdf",
+    "bytes": 174485,
+    "origem": "https://www.pciconcursos.com.br/provas/36730727/074fb0f90f4/gabarito.pdf"
+   }
+  ]
+ },
+ "eletricista-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "eletricista-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 451654,
+    "origem": "https://www.pciconcursos.com.br/provas/31471415/b23c0dc131f/eletricista.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "eletricista-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 564235,
+    "origem": "https://www.pciconcursos.com.br/provas/31471415/1c73d85af0a/gabarito.pdf"
+   }
+  ]
+ },
+ "engenharia-de-inspecao-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "engenharia-de-inspecao-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 878487,
+    "origem": "https://www.pciconcursos.com.br/provas/31469937/68310b90adf/engenharia_de_inspecao.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "engenharia-de-inspecao-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 612878,
+    "origem": "https://www.pciconcursos.com.br/provas/31469937/f6c6dd1d967/gabarito.pdf"
+   }
+  ]
+ },
+ "especialista-em-protecao-radiologica-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "especialista-em-protecao-radiologica-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 377626,
+    "origem": "https://www.pciconcursos.com.br/provas/28791166/bcf9ad1dbab/especialista_em_protecao_radiologica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "especialista-em-protecao-radiologica-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298051,
+    "origem": "https://www.pciconcursos.com.br/provas/28791166/c6bc5b9a653/gabaritos.pdf"
+   }
+  ]
+ },
+ "especialista-em-seguranca-de-area-protegida-de-nuclear-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "especialista-em-seguranca-de-area-protegida-de-nuclear-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 594610,
+    "origem": "https://www.pciconcursos.com.br/provas/28791233/89fd4c9120e/especialista_em_seguranca_de_area_protegida_de_nuclear.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "especialista-em-seguranca-de-area-protegida-de-nuclear-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298053,
+    "origem": "https://www.pciconcursos.com.br/provas/28791233/c080e1f1040/gabaritos.pdf"
+   }
+  ]
+ },
+ "lingua-estrangeira-moderna-ingles-fundacao-osorio-cesgranrio-2026": {
+  "prova": [
+   {
+    "arquivo": "lingua-estrangeira-moderna-ingles-fundacao-osorio-cesgranrio-2026_prova.pdf",
+    "bytes": 480522,
+    "origem": "https://www.pciconcursos.com.br/provas/36731041/f6dd61a9e75/lingua_estrangeira_moderna_ingles.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "lingua-estrangeira-moderna-ingles-fundacao-osorio-cesgranrio-2026_gabarito.pdf",
+    "bytes": 174492,
+    "origem": "https://www.pciconcursos.com.br/provas/36731041/4ca1ed9f6d3/gabarito.pdf"
+   }
+  ]
+ },
+ "lingua-portuguesa-fundacao-osorio-cesgranrio-2026": {
+  "prova": [
+   {
+    "arquivo": "lingua-portuguesa-fundacao-osorio-cesgranrio-2026_prova.pdf",
+    "bytes": 1198529,
+    "origem": "https://www.pciconcursos.com.br/provas/36731164/94db6626e25/lingua_portuguesa.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "lingua-portuguesa-fundacao-osorio-cesgranrio-2026_gabarito.pdf",
+    "bytes": 174492,
+    "origem": "https://www.pciconcursos.com.br/provas/36731164/377b9265399/gabarito.pdf"
+   }
+  ]
+ },
+ "pedagogo-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "pedagogo-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 325808,
+    "origem": "https://www.pciconcursos.com.br/provas/28791548/3f8bdd4e39f/pedagogo.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "pedagogo-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298065,
+    "origem": "https://www.pciconcursos.com.br/provas/28791548/9a2d52e752d/gabaritos.pdf"
+   }
+  ]
+ },
+ "segundo-oficial-de-maquinas-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "segundo-oficial-de-maquinas-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 355551,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/7e598c4c0e2/segundo_oficial_de_maquinas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "segundo-oficial-de-maquinas-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 564233,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/661ed2b963f/gabarito.pdf"
+   }
+  ]
+ },
+ "segundo-oficial-de-nautica-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "segundo-oficial-de-nautica-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 355549,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/7e598c4c0e2/segundo_oficial_de_maquinas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "segundo-oficial-de-nautica-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 564232,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/661ed2b963f/gabarito.pdf"
+   }
+  ]
+ },
+ "seguranca-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "seguranca-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 355547,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/7e598c4c0e2/segundo_oficial_de_maquinas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "seguranca-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 564231,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/661ed2b963f/gabarito.pdf"
+   }
+  ]
+ },
+ "taifeiro-transpetro-cesgranrio-2023": {
+  "prova": [
+   {
+    "arquivo": "taifeiro-transpetro-cesgranrio-2023_prova.pdf",
+    "bytes": 355556,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/7e598c4c0e2/segundo_oficial_de_maquinas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "taifeiro-transpetro-cesgranrio-2023_gabarito.pdf",
+    "bytes": 564235,
+    "origem": "https://www.pciconcursos.com.br/provas/31471791/661ed2b963f/gabarito.pdf"
+   }
+  ]
+ },
+ "tecnico-bancario-basa-cesgranrio-2024": {
+  "prova": [
+   {
+    "arquivo": "tecnico-bancario-basa-cesgranrio-2024_prova.pdf",
+    "bytes": 651341,
+    "origem": "https://www.pciconcursos.com.br/provas/33729450/e3533f043e9/tecnico_bancario.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-bancario-basa-cesgranrio-2024_gabarito.pdf",
+    "bytes": 640733,
+    "origem": "https://www.pciconcursos.com.br/provas/33729450/96168dad538/gabarito.pdf"
+   }
+  ]
+ },
+ "tecnico-de-seguranca-do-trabalho-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "tecnico-de-seguranca-do-trabalho-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 289606,
+    "origem": "https://www.pciconcursos.com.br/provas/28791739/98467e9643a/tecnico_de_seguranca_do_trabalho.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-de-seguranca-do-trabalho-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298065,
+    "origem": "https://www.pciconcursos.com.br/provas/28791739/f1f342a64f0/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-eletricista-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "tecnico-eletricista-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 912864,
+    "origem": "https://www.pciconcursos.com.br/provas/28791890/369c6c2f138/tecnico_eletricista.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-eletricista-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298067,
+    "origem": "https://www.pciconcursos.com.br/provas/28791890/366e69af00d/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-em-construcao-civil-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-construcao-civil-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 711660,
+    "origem": "https://www.pciconcursos.com.br/provas/28791977/4dd3e21867e/tecnico_em_construcao_civil.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-construcao-civil-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298067,
+    "origem": "https://www.pciconcursos.com.br/provas/28791977/0edfe2daf4f/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-em-eletromecanica-eletronuclear-cesgranrio-2022-58": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-eletromecanica-eletronuclear-cesgranrio-2022-58_prova.pdf",
+    "bytes": 1182657,
+    "origem": "https://www.pciconcursos.com.br/provas/28792057/dc5d714cf32/tecnico_em_eletromecanica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-eletromecanica-eletronuclear-cesgranrio-2022-58_gabarito.pdf",
+    "bytes": 298063,
+    "origem": "https://www.pciconcursos.com.br/provas/28792057/58e1448aea6/gabaritos.pdf"
+   }
+  ]
+ },
+ "produtor-cultural-unirio-cesgranrio-2019": {
+  "prova": [
+   {
+    "arquivo": "produtor-cultural-unirio-cesgranrio-2019_prova.pdf",
+    "bytes": 213268,
+    "origem": "https://www.pciconcursos.com.br/provas/27694948/4bdf6100115/produtor_cultural.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "produtor-cultural-unirio-cesgranrio-2019_gabarito.pdf",
+    "bytes": 473657,
+    "origem": "https://www.pciconcursos.com.br/provas/27694948/65fbb1c116e/gabarito_definitivo.pdf"
+   }
+  ]
+ },
+ "tecnico-bancario-novo-cef-cesgranrio-2021": {
+  "prova": [
+   {
+    "arquivo": "tecnico-bancario-novo-cef-cesgranrio-2021_prova.pdf",
+    "bytes": 249421,
+    "origem": "https://www.pciconcursos.com.br/provas/28579397/2199afaaafe/tecnico_bancario_novo.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-bancario-novo-cef-cesgranrio-2021_gabarito.pdf",
+    "bytes": 175665,
+    "origem": "https://www.pciconcursos.com.br/provas/28579397/72af56e1d7e/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-bancario-novo-tecnologia-da-informacao-cef-cesgranrio-2021": {
+  "prova": [
+   {
+    "arquivo": "tecnico-bancario-novo-tecnologia-da-informacao-cef-cesgranrio-2021_prova.pdf",
+    "bytes": 450995,
+    "origem": "https://www.pciconcursos.com.br/provas/28579475/0d2fdc80b04/tecnico_bancario_novo_tecnologia_da_informacao.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-bancario-novo-tecnologia-da-informacao-cef-cesgranrio-2021_gabarito.pdf",
+    "bytes": 175667,
+    "origem": "https://www.pciconcursos.com.br/provas/28579475/aa35f6baf37/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-cientifico-area-de-formacao-tecnologia-da-informacao-banco-da-amazonia-s-a-cesgranrio-2021": {
+  "prova": [
+   {
+    "arquivo": "tecnico-cientifico-area-de-formacao-tecnologia-da-informacao-banco-da-amazonia-s-a-cesgranrio-2021_prova.pdf",
+    "bytes": 997597,
+    "origem": "https://www.pciconcursos.com.br/provas/28448375/ab77d4768e5/tecnico_cientifico_area_de_formacao_tecnologia_da_informacao.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-cientifico-area-de-formacao-tecnologia-da-informacao-banco-da-amazonia-s-a-cesgranrio-2021_gabarito.pdf",
+    "bytes": 140685,
+    "origem": "https://www.pciconcursos.com.br/provas/28448375/79196983768/gabarito.pdf"
+   }
+  ]
+ },
+ "tecnico-em-assuntos-educacionais-unirio-cesgranrio-2019": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-assuntos-educacionais-unirio-cesgranrio-2019_prova.pdf",
+    "bytes": 287447,
+    "origem": "https://www.pciconcursos.com.br/provas/27695147/0173e950fdd/tecnico_de_assuntos_educacionais.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-assuntos-educacionais-unirio-cesgranrio-2019_gabarito.pdf",
+    "bytes": 473659,
+    "origem": "https://www.pciconcursos.com.br/provas/27695147/f6685fbfc81/gabarito_definitivo.pdf"
+   }
+  ]
+ },
+ "tecnico-em-contabilidade-unirio-cesgranrio-2019": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-contabilidade-unirio-cesgranrio-2019_prova.pdf",
+    "bytes": 220185,
+    "origem": "https://www.pciconcursos.com.br/provas/27695441/cae7e170706/tecnico_em_contabilidade.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-contabilidade-unirio-cesgranrio-2019_gabarito.pdf",
+    "bytes": 473659,
+    "origem": "https://www.pciconcursos.com.br/provas/27695441/55b4d721930/gabarito_definitivo.pdf"
+   }
+  ]
+ },
+ "tecnico-em-eletrotecnica-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-eletrotecnica-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 991745,
+    "origem": "https://www.pciconcursos.com.br/provas/28792289/88842870dbe/tecnico_em_eletrotecnica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-eletrotecnica-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298064,
+    "origem": "https://www.pciconcursos.com.br/provas/28792289/5b3e390d9c9/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-em-laboratorio-analises-clinicas-unirio-cesgranrio-2019": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-laboratorio-analises-clinicas-unirio-cesgranrio-2019_prova.pdf",
+    "bytes": 199884,
+    "origem": "https://www.pciconcursos.com.br/provas/27695272/5538d461d5b/tecnico_de_laboratrio_area_analises_clanicas.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-laboratorio-analises-clinicas-unirio-cesgranrio-2019_gabarito.pdf",
+    "bytes": 473659,
+    "origem": "https://www.pciconcursos.com.br/provas/27695272/9e87dcea6d6/gabarito_definitivo.pdf"
+   }
+  ]
+ },
+ "tecnico-em-mecanica-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-mecanica-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 536102,
+    "origem": "https://www.pciconcursos.com.br/provas/28792367/fb02940af4a/tecnico_em_mecanica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-mecanica-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298060,
+    "origem": "https://www.pciconcursos.com.br/provas/28792367/a5449cd830f/gabaritos.pdf"
+   }
+  ]
+ },
+ "tecnico-em-quimica-eletronuclear-cesgranrio-2022": {
+  "prova": [
+   {
+    "arquivo": "tecnico-em-quimica-eletronuclear-cesgranrio-2022_prova.pdf",
+    "bytes": 319095,
+    "origem": "https://www.pciconcursos.com.br/provas/28792555/cc72747af73/tecnico_em_quimica.pdf"
+   }
+  ],
+  "gabarito": [
+   {
+    "arquivo": "tecnico-em-quimica-eletronuclear-cesgranrio-2022_gabarito.pdf",
+    "bytes": 298056,
+    "origem": "https://www.pciconcursos.com.br/provas/28792555/a0b76b7c4aa/gabaritos.pdf"
+   }
+  ]
  }
 }
