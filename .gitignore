@@ -50,5 +50,9 @@ Thumbs.db
 data/raw_pdfs/*.pdf
 !data/raw_pdfs/.gitkeep
 
+# Links assinados do PCI (expiram): a fila e o índice de coletados ficam
+# versionados, os JSONs por caderno não
+data/pci_links/link_*.json
+
 # Painéis HTML gerados pela busca no PCI
 painel_*.html
