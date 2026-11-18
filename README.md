@@ -218,6 +218,24 @@ os `link_<slug>.json` não, porque as URLs assinadas expiram. O estado da coleta
 é sempre `fila − coletados`; rode `curl localhost:8765/status` para ver. Ao
 esvaziar a fila, repita do passo 1: ele recalcula o que ainda falta.
 
+#### Duas abas em paralelo (~2x)
+
+Concorrência >1 **dentro** da mesma aba derruba a taxa de sucesso (os iframes
+disputam a renderização do widget), mas abas separadas não se atrapalham. Divida
+a fila pelo servidor para os coletores não repetirem caderno:
+
+```bash
+# aba 1
+curl -s 'localhost:8765/fila?de=2&parte=0&limite=60'
+# aba 2
+curl -s 'localhost:8765/fila?de=2&parte=1&limite=60'
+```
+
+Com uma aba, o ritmo fica em ~8 cadernos/min; com duas, ~15–18/min. Uma página
+leve do site (a home) como base da aba deixa o coletor mais rápido do que a
+página de download, que carrega anúncios e desafios próprios.
+
+
 
 ---
 

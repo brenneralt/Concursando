@@ -14,7 +14,7 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 ## 📊 Status Atual de Desenvolvimento
 
 - **Última Atualização:** 17/11/2026
-- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 5.692 questões (5.012 Cesgranrio + 680 IGECAP/CONTEMAX), 137 provas, 23 órgãos Cesgranrio (2004–2024), 98,9% gabaritadas.** A coleta do acervo Cesgranrio roda por fila resumível: **1.473 cadernos de médio/fundamental no escopo, 429 já com PDF baixado (876 PDFs), 1.044 pendentes** em `data/pci_links/fila.json`.
+- **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 6.022 questões (5.342 Cesgranrio + 680 IGECAP/CONTEMAX), 143 provas, 24 órgãos Cesgranrio (2004–2024), 99,0% gabaritadas.** A coleta do acervo Cesgranrio roda por fila resumível: **1.473 cadernos de médio/fundamental no escopo, 495 links liberados, 736 pendentes** em `data/pci_links/fila.json`, e 1.273 PDFs em `data/raw_pdfs/`.
 
 ### ✅ O Que Já Está Feito e Testado
 - [x] **Repositório Git:** Inicializado na branch `main` com `.gitignore` completo para Node/Python.
@@ -82,10 +82,10 @@ Estado exato ao pausar:
 
 | Item | Valor |
 |---|---|
-| Banco publicado | 5.692 questões (5.012 Cesgranrio em 120 provas + 680 IGECAP/CONTEMAX) |
-| PDFs em `data/raw_pdfs/` | 838 arquivos / 410 cadernos |
-| Fila do PCI | 1.473 no escopo · 154 links liberados · **1.076 pendentes** |
-| PDFs ainda não extraídos | **146** (baixados depois da extração v4) |
+| Banco publicado | 6.022 questões (5.342 Cesgranrio em 126 provas + 680 IGECAP/CONTEMAX) |
+| PDFs em `data/raw_pdfs/` | 1.273 arquivos |
+| Fila do PCI | 1.473 no escopo · 495 links liberados · **736 pendentes** |
+| PDFs ainda não extraídos | 0 (extração v6 cobriu os 1.273) |
 | Coletores | parados (`rodando: false`) nas duas abas; workers ociosos |
 
 Para continuar amanhã:

@@ -26,6 +26,7 @@ import argparse
 import json
 import re
 import threading
+import zlib
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -134,7 +135,15 @@ class Handler(BaseHTTPRequestHandler):
             #   /fila?de=2&parte=1  -> índices 1, 3, 5, ...
             if de > 1:
                 parte = max(0, min(parte, de - 1))
-                pendentes = pendentes[parte::de]
+                # Divisão estável por hash do id: a mesma aba pega sempre os
+                # mesmos cadernos, mesmo que a lista de pendentes encolha entre
+                # um pedido e outro. Sem isso, a paridade muda a cada coleta e
+                # duas abas acabam repetindo o mesmo caderno.
+                pendentes = [
+                    i
+                    for i in pendentes
+                    if zlib.crc32(i["id"].encode("utf-8")) % de == parte
+                ]
             if limite:
                 pendentes = pendentes[:limite]
             self._responder(
