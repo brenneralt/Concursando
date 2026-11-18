@@ -259,11 +259,12 @@ O build estático otimizado será gerado na pasta `web/dist/`.
   desativados.
 
 ### Hospedagem no GitHub Pages:
-- O Vite já está configurado com `base: './'` no [vite.config.js](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/web/vite.config.js).
-- Basta publicar a pasta `web/dist` ou utilizar a Action padrão do GitHub Pages.
-- A Action precisa receber as mesmas variáveis (`VITE_SUPABASE_URL` e
-  `VITE_SUPABASE_ANON_KEY`) via **Settings → Secrets and variables → Actions**;
-  elas são embutidas no bundle no momento do build.
+- O Vite já está configurado com `base: './'` no [vite.config.js](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/web/vite.config.js), então o site funciona em qualquer subpasta.
+- O workflow [`.github/workflows/deploy.yml`](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/.github/workflows/deploy.yml) já faz build + publicação a cada push em `web/` (ou por `workflow_dispatch`). Para ativar:
+  1. **Settings → Pages → Source: GitHub Actions**.
+  2. **Settings → Secrets and variables → Actions**: cadastre `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` (sem elas o app publica e funciona off-line, com progresso no `localStorage`).
+- O workflow confere que `dist/questoes.json` saiu no pacote antes de publicar, para nunca subir um site sem banco.
+- Alternativa manual: rodar `npm run build` em `web/` e publicar `web/dist` em qualquer host estático.
 
 ---
 
