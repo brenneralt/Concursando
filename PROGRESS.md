@@ -123,8 +123,8 @@ python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.1
 ## ⏳ O Que Falta Fazer (Backlog)
 - [x] **Adaptar o parser para a Cesgranrio:** banca, seções, cargos, numeração isolada, duas colunas e gabarito por cargo/versão. Painel com 2.718 provas Cesgranrio em `painel_cesgranrio.html`.
 - [x] **Primeiro push no GitHub:** `main` publicada em `github.com/brenneralt/Concursando`.
-- [ ] **Deploy no Vercel/GitHub Pages:** subir o frontend com login/ranque e cadastrar `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` no painel do provedor (Settings → Environment Variables / Secrets).
-- [x] **Fluxo GitHub Actions:** `.github/workflows/deploy.yml` faz build (`npm ci` + `vite build`), confere `dist/questoes.json` e publica no GitHub Pages a cada push em `web/`. Falta apenas ligar **Settings → Pages → Source: GitHub Actions** e cadastrar os dois secrets `VITE_*`.
+- [x] **Deploy no GitHub Pages (18/11/2026):** site publicado em **https://brenneralt.github.io/Concursando/** com login/ranque ativos. Pages habilitado em modo *GitHub Actions* e os secrets `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` cadastrados; o bundle publicado contém o endpoint do Supabase e o `questoes.json` (6.670 questões).
+- [x] **Fluxo GitHub Actions:** `.github/workflows/deploy.yml` faz build (`npm ci` + `vite build`), confere `dist/questoes.json` e publica no GitHub Pages a cada push em `web/`. Pages já ligado (Source: GitHub Actions) e secrets `VITE_*` cadastrados.
 - [ ] **Modo Simulado / Cronômetro:** Adicionar temporizador de prova com relatório final de tempo por questão.
 - [ ] **Rodar o patch de RLS de exclusão de progresso** no SQL Editor do Supabase (`progresso_delete_own`, já presente em `supabase/schema.sql`) e apagar as contas de teste.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.
