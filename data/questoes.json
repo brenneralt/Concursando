@@ -78360,6 +78360,3526 @@
     "anulada": false
   },
   {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q01",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Semântica e Vocabulário",
+    "enunciado": "O fragmento do texto que apresenta uma definição de\n“energia eólica” é:",
+    "alternativas": {
+      "A": "“Energia, derivada de energeia, que em grego significa ‘em ação’, é a propriedade de um sistema que lhe permite existir, ou seja, realizar ‘trabalho’ ” (\u0002. 1-3)",
+      "B": "“Existem fontes de energia alternativas que, adequadamente utilizadas, podem substituir os combustíveis fósseis em alguns de seus usos” (\u0002. 16-18)",
+      "C": "“A energia eólica é a energia gerada pela força do vento, ou seja, é a força capaz de transformar a energia do vento em energia aproveitável.” (\u0002. 21-23)",
+      "D": "“Esse baixo impacto ocorre porque usinas eólicas não promovem queima de combustível, nem geram dejetos que poluem o ar, o solo ou a água” (\u0002. 50-52)",
+      "E": "“A tendência é que essa tecnologia de geração de energia cresça cada vez mais, com a presença de diversos parques eólicos espalhados pelo Brasil.” (\u0002. 77-79) PROVA 8"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q02",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Pontuação",
+    "enunciado": "Em “Atualmente, o desenvolvimento tecnológico descobriu outras formas de uso para a força eólica.” (\u0002. 35-36),\na vírgula é utilizada para separar uma circunstância de\ntempo deslocada para o início da frase.\nA mesma justificativa para o uso da vírgula pode ser encontrada em:",
+    "alternativas": {
+      "A": "“Energia é vida, é movimento — sem a sua presença o mundo seria inerte.” (\u0002. 4-5)",
+      "B": "“Desde o início da vida em sociedade, as fontes de energia de que o homem precisa devem ser geradas continuamente” (\u0002. 8-10)",
+      "C": "“A quantidade de energia produzida vai depender de alguns fatores, entre eles a velocidade do vento no local e a capacidade do sistema montado.” (\u0002. 41-44)",
+      "D": "“Esse baixo impacto ocorre porque usinas eólicas não promovem queima de combustível, nem geram dejetos que poluem o ar” (\u0002. 50-52)",
+      "E": "“Isso acontece devido aos parques eólicos ocuparem grandes extensões, com imensos aerogeradores instalados.” (\u0002. 58-60)"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q03",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Crase e Regência",
+    "enunciado": "O acento grave indicador da crase está corretamente empregado, de acordo com a norma-padrão da língua portuguesa, em:",
+    "alternativas": {
+      "A": "As lâmpadas de LED são sustentáveis e duráveis, à ponto de economizar no consumo e oferecer segurança e estabilidade na iluminação.",
+      "B": "Entre os exemplos de fontes alternativas de energia, destaca-se a energia solar, gerada à partir dos raios solares.",
+      "C": "O desperdício de água aumenta à cada dia, e pode gerar uma série de problemas, que afetarão toda a população.",
+      "D": "Os primeiros europeus que vieram à América trouxeram consigo a tecnologia existente no Velho Continente.",
+      "E": "Por volta do ano 1000, os moinhos de vento eram usados para bombear à água do mar."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q04",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Ortografia e Acentuação",
+    "enunciado": "No trecho “Isto é possível através de aerogeradores, geradores elétricos associados ao eixo de cata-ventos”\n(\u0002. 38-40), a palavra destacada apresenta hífen porque o\nprimeiro elemento é uma forma verbal.\nO grupo em que todas as palavras apresentam hífen pelo\nmesmo motivo é",
+    "alternativas": {
+      "A": "porta-retrato, quebra-mar, bate-estacas",
+      "B": "semi-interno, super-revista, conta-gotas",
+      "C": "guarda-chuva, primeiro-ministro, decreto-lei",
+      "D": "caça-níqueis, hiper-requintado, auto-observação",
+      "E": "bem-visto, sem-vergonha, finca-pé PROVA 8"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q05",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "O termo destacado foi utilizado na posição correta, segundo as exigências da norma-padrão da língua portuguesa, em:",
+    "alternativas": {
+      "A": "A poluição do ar será irreversível, caso as medidas preventivas esgotem-se.",
+      "B": "Os cientistas nunca equivocaram-se a respeito dos perigos do uso de combustível fóssil.",
+      "C": "Quando as substâncias tóxicas alojam-se no meio ambiente, causam danos aos seres vivos.",
+      "D": "Se as fontes de energia alternativa se esgotarem, poderemos sofrer sérias consequências.",
+      "E": "Uma das exigências do mundo atual é que o ser humano sempre mantenha-se em dia com as atividades físicas."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q06",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Semântica e Vocabulário",
+    "enunciado": "De acordo com a norma-padrão da língua portuguesa, o\npronome que faz referência à palavra ou expressão entre\ncolchetes em:",
+    "alternativas": {
+      "A": "“Energia, derivada de energeia, que em grego significa ‘em ação’, é a propriedade de um sistema que lhe permite existir” (\u0002. 1-3) [propriedade de um sistema]",
+      "B": "“Existem fontes de energia alternativas que, adequadamente utilizadas, podem substituir os combustíveis fósseis” (\u0002. 16-18) [alternativas]",
+      "C": "“reservando-os para aquelas situações em que a substituição ainda não é possível” (\u0002. 18-20) [combustíveis fósseis]",
+      "D": "“...usinas eólicas não promovem queima de combustível, nem geram dejetos que poluem o ar, o solo ou a água” (\u0002. 50-52) [usinas eólicas]",
+      "E": "“o impacto visual causado pelas imensas hélices que provocam certas sombras e reflexos desagradáveis em áreas residenciais” (\u0002. 66-68) [impacto visual]"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q07",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "A palavra ou a expressão destacada aparece corretamen-te grafada, de acordo com a norma-padrão da língua portuguesa, em:",
+    "alternativas": {
+      "A": "O preço dos combustíveis vem aumentando, mas a indústria automobilística desconhece o porque do crescimento da frota veicular nas cidades.",
+      "B": "Os poluentes derivados dos combustíveis fósseis são substâncias prejudiciais por que causam danos aos seres vivos e ao meio ambiente.",
+      "C": "Os cidadãos deveriam saber os riscos de um apagão para conhecerem melhor o porquê da necessidade de economizar energia.",
+      "D": "A fabricação de veículos movidos a combustão explica por quê aumentou significativamente a poluição nas grandes cidades.",
+      "E": "Seria impossível falar de energia sem associar o meio ambiente ao tema, porquê toda a energia produzida é resultado da utilização das forças oferecidas pela natureza. TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q08",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Concordância Verbal e Nominal",
+    "enunciado": "No trecho “Assim, citam-se as seguintes desvantagens”\n(\u0002. 62-63), a forma verbal destacada está no plural em\natendimento à norma-padrão da língua portuguesa.\nSeguindo essa exigência, o verbo destacado está corretamente empregado em:",
+    "alternativas": {
+      "A": "Atualmente, atribuem-se a modernos aerogeradores a tarefa de converter a força cinética contida no vento em energia elétrica para consumo das populações.",
+      "B": "Com o avanço da tecnologia relativa à produção de energia, assistem-se a intensas transformações dos hábitos e aperfeiçoamento dos sistemas de comunicação.",
+      "C": "De acordo com especialistas, aplicam-se a empresas que agridem o meio ambiente uma legislação moder-na que tem o objetivo de tipificar esse tipo de crime.",
+      "D": "Segundo a Lei de Crimes Ambientais brasileira, destinam-se às infrações uma penalização rígida, embora o país ainda seja pouco operante na fiscalização e na apuração dos crimes.",
+      "E": "Para atender ao regulamento ambiental relativo às usinas eólicas, exigem-se a ausência de radiação eletromagnética e o baixo impacto sonoro das turbi-nas na vizinhança."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q09",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Regência Verbal e Nominal",
+    "enunciado": "No trecho “Desde o início da vida em sociedade, as fontes\nde energia de que o homem precisa devem ser geradas\ncontinuamente” (\u0002. 8-10), o uso da preposição de é obrigatório para atender às exigências de regência verbal na\nnorma padrão da língua portuguesa.\nÉ obrigatório também o emprego de uma preposição antecedendo o termo que em:",
+    "alternativas": {
+      "A": "A desvantagem que a criação de usinas para captação de energia eólica possui é o impacto sonoro provocado pelos ruídos das turbinas.",
+      "B": "A força cinética que os pesquisadores se referem é produzida por geradores elétricos associados ao eixo de cata-ventos.",
+      "C": "A maior vantagem que os estudiosos mencionam é o fato de as usinas eólicas não promoverem queima de combustível.",
+      "D": "O mais importante papel que a energia eólica desempenhou na história da humanidade foi o transporte marítimo.",
+      "E": "A mortandade de aves que os analistas relacionam às hélices das grandes turbinas é uma das desvantagens dos parques eólicos."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q10",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "No trecho “Esse tipo de energia já é uma realidade no\nBrasil. Nosso país já conta com diversos parques e usi-nas.” (\u0002. 75-77), a palavra que pode expressar a relação\nexistente entre as duas frases é",
+    "alternativas": {
+      "A": "entretanto",
+      "B": "conforme",
+      "C": "embora",
+      "D": "quando",
+      "E": "porque TÉCNICO(A) DE OPERAÇÃO JÚNIOR O H N U SC A R PROVA 8"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q11",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Razão, Proporção e Regra de Três",
+    "enunciado": "Os conjuntos P e Q têm p e q elementos, respectivamen-te, com p + q = 13. Sabendo-se que a razão entre o número de subconjuntos de P e o número de subconjuntos de Q\né 32, quanto vale o produto pq?",
+    "alternativas": {
+      "A": "16",
+      "B": "32",
+      "C": "36",
+      "D": "42",
+      "E": "46"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q12",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Raciocínio Lógico e Aritmética",
+    "enunciado": "Qual o maior valor de k na equação log(kx) = 2log(x+3)\npara que ela tenha exatamente uma raiz?",
+    "alternativas": {
+      "A": "0",
+      "B": "3",
+      "C": "6",
+      "D": "9",
+      "E": "12"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q13",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Raciocínio Lógico e Aritmética",
+    "enunciado": "Quantos valores reais de x fazem com que a expressão\n(x 2  5x  5) x 4x60 assuma valor numérico igual a 1?",
+    "alternativas": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5",
+      "E": "6"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q14",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Raciocínio Lógico e Aritmética",
+    "enunciado": "Uma loja de departamento colocou 11 calças distintas em\numa prateleira de promoção, sendo 3 calças de R$ 50,00,\n4 calças de R$ 100,00 e 4 calças de R$ 200,00. Um freguês vai comprar exatamente três dessas calças gastando, no máximo, R$ 400,00.\nDe quantos modos diferentes ele pode efetuar a compra?",
+    "alternativas": {
+      "A": "46",
+      "B": "96",
+      "C": "110",
+      "D": "119",
+      "E": "165"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q15",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Raciocínio Lógico e Aritmética",
+    "enunciado": "A soma dos n primeiros termos de uma progressão geo-\n3 n+4  81\nmétrica é dada por s n \n.\n2x3 n\nQuanto vale o quarto termo dessa progressão geométrica?",
+    "alternativas": {
+      "A": "1",
+      "B": "3",
+      "C": "27",
+      "D": "39",
+      "E": "40 PROVA 8"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q16",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Raciocínio Lógico e Aritmética",
+    "enunciado": " 1 1 1 \n\n\nNa matriz A  m\nn\np , m, n e p são números intei\n\n\n  m 2 n 2 p 2  \nros ímpares consecutivos tais que m < n < p.\nO valor de det A + det A  4 det A é",
+    "alternativas": {
+      "A": "2",
+      "B": "8",
+      "C": "16",
+      "D": "20",
+      "E": "22"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q17",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Geometria e Medidas",
+    "enunciado": "A Figura a seguir mostra um cilindro reto, um cone reto e\numa esfera que tangencia a base do cilindro e as geratrizes do cilindro e do cone. O cone e o cilindro têm como\nbase um círculo de raio 7 cm e a mesma altura que mede\n24 cm.\nQual o volume, em centímetros cúbicos, da região interior\nao cilindro e exterior à esfera e ao cone?",
+    "alternativas": {
+      "A": "800 ",
+      "B": "784 ",
+      "C": "748 ",
+      "D": "684 ",
+      "E": "648 "
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q18",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Geometria e Medidas",
+    "enunciado": "Um arame de extremidades C e D e 8 cm de comprimento\né dobrado de modo a formar um triângulo equilátero ABC\nmantendo os pontos B, C e D alinhados, conforme a Figura a seguir.\nA\nD\nB\nC\nQual a distância, em centímetros, entre os pontos A e D?",
+    "alternativas": {
+      "A": "3",
+      "B": "2 3",
+      "C": "4 3",
+      "D": "2",
+      "E": "4 TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q19",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Geometria e Medidas",
+    "enunciado": "Qual a equação reduzida da reta que contém a altura relativa ao lado BC do triângulo ABC, onde A, B e C são os\npontos (3, 4), (1, 1) e (6, 0), respectivamente?",
+    "alternativas": {
+      "A": "y = 5x – 11",
+      "B": "y = 6x – 11",
+      "C": "y = – 5x + 11",
+      "D": "y = – 6x – 11",
+      "E": "y = 5x + 11"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q20",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Raciocínio Lógico",
+    "assunto": "Raciocínio Lógico e Aritmética",
+    "enunciado": "Um feirante sabe que consegue vender seus produtos a\npreços mais caros, conforme o horário da feira, mas, na\núltima hora, ele deve vender suas frutas pela metade do\npreço inicial. Inicialmente, ele vende o lote de uma fruta a\nR$ 10,00. Passado algum tempo, aumenta em 25% o preço das frutas. Passado mais algum tempo, o novo preço\nsofreu um aumento de 20%. Na última hora da feira, o lote\nda fruta custa R$ 5,00.\nO desconto, em reais, que ele deve dar sobre o preço\nmais alto para atingir o preço da última hora da feira deve\nser de",
+    "alternativas": {
+      "A": "12,50",
+      "B": "10,00",
+      "C": "7,50",
+      "D": "5,00",
+      "E": "2,50 O H N U SC A R TÉCNICO(A) DE OPERAÇÃO JÚNIOR O H N U SC A R PROVA 8 BLOCO 1"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q21",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um vaso de 3 m 3 contendo uma mistura de hidrocarbonetos, hermeticamente fechado, opera inicialmente a\n3 x 10 5 Pa. Sem haver entrada ou saída de material, o\nvaso sofre uma remoção de calor de 895 kJ, mediante\num sistema de resfriamento, tendo sua pressão reduzida para 2,8 x 10 5 Pa.\nNessa condição, a variação da entalpia do vaso, em kJ,\nfoi de",
+    "alternativas": {
+      "A": "821",
+      "B": "835",
+      "C": "895",
+      "D": "951",
+      "E": "955"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q22",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "O cobre é um material muito empregado em sistemas elétricos, isto porque o átomo de cobre possui\n(A) mais elétrons do que prótons em seu estado de equilíbrio na natureza.\n(B) a maior parte de seus elétrons na camada mais exter-na de sua eletrosfera.\n(C) apenas um elétron na camada mais externa, facilitando o fluxo de corrente entre os átomos.\n(D) seus elétrons distribuídos de forma uniforme entre\nsuas quatro camadas na eletrosfera.\n(E) uma carga elétrica negativa total superior à carga elétrica positiva total.\n25.\nde capacetes, entre outros objetos.\nO\nCH 2\nCH\n(CH 2 )\nO\nC\nCN\nn\nPCL\nPCL e ABS são, respectivamente:",
+    "alternativas": {
+      "A": "poliéster e polímero de adição",
+      "B": "poliéster e copolímero",
+      "C": "poliamida e polímero de adição",
+      "D": "poliamida e copolímero",
+      "E": "policarbonato e homopolímero PROVA 8"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q23",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "O tricloreto de fósforo (PC\u0002 3 ) é um composto químico\nmuito utilizado como matéria-prima para obtenção de diversos compostos organofosforados. Ele é comumente\npreparado, sob condições adequadas, de acordo com a\nequação química balanceada representada a seguir.\nP 4(s) + 6 C\u0002 2(g)  4 PC\u0002 3(l)\nO valor mais próximo da massa, em gramas, de PC\u0002 3 que\nse formaria a partir de 12,4 g de P 4 e 30,0 g de C\u0002 2 , considerando um rendimento de 100%, seria",
+    "alternativas": {
+      "A": "9,6 Dados M (P 4 ) = 123,9 g mol 1",
+      "B": "19,2",
+      "C": "38,4 M (C\u0002 2 ) = 70,9 g mol 1",
+      "D": "76,8 M (PC\u0002 3 ) = 137,3 g mol 1",
+      "E": "115,2"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q24",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Uma solução aquosa de bicarbonato de sódio (NaHCO 3 )\nfoi preparada em um balão volumétrico de 250,00 mL utilizando-se 10,0 g do soluto, com o volume final ajustado\npela adição de água pura. Dessa solução foi retirada uma\nalíquota de 25,00 mL, que foi transferida para um balão de\n100,00 mL, no qual o volume final foi ajustado pela adição\nde água pura.\nOs valores mais próximos das concentrações, em quantidade de matéria (mol L 1 ), da solução inicial e da solução\napós a diluição são, respectivamente,",
+    "alternativas": {
+      "A": "0,24 e 0,06 Dado M (NaHCO 3 ) = 84,0 g mol 1",
+      "B": "0,24 e 0,12",
+      "C": "0,48 e 0,12",
+      "D": "0,48 e 0,24",
+      "E": "0,64 e 0,24 CH 2 CH CH CH 2 CH 2 CH C 6 H 5 x y z ABS TÉCNICO(A) DE OPERAÇÃO JÚNIOR Policaprolactona, cuja sigla é PCL, é um polímero biodegradável muito utilizado como aditivo em resinas, e acrilonitrila- -butadieno-estireno, cuja sigla é ABS, é um polímero que possui elevada resistência, portanto, é utilizado na fabricação"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q26",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "As substâncias inorgânicas possuem diversas aplicações:\no A\u0002 2 (SO 4 ) 3 é utilizado em uma das etapas do tratamento\nde água, o H 2 SO 4 é matéria-prima para produção de fertilizantes, o A\u0002(OH) 3 é empregado em medicamentos, e o\nA\u0002 2 O 3 é utilizado na fabricação de materiais cerâmicos.\nA respeito dessas substâncias, verifica-se que o",
+    "alternativas": {
+      "A": "A\u0002 2 (SO 4 ) 3 é um óxido anfótero, e o H 2 SO 4 é um ácido forte.",
+      "B": "A\u0002 2 (SO 4 ) 3 é um óxido neutro, e o H 2 SO 4 é um ácido fraco.",
+      "C": "A\u0002(OH) 3 é uma base, e o H 2 SO 4 é um ácido que não se ioniza em meio aquoso.",
+      "D": "A\u0002 2 O 3 é um hidrogeno-sal, e o A\u0002(OH) 3 é um hidroxi- -sal.",
+      "E": "A\u0002 2 O 3 é um óxido anfótero, e o A\u0002 2 (SO 4 ) 3 é um sal."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q27",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Considere as seguintes equações químicas de oxirredução balanceadas a seguir:\nFe 2 O 3(s) + 3 CO (g) → 2 Fe (s) + 3 CO 2(s)\n(I)\n2 K (s) + 2 H 2 O (\u0002) → 2 KOH (aq) + H 2(g)\n(II)\n2 NaBr (aq) + Cl 2(g) → 2 NaC\u0002 (aq) + Br 2(\u0002)\n(III)\nEm cada uma das equações, o agente oxidante é a espécie química:\nEquação I\nEquação II\nEquação III",
+    "alternativas": {
+      "A": "CO KOH NaBr",
+      "B": "CO K NaBr",
+      "C": "CO H 2 O C\u0002 2",
+      "D": "Fe 2 O 3 H 2 O C\u0002 2",
+      "E": "K NaBr Fe 2 O 3 O H N U SC A R TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q28",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Os hidrocarbonetos representados a seguir, e identificados por I, II e III, são compostos orgânicos relativamente\nsimples, pois são constituídos exclusivamente por átomos\nde carbono e hidrogênio.\nI\nIII\nII\nOs compostos I, II e III correspondem aos tipos\nI\nII\nIII",
+    "alternativas": {
+      "A": "aromático alcadieno ciclano",
+      "B": "alcino parafínico alceno",
+      "C": "elefina alcino parafínico",
+      "D": "alceno alcadieno alcino",
+      "E": "parafínico alceno cicleno"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q29",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "O elevador mostrado na Figura abaixo é utilizado para\najudar operários a transportar sacos de cimento do alto\nde uma plataforma para o chão.\nCabine\nSaco de\nCimento\nContrapeso\nO sistema é abandonado, a partir do repouso, da posição mostrada na Figura, e a cabine desce em trajetória\nvertical.\nSe os atritos são desprezíveis e os cabos ideais, os valores aproximados da tração na corda e aceleração da\ncabine, durante a descida, são, respectivamente, em N\ne m . s 2 ,",
+    "alternativas": {
+      "A": "344 e 3,75 Dados",
+      "B": "328 e 3,13 aceleração da gravidade g  10,0 m.s 2 ;",
+      "C": "313 e 2,50 massa do contrapeso  25,0 kg;",
+      "D": "250 e 5,45 massa da cabine  5,00 kg; massa do saco de cimento  50,0 kg.",
+      "E": "0 e 10,0 PROVA 8"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q31",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Uma máquina utiliza um pequeno aquecedor composto\npor um resistor de potência e tensão nominais 15,0 W e\n9,00 V. Para alimentar o aquecedor, é utilizada uma fonte\nde corrente contínua ideal de 30,0 V em série com um\nresistor R, como mostra a Figura abaixo.\nR\n+\n30,0 V\n15,0 W 9,00 V\nAquecedor\nO valor aproximado da resistência elétrica de R, em ,\npara que o aquecedor trabalhe com potência e tensão nominais, é",
+    "alternativas": {
+      "A": "5,40",
+      "B": "12,6",
+      "C": "16,2",
+      "D": "18,0",
+      "E": "21,0 PROVA 8 B B 500 : 500 : Vermelho Amarelo C C"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q32",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Compreensão e Interpretação de Texto",
+    "enunciado": "O diagrama de linhas de campo elétrico gerado por esferas puntiformes carregadas eletricamente com cargas\nQ1 e Q2 é mostrado abaixo.\nCom base nas informações fornecidas por este diagrama,\nconclui-se que as cargas Q1 e Q2 são",
+    "alternativas": {
+      "A": "positivas e |Q1|  |Q2|",
+      "B": "positivas e |Q1|  |Q2|",
+      "C": "opostas e |Q1|  |Q2|",
+      "D": "negativas e |Q1|  |Q2|",
+      "E": "negativas e |Q1|  |Q2| TÉCNICO(A) DE OPERAÇÃO JÚNIOR O circuito da Figura abaixo utiliza uma fonte de tensão alternada para alimentar três LEDs. Entretanto, ao ligar o circuito, o técnico observou que nem todos os LEDs estavam emitindo luz. Uma alteração no circuito que faria com que todos os LEDs emitissem luz seria (B) conectar o LED verde e seu respectivo resistor entre os pontos B e C."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q33",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "conectada a um voltímetro, como mostra a Figura abaixo.\nA\nS\nN\nVoltagem",
+    "alternativas": {
+      "A": "0. Tempo Voltagem Tempo",
+      "B": "Voltagem",
+      "C": "Tempo TÉCNICO(A) DE OPERAÇÃO JÚNIOR B - + Voltímetro Voltagem",
+      "D": "Tempo Voltagem",
+      "E": "Tempo PROVA 8 Em um experimento, um ímã percorre a trajetória reta AB, com velocidade constante, atravessando uma espira metálica A voltagem indicada pelo voltímetro ao longo da trajetória do ímã é aproximadamente representada pelo seguinte gráfico:"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q34",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Em plantas industriais, a temperatura é uma variável importante, que pode ser usada para monitorar a pureza de\num produto ou a conversão de uma reação, sendo bastante comum o uso do instrumento termopar para sua\nmedição.\nO termopar é um sensor de temperatura que consiste em",
+    "alternativas": {
+      "A": "um compósito de dois metais heterogêneos unidos em uma tira.",
+      "B": "um circuito de dois metais heterogêneos unidos em suas extremidades.",
+      "C": "uma combinação sinterizada de material cerâmico e algum tipo de óxido semicondutor.",
+      "D": "vidro comum preenchido com metal líquido.",
+      "E": "resistência elétrica de metais puros."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q35",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "O clorato de potássio (KC\u0002O 3 ), quando aquecido, se decompõe segundo a equação química abaixo.\n2 KC\u0002O 3(s) → 2 KC\u0002 (s)  3 O 2(g)\nUma mistura com massa desconhecida contém apenas\nKC\u0002O 3 e KC\u0002 e foi aquecida produzindo 0,175 mol do\ngás oxigênio proveniente da reação de decomposição\ncompleta do KC\u0002O 3 . Após o aquecimento, a massa final\nde KC\u0002 foi de 25,0 g.\nDessa forma, a massa total aproximada, em gramas, da\nmistura que foi aquecida era de",
+    "alternativas": {
+      "A": "27,5 Dados",
+      "B": "30,6 M(KC\u0002)  75 g mol  1",
+      "C": "33,7 M(KC\u0002O 3 )  123 g mol  1",
+      "D": "34,4",
+      "E": "38,6"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q36",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "O gás dióxido de enxofre (SO 2 ) reage com o gás NO 2 formando o trióxido de enxofre, que promove a acidificação\nda água da chuva.\nSO 2(g)  NO 2(g)\nSO 3(g)  NO (g)\nA constante de equilíbrio (K c ) dessa reação é igual a 25\na 400 K. Nessas condições, coloca-se em um reator, de\nvolume fixo, a quantidade de gases necessária para se\nter, inicialmente, 1 mol L 1 de cada um dos quatro gases.\nAo se atingir o equilíbrio, a concentração de SO 3(g) no sistema, em mol L 1 , será mais próxima de",
+    "alternativas": {
+      "A": "1,66",
+      "B": "1,33",
+      "C": "0,66",
+      "D": "0,50",
+      "E": "0,33 PROVA 8"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q37",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Nanopartículas esféricas de ouro são estruturas que contêm centenas de átomos de Au. A superfície dessas nano-partículas apresenta carga elétrica advinda de uma camada de íons provenientes do reagente usado na redução\ndo Au 3 para o Au que forma a nanopartícula. A elevada\nrelação superfície-volume e a carga superficial mantêm\nas nanopartículas dispersas homogeneamente no meio\naquoso.\nConsiderando que cada uma das nanopartículas tenha\n100 átomos de Au e que a concentração de Au 3 na reação que originou a dispersão era de 1 x 10 6 mol L 1 , o\nnúmero de nanopartículas de ouro em 5 mL de dispersão\naquosa será de",
+    "alternativas": {
+      "A": "2 x 10 9 Dado",
+      "B": "3 x 10 11 1 mol de átomos  6 x 10 23 átomos",
+      "C": "3 x 10 13",
+      "D": "2 x 10 15",
+      "E": "3 x 10 21"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q38",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Um determinado sistema fechado contém metade do seu\nvolume preenchido com água e, no volume acima, uma\nmistura de gás CO 2 e gás inerte. No sistema, os equilíbrios apresentados a seguir estão envolvidos, sendo possível, por meio de válvulas, adicionar ou retirar gás, ou\nainda adicionar pequenos volumes de solução.\nCO 2(g)\nCO 2(aq)\nCO 2(aq)  H 2 O (\u0002)\nH 2 CO 3(aq)\nHCO 3  (aq)  H  (aq)\nH 2 CO 3(aq)\nA composição da solução e o efeito de eventuais perturbações deste sistema são tais que a(o)",
+    "alternativas": {
+      "A": "introdução de mais gás carbônico na atmosfera acima  da solução diminui a concentração de HCO 3 (aq) na solução.",
+      "B": "introdução de pequeno volume de solução de ácido sulfúrico diminui a quantidade de CO 2(g) na atmosfera.",
+      "C": "adição de pequeno volume de solução de NaOH dimi-  nui a concentração de HCO 3 no sistema.",
+      "D": "diminuição da pressão da mistura gasosa acima da solução não altera o pH da solução.",
+      "E": "aquecimento da solução aumenta o pH da solução. TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q39",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Uma amostra contém Ba 2 e Ca 2 nas concentrações de\n1 x 10 2 mol L 1 para cada íon. Esses íons devem ser\nprecipitados na forma de sulfatos pouco solúveis, como\napresentado nas equações abaixo.\nBa 2 (aq)  SO 42 (aq) ; K ps1  1 x 10 10\nBaSO 4 (s)\n5\n2\n2\n SO 4\n; K ps2  1 x 10\nCaSO 4 (s)\nCa\n(aq)\n(aq)\nQuando a concentração de SO 42 atingir um valor para\npermitir o início da precipitação do CaSO 4 , a concentração de Ba 2 na solução estará na ordem de grandeza,\nem mol L 1 , de",
+    "alternativas": {
+      "A": "10 1",
+      "B": "10 3",
+      "C": "10 5",
+      "D": "10 7",
+      "E": "10 9"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q40",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Observe-se a marcação do paquímetro universal de resolução de 0,05 mm.\nA medida do diâmetro  do eixo, em milímetros, é igual a",
+    "alternativas": {
+      "A": "2,85",
+      "B": "5,35",
+      "C": "26,55",
+      "D": "27,65",
+      "E": "53,65 O H N U SC A R TÉCNICO(A) DE OPERAÇÃO JÚNIOR BLOCO 2"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q41",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considere dois feixes monocromáticos da região espectral do visível, sendo o primeiro com comprimento de onda\n( 1 ) de 638 nm, e o segundo ( 2 ) de 510 nm.\nQuando são comparados, conclui-se que a radiação do\nprimeiro, em relação à do segundo, tem maior",
+    "alternativas": {
+      "A": "deslocamento para o azul Dados",
+      "B": "energia em J Constante de Planck h  6,6 x 10 34 J s",
+      "C": "frequência em Hz",
+      "D": "número de onda em cm 1 Velocidade da luz no vácuo v  3 x 10 8 m s 1",
+      "E": "período em s"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q42",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O tolueno (C 7 H 8 ) é um hidrocarboneto líquido (densidade\n0,87 g mL 1 ) em condição ambiente, que é usado como\nsolvente de tintas, e como antidetonante em misturas\ncombustíveis. O tolueno reage completamente com oxigênio, conforme indicado na equação:\n2 C 7 H 8( \u0002 )  18 O 2(g) → 14 CO 2(g)  8 H 2 O (g) ; ΔH o  7.500 kJ\nSe a queima completa, e em excesso de oxigênio, de uma\ndeterminada quantidade de tolueno produziu energia na\nforma de calor igual a 30.000 kJ, então o volume de tolueno que reagiu (em L e com dois algarismos significati-vos) foi",
+    "alternativas": {
+      "A": "0,43 Dado",
+      "B": "0,66 M (C 7 H 8 )  92,0 g mol 1",
+      "C": "0,71",
+      "D": "0,85",
+      "E": "0,97"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q43",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Arquivologia e Gestão de Documentos",
+    "enunciado": "Uma corrente a montante da válvula está em fase líquida\nna temperatura T 0 e pressão P 0 . A corrente contém uma\nsubstância pura, cuja pressão de vapor da T 0 é P v (T 0 ).\nA perda de carga na válvula reduz a pressão em 30%.\nDesprezando-se efeitos térmicos devido ao atrito pela\nperda de carga, ao atravessar a válvula adiabática, a corrente",
+    "alternativas": {
+      "A": "pode sofrer redução elevada de temperatura, se P v (T 0 )  0,7 . P 0 .",
+      "B": "pode sofrer redução elevada de temperatura, se P v (T 0 )  0,7 . P 0 .",
+      "C": "pode sofrer aumento elevado da temperatura, se P v (T 0 )  0,7 . P 0 .",
+      "D": "pode sofrer aumento elevado de temperatura, se P v (T 0 )  0,7 . P 0 .",
+      "E": "permanece com a mesma temperatura, independente da pressão. PROVA 8"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q44",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "A Figura acima é compatível com uma máquina térmica\nque se constitui de",
+    "alternativas": {
+      "A": "dois ciclos Rankine combinados com geração de potência.",
+      "B": "um ciclo Rankine com um aquecedor entre as turbinas de geração de potência.",
+      "C": "dois ciclos de Carnot reversos combinados.",
+      "D": "dois ciclos de Carnot com um resfriador entre os estágios de compressão.",
+      "E": "um ciclo de refrigeração com um resfriador entre os dois estágios de compressão."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q45",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um líquido é empregado para o transporte de sólidos conforme o sistema representado na Figura abaixo.\nOs pontos 1 e 2 encontram-se praticamente na mesma\naltura, enquanto o ponto 3 está 5 metros acima, e não há\nvariação do diâmetro do duto ou mudança de fase.\nA análise do sistema permite concluir que a",
+    "alternativas": {
+      "A": "soma das energias cinética e potencial do sólido é a mesma nos pontos 1 e 2.",
+      "B": "soma das energias cinética e potencial do sólido no ponto 3 é maior que no ponto 2.",
+      "C": "soma das energias cinética e potencial do sólido no ponto 2 é maior ou igual à do ponto 3.",
+      "D": "energia cinética do sólido no ponto 2 é igual à energia potencial do sólido no ponto 3.",
+      "E": "energia cinética do sólido no ponto 3 é desprezível. PROVA 8"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q46",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Arquivologia e Gestão de Documentos",
+    "enunciado": "Uma bomba de calor tem por finalidade transferir calor de\numa fonte fria para uma fonte quente.\nNa coluna de destilação acima representada, visando a\nefetuar troca de calor entre as correntes de topo e de fundo da coluna, a bomba de calor ilustrada apresenta uma\nconfiguração",
+    "alternativas": {
+      "A": "adequada, para transferir calor da corrente de topo para o refervedor da coluna.",
+      "B": "inadequada, pois a temperatura do topo da coluna é menor que a temperatura do fundo.",
+      "C": "inadequada, pois não deveria haver um compressor, mas um expansor alimentado pela corrente de topo da coluna.",
+      "D": "inadequada, pois a corrente bifásica que alimenta o vaso não tem como ter sua temperatura resfriada a uma temperatura próxima da saída da torre.",
+      "E": "inadequada, pois deveria haver uma fonte fria externa."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q47",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O controle de um determinado processo industrial exige o\nmonitoramento de um pequeno intervalo de temperaturas.\nPara isto, foi construído um termômetro com uma escala\nlinear X. Nesta escala, 0 o X corresponde a 20,000 o C, e\n100,00 o X corresponde a 20,500 o C.\nO valor em o X correspondente a 20,150 o C é",
+    "alternativas": {
+      "A": "7,50",
+      "B": "15,0",
+      "C": "20,0",
+      "D": "30,0",
+      "E": "35,0 TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q48",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em uma determinada pesquisa, é necessário levar à\nsuperfície uma caixa de 200 kg e 8,00 x 10 2 m 3 que se\nencontra no fundo do mar. Para facilitar a subida, amarra-\n-se à caixa um balão inextensível totalmente cheio de ar.\nDessa forma, o conjunto sobe com velocidade constante.\nDesprezando-se o peso do balão e do ar no seu interior,\nbem como a viscosidade do mar, o valor aproximado do\nvolume do balão, em m 3 , é",
+    "alternativas": {
+      "A": "8,00 x 10 2 Dados aceleração da gravidade = 10,0 m . s 2",
+      "B": "12,0 x 10 2 densidade da água do mar = 1,00 x 10 3 kg . m 3",
+      "C": "20,0 x 10 2",
+      "D": "28,0 x 10 2",
+      "E": "40,0 x 10 2"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q49",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um homem sustenta uma carga de 50,0 kg por meio de\numa corda e uma roldana, como mostra a Figura abaixo.\nhorizontal\n53,0º\n50,0\nkg\nhorizontal\nSabe-se o seguinte: a corda e a roldana são ideais; o sistema está em equilíbrio estático; tanto o homem quanto a\ncarga encontram-se em repouso; o ângulo entre a corda e\na horizontal é de 53,0º.\nO valor aproximado, em N, da resultante das forças de\natrito entre o calçado do homem e o solo, é",
+    "alternativas": {
+      "A": "300 Dados aceleração da gravidade = 10,0 m . s 2",
+      "B": "375 sen 53,0 o = 0,800",
+      "C": "400 cos 53,0 o = 0,600",
+      "D": "500",
+      "E": "667 O H N U SC A R TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q50",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Uma câmara hiperbárica é um compartimento selado,\nde volume constante, onde uma pessoa é submetida a\npressões maiores do que a atmosférica. Considere uma\ncâmara hiperbárica com n 1 mols de ar, inicialmente a\n1,00 x 10 5 Pa de pressão, a 300 K. Uma quantidade de ar\nfoi injetada na câmara, que passou a ter n 2 mols à pressão de 6,00 x 10 5 Pa, a 330 K.\nn 2\nConsiderando o ar um gás ideal, a razão\nvale, aproxin 1\nmadamente,",
+    "alternativas": {
+      "A": "5,45",
+      "B": "6,00",
+      "C": "6,60",
+      "D": "18,0",
+      "E": "19,8 BLOCO 3"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q51",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Os riscos ocupacionais estão relacionados com os agentes existentes no ambiente de trabalho. Um mapa de risco\ndeve mostrar, com clareza, os riscos que um ambiente de\ntrabalho pode apresentar, e, nesse tipo de mapa, verifica-\n-se que os riscos",
+    "alternativas": {
+      "A": "físicos são identificados pela cor vermelha, sendo o frio um exemplo de agente que pertence a esse grupo.",
+      "B": "químicos são identificados pela cor verde, com as radiações ionizantes como exemplo de agentes que pertencem a esse grupo.",
+      "C": "biológicos são identificados pela cor amarela, e os fungos podem ser classificados nesse grupo.",
+      "D": "ergonômicos são identificados pela cor marrom, e o arranjo físico inadequado é um exemplo de agente que pertence a esse grupo.",
+      "E": "de acidentes são identificados pela cor azul, sendo a eletricidade um exemplo de agente desse grupo."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q52",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Equipamentos de proteção coletiva (EPC) são equipamentos e instrumentos que devem ser utilizados tanto para proteger um grupo de colaboradores expostos\naos riscos inerentes ao exercício de uma determinada\natividade profissional, quanto as pessoas que circulam\npróximo ao local de realização de tal atividade. Já os\nequipamentos de proteção individual (EPI) são dispositi-vos de uso individual destinados a proteger a saúde e a\nintegridade física do trabalhador.\nÉ um EPC a(o)",
+    "alternativas": {
+      "A": "luva de raspa",
+      "B": "ducha lava-olhos",
+      "C": "bota de cano longo de couro",
+      "D": "respirador descartável",
+      "E": "óculos de segurança com ampla visão com válvulas PROVA 8"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q53",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Arquivologia e Gestão de Documentos",
+    "enunciado": "temperatura, de nível, e de vazão, respectivamente.",
+    "alternativas": {
+      "A": "aumento da vazão da corrente 1",
+      "B": "aumento da vazão da corrente 2",
+      "C": "aumento da vazão da corrente 3",
+      "D": "redução da vazão da corrente 2",
+      "E": "redução da vazão da corrente 3"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q54",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "CONTROLADOR\nSet point \u000e\nModo de\nControle\n\u0010\nnúmeros",
+    "alternativas": {
+      "A": "1 e 2",
+      "B": "2 e 3",
+      "C": "2 e 4",
+      "D": "3 e 2",
+      "E": "5 e 3 PROVA 8 Processo Sistema de Medição TÉCNICO(A) DE OPERAÇÃO JÚNIOR Na Figura abaixo, os transmissores foram omitidos do desenho, por simplicidade, e TC, LC e FC são controladores de Na coluna representada na Figura, não havendo mudança de set points em relação à condição normal de operação, o resultado de um cenário de inundação da coluna tipicamente leva o operador a observar um A Figura abaixo é um diagrama de blocos representativo de um sistema de controle. Elemento Final de Controle A variável manipulada e a variável controlada são aquelas presentes nos fluxos de sinal indicados, respectivamente, pelos"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q55",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em um transmissor pneumático, o sinal correspondente\na uma variação de 0% a 100% da faixa de medição é de\n0,2 bar a 1,0 bar.\nPara um processo em que ocorre uma variação de temperatura entre 20°C e 120°C, a variação de temperatura\nde 80°C será correspondente a uma pressão, em bar, do\ntransmissor de",
+    "alternativas": {
+      "A": "0,12",
+      "B": "0,24",
+      "C": "0,46",
+      "D": "0,68",
+      "E": "0,80"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q56",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O trocador de calor casco e tubo com espelho fixo é um\nequipamento simples e barato.\nUma de suas características é a",
+    "alternativas": {
+      "A": "limitação prática do número de passes no tubo.",
+      "B": "limpeza por jatos hidráulicos no exterior do tubo.",
+      "C": "inexistência de juntas de vedação interna.",
+      "D": "presença de feixe removível.",
+      "E": "possibilidade de substituição do feixe."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q57",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em instalações de bombeamento, as válvulas que possuem um disco giratório biconvexo no interior de uma cavidade esférica, usadas na linha de aspiração quando a\nbomba fica afogada, em relação ao nível da água montante, são as do tipo",
+    "alternativas": {
+      "A": "agulha",
+      "B": "borboleta",
+      "C": "esfera",
+      "D": "globo",
+      "E": "gaveta"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q58",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um exemplo de bombas que possuem uma vedação mecânica separando a entrada da saída são as do tipo",
+    "alternativas": {
+      "A": "axial",
+      "B": "centrífuga helicoidal",
+      "C": "centrífuga radial",
+      "D": "centrífuga diagonal",
+      "E": "alternativa de êmbolo"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q59",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O tipo de escoamento que tem como característica o fato\nde as partículas apresentarem um movimento aleatório\nmacroscópico, isto é, a velocidade das partículas apresenta componentes transversais ao movimento geral do\nconjunto do fluido, é o escoamento",
+    "alternativas": {
+      "A": "compressível",
+      "B": "incompressível",
+      "C": "laminar",
+      "D": "turbulento",
+      "E": "viscoso TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2017_PETROBRAS_TECNICOOPERACAOJUNIOR_Q60",
+    "banca": "CESGRANRIO",
+    "ano": 2017,
+    "orgao": "Petrobras",
+    "cargo": "Técnico de Operação Júnior",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em um escoamento sobre uma placa plana, a velocidade\ndo fluido em contato com a superfície sólida é zero, embora o fluido esteja em movimento.\nA condição de não escorregamento é uma característica\nde todos os escoamentos de fluidos",
+    "alternativas": {
+      "A": "barotrópicos",
+      "B": "ideais",
+      "C": "compressíveis",
+      "D": "não newtonianos",
+      "E": "viscosos O H N U SC A R PROVA 8 VIIIA 131,29(2) 4,0026 39,948 20,180 83,80 Xe He Ne Kr Ar NEÔNIO HÉLIO XENÔNIO ARGÔNIO CRIPTÔNIO VIIA 35,453 126,90 79,904 18,998 Br Cl F I IODO BROMO FLÚOR CLORO VIA 127,60(3) 32,066(6) 78,96(3) 15,999 Se Te O S SELÊNIO TELÚRIO OXIGÊNIO ENXOFRE VA 14,007 74,922 121,76 30,974 As Sb N P ARSÊNIO FÓSFORO ANTIMÔNIO NITROGÊNIO IVA 72,61(2) 12,011 28,086 118,71 Ge Sn Si C SILÍCIO GERMÂNIO ESTANHO CARBONO IIIA 10,811(5) 26,982 69,723 114,82 Ga Al In B CLASSIFICAÇÃO PERIÓDICA DOS ELEMENTOS ALUMÍNIO GÁLIO BORO ÍNDIO IIB 65,39(2) 112,41 Zn Cd Com massas atômicas referidas ao isótopo 12 do carbono CÁDMIO ZINCO IB 63,546(3) 107,87 Cu Ag PRATA COBRE VIII 58,693 106,42 Pd Ni NÍQUEL PALÁDIO VIII 102,91 58,933 Rh Co RÓDIO COBALTO VIII 55,845(2) 101,07(2) Ru Fe RUTÊNIO FERRO VIIB 98,906 54,938 Mn Tc MANGANÊS TECNÉCIO VIB 51,996 95,94 Mo Cr CRÔMIO MOLIBDÊNIO VB 92,906 50,942 Nb V NIÓBIO VANÁDIO IVB 91,224(2) 47,867 Ti Zr TITÂNIO ZIRCÔNIO IIIB 88,906 44,956 Sc Y ÍTRIO ESCÂNDIO IIA 40,078(4) 24,305 9,0122 Ca Mg Sr 87,62 Be ESTRÔNCIO MAGNÉSIO CÁLCIO BERÍLIO IA 6,941(2) 1,0079 22,990 85,468 39,098 Na Rb H K Li RUBÍDIO POTÁSSIO LÍTIO SÓDIO HIDROGÊNIO PROVA 8 262,11 222,02 174,97 Rn Lu Lr LUTÉCIO LAURÊNCIO RADÔNIO 173,04(3) 259,10 209,99 No Yb At ITÉRBIO NOBÉLIO ASTATO 209,98 258,10 168,93 Po Md Tm TÚLIO MENDELÉVIO POLÔNIO 167,26(3) 257,10 208,98 Fm Er Bi FÉRMIO ÉRBIO BISMUTO 252,08 164,93 Pb 207,2 Ho Es EINSTÊINIO CHUMBO HÓLMIO 162,50(3) 252,08 204,38 Cf Dy Tl CALIFÓRNIO TÁLIO DISPRÓSIO 200,59(2) Uub 249,08 158,93 Hg Bk Tb UNÚNBIO MERCÚRIO TÉRBIO BERQUÉLIO 157,25(3) Uuu 244,06 196,97 Gd Cm Au UNUNÚNIO OURO CÚRIO GADOLÍNIO 195,08(3) Uun 241,06 151,96 Am Eu Pt UNUNILIO PLATINA AMERÍCIO EURÓPIO 150,36(3) 239,05 192,22 Sm Pu Mt Ir MEITNÉRIO IRÍDIO PLUTÔNIO SAMÁRIO 190,23(3) 237,05 146,92 Np Hs Pm Os ÓSMIO HASSIO NETÚNIO PROMÉCIO 144,24(3) 186,21 238,03 Bh Re Nd U BÓHRIO RÊNIO NEODÍMIO URÂNIO 231,04 140,91 183,84 Sg Pa Pr W Série dos Lantanídios TUNGSTÊNIO SEABÓRGIO PROTACTÍNIO PRASEODÍMIO Série dos Actinídios 180,95 140,12 232,04 Ce Db Ta Th DÚBNIO TÂNTALO TÓRIO CÉRIO 178,49(2) 138,91 227,03 Rf La Hf Ac RUTHERFÓRDIO HÁFNIO ACTÍNIO LANTÂNIO La-Lu Ac-Lr Massa atômica relativa. A incerteza no último dígito é ± 1, exceto quando Número Atômico Massa Atômica Símbolo 137,33 indicado entre parênteses. 226,03 Ra Ba BÁRIO RÁDIO 223,02 132,91 Fr Cs NOME DO ELEMENTO FRÂNCIO CÉSIO TÉCNICO(A) DE OPERAÇÃO JÚNIOR"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q01",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Compreensão e Interpretação de Texto",
+    "enunciado": "Ao longo do texto, a autora defende a tese de que nós,\nseres humanos, somos um estranho animal que nasceu\nprecisando urgentemente de conserto porque",
+    "alternativas": {
+      "A": "desconsideramos o que diz Freud.",
+      "B": "mantemos a cabeça à tona d’água.",
+      "C": "lemos contos de ogros sobre culpa.",
+      "D": "adotamos atitudes de autossabotagem.",
+      "E": "encaramos as drogas como coisa proibida."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q02",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "“Pessoalmente, acho que merecemos muito: nascemos\npara ser bem mais felizes do que somos, mas nossa cultura, nossa sociedade, nossa família não nos contaram\nessa história direito.” (\u0002. 11-14)\nSegundo a autora, para que nós, seres humanos, alcancemos o que merecemos, será necessário",
+    "alternativas": {
+      "A": "aprender a valorizar a nós mesmos.",
+      "B": "reforçar o mito do homem poderoso.",
+      "C": "fechar o nosso coração para os afetos.",
+      "D": "afastar o que pode nos trazer felicidade.",
+      "E": "construir armadilhas em nosso subconsciente. www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q03",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Pontuação",
+    "enunciado": "“Nessa tona das águas da vida, por cima da qual nossa\ncabeça espia – se não naufragamos de vez –, somos assediados por pensamentos nem sempre muito inteligentes ou positivos sobre nós mesmos.” (\u0002. 20-23)\nAo longo do texto, o travessão é empregado com funções\ndiferentes e, no período acima, seu uso se justifica por",
+    "alternativas": {
+      "A": "indicar a fala de um personagem.",
+      "B": "introduzir uma enumeração explicativa.",
+      "C": "sinalizar a mudança de interlocutor.",
+      "D": "realçar um aposto, termo explicativo.",
+      "E": "assinalar um comentário do autor."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q04",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Sintaxe da Oração e do Período",
+    "enunciado": "No trecho “Ouvindo isso, assustados réus, num ato\nnada falho tiramos o tapete de nós mesmos” (\u0002. 52-53),\na oração reduzida em negrito apresenta, em relação à\noração seguinte, o valor semântico de",
+    "alternativas": {
+      "A": "tempo",
+      "B": "modo",
+      "C": "oposição",
+      "D": "proporção",
+      "E": "consequência"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q05",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Sintaxe da Oração e do Período",
+    "enunciado": "O período que atende às exigências da norma-padrão da",
+    "alternativas": {
+      "A": "A maioria dos problemas os quais lidamos são fáceis de resolver.",
+      "B": "Esse livro, cujos capítulos estudei, vai ser avaliado na prova.",
+      "C": "O tratamento que falou não está disponível na rede pública.",
+      "D": "Lya Luft, cujas ideias temos simpatia, é uma boa escritora.",
+      "E": "Ela é a amiga que conto para me fazer companhia hoje."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q06",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Concordância Verbal e Nominal",
+    "enunciado": "Do ponto de vista da concordância, a frase em que o\nverbo está empregado de acordo com as regras da\nnorma-padrão é:",
+    "alternativas": {
+      "A": "Necessitam-se de terapias alternativas.",
+      "B": "Fazem meses que iniciamos o tratamento.",
+      "C": "Concluiu-se os vários trabalhos solicitados.",
+      "D": "Houve inquietações consideradas corriqueiras.",
+      "E": "Os Estados Unidos avança nos estudos freudianos."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q07",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Crase e Regência",
+    "enunciado": "O acento grave marca, na escrita, o fenômeno da crase,\nisto é, representa a fusão de dois a.\nDessa forma, o acento indicativo da crase está corretamente empregado em:",
+    "alternativas": {
+      "A": "Meu sonho é conhecer à Paris dos romances.",
+      "B": "Todos deveriam sempre lembrar à quem agradecer.",
+      "C": "Restrinjo-me àquilo que ficou combinado na reunião.",
+      "D": "Ensinaram à ela muito sobre a história da psicanálise.",
+      "E": "Referimo-nos à toda raiva acumulada em nossos corações."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q08",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Na língua escrita, há situações em que algumas palavras\ne locuções oferecem maior dificuldade, pois podem ser\ngrafadas junto ou separadamente.\nA frase em que a expressão em negrito está corretamente\ngrafada é:",
+    "alternativas": {
+      "A": "Não mereço ter sucesso, tão pouco ser feliz.",
+      "B": "Nada nos resta se não a angústia de nos saber sabotados.",
+      "C": "Procuramos um psicólogo a fim de evitarmos maior sofrimento.",
+      "D": "Escolhemos a droga, com tudo trata-se de uma opção destrutiva.",
+      "E": "Conversávamos a cerca de nossas dificuldades com os sentimentos."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q09",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Morfologia e Classes de Palavras",
+    "enunciado": "A norma-padrão em sua variedade formal prevê uma\norganização da frase em que a observância da colocação\npronominal é fundamental.\nA frase em que o pronome oblíquo átono está empregado\ncorretamente, segundo as regras da colocação pronominal, é:",
+    "alternativas": {
+      "A": "Ninguém ensinou-me a manter a cabeça à tona d’água.",
+      "B": "O subconsciente boicota-nos a todo momento de nossa vida.",
+      "C": "O ser humano que molda-se à diferentes realidades vive melhor.",
+      "D": "Boicotaremo-nos todas as vezes que houver a chance de felicidade.",
+      "E": "Se considerar mau menino é justificar o não merecimento da felicidade."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q10",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "A redação de documentos oficiais deve obedecer às\nregras de impessoalidade, clareza e objetividade, devido\nao fim a que se destinam.\nEssas características são observadas em:",
+    "alternativas": {
+      "A": "Poderiam ser redigidos os projetos acordados na última reunião de cúpula.",
+      "B": "As diretrizes para o encaminhamento da decisão foram estabelecidas, presumo.",
+      "C": "Encaminham-se os documentos assinados aos órgãos responsáveis para prosseguimento do processo.",
+      "D": "Os estudos técnicos elaborados pelo órgão federal certamente trarão os resultados esperados.",
+      "E": "Tomarei as decisões cabíveis ao término da leitura dos processos relacionados ao caso. R A SC U N H O www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2 LEGISLAÇÃO II"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q11",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia,\ncontará o Banco em sua estrutura organizacional com um\ncomitê constituído por três membros. Esses membros têm\na competência de opinar, de modo a auxiliar os acionistas\nna indicação de administradores e os conselheiros fiscais\nsobre o preenchimento dos requisitos e a ausência de vedações para as respectivas eleições.\nEssa estrutura conta com o comitê",
+    "alternativas": {
+      "A": "gerencial",
+      "B": "vital",
+      "C": "especial",
+      "D": "de competitividade",
+      "E": "de elegibilidade"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q12",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia,\na função de ouvidor será desempenhada por empregado\nque compõe o quadro de pessoal próprio do banco, mediante comissão compatível com as atribuições da ouvidoria.\nO ouvidor exercerá mandato pelo prazo de quantos anos?",
+    "alternativas": {
+      "A": "um",
+      "B": "dois",
+      "C": "três",
+      "D": "quatro",
+      "E": "cinco"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q13",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia, o\nbanco disporá de uma auditoria interna, diretamente subordinada ao Conselho de",
+    "alternativas": {
+      "A": "Execução",
+      "B": "Administração",
+      "C": "Consultoria",
+      "D": "Fiscalização",
+      "E": "Riscos"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q14",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia,\nquando as unidades responsáveis por funções de controle\n(Contadoria, Controladoria, Controles Internos) e gestão\nde risco não podem ficar sob supervisão direta de diretor\nresponsável por qualquer outra atividade administrativa,\nestá sendo aplicado o princípio de",
+    "alternativas": {
+      "A": "segregação de funções",
+      "B": "divisão objetiva",
+      "C": "administração separada",
+      "D": "diminuição de atividades",
+      "E": "quebra de atos"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q15",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia,\na diretoria executiva reunir-se-á ordinariamente uma vez\npor semana e, extraordinariamente, sempre que convocada pelo presidente do Banco.\nAs deliberações são tomadas por maioria de votos, cabendo ao presidente do Banco da Amazônia, além do voto\npessoal, o voto de",
+    "alternativas": {
+      "A": "maioria",
+      "B": "preparo",
+      "C": "especialidade",
+      "D": "qualidade",
+      "E": "avaliação"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q16",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "De acordo com o Código de Conduta Ética do Banco da\nAmazônia, a civilidade deve ser mantida no relacionamento com os concorrentes, fazendo prevalecer os valores\néticos que expressem respeito à imagem da Instituição, à\nreserva de informações e à concorrência",
+    "alternativas": {
+      "A": "ativa",
+      "B": "regular",
+      "C": "leal",
+      "D": "atual",
+      "E": "contemporânea"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q17",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "De acordo com o Código de Conduta Ética do Banco\nda Amazônia, é considerado um princípio geral o uso\ndos recursos naturais de forma racional e consciente,\nevitando-se, assim, qualquer tipo de",
+    "alternativas": {
+      "A": "dano",
+      "B": "resíduo",
+      "C": "desperdício",
+      "D": "consequência",
+      "E": "reparação"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q18",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "De acordo com o Código de Conduta Ética do Banco da\nAmazônia, nas interações com os investidores, deve-se\nadotar relacionamento fundamentado na transparência da\nprestação de contas mediante a divulgação de informações tempestivas e",
+    "alternativas": {
+      "A": "conclusivas",
+      "B": "certificadas",
+      "C": "direcionadas",
+      "D": "fidedignas",
+      "E": "caracterizadas"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q19",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Nacionais e Cidadania",
+    "enunciado": "De acordo com o Código de Conduta Ética do Banco da\nAmazônia, nas interações com o ambiente interno, deve-se\nvalorizar a convivência interna e também os profissionais\nque exercem suas atividades no Banco da Amazônia,\ngarantindo-se o exercício da liberdade de expressão com",
+    "alternativas": {
+      "A": "amplitude",
+      "B": "responsabilidade",
+      "C": "qualidade",
+      "D": "transparência",
+      "E": "cuidado www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q20",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "De acordo com a Lei no\n7.827/1989, constitui fonte de\nrecursos dos fundos constitucionais de financiamento do\nNorte, Nordeste e Centro-Oeste o percentual do produto\nda arrecadação do imposto sobre renda e proventos de\nqualquer natureza e do imposto sobre produtos industrializados, entregues pela União.\nEsse percentual corresponde a",
+    "alternativas": {
+      "A": "1% (",
+      "B": "2% (",
+      "C": "3% (",
+      "D": "4% (",
+      "E": "5%"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q21",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Para desenvolver tecnologias que melhorem a\nqualidade de água disponível no mundo, é necessário\nolhar para as práticas das comunidades indígenas e\ntradicionais. É o que aponta um relatório divulgado hoje\npela Organização das Nações Unidas para Educação,\nCiência e Cultura (Unesco). As Soluções baseadas na\nNatureza (SbN) são as mais eficazes e mais baratas,\ndefende o texto. São técnicas que usam ou imitam\nprocessos que acontecem na natureza.\nBORGES, H. Soluções naturais para preservar a água. O Globo,\nSociedade, 19 mar. 2018, p. 20.\nNa gestão hídrica, é um exemplo de SbN barata a adoção\nde",
+    "alternativas": {
+      "A": "lagos artificiais",
+      "B": "usinas térmicas",
+      "C": "pesticidas agrícolas",
+      "D": "reservas de água em mangues",
+      "E": "dessalinização da água marinha"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q22",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Geopolítica e Atualidades Internacionais",
+    "enunciado": "Ao quebrar o consenso internacional em torno do estatuto de Jerusalém, cidade sagrada para judeus, cristãos e muçulmanos, o presidente Donald Trump conduziu seu país ao isolamento. Uma ampla maioria da\nAssembleia Geral da ONU criticou a decisão que coloca um obstáculo à paz. A decisão de Trump contraria\numa resolução da ONU, de 1980, que declarou nulas\ne sem efeito todas as medidas adotadas por Israel que\n“modificam o caráter geográfico e histórico da Cidade\nSanta”.\nENDERLIN, C. Jerusalém, o erro fundamental. Le Monde\nDiplomatique Brasil, Ano 11, n. 126, jan. 2018, p. 10. Adaptado.\nO texto acima refere-se à decisão do presidente Donald\nTrump, em dezembro de 2017, de",
+    "alternativas": {
+      "A": "determinar Jerusalém Oriental como palestina.",
+      "B": "transferir a embaixada dos EUA para Tel Aviv.",
+      "C": "consultar oficialmente a Autoridade Palestina.",
+      "D": "reconhecer Jerusalém como capital de Israel.",
+      "E": "reativar a presença israelense na Faixa de Gaza."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q23",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Em muitas metrópoles, como Rio de Janeiro e São Paulo,\nenchentes são um problema constante, principalmente no\nverão, quando a pluviosidade, geralmente, se intensifica.\nPara evitar o problema, os gestores devem conhecer e\ncontrolar o sistema sedimentológico dos rios e canais e\ncriar políticas públicas que possam recuperá-los.\nNesse sentido, a recuperação de um canal fluvial consiste\nem",
+    "alternativas": {
+      "A": "aumentar a velocidade de escoamento para controlar a erosão e o assoreamento.",
+      "B": "criar barragens no rio, colaborando com a retenção da água.",
+      "C": "retornar, dentro do possível, às condições anteriores ao distúrbio, através de obras, levando em conta a rugosidade do canal.",
+      "D": "revestir o fundo do canal para facilitar as relações com o lençol d’água.",
+      "E": "suprimir curvas e meandros, impedindo que o canal retorne à sinuosidade original."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q24",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Nacionais e Cidadania",
+    "enunciado": "(...) a estrutura federativa brasileira estabeleceu-se,\ndesde a República, com uma disfunção entre um formato político-administrativo pensado e desenvolvido\npara acomodar a representação das diferenças territoriais e a perspectiva de manutenção de uma unidade que deveria ser preservada a qualquer custo.\nEssas tensões encontram-se até hoje presentes na\nestrutura federativa brasileira.\nCASTRO, I. E. Geografia e Política: território, escalas de\nação e instituições.\nO Brasil apresenta uma história de forte tradição centralizadora e de alianças dos grupos estaduais e municipais\ncom o poder central.\nConsiderando-se esse fato, o que é necessário ocorrer\npara que o federalismo brasileiro possa ser, entre os entes federativos, menos competitivo e mais cooperativo?",
+    "alternativas": {
+      "A": "Centralização, na esfera federal, das capacidades de implementação das políticas públicas, dadas as enormes desigualdades financeiras, técnicas e de gestão existentes.",
+      "B": "Criação de mecanismos que promovam maior capacidade de intermediação entre as relações intergovernamentais, facilitando o diálogo entre as três esferas de poder.",
+      "C": "Limitação na capacidade dos entes subnacionais de legislar sobre políticas próprias.",
+      "D": "Redução da autonomia administrativa dos estados e municípios, aumentando a capacidade de atuação da esfera federal na criação e aprovação de políticas públicas.",
+      "E": "Supressão da independência do Poder Legislativo nos três níveis de governo, mantendo a autonomia do Poder Judiciário. www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q25",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Aspectos Históricos e Geográficos Regionais",
+    "enunciado": "O domínio das caatingas brasileiras, um dos três espaços\nsemiáridos da América do Sul, apresenta precipitações\nque se concentram de seis a sete meses no domínio geral\ndos sertões. O prolongado período seco anual se deve,\nentre outras causas, às células de alta pressão atmosférica que penetram nos espaços dos sertões durante o\ninverno austral.\nPara combater a seca e levar água a mais de 12 milhões\nde pessoas, em estados como Ceará, Rio Grande do Nor-te, Paraíba e Pernambuco, foi criado um empreendimento\nde transposição de águas de um rio perene que atravessa\no sertão nordestino.\nO rio em questão é o",
+    "alternativas": {
+      "A": "Paraná",
+      "B": "Parnaíba",
+      "C": "Araguaia",
+      "D": "Tocantins",
+      "E": "São Francisco NOÇÕES DE INFORMÁTICA II"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q26",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Durante a navegação na internet utilizando o Google\nChrome, o usuário percebeu que o ponteiro do mouse assumiu o formato de uma pequena mão com o indicador\napontando, como mostrado na Figura a seguir:\nEsse formato de ponteiro indica que o(a)",
+    "alternativas": {
+      "A": "usuário deve esperar até que toda a página seja carregada pelo navegador.",
+      "B": "conteúdo do site foi identificado pelo navegador como sendo alguma espécie de vírus ou malware.",
+      "C": "local onde o ponteiro está é um link.",
+      "D": "navegador classificou o item como interessante, de acordo com as preferências do usuário.",
+      "E": "atenção do usuário é requerida pelo navegador ou pelo site."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q27",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Considere o seguinte comando do sistema operacional\nLinux:\nfind / -name '*'\nEsse comando irá",
+    "alternativas": {
+      "A": "encontrar o arquivo * no diretório raiz.",
+      "B": "listar os atributos dos arquivos e das pastas no diretório raiz, com exceção dos nomes dos arquivos.",
+      "C": "listar apenas os arquivos e as pastas no diretório raiz.",
+      "D": "listar apenas os arquivos no diretório raiz.",
+      "E": "recursivamente listar todas as pastas e arquivos visíveis ao usuário a partir do diretório raiz."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q28",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Considere a Figura a seguir extraída do MS Word 2016\nem português:\nO número ao lado da palavra Arial significa a(o)",
+    "alternativas": {
+      "A": "quantidade de letras",
+      "B": "quantidade de linhas",
+      "C": "versão do texto",
+      "D": "número de páginas",
+      "E": "tamanho da letra"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q29",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Na empresa onde um indivíduo trabalha, vários\nfuncionários compartilham o mesmo computador rodando\no Windows 10 em português. Um desses funcionários\nprecisa usar o computador desse indivíduo, mas este não\nquer fechar os programas e arquivos com os quais está\ntrabalhando no momento.\nQue opção esse indivíduo deve escolher para resolver\nessa situação?",
+    "alternativas": {
+      "A": "Trocar usuário",
+      "B": "Bloquear",
+      "C": "Suspender",
+      "D": "Desligar",
+      "E": "Hibernar"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q30",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Que atalho de teclado pode ser usado no Windows 10\npara percorrer ciclicamente os aplicativos em execução?",
+    "alternativas": {
+      "A": "Tecla com o logotipo do Windows + Tab",
+      "B": "Alt + seta para cima",
+      "C": "Tecla com o logotipo do Windows + M",
+      "D": "Alt + Tab",
+      "E": "Ctrl + Q R A SC U N H O www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q31",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Paciente de 61 anos, com hesitação urinária, foi diagnosticado com câncer de próstata. Seus exames apontaram:\nPSA total: 14,5; toque retal: próstata endurecida em lobo\nesquerdo; biópsia de próstata guiada por ultrassom: adenocarcinoma de próstata; Gleason 9 (5+4); todos os fragmentos comprometidos em lobo esquerdo com cápsula\nprostática comprometida. Submetido à ressonância nuclear magnética, foi detectado comprometimento ganglionar regional e para-aórtico.\nDiante desse quadro, constata-se que o paciente se encontra no estadiamento",
+    "alternativas": {
+      "A": "T3a N1 M1",
+      "B": "T3b N1 M1",
+      "C": "T2a N1 M1",
+      "D": "T2b N1 M1",
+      "E": "T2c N1 M1"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q32",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Os critérios estabelecidos pelo Colégio Americano de\nReumatologia (ACR, da sigla em inglês American College\nRheumatology), de 1987, para artrite reumatoide (AR) são\nfrequentemente utilizados como auxiliares no diagnóstico\ndessa doença e como base para os critérios de inclusão\nem muitos estudos de intervenção terapêutica. Esses\ncritérios, entretanto, têm suas limitações, e já foi\nconstatado que não apresentam bom resultado quando\naplicados no início da doença. Diante dessa situação,\nem 2010, um grupo de trabalho conjunto da ACR e da\nLiga Europeia Contra o Reumatismo (EULAR, da sigla\nem inglês European League Against Rheumatism)\ndesenvolveu uma nova abordagem para a classificação\nda AR com o intuito de diagnosticar a doença em uma fase\nmais precoce e, dessa forma, promover uma abordagem\nmais efetiva no controle evolutivo da doença.\nDeixou de fazer parte dos critérios diagnósticos ACR/\nEULAR 2010 o seguinte item:",
+    "alternativas": {
+      "A": "Sintomatológico de dor",
+      "B": "Radiológico compatível",
+      "C": "Durabilidade dos sintomas",
+      "D": "Mensuração da proteína C reativa",
+      "E": "Avaliação dos anticorpos específicos"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q33",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "A fibrilação atrial (FA) é a arritmia sustentada mais prevalente na população e representa um grande problema de\nsaúde pública. Essa prevalência aumenta com o passar\nda idade, entretanto, a FA pode estar associada a um fator\ndesencadeante agudo.\nDentre os fatores desencadeantes agudos, encontra-se a(o)",
+    "alternativas": {
+      "A": "apneia do sono",
+      "B": "obesidade",
+      "C": "diabetes mellitus",
+      "D": "hipertireoidismo",
+      "E": "hipotireoidismo"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q34",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Paciente, em acompanhamento por neutopenia (< 500\nneutrófilos), desenvolve uma mácula inocente que progride\nem 24 horas para uma lesão de aspecto necrótico, circular,\nindolor, encimada por uma crosta central enegrecida, associada a um halo eritematoso circunjacente, localizada no\nquadrante superior interno da mama esquerda.\nA causa provável para essa intercorrência é",
+    "alternativas": {
+      "A": "infecção por Pseudomonas aeruginosa",
+      "B": "disseminação por Streptococcus epidermidis",
+      "C": "neoplasia primária de mama",
+      "D": "foco metastático a distância",
+      "E": "dermatose neutrofílica"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q35",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Diante dos novos acontecimentos, a população de Manaus entre 1 e 49 anos está sendo convocada a comparecer às Unidades de Saúde mais próximas das cidades,\nmunida de sua carteira de vacinação para detectar se a\nvacinação contra o sarampo está em dia. Para quem não\nestiver, a recomendação é a aplicação imediata da vaci-na. O alerta veio da chefia de divisão de Imunização da\nSecretaria Municipal de Saúde, com o intuito de bloquear\no avanço da doença. Sendo o sarampo uma doença de\nnotificação compulsória imediata, outras doenças também exigem esse procedimento.\nO agravo à saúde, cuja notificação compulsória pode ser\nfeita em até 7 dias, é a(o)",
+    "alternativas": {
+      "A": "coqueluche",
+      "B": "difteria",
+      "C": "toxoplasmose congênita",
+      "D": "rubéola congênita",
+      "E": "tétano neonatal"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q36",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Mulher de 22 anos procurou atendimento médico por\napresentar febre, náuseas e dor no hipocrôndrio direito.\nEm sua história clínica, relata não usar preservativos e\nnão ter parceiro sexual fixo. Ao exame especular, observa-se saída de secreção pelo orifício do colo uterino e, ao\nexame físico, dor na mobilização do colo.\nDiante do quadro clínico, a complicação esperada para a\ninfecção detectada é:",
+    "alternativas": {
+      "A": "hepatite B",
+      "B": "peri-hepatite",
+      "C": "cervite",
+      "D": "proctite",
+      "E": "conjuntivite www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q37",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Homem de 38 anos, em consulta de rotina para acompanhamento, traz consigo uma MAPA com valores de vigília\n137 x 86 mmHg. Durante a consulta, a pressão arterial\naveriguada é de 119 x 75 mmHg.\nAssim, o diagnóstico desse paciente é:",
+    "alternativas": {
+      "A": "normotensão",
+      "B": "pré-hipertensão",
+      "C": "hipertensão estágio I",
+      "D": "hipertensão mascarada",
+      "E": "hipertensão do avental branco"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q38",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Uma parte essencial da prática clínica é o diagnóstico\ndas doenças. Por essa razão, pesquisas estão sempre\nbuscando melhorar os testes diagnósticos. Na Tabela a\nseguir, são apresentados os resultados de uma pesquisa\nde um novo teste diagnóstico:\nResultado\ndo Teste\nIndivíduos\ndoentes\nIndivíduos\nnão doentes\nTOTAL\nPositivo 242 30 272\nNegativo 21 55 76\nTOTAL 263 85 348\nQual é o valor encontrado para o cálculo da sensibilidade\ndesse teste diagnóstico?",
+    "alternativas": {
+      "A": "64,7%",
+      "B": "85,3%",
+      "C": "88,9%",
+      "D": "92,0%",
+      "E": "95,3%"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q39",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Os riscos ambientais presentes nos locais de trabalho\ndevem ser monitorados, conforme as normas legais,\ncomo, por exemplo, a NR 15. Um dos riscos físicos que\ngera maior preocupação é o Nível de Pressão Sonora\nElevado (NPSE) ou “ruído”, que, além de causar diversos\ntipos de alteração da homeostase, pode também causar\nperda da audição.\nConforme a definição da NR 15, os ruídos de impacto são\nsons com",
+    "alternativas": {
+      "A": "duração maior do que 1 segundo e intervalos inferiores a 1 segundo.",
+      "B": "picos de energia acústica de duração inferior a 1 segundo e intervalos superiores a 1 segundo.",
+      "C": "picos de energia acústica, com duração entre 1 e 5 segundos e intervalos inferiores a 1 segundo.",
+      "D": "grande energia sonora e que apresentem duração maior do que 5 segundos.",
+      "E": "grande energia sonora, como explosões, independentemente do seu tempo de duração."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q40",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "Para prevenir as pneumoconioses, é preciso, além do\nacompanhamento médico periódico dos trabalhadores, a\nadoção de medidas que evitem o contato do trabalhador\ncom as poeiras respiráveis, sejam elas fibrogênicas ou\nnão fibrogênicas.\nAs partículas com maior chance de atingir as vias respiratórias inferiores, quando são identificadas em altos índices nas medições ambientais do trabalho, são aquelas\ncom mediana do diâmetro aerodinâmico inferior a",
+    "alternativas": {
+      "A": "0,1mm",
+      "B": "1mm",
+      "C": "5mm",
+      "D": "5m",
+      "E": "15m"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q41",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Médico do trabalho em serviço de saúde, com estrutura\npara atendimentos de emergência, recebe trabalhador\ncom relato de ingestão acidental de pesticida do tipo carbamato, há 20 minutos. No momento, apresenta náuseas,\ncólicas abdominais, fasciculação muscular, sialorreia e\nbroncorreia.\nA(s) conduta(s) a ser(em) adotada(s) imediatamente após\na avaliação e a garantia de que as vias aéreas estão pérvias é(são):",
+    "alternativas": {
+      "A": "fazer medicações sintomáticas e chamar uma ambulância.",
+      "B": "administrar diazepam, para controle dos sintomas musculares.",
+      "C": "administrar atropina para controle da broncorreia e carvão ativado para descontaminação.",
+      "D": "provocar vômito para eliminação do veneno e administrar pralidoxima para controle da sialorreia e broncorreia.",
+      "E": "realizar intubação orotraqueal e administrar soro fisiológico intravenoso em alto volume, para facilitar a metabolização e a excreção do veneno."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q42",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "As mudanças ocorridas no mundo do trabalho, nas\núltimas décadas, resultaram em riscos emergenciais\npara a saúde dos trabalhadores. Nesse contexto, surgem\nos chamados riscos psicossociais, que seriam a raiz\ndo quadro de exaustão emocional, desumanização e\nreduzida realização pessoal no trabalho, que configuram\na Síndrome de Burnout.\nAvaliando-se o grau de demanda psicológica e o grau de\ncontrole sobre a atividade laboral, qual situação representa um risco maior para o surgimento dessa síndrome?",
+    "alternativas": {
+      "A": "Baixa demanda psicológica e alto controle laboral",
+      "B": "Baixa demanda psicológica e baixo controle laboral",
+      "C": "Alta demanda psicológica e alto controle laboral",
+      "D": "Alta demanda psicológica e baixo controle laboral",
+      "E": "Demanda psicológica, apenas www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q43",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um gerente de produção de 45 anos, obeso, tabagista de\n20 a 30 cigarros por dia, relata surgimento de dor precordial de forte intensidade durando mais que 15 minutos,\nem aperto, acompanhado de sudorese profusa e tontura.\nAtendido no serviço médico, foi realizado eletrocardiogra-ma que apresentou no traçado alterações de natureza isquêmica em DI, aVL, e de V1 a V6.\nO diagnóstico mais provável é o infarto agudo",
+    "alternativas": {
+      "A": "subendocárdico",
+      "B": "do miocárdio de parede inferior",
+      "C": "do miocárdio de parede posterior",
+      "D": "do miocárdio de parede anterior baixa",
+      "E": "do miocárdio de parede anterior extensa"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q44",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Atualmente, as expressões de desgaste de estruturas do\nsistema musculoesquelético atingem várias categorias\nprofissionais e têm várias denominações, entre as quais\nlesões por esforços repetitivos (LER) e distúrbios osteomusculares relacionados ao trabalho (DORT).\nQual é, respectivamente, a forma clínica e a localização\nda lesão, incluídas nesse grupo de agravos?",
+    "alternativas": {
+      "A": "Tenossinovite de De Quervain; nos tendões adutor longo e flexor curto do polegar.",
+      "B": "Epicondilite lateral, ou cotovelo de tenista; nos tendões flexores do carpo.",
+      "C": "Epicondilite medial ou cotovelo de golfista; nos tendões extensores e nos adutores do carpo.",
+      "D": "Síndrome do pronador redondo; no nervo radial, que é comprimido no antebraço pelo músculo pronador.",
+      "E": "Síndrome do impacto: no tendão supraespinhoso, entre a cabeça do úmero e o arco acromial."
+    },
+    "gabarito": null,
+    "anulada": true
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q45",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "As pneumopatias, relacionadas etiologicamente à inalação de poeiras em ambientes de trabalho, são genericamente designadas como pneumoconioses (do grego,\nconion = poeira).\nO tipo de pneumoconiose, as poeiras causadoras desse\nproblema e os processos anatomopatológicos subjacentes estão apresentados, respectivamente, em:",
+    "alternativas": {
+      "A": "asbestose; fibras de amianto; fibrose nodular",
+      "B": "estanose; óxido de estanho; deposição macular sem fibrose",
+      "C": "siderose; óxido ferroso; deposição macular de óxido de ferro sem processo de fibrose nodular e/ou difusa em todos os casos",
+      "D": "baritose, barita (sulfato de bário); deposição macular com fibrose",
+      "E": "beriliose; berílio; fibrose, desde o início da exposição"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q46",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "A perícia médica é atribuição privativa de médico, podendo ser exercida por civil ou militar, desde que investido em\nfunção que assegure a competência legal e administrativa\ndo ato profissional.\nO exame médico-pericial visa a definir o nexo de causalidade (causa e efeito) entre",
+    "alternativas": {
+      "A": "análise do processo de trabalho e produtividade",
+      "B": "carga horária de trabalho e etiologia do adoecimento",
+      "C": "doença ou sequela de acidente e incapacidade ou invalidez",
+      "D": "desempenho da atividade laboral e absenteísmo",
+      "E": "antecedentes de saúde e riscos atuais acidentários"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q47",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "De acordo com a Classificação Brasileira de Procedimentos em Fonoaudiologia, para a investigação de perdas\nauditivas de origem ocupacional, deve ser realizada, na\naudiometria tonal limiar, a pesquisa de limiares psicoacústicos para tons puros, por via aérea e via óssea, tanto no\nexame de referência quanto no sequencial.\nAs alterações nesses exames sequenciais, sugestivos de\ndano ocupacional relacionado ao ruído, são as que apontam",
+    "alternativas": {
+      "A": "alteração de até 13,5 dB (NA) dos limiares auditivos em uma ou mais das frequências de 3.000, 4.000 e 6.000 Hz.",
+      "B": "diferença entre as médias aritméticas dos limiares auditivos nos grupos de frequências de 3.000, 4.000 e 6.000 Hz, igual ou maior do que 10 dB (NA).",
+      "C": "distribuição linear da perda de 10 a 15 dB (NA) em todas as frequências do exame.",
+      "D": "perda mais significativa, igual ou maior do que 13,5 dB (NA), dos limiares auditivos, nos grupos de frequências de 500, 1.000 e 2.000 Hz.",
+      "E": "perda de maior intensidade, superior a 10 dB (NA), dos limiares auditivos de frequências superiores a 8.000 Hz."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q48",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um operário de uma fundição de metais, com 50 anos de\nidade, apresentou os seguintes achados clínicos no exa-me periódico: cefaleia, irritabilidade, dor abdominal, perda\nde memória recente, parestesias de membros inferiores\nalém de disfunção sexual erétil.\nDiante da suspeita de intoxicação por metais no ambiente\nde trabalho, o agente que provoca as reações acima descritas é o",
+    "alternativas": {
+      "A": "arsênico",
+      "B": "alumínio",
+      "C": "chumbo",
+      "D": "cobre",
+      "E": "bromo www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q49",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O sistema de trabalho em turnos e noturno por ir contra a\nnatureza humana, eminentemente diurna, traz prejuízos\npara a saúde do trabalhador, tanto nos aspectos físicos e\npsíquicos, como nos emocionais e sociais.\nSão alterações descritas em trabalhadores que atuam\nnesse sistema de trabalho:",
+    "alternativas": {
+      "A": "sintomas de gastrite em quase 1/3 dos trabalhadores.",
+      "B": "aumento do número de quadros infecciosos pela baixa de imunidade, descrita na síndrome de má adaptação ao trabalho em turnos.",
+      "C": "aumento dos casos de doença cardiovascular, porém sem redução na estimativa do tempo de vida dos trabalhadores.",
+      "D": "insônia, sonolência excessiva durante o trabalho e distúrbios do humor, principalmente após o primeiro mês de trabalho.",
+      "E": "recuperação da sincronização interna dos ritmos biológicos e circadianos, após os primeiros 90 dias de trabalho."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q50",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "A inspeção sanitária de ambientes de trabalho é desenvolvida por um conjunto de ações observado no processo\nde trabalho e é a essência das ações da vigilância em\nsaúde do trabalhador.\nEssas inspeções devem ser",
+    "alternativas": {
+      "A": "efetuadas por uma equipe de trabalho treinada para esse fim.",
+      "B": "desenvolvidas essencialmente a partir das observações do ambiente laboral.",
+      "C": "concentradas na avaliação e observação, sem ações de intervenção.",
+      "D": "concentradas no ambiente de trabalho, reduzindo a análise das questões ambientais externas.",
+      "E": "realizadas sem que haja manifestações dos patrões e trabalhadores para manter a neutralidade na avaliação."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q51",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um funcionário de uma empresa de mudanças interestaduais acidentou-se durante o serviço. Como consequência desse acidente, após avaliação médica, o funcionário\nfoi declarado incapacitado para o exercício de sua função.\nNos termos da lei de regência, o benefício por incapacidade a que ele terá direito será pago a contar do seguinte\ndia do afastamento do trabalho:",
+    "alternativas": {
+      "A": "primeiro",
+      "B": "terceiro",
+      "C": "quinto",
+      "D": "décimo",
+      "E": "décimo sexto"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q52",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Nos termos da NR 7, o Programa de Controle Médico de\nSaúde Ocupacional (PCMSO) deve incluir, dentre outras\nmedidas, a realização obrigatória de exames médicos.\nEsses exames compreendem avaliação clínica, abrangendo",
+    "alternativas": {
+      "A": "exames sofisticados",
+      "B": "avaliação de doenças especiais",
+      "C": "anamnese ocupacional",
+      "D": "análise socioeconômica",
+      "E": "pesquisa domiciliar"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q53",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Nos termos da NR 9, o Programa de Prevenção de Riscos Ambientais (PPRA) deverá estar descrito em um\ndocumento-base contendo todos os aspectos indicados\nnessa norma.\nTodas as alterações e complementações que constarem\ndesse documento deverão ser apresentadas e discutidas,\nquando existente na empresa, na",
+    "alternativas": {
+      "A": "Representação Especial do Sindicato",
+      "B": "Associação de Empregados da Empresa",
+      "C": "Assembleia Geral de Acionistas",
+      "D": "Coordenação Geral do Trabalho",
+      "E": "Comissão Interna de Prevenção de Acidentes"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q54",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Arquivologia e Gestão de Documentos",
+    "enunciado": "Nos termos do Decreto no\n3.048/1999, o trabalhador que\nexerce atividade de movimentação de mercadorias nas\ninstalações de uso público — incluindo recebimento, conferência, transporte interno, abertura de volumes para\nconferência aduaneira, entre outros —, e ainda carregamento e descarga de embarcações, quando efetuados\npor aparelhamento portuário, e que integre a capatazia, é\nconsiderado um trabalhador",
+    "alternativas": {
+      "A": "permanente",
+      "B": "capaz",
+      "C": "avulso",
+      "D": "público",
+      "E": "naval"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q55",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "De acordo com o Decreto no\n3.298/1999, há um processo\nde duração limitada e com objetivo definido, que é permitir que a pessoa com deficiência de qualquer natureza,\nagente causal ou grau de severidade, alcance o nível físico, mental ou social funcional ótimo, proporcionando-lhe\nos meios de modificar sua própria vida.\nPodendo compreender medidas visando a compensar a\nperda de uma função ou uma limitação funcional e a facilitar ajustes ou reajustes sociais, esse processo recebe\no nome de",
+    "alternativas": {
+      "A": "revisão",
+      "B": "readequação",
+      "C": "resposta",
+      "D": "reavaliação",
+      "E": "reabilitação www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: MEDICINA DO TRABALHO BANCO DA AMAZÔNIA PROVA 2"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q56",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Licitações e Contratos Públicos",
+    "enunciado": "O Programa de Qualificação dos Prestadores de Serviços\nde Saúde (QUALISS) tem como objetivo avaliar a qualidade das(os)",
+    "alternativas": {
+      "A": "empresas contratadas pelo SUS, por licitação.",
+      "B": "empresas contratadas pelo SUS, quando há dispensa de licitação ou contratação direta por valor-teto.",
+      "C": "operadoras de planos de saúde.",
+      "D": "prestadores de serviço na saúde suplementar.",
+      "E": "servidores da rede pública de saúde."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q57",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O Rol de Procedimentos e Eventos em Saúde da ANS\né referência básica para cobertura mínima obrigatória da\natenção à saúde nos planos privados de assistência à\nsaúde, contratados a partir de 1o\nde janeiro de 1999.\nSobre as coberturas mínimas dos planos de saúde, tem-se\nque o(s)",
+    "alternativas": {
+      "A": "fornecimento de próteses, órteses e seus acessórios não ligados ao ato cirúrgico é obrigatório, desde que haja parecer médico informando a necessidade do seu uso.",
+      "B": "fornecimento de medicamentos e produtos para a saúde importados, não nacionalizados, faz parte do rol de procedimentos e eventos em saúde.",
+      "C": "plano ambulatorial compreende os atendimentos realizados em consultório ou em ambulatório e inclui internação hospitalar superior a 12 horas, apenas para fins de diagnóstico ou terapia.",
+      "D": "procedimentos necessários ao tratamento das complicações clínicas e cirúrgicas, decorrentes de procedimentos não cobertos, não têm cobertura obrigatória, mesmo quando constarem do Rol de Procedimentos e Eventos em Saúde.",
+      "E": "contratos celebrados antes da vigência da Lei no 9.656/1998 não sofrem regulamentação quanto às coberturas, permanecendo válidas as regras previstas nesses instrumentos jurídicos."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q58",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Atendimento ao Público e Relações Interpessoais",
+    "enunciado": "De acordo com a Lei no\n9.656/1998, serviços prestados\nem instituições integrantes do Sistema Único de Saúde\n(SUS) a beneficiários de planos de saúde deverão ser\nressarcidos à instituição federal pelas operadoras desses\nplanos.\nA identificação do atendimento a beneficiário de plano privado, realizado pelo SUS, é de competência",
+    "alternativas": {
+      "A": "do SUS",
+      "B": "da Superintendência de contas do Ministério da Saúde",
+      "C": "da Agência Nacional de Saúde Suplementar - ANS",
+      "D": "da Administração do hospital que realizou o atendimento",
+      "E": "das Secretarias Estadual e Municipal de Saúde"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q59",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "A ANS mantém estatísticas a respeito do perfil dos beneficiários de planos de saúde no Brasil.\nNo mercado de planos de saúde, em 2017, a maior fatia desse negócio era representada pelo seguinte tipo de\ncontratação:",
+    "alternativas": {
+      "A": "individual",
+      "B": "familiar",
+      "C": "coletivo empresarial",
+      "D": "coletivo por adesão",
+      "E": "adesão por associações autônomas"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOMEDICINATRABALHO_Q60",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Medicina do Trabalho",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Licitações e Contratos Públicos",
+    "enunciado": "Novo exame complementar é recém-aprovado para ser\nutilizado no Brasil, sendo reconhecidamente útil para o\ndiagnóstico de doenças prevalentes na população.\nComo a realização desse exame não faz parte do Rol de\nProcedimentos e Eventos em Saúde da ANS, nesse caso,\na operadora de plano de saúde",
+    "alternativas": {
+      "A": "tem prazo de 180 dias para iniciar cobertura para esse exame, após a aprovação de utilização no país, mes-mo não sendo incluído no Rol.",
+      "B": "é proibida de incluir o procedimento em sua carteira de serviços até que a ANS inclua o exame no Rol.",
+      "C": "é obrigada a aceitar a cobertura quando o médico assistente apresenta parecer favorável à sua realização.",
+      "D": "pode recusar cobertura, já que não faz parte do Rol da ANS, nem do contrato referente ao plano.",
+      "E": "deve automaticamente incluir o exame em sua carteira de serviços. R A SC U N H O www.pciconcursos.com.br www.pciconcursos.com.br"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q01",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Compreensão e Interpretação de Texto",
+    "enunciado": "Ao longo do texto, a autora defende a tese de que nós,\nseres humanos, somos um estranho animal que nasceu\nprecisando urgentemente de conserto porque",
+    "alternativas": {
+      "A": "desconsideramos o que diz Freud.",
+      "B": "mantemos a cabeça à tona d’água.",
+      "C": "lemos contos de ogros sobre culpa.",
+      "D": "adotamos atitudes de autossabotagem.",
+      "E": "encaramos as drogas como coisa proibida."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q02",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "“Pessoalmente, acho que merecemos muito: nascemos\npara ser bem mais felizes do que somos, mas nossa cultura, nossa sociedade, nossa família não nos contaram\nessa história direito.” (\u0002. 11-14)\nSegundo a autora, para que nós, seres humanos, alcancemos o que merecemos, será necessário",
+    "alternativas": {
+      "A": "aprender a valorizar a nós mesmos.",
+      "B": "reforçar o mito do homem poderoso.",
+      "C": "fechar o nosso coração para os afetos.",
+      "D": "afastar o que pode nos trazer felicidade.",
+      "E": "construir armadilhas em nosso subconsciente. www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q03",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Pontuação",
+    "enunciado": "“Nessa tona das águas da vida, por cima da qual nossa\ncabeça espia – se não naufragamos de vez –, somos assediados por pensamentos nem sempre muito inteligentes ou positivos sobre nós mesmos.” (\u0002. 20-23)\nAo longo do texto, o travessão é empregado com funções\ndiferentes e, no período acima, seu uso se justifica por",
+    "alternativas": {
+      "A": "indicar a fala de um personagem.",
+      "B": "introduzir uma enumeração explicativa.",
+      "C": "sinalizar a mudança de interlocutor.",
+      "D": "realçar um aposto, termo explicativo.",
+      "E": "assinalar um comentário do autor."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q04",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Sintaxe da Oração e do Período",
+    "enunciado": "No trecho “Ouvindo isso, assustados réus, num ato\nnada falho tiramos o tapete de nós mesmos” (\u0002. 52-53),\na oração reduzida em negrito apresenta, em relação à\noração seguinte, o valor semântico de",
+    "alternativas": {
+      "A": "tempo",
+      "B": "modo",
+      "C": "oposição",
+      "D": "proporção",
+      "E": "consequência"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q05",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Sintaxe da Oração e do Período",
+    "enunciado": "O período que atende às exigências da norma-padrão da",
+    "alternativas": {
+      "A": "A maioria dos problemas os quais lidamos são fáceis de resolver.",
+      "B": "Esse livro, cujos capítulos estudei, vai ser avaliado na prova.",
+      "C": "O tratamento que falou não está disponível na rede pública.",
+      "D": "Lya Luft, cujas ideias temos simpatia, é uma boa escritora.",
+      "E": "Ela é a amiga que conto para me fazer companhia hoje."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q06",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Concordância Verbal e Nominal",
+    "enunciado": "Do ponto de vista da concordância, a frase em que o\nverbo está empregado de acordo com as regras da\nnorma-padrão é:",
+    "alternativas": {
+      "A": "Necessitam-se de terapias alternativas.",
+      "B": "Fazem meses que iniciamos o tratamento.",
+      "C": "Concluiu-se os vários trabalhos solicitados.",
+      "D": "Houve inquietações consideradas corriqueiras.",
+      "E": "Os Estados Unidos avança nos estudos freudianos."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q07",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Crase e Regência",
+    "enunciado": "O acento grave marca, na escrita, o fenômeno da crase,\nisto é, representa a fusão de dois a.\nDessa forma, o acento indicativo da crase está corretamente empregado em:",
+    "alternativas": {
+      "A": "Meu sonho é conhecer à Paris dos romances.",
+      "B": "Todos deveriam sempre lembrar à quem agradecer.",
+      "C": "Restrinjo-me àquilo que ficou combinado na reunião.",
+      "D": "Ensinaram à ela muito sobre a história da psicanálise.",
+      "E": "Referimo-nos à toda raiva acumulada em nossos corações."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q08",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Na língua escrita, há situações em que algumas palavras\ne locuções oferecem maior dificuldade, pois podem ser\ngrafadas junto ou separadamente.\nA frase em que a expressão em negrito está corretamente\ngrafada é:",
+    "alternativas": {
+      "A": "Não mereço ter sucesso, tão pouco ser feliz.",
+      "B": "Nada nos resta se não a angústia de nos saber sabotados.",
+      "C": "Procuramos um psicólogo a fim de evitarmos maior sofrimento.",
+      "D": "Escolhemos a droga, com tudo trata-se de uma opção destrutiva.",
+      "E": "Conversávamos a cerca de nossas dificuldades com os sentimentos."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q09",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Morfologia e Classes de Palavras",
+    "enunciado": "A norma-padrão em sua variedade formal prevê uma\norganização da frase em que a observância da colocação\npronominal é fundamental.\nA frase em que o pronome oblíquo átono está empregado\ncorretamente, segundo as regras da colocação pronominal, é:",
+    "alternativas": {
+      "A": "Ninguém ensinou-me a manter a cabeça à tona d’água.",
+      "B": "O subconsciente boicota-nos a todo momento de nossa vida.",
+      "C": "O ser humano que molda-se à diferentes realidades vive melhor.",
+      "D": "Boicotaremo-nos todas as vezes que houver a chance de felicidade.",
+      "E": "Se considerar mau menino é justificar o não merecimento da felicidade."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q10",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "A redação de documentos oficiais deve obedecer às\nregras de impessoalidade, clareza e objetividade, devido\nao fim a que se destinam.\nEssas características são observadas em:",
+    "alternativas": {
+      "A": "Poderiam ser redigidos os projetos acordados na última reunião de cúpula.",
+      "B": "As diretrizes para o encaminhamento da decisão foram estabelecidas, presumo.",
+      "C": "Encaminham-se os documentos assinados aos órgãos responsáveis para prosseguimento do processo.",
+      "D": "Os estudos técnicos elaborados pelo órgão federal certamente trarão os resultados esperados.",
+      "E": "Tomarei as decisões cabíveis ao término da leitura dos processos relacionados ao caso. R A SC U N H O www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3 NOÇÕES DE SISTEMA BANCÁRIO"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q11",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Responsável pelo controle da inflação, o Banco Central\natua na garantia do cumprimento das metas de inflação\nestabelecidas.\nA respeito dessa atuação, no ano de 2017, a inflação medida pelo IPCA ficou em",
+    "alternativas": {
+      "A": "7,60",
+      "B": "5,91",
+      "C": "2,95",
+      "D": "5,84",
+      "E": "10,67"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q12",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Por meio da Resolução no\n4.582, de 29/06/2017, o BCB\nfixou a meta para a inflação, bem como seu intervalo de\ntolerância para os anos de 2019 e 2020.\nPara o ano de 2019, a meta para a inflação é",
+    "alternativas": {
+      "A": "de 4,00%, e para 2020, a meta é de 4,25%.",
+      "B": "de 4,25%, e para 2020, a meta é de 4,00%.",
+      "C": "de 4,25%, e para 2020, a meta é de 4,5%.",
+      "D": "de 4,5%, e para 2020, a meta é de 4,00%.",
+      "E": "de 4,75%, e para 2020, a meta é de 4,00%."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q13",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "No escopo de financiar capital de giro, os commercial papers\nsão instrumentos comumente utilizados.\nSobre esses produtos financeiros tem-se que",
+    "alternativas": {
+      "A": "são isentos de IOF.",
+      "B": "são títulos públicos.",
+      "C": "são títulos de dívida de longo prazo.",
+      "D": "são negociados no mercado primário.",
+      "E": "têm prazo de vencimento de 30 a 180 dias para companhias abertas."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q14",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "As sucessivas reduções na taxa básica de juros, a Selic, impactam a decisão dos investidores com relação à poupança.\nSobre as cadernetas de poupança tem-se que",
+    "alternativas": {
+      "A": "têm a remuneração composta pela Taxa Referencial e por uma remuneração adicional de 0,5% ao mês, se a Selic for maior que 8,5%.",
+      "B": "têm a remuneração creditada no último dia útil de cada mês.",
+      "C": "têm incidência do Imposto de Renda.",
+      "D": "são passíveis de cobrança de taxas administrativas.",
+      "E": "não são garantidas pelo FGC."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q15",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Língua Portuguesa",
+    "assunto": "Gramática Aplicada e Texto",
+    "enunciado": "Reguladas pelo Banco Central, as instituições financeiras\nautorizadas a operar todas as operações no mercado de\ncâmbio são(é)",
+    "alternativas": {
+      "A": "as agências de fomento",
+      "B": "os estabelecimentos comerciais",
+      "C": "os bancos de desenvolvimento",
+      "D": "os bancos múltiplos",
+      "E": "a Caixa Econômica"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q16",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Nacionais e Cidadania",
+    "enunciado": "Na configuração atual do Sistema Financeiro Nacional, a\ninstituição responsável pela regulação do mercado acionário, de debêntures e de commercial papers é o(a)",
+    "alternativas": {
+      "A": "Conselho Monetário Nacional",
+      "B": "Comissão de Valores Mobiliários",
+      "C": "Banco Central do Brasil",
+      "D": "Banco do Brasil",
+      "E": "Ministério da Fazenda"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q17",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "A principal característica que distingue um banco de investimento de um banco de desenvolvimento é que, diferentemente do primeiro, um banco de desenvolvimento",
+    "alternativas": {
+      "A": "é, geralmente, de capital privado, constituído sob a forma de sociedade anônima, e se especializa em operações de participação societária de caráter temporário e de financiamento de investimentos.",
+      "B": "é especializado na administração de recursos de terceiros.",
+      "C": "é, geralmente, de capital público e objetiva financiar projetos de investimento orientados para o desenvolvimento econômico e social de uma região ou país.",
+      "D": "capta recursos por meio de depósitos à vista e repas-se de recursos externos.",
+      "E": "não está sujeito aos mecanismos legais de regulação bancária."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q19",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "O mercado financeiro capta recursos junto ao público,\nmediante a emissão de diversos títulos de crédito, diferenciados por características, tais como o tipo de emissor\n(bancos, entidades de crédito e financiamento, governos,\netc.), formas de remuneração (renda fixa ou variável),\ndentre outras. Existe, por exemplo, um título de renda fixa,\nemitido pelas sociedades de crédito, financiamento e investimento (“financeiras”), destinado à captação de recursos que serão utilizados, sobretudo, no financiamento de\noperações de crédito entre financiadoras e comerciantes.\nO título descrito acima é o(a)",
+    "alternativas": {
+      "A": "certificado de depósito bancário (CDB)",
+      "B": "título do Tesouro Nacional",
+      "C": "letra financeira do Tesouro (LFT)",
+      "D": "caderneta de poupança",
+      "E": "letra de câmbio www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q20",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Atualidades",
+    "assunto": "Atualidades Gerais",
+    "enunciado": "De acordo com a Carta-Circular Bacen no\n3.542/2012,\nsão consideradas situações relacionadas com operações\nem espécie, em moeda estrangeira e cheques de viagem\naquelas negociações de moeda estrangeira em espécie\nque não apresentem compatibilidade com a natureza declarada da operação em municípios localizados em determinadas regiões.\nAs regiões a que se refere a Carta-Circular são regiões de",
+    "alternativas": {
+      "A": "metrópoles",
+      "B": "densidade baixa",
+      "C": "fronteira",
+      "D": "limitações",
+      "E": "comércio LEGISLAÇÃO II"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q21",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia, o\nbanco disporá de uma auditoria interna, diretamente subordinada ao Conselho de",
+    "alternativas": {
+      "A": "Execução",
+      "B": "Administração",
+      "C": "Consultoria",
+      "D": "Fiscalização",
+      "E": "Riscos"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q22",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Nos termos do Estatuto Social do Banco da Amazônia,\na diretoria executiva reunir-se-á ordinariamente uma vez\npor semana e, extraordinariamente, sempre que convocada pelo presidente do Banco.\nAs deliberações são tomadas por maioria de votos, cabendo ao presidente do Banco da Amazônia, além do voto\npessoal, o voto de",
+    "alternativas": {
+      "A": "maioria",
+      "B": "preparo",
+      "C": "especialidade",
+      "D": "qualidade",
+      "E": "avaliação"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q23",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "De acordo com o Código de Conduta Ética do Banco da\nAmazônia, nas interações com os investidores, deve-se\nadotar relacionamento fundamentado na transparência da\nprestação de contas mediante a divulgação de informações tempestivas e",
+    "alternativas": {
+      "A": "conclusivas",
+      "B": "certificadas",
+      "C": "direcionadas",
+      "D": "fidedignas",
+      "E": "caracterizadas"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q24",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "De acordo com o Código de Conduta Ética do Banco da\nAmazônia, nas interações com o ambiente interno, deve-se\nvalorizar a convivência interna e também os profissionais\nque exercem suas atividades no Banco da Amazônia,\ngarantindo-se o exercício da liberdade de expressão com",
+    "alternativas": {
+      "A": "amplitude",
+      "B": "responsabilidade",
+      "C": "qualidade",
+      "D": "transparência",
+      "E": "cuidado"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q25",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "De acordo com a Lei no\n7.827/1989, constitui fonte de\nrecursos dos fundos constitucionais de financiamento do\nNorte, Nordeste e Centro-Oeste o percentual do produto\nda arrecadação do imposto sobre renda e proventos de\nqualquer natureza e do imposto sobre produtos industrializados, entregues pela União.\nEsse percentual corresponde a",
+    "alternativas": {
+      "A": "1%",
+      "B": "2%",
+      "C": "3%",
+      "D": "4%",
+      "E": "5%"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q26",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Para desenvolver tecnologias que melhorem a\nqualidade de água disponível no mundo, é necessário\nolhar para as práticas das comunidades indígenas e\ntradicionais. É o que aponta um relatório divulgado hoje\npela Organização das Nações Unidas para Educação,\nCiência e Cultura (Unesco). As Soluções baseadas na\nNatureza (SbN) são as mais eficazes e mais baratas,\ndefende o texto. São técnicas que usam ou imitam\nprocessos que acontecem na natureza.\nBORGES, H. Soluções naturais para preservar a água. O Globo,\nSociedade, 19 mar. 2018, p. 20.\nNa gestão hídrica, é um exemplo de SbN barata a adoção\nde",
+    "alternativas": {
+      "A": "lagos artificiais",
+      "B": "usinas térmicas",
+      "C": "pesticidas agrícolas",
+      "D": "reservas de água em mangues",
+      "E": "dessalinização da água marinha www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q27",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Ao quebrar o consenso internacional em torno do estatuto de Jerusalém, cidade sagrada para judeus, cristãos e muçulmanos, o presidente Donald Trump conduziu seu país ao isolamento. Uma ampla maioria da\nAssembleia Geral da ONU criticou a decisão que coloca um obstáculo à paz. A decisão de Trump contraria\numa resolução da ONU, de 1980, que declarou nulas\ne sem efeito todas as medidas adotadas por Israel que\n“modificam o caráter geográfico e histórico da Cidade\nSanta”.\nENDERLIN, C. Jerusalém, o erro fundamental. Le Monde\nDiplomatique Brasil, Ano 11, n. 126, jan. 2018, p. 10. Adaptado.\nO texto acima refere-se à decisão do presidente Donald\nTrump, em dezembro de 2017, de",
+    "alternativas": {
+      "A": "determinar Jerusalém Oriental como palestina.",
+      "B": "transferir a embaixada dos EUA para Tel Aviv.",
+      "C": "consultar oficialmente a Autoridade Palestina.",
+      "D": "reconhecer Jerusalém como capital de Israel.",
+      "E": "reativar a presença israelense na Faixa de Gaza."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q28",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "(...) a estrutura federativa brasileira estabeleceu-se,\ndesde a República, com uma disfunção entre um formato político-administrativo pensado e desenvolvido\npara acomodar a representação das diferenças territoriais e a perspectiva de manutenção de uma unidade que deveria ser preservada a qualquer custo.\nEssas tensões encontram-se até hoje presentes na\nestrutura federativa brasileira.\nCASTRO, I. E. Geografia e Política: território, escalas de\nação e instituições.\nO Brasil apresenta uma história de forte tradição centralizadora e de alianças dos grupos estaduais e municipais\ncom o poder central.\nConsiderando-se esse fato, o que é necessário ocorrer\npara que o federalismo brasileiro possa ser, entre os entes federativos, menos competitivo e mais cooperativo?",
+    "alternativas": {
+      "A": "Centralização, na esfera federal, das capacidades de implementação das políticas públicas, dadas as enormes desigualdades financeiras, técnicas e de gestão existentes.",
+      "B": "Criação de mecanismos que promovam maior capacidade de intermediação entre as relações intergovernamentais, facilitando o diálogo entre as três esferas de poder.",
+      "C": "Limitação na capacidade dos entes subnacionais de legislar sobre políticas próprias.",
+      "D": "Redução da autonomia administrativa dos estados e municípios, aumentando a capacidade de atuação da esfera federal na criação e aprovação de políticas públicas.",
+      "E": "Supressão da independência do Poder Legislativo nos três níveis de governo, mantendo a autonomia do Poder Judiciário."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q29",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em muitas metrópoles, como Rio de Janeiro e São Paulo,\nenchentes são um problema constante, principalmente no\nverão, quando a pluviosidade, geralmente, se intensifica.\nPara evitar o problema, os gestores devem conhecer e\ncontrolar o sistema sedimentológico dos rios e canais e\ncriar políticas públicas que possam recuperá-los.\nNesse sentido, a recuperação de um canal fluvial consiste\nem",
+    "alternativas": {
+      "A": "aumentar a velocidade de escoamento para controlar a erosão e o assoreamento.",
+      "B": "criar barragens no rio, colaborando com a retenção da água.",
+      "C": "retornar, dentro do possível, às condições anteriores ao distúrbio, através de obras, levando em conta a rugosidade do canal.",
+      "D": "revestir o fundo do canal para facilitar as relações com o lençol d’água.",
+      "E": "suprimir curvas e meandros, impedindo que o canal retorne à sinuosidade original."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q30",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O domínio das caatingas brasileiras, um dos três espaços\nsemiáridos da América do Sul, apresenta precipitações\nque se concentram de seis a sete meses no domínio geral\ndos sertões. O prolongado período seco anual se deve,\nentre outras causas, às células de alta pressão atmosférica que penetram nos espaços dos sertões durante o\ninverno austral.\nPara combater a seca e levar água a mais de 12 milhões\nde pessoas, em estados como Ceará, Rio Grande do Nor-te, Paraíba e Pernambuco, foi criado um empreendimento\nde transposição de águas de um rio perene que atravessa\no sertão nordestino.\nO rio em questão é o",
+    "alternativas": {
+      "A": "Paraná",
+      "B": "Parnaíba",
+      "C": "Araguaia",
+      "D": "Tocantins",
+      "E": "São Francisco R A SC U N H O www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q31",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O comando PHP que cria corretamente um vetor ou conjunto (array) associativo é:",
+    "alternativas": {
+      "A": "$pessoa=array(''Nome'':''Ana'',''Idade'':''52'', ''Cidade'':''Manaus'');",
+      "B": "$pessoa=array(''Nome'':=''Ana'',''Idade'':=''52'', ''Cidade'':=''Manaus'');",
+      "C": "$pessoa=array(''Nome''=''Ana'',''Idade''=''52'', ''Cidade''=''Manaus'');",
+      "D": "$pessoa=array(''Nome''=>''Ana'',''Idade''=>''52'', ''Cidade''=>''Manaus'');",
+      "E": "$pessoa=array(''Nome''->''Ana'',''Idade''->''52'', ''Cidade''->''Manaus'');"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q32",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em uma árvore AVL com grande quantidade de nós, o\ncusto para inclusão de um nó no meio da árvore é proporcional a",
+    "alternativas": {
+      "A": "log(n)",
+      "B": "n",
+      "C": "n log(n)",
+      "D": "n2",
+      "E": "n2 log(n)"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q34",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considere o código Java listado a seguir, onde a numeração de linhas está sendo utilizada apenas como referência:\ni. package teste;\nii. public class Classe {\niii. private static int a = 5;\niv. public static void main(String[] args) {\nv. int a = 8;\nvi.\nvii. }\nviii.}\nQue comando deve ser inserido na linha vi para exibir o\nvalor 5 na console?",
+    "alternativas": {
+      "A": "System.out.println(a);",
+      "B": "System.out.println(Classe.a);",
+      "C": "System.out.println(Integer.parseInt(a));",
+      "D": "System.out.println(super.a);",
+      "E": "System.out.println(this.a);"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q35",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "É um exemplo de uma expressão Angular (Angular\nExpression) em AngularJS:",
+    "alternativas": {
+      "A": "<p>Candidato aprovado: {{ candidato.nome }}</p>",
+      "B": "<p>Candidato aprovado: [[ candidato.nome ]]</p>",
+      "C": "<p>Candidato aprovado: <%= candidato.nome %></p>",
+      "D": "<p>Candidato aprovado: <?= candidato.nome ?> </p>",
+      "E": "<p>Candidatoaprovado:<js:angularvalue=\"candidato. nome\"/></p>"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q36",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considere o código HTML com CSS listado a seguir:\n<!DOCTYPE html>\n<html>\n<head>\n<style type=\"text/css\">\n</style>\n</head>\n<body>\n<p class='texto'>Um texto</p>\n</body>\n</html>\nQual deve ser o estilo utilizado para que o texto seja mostrado na cor azul?",
+    "alternativas": {
+      "A": "#texto { color: #0000FF; }",
+      "B": "#texto { font-color: #0000FF; }",
+      "C": ".texto { color: #0000FF; }",
+      "D": ".texto { font-color: #0000FF; }",
+      "E": ".texto { text-color: #0000FF; }"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q37",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "A equipe de desenvolvimento de um aplicativo já fechou o\nescopo do projeto e o levantamento dos requisitos. Agora\nirá validar os requisitos com o cliente e demonstrar conceitos, experimentar opções de projeto, conhecer mais sobre\no problema e suas possíveis soluções, e talvez descobrir\nerros e omissões nos requisitos propostos. A equipe está\ndiscutindo com o gerente qual a técnica de validação mais\nadequada a ser utilizada.\nA técnica recomendada para esse caso é a seguinte:",
+    "alternativas": {
+      "A": "Casos de Uso, pois fará o detalhamento dos requisitos reduzindo os riscos.",
+      "B": "Prototipação das principais funcionalidades ou as mais críticas para checar com o usuário.",
+      "C": "Cenário, pois vai dar uma descrição total do comportamento da aplicação. (D) Join Application Development (JA",
+      "D": ", sem a dinâmica de grupo, pois vai analisar os pontos de vista dos usuários sobre o sistema.",
+      "E": "Regras de negócio, pois podem restringir os requisitos funcionais existentes. www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q38",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "A estimativa de software é uma atividade muito importante\npara o planejamento de um projeto. Um gerente, junto com\na equipe, está fazendo a estimativa, após definir o escopo\ne estabelecer a EAP (Estrutura Analítica de Projeto).\nA primeira entrada de muitos modelos que fazem a estimativa de software (nesse caso, a técnica de estimativa é\nPontos de Função) é:",
+    "alternativas": {
+      "A": "tamanho, para então derivar o esforço, o custo e o cronograma.",
+      "B": "esforço, para então derivar o tamanho e o custo.",
+      "C": "esforço, para então derivar o tamanho, o custo e o cronograma.",
+      "D": "cronograma, para então derivar o esforço e o custo.",
+      "E": "custo, para então derivar o cronograma."
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q39",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Requisitos existem em vários níveis de abstração.\nUm desses níveis é conhecido como “requisitos de\nnegócio”, os quais",
+    "alternativas": {
+      "A": "definem a visão e o escopo que influenciam os requisitos de usuário.",
+      "B": "são dependentes dos requisitos funcionais para serem levantados.",
+      "C": "são descobertos depois e a partir dos requisitos de usuário.",
+      "D": "são registrados na forma da Especificação de Requisitos de Software.",
+      "E": "influenciam e são registrados na forma de regras de negócio."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q40",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Entre as técnicas de validação de requisitos, existem\nas revisões, que podem ser diferenciadas em três tipos\nbásicos: comentários, inspeções e walk-throughs.\nNa técnica de inspeção,",
+    "alternativas": {
+      "A": "aplica-se um processo mais leve que o walk-through, onde os papéis estão menos definidos.",
+      "B": "aplica-se uma leitura baseada na verificação dos requisitos por perspectivas diferentes.",
+      "C": "os requisitos são entregues para outra pessoa, que usará de sua opinião de especialista para identificar questões que podem diminuir a qualidade dos requisitos.",
+      "D": "um conjunto de questões ou afirmativas deve ser respondido, sobre uma certa circunstância, na forma de um check-list.",
+      "E": "verifica-se se os artefatos de desenvolvimento têm erros, aplicando-se um processo definido estritamente e em várias fases."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q41",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Em uma empresa de desenvolvimento de software,\n3 especificações relativas a alterações em sistemas de\nsoftware — nomeadas X, Y e Z — passaram pelas fases\niniciais do processo básico de contagem de pontos de\nfunção, resultando na Tabela abaixo.\nALI AIE EE SE CE\nX 2 2 2 2 0\nY 1 2 3 2 0\nZ 2 2 1 3 0\nLogo após, todas as funções contadas foram detectadas\ncomo de complexidade baixa.\nQual a listagem que apresenta a contagem básica de\npontos de função das três especificações, em ordem\ncrescente?",
+    "alternativas": {
+      "A": "X Y Z",
+      "B": "X Z Y",
+      "C": "Y Z X",
+      "D": "Y X Z",
+      "E": "Z Y X"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q42",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Dois modelos de capacidade de desenvolvimento de\nsoftware muito usados no Brasil são o MPS.Br e o CMMI.\nAmbos são similares, porém o CMMI possui 5 níveis de\nmaturidade, enquanto o MPS.Br possui 7 níveis. Entre\nambos, há uma correlação que mapeia por similaridade\nde exigências os níveis do MPS.Br aos do CMMI.\nEm que nível do CMMI se espera que esteja uma empresa\ncertificada no nível C de maturidade do MPS.Br?",
+    "alternativas": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4",
+      "E": "5"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q43",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Princípios da Administração Pública (LIMPE)",
+    "enunciado": "O Manifesto Ágil se tornou um marco da Engenharia de\nSoftware, chamando a atenção de que vários processos\npropostos de forma independente tinham valores em comum. Além disso, foram definidos 12 princípios.\nEntre eles, figura o seguinte princípio:",
+    "alternativas": {
+      "A": "cada pessoa em um projeto deve ter sua função predeterminada para acelerar o desenvolvimento em conjunto.",
+      "B": "a contínua atenção à simplicidade do trabalho feito aumenta a agilidade.",
+      "C": "software funcionando é a medida primária de progresso.",
+      "D": "os indivíduos, clientes e desenvolvedores, são mais importantes que processos e ferramentas.",
+      "E": "o software funcional emerge de times auto-organizáveis. www.pciconcursos.com.br www.pciconcursos.com.br BANCO DA AMAZÔNIA TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO PROVA 3"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q44",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considere o código HTML com Javascript a seguir:\n<html>\n<head>\n<script\nsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>\n<script type=\"text/javascript\">\nvar data = new Date();\nvar agora = data.getHours() + \":\" + data.getMinutes();\n$(\"#idLugar\").append(agora);\n</script>\n</head>\n<body>\n<div id=\"idLugar\"></div>\n</body>\n</html>\nA hora não irá aparecer no <div> porque",
+    "alternativas": {
+      "A": "o append em jQuery não pode ser utilizado para containers vazios; deveria ter sido substituído por html.",
+      "B": "o objeto identificado por idLugar ainda não existe quando o script é executado.",
+      "C": "o símbolo de # está faltando na frente da identificação na definição do <div>.",
+      "D": "a variável data está escrita erradamente (está escrita em português).",
+      "E": "os métodos getHours e getMinutes estão escritos no plural, quando deveriam ser, respectivamente, getHour e getMinute."
+    },
+    "gabarito": null,
+    "anulada": true
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q45",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considere o esquema XML a seguir:\nUm elemento XML válido, segundo esse esquema, é:",
+    "alternativas": {
+      "A": "<area><x1>1</x1><y1>1</y1><x2>2</x2><y2>3</y2></area>",
+      "B": "<area x1=\"1\" y1=\"1\" x2=\"4\" y2=\"5\" />",
+      "C": "<rectangle x1=\"5\" y1=\"4\" x2=\"1\" y2=\"1\"/>",
+      "D": "<area><x1>4</x1><y1>4</y1><x2>2</x2><y2>3</y2></area>",
+      "E": "<rectangle><x1>1</x1><y1>1</y1><x2>2</x2><y2>3</y2></rectangle>"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q46",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Uma árvore binária completa de busca, isto é, uma árvore em que todos os níveis têm o máximo número de elementos,\ntem um total de N nós.\nO número máximo de comparações necessárias para encontrar um elemento nessa árvore é",
+    "alternativas": {
+      "A": "N",
+      "B": "N2",
+      "C": "log2 (N+1)",
+      "D": "(N+1)*log2 (N+1)",
+      "E": "(N 1)  www.pciconcursos.com.br www.pciconcursos.com.br BANCO DA AMAZÔNIA TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO PROVA 3"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q47",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considere a hierarquia de classes mostrada na Figura a seguir:\nConsidere agora o seguinte fragmento de código Java baseado na hierarquia anterior:\npublic class Main {\npublic static void main(String[] args) {\nCaminhao caminhao = new Caminhao(); // linha 1\nIVeiculo veiculo = caminhao; // linha 2\nQuatroRodas fw = new Guindaste(); // linha 3\nfw = veiculo; // linha 4\nveiculo = fw; // linha 5\n}\n}\nA linha marcada por um comentário que causará um erro em tempo de compilação é a linha",
+    "alternativas": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4",
+      "E": "5"
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q48",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Atos Administrativos",
+    "enunciado": "Considere que, em um modelo relacional, há três tabelas bem formadas denominadas Cliente, Compra (que representa os\nprodutos comprados por um cliente) e Produto. A PK dos clientes é o CPF, e a PK dos produtos é um código. Há atributos\nnome e UF de nascimento para os clientes, e atributos fabricante e categoria para os produtos. Ou seja, Cliente (cpf, nome,\nUF), Produto (cod, fabricante, categoria) e Compra (cpf, cod). Observe-se o seguinte comando SQL:\nSELECT DISTINCT P.fabricante\nFROM Produto P, Compra C\nWHERE P.cod = C.cod\nAND P.categoria = 'celular'\nAND C.cpf IN (SELECT cpf FROM Cliente WHERE UF = 'RS')\nEsse comando retorna dados que respondem à seguinte pergunta:",
+    "alternativas": {
+      "A": "“Fabricante dos produtos que foram comprados no Rio Grande do Sul”.",
+      "B": "“Fabricante dos celulares que não foram comprados por clientes nascidos no Rio Grande do Sul”.",
+      "C": "“Fabricante dos produtos que foram produzidos no Rio Grande do Sul”.",
+      "D": "“Fabricante dos celulares que foram comprados no Rio Grande do Sul”.",
+      "E": "“Fabricante dos celulares que foram comprados por clientes nascidos no Rio Grande do Sul”. www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q49",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Atos Administrativos",
+    "enunciado": "Considere que, em um modelo relacional, há duas tabelas\nbem formadas denominadas Pessoa e Projeto. Os atributos de Pessoa são CPF (PK), nome, endereço e o código do projeto no qual ela trabalha (FK); os atributos de\nProjeto são código (PK), título e data de início. Considere\ntambém que existe uma regra de negócio que determina\nque, em um projeto, não possam trabalhar mais do que\n15 pessoas.\nUm gatilho, criado para garantir que essa regra de negócio seja permanentemente observada, deve ser programado para ser executado",
+    "alternativas": {
+      "A": "antes de cada inserção ou alteração de linhas na tabela Pessoa",
+      "B": "antes de cada inserção ou remoção de linhas na tabe-la Projeto",
+      "C": "antes de cada inserção ou alteração de linhas na tabela Projeto",
+      "D": "depois de cada inserção de linhas na tabela Pessoa",
+      "E": "depois de cada alteração de linhas na tabela Projeto"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q50",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Atos Administrativos",
+    "enunciado": "Considere que, em um modelo Entidade-Relacionamento,\nhá duas entidades denominadas X e Y que se relacionam\npor meio de um relacionamento denominado R; que uma\nentidade de X pode relacionar-se a nenhuma ou a várias\nentidades de Y; e que uma entidade em Y sempre se relaciona a exatamente uma entidade em X. Ou seja:\n(1,1) (0,N)\nX Y\nR\nA modelagem relacional desses dados, que garante que as\ntabelas estarão na Terceira Forma Normal (3FN), definirá",
+    "alternativas": {
+      "A": "duas tabelas (T1 e T2), uma para X (T1) e outra para Y (T2), e uma chave estrangeira em T1 que referencia a chave primária de T2.",
+      "B": "duas tabelas (T1 e T2), uma para X (T1) e outra para Y (T2), e uma chave estrangeira em T2 que referencia a chave primária de T1.",
+      "C": "três tabelas (T1, T2 e TR), uma para X (T1), outra para Y (T2) e outra para R (TR), uma chave estrangeira em T1 que referencia a chave primária de TR, e uma chave estrangeira em TR que referencia a chave primária de T2.",
+      "D": "três tabelas (T1, T2 e TR), uma para X (T1), outra para Y (T2) e outra para R (TR), uma chave estrangeira em T1 que referencia a chave primária de TR, e uma chave estrangeira em T2 que referencia a chave primária de TR.",
+      "E": "uma tabela T com todos os atributos das entidades X e Y."
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q51",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Um Data Warehouse é recomendado para armazenar dados",
+    "alternativas": {
+      "A": "sumarizados de um departamento.",
+      "B": "sumarizados de toda a empresa para apoio à decisão e utilização de ferramentas OLAP.",
+      "C": "detalhados de toda a empresa para apoio à decisão e utilização de ferramentas OLAP.",
+      "D": "detalhados gerados por sistemas de informação transacionais.",
+      "E": "históricos detalhados de todas as transações realizadas em um determinado período de tempo."
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q52",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "As ferramentas e técnicas de mineração de dados (data\nmining) têm por objetivo",
+    "alternativas": {
+      "A": "preparar dados para serem utilizados em um “data warehouse” (DW).",
+      "B": "permitir a navegação multidimensional em um DW.",
+      "C": "projetar, de forma eficiente, o registro de dados transacionais.",
+      "D": "buscar a classificação e o agrupamento (clusterização) de dados, bem como identificar padrões.",
+      "E": "otimizar o desempenho de um gerenciador de banco de dados."
+    },
+    "gabarito": "B",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q53",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Sinais muitas vezes são alterados por ruídos, provocando\ndificuldade de detecção.\nPor exemplo, um sinal de 100 mW que passe por 10 dispositivos, cada um com ruído médio de 1 microwatt, terá,\nao final do trajeto, uma relação sinal ruído, em dB, de",
+    "alternativas": {
+      "A": "1",
+      "B": "10",
+      "C": "1000",
+      "D": "30",
+      "E": "40"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q54",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Preocupado com os custos e o cronograma de uma obra\nsob sua gestão, e considerando que o desempenho até a\ndata presente não se alteraria para o futuro, um gerente\nde projetos resolveu utilizar as técnicas preconizadas no\nPMBOK (6a\nedição) e levantou as seguintes informações\npara a data presente:\ni) Orçamento aprovado para as atividades agendadas\naté a data presente - R$ 850.000,00\nii) Despesas efetivamente realizadas para a realização\ndo trabalho previsto e concluído até a data presente –\nR$ 680.000,00\niii) Valor do trabalho previsto e concluído até a data presente - R$ 720.000,00\nO gerente analisou essas informações e concluiu que o\ncronograma está",
+    "alternativas": {
+      "A": "atrasado, e os custos estão acima do esperado.",
+      "B": "atrasado, e os custos estão abaixo do esperado.",
+      "C": "adiantado, e os custos estão acima do esperado.",
+      "D": "adiantado, e os custos estão abaixo do esperado.",
+      "E": "adiantado, e a obra acabará dentro do orçamento previsto. www.pciconcursos.com.br www.pciconcursos.com.br TÉCNICO CIENTÍFICO ÁREA DE FORMAÇÃO: TECNOLOGIA DA INFORMAÇÃO BANCO DA AMAZÔNIA PROVA 3"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q55",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Considerando o que prescreve o Cobit 5, há uma distinção entre governança e gestão.\nNa área de operação e serviços de TI, a diferença entre\ngovernança e gestão reside no fato de que é preciso que\na primeira",
+    "alternativas": {
+      "A": "garanta que se avaliem as necessidades e as condições, visando a determinar objetivos corporativos, ao passo que a segunda seja responsável pelo planejamento, o desenvolvimento, a execução e o monitoramento das atividades.",
+      "B": "seja de responsabilidade da diretoria executiva, sob a liderança do diretor executivo (CEO), ao passo que a segunda seja de responsabilidade do conselho de administração sob a liderança do presidente.",
+      "C": "esteja à frente da tomada de decisões e operações, implementando-as, ao passo que a segunda defina o portfólio de investimentos e o apetite ao risco.",
+      "D": "defina serviços e os disponibilize, ao passo que a segunda defina princípios, políticas e modelos.",
+      "E": "construa, adquira e implemente (BAI), ao passo que a segunda alinhe, planeje e organize (APO)."
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q56",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "O gerente de sistemas pediu que o analista fizesse um\nbackup diferencial.\nSendo assim, ele deve fazer um backup também chamado de",
+    "alternativas": {
+      "A": "Backup incremental",
+      "B": "Backup completo (full)",
+      "C": "Backup full deduplicado",
+      "D": "Backup em array de discos",
+      "E": "Backup incremental cumulativo"
+    },
+    "gabarito": "E",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q57",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Uma janela deslizante do lado emissor de uma conexão\nTCP, com o tamanho de segmento máximo (MSS) igual\na 1460, onde nenhum dos segmentos enviados foi reconhecido ainda pelo receptor, não tendo havido nenhum\ntime-out, está com seus segmentos no seguinte estado:\nConsiderando-se que o número inicial para o primeiro\nbyte é 1037, qual número de sequência corresponde a\num segmento que deve ser transmitido nesse momento?",
+    "alternativas": {
+      "A": "10",
+      "B": "1043",
+      "C": "1050",
+      "D": "14177",
+      "E": "21477"
+    },
+    "gabarito": "C",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q58",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "Uma das tecnologias que mais vem crescendo é a das\nredes sem-fio, que tem como um dos principais representantes o protocolo IEEE 802.11.\nO padrão IEEE 802.11 estabelece, dentro da camada de\nenlace, uma subcamada MAC composta de duas subcamadas, que são:",
+    "alternativas": {
+      "A": "LLC e DSSS",
+      "B": "LLC e PCF",
+      "C": "DSSS e DCF",
+      "D": "DSSS e PCF",
+      "E": "PCF e DCF"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q59",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Arquivologia e Gestão de Documentos",
+    "enunciado": "Que comando deve usar um usuário Linux para criar,\nno diretório em que está, um link simbólico com o nome\n“file1” para um arquivo “file2” que está no subdiretório\n“/etc/variado/”?",
+    "alternativas": {
+      "A": "link /etc/variado/file2 file1",
+      "B": "link -s file1 /etc/variado/file2",
+      "C": "ln /etc/variado/file2 file1",
+      "D": "ln -s /etc/variado/file2 file1",
+      "E": "ln -s file1 /etc/variado/file2"
+    },
+    "gabarito": "D",
+    "anulada": false
+  },
+  {
+    "id": "CESGRANRIO_2018_BANCODAAMAZONIASA_TECNICOCIENTIFICOTECNOLOGIAINFORMACAO_Q60",
+    "banca": "CESGRANRIO",
+    "ano": 2018,
+    "orgao": "Banco da Amazônia S/A",
+    "cargo": "Técnico Científico - Tecnologia da Informação",
+    "nivel": "Médio",
+    "disciplina": "Conhecimentos Específicos",
+    "assunto": "Rotinas Administrativas e Gestão Pública",
+    "enunciado": "No SCRUM, o Backlog da Sprint é “um conjunto de itens\ndo Backlog do Produto selecionados para Sprint, juntamente com o plano para entregar o incremento do produto e atingir o objetivo da Sprint” (Schwaber e Sutherland,\n2017).\nDurante a Sprint, quem pode alterar o Backlog da Sprint?",
+    "alternativas": {
+      "A": "Product Owner, apenas",
+      "B": "Scrum Master, apenas",
+      "C": "Time de Desenvolvimento, apenas",
+      "D": "Time de Desenvolvimento e o Product Owner, apenas",
+      "E": "Time de Desenvolvimento e o Scrum Master, apenas R A SC U N H O www.pciconcursos.com.br www.pciconcursos.com.br"
+    },
+    "gabarito": "A",
+    "anulada": false
+  },
+  {
     "id": "CESGRANRIO_2018_BANCODOBRASILSA_ESCRITURARIOVERSAO1_Q01",
     "banca": "CESGRANRIO",
     "ano": 2018,

@@ -123,12 +123,29 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(dados)
             return
         if rota.path == "/fila":
-            limite = int(parse_qs(rota.query).get("limite", ["0"])[0] or 0)
+            parametros = parse_qs(rota.query)
+            limite = int(parametros.get("limite", ["0"])[0] or 0)
+            parte = int(parametros.get("parte", ["0"])[0] or 0)
+            de = int(parametros.get("de", ["1"])[0] or 1)
             feitos = coletados()
             pendentes = [i for i in ler_fila() if i["id"] not in feitos]
+            # Divide a fila entre coletores (abas) sem sobreposição:
+            #   /fila?de=2&parte=0  -> índices 0, 2, 4, ...
+            #   /fila?de=2&parte=1  -> índices 1, 3, 5, ...
+            if de > 1:
+                parte = max(0, min(parte, de - 1))
+                pendentes = pendentes[parte::de]
             if limite:
                 pendentes = pendentes[:limite]
-            self._responder(200, {"total": len(pendentes), "fila": pendentes})
+            self._responder(
+                200,
+                {
+                    "total": len(pendentes),
+                    "parte": parte,
+                    "de": de,
+                    "fila": pendentes,
+                },
+            )
             return
         self._responder(404, {"erro": "rota desconhecida"})
 
