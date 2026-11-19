@@ -65,6 +65,118 @@ def _juntar_hifenizacao(texto: str) -> str:
     return re.sub(r"([A-Za-zÀ-ÿ]+)-\n([A-Za-zÀ-ÿ]+)", troca, texto)
 
 
+def _eh_titulo(linha: str) -> bool:
+    """Linha sem minúsculas e curta: cabeçalho de seção/cargo, não início de frase."""
+    texto = linha.strip()
+    return bool(texto) and not re.search(r"[a-zà-ÿ]", texto)
+
+
+def _juntar_pontuacao(texto: str) -> str:
+    """Corrige pontuação separada pela diagramação ("traduzi-\\n-la", "47 , às")."""
+    # compostos quebrados com hífen dos dois lados: econômico-\n-administrativas
+    texto = re.sub(r"-\n(?=-)", "", texto)
+
+    # linha que começa com pontuação é continuação da anterior (exceto sob título)
+    linhas = texto.split("\n")
+    saida: List[str] = []
+    for linha in linhas:
+        if saida and linha and linha[0] in ",.;:!?)]" and not _eh_titulo(saida[-1]):
+            saida[-1] += linha
+        else:
+            saida.append(linha)
+    texto = "\n".join(saida)
+
+    # espaço indevido antes de pontuação (preserva reticências "...")
+    texto = re.sub(r"[ \t]+([,;:!?])", r"\1", texto)
+    texto = re.sub(r"[ \t]+\.(?=\s|$)", ".", texto)
+    return texto
+
+
+# Linhas de cabeçalho/rodapé que o PDF repete no meio do texto ("PROVA 1 - VERDE",
+# "GABARITO 3 - PROVA SALMÃO", "FORMAÇÃO: ENGENHARIA..."). Nunca são conteúdo.
+_CABECALHO = re.compile(
+    r"^\s*(?:"
+    r"PROVA\s+\d+(?:\s*[-–]\s*[^\n]{0,60})?"
+    r"|GABARITO(?:\s+\d+)?(?:\s*[-–]\s*[^\n]{0,60})?"
+    r"|FORMAÇÃO\s*:[^\n]{0,80}"
+    r"|NÍVEL\s+(?:MÉDIO|FUNDAMENTAL|SUPERIOR)"
+    r"|(?:FUNDAÇÃO\s+)?CESGRANRIO(?:\s*[-–][^\n]{0,60})?"
+    r"|LEIA\s+ATENTAMENTE[^\n]{0,80}"
+    r"|CADERNO\s+DE\s+PROVAS[^\n]{0,60}"
+    r")\s*$",
+    re.IGNORECASE,
+)
+
+# Marcadores que indicam início de item/alternativa: não devem ser "colados" na
+# linha anterior pelo reflow.
+_INICIO_ITEM = re.compile(r"^\s*(?:[IVXLC]{1,6}|[a-z]|\d{1,3})\s*[-–—.)]\s+")
+_INICIO_ALTERNATIVA = re.compile(r"^\s*\(?[A-E]\)\s")
+_URL = re.compile(r"https?://|www\.")
+_FIM_DE_FRASE = re.compile(r"[.!?:;]\s*$")
+
+
+def _remover_cabecalhos(texto: str) -> str:
+    linhas = [l for l in texto.split("\n") if not _CABECALHO.match(l)]
+    return "\n".join(linhas)
+
+
+def _pode_juntar(anterior: str, seguinte: str) -> bool:
+    """True quando `seguinte` é continuação da frase de `anterior`."""
+    if not anterior or not seguinte:
+        return False
+    if _FIM_DE_FRASE.search(anterior):
+        return False
+    if _INICIO_ITEM.match(seguinte) or _INICIO_ALTERNATIVA.match(seguinte):
+        return False
+    if _URL.search(anterior) or _URL.search(seguinte):
+        return False
+    if len(anterior.strip()) < 12:
+        return False
+    if _eh_titulo(anterior):
+        return False
+    # continuação de prosa: minúscula (ou parêntese) no início da linha seguinte.
+    # Números também continuam frases ("entre 2002 e\n2003"), desde que a linha
+    # tenha texto — linhas só com número ("14.", "1.149") são itens/tabela.
+    if re.match(r"^[a-zà-ÿ(]", seguinte):
+        return True
+    return bool(re.match(r"^\d", seguinte) and re.search(r"[A-Za-zÀ-ÿ]{2,}", seguinte))
+
+
+def _reflow_bloco(linhas: List[str]) -> List[str]:
+    """Junta linhas quebradas pela diagramação do PDF dentro de um parágrafo.
+
+    A guarda de largura evita mexer em versos, tabelas e listas curtas: só
+    reflui blocos cuja mediana de largura é de texto corrido.
+    """
+    uteis = [l.strip() for l in linhas if l.strip()]
+    if len(uteis) < 2:
+        return linhas
+    larguras = sorted(len(l) for l in uteis)
+    mediana = larguras[len(larguras) // 2]
+    if mediana < 45:
+        return linhas
+
+    saida: List[str] = []
+    for linha in linhas:
+        if saida and _pode_juntar(saida[-1], linha):
+            saida[-1] = saida[-1].rstrip() + " " + linha.lstrip()
+        else:
+            saida.append(linha)
+    return saida
+
+
+def _reflow_paragrafos(texto: str) -> str:
+    """Remove quebras de linha da diagramação, preservando parágrafos (linha em branco)."""
+    partes = re.split(r"(\n{2,})", texto)
+    saida: List[str] = []
+    for parte in partes:
+        if parte.startswith("\n"):
+            saida.append(parte)
+        else:
+            saida.append("\n".join(_reflow_bloco(parte.split("\n"))))
+    return "".join(saida)
+
+
 def limpar_texto(texto: str) -> str:
     """Sanitiza espaços e quebras redundantes sem perder formatação essencial."""
     if not isinstance(texto, str):
@@ -72,6 +184,10 @@ def limpar_texto(texto: str) -> str:
     texto = re.sub(r'\r\n|\r', '\n', texto)
     if '-\n' in texto:
         texto = _juntar_hifenizacao(texto)
+    texto = _juntar_pontuacao(texto)
+    if '\n' in texto:
+        texto = _remover_cabecalhos(texto)
+        texto = _reflow_paragrafos(texto)
     texto = re.sub(r'[ \t]+', ' ', texto)
     texto = re.sub(r'\n{3,}', '\n\n', texto)
     return texto.strip()
