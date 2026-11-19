@@ -21,11 +21,57 @@ REQUIRED_FIELDS = [
     "enunciado", "alternativas", "anulada"
 ]
 
+_DICIONARIO = None
+
+
+def _carregar_dicionario():
+    """Carrega um dicionário pt-BR do sistema (opcional, usado só na hifenização)."""
+    global _DICIONARIO
+    if _DICIONARIO is None:
+        palavras = set()
+        for caminho in ("/usr/share/dict/brazilian", "/usr/share/dict/portuguese"):
+            try:
+                with open(caminho, encoding="utf-8", errors="ignore") as f:
+                    for linha in f:
+                        w = linha.strip().lower()
+                        if w and not w.startswith("#"):
+                            palavras.add(w)
+            except OSError:
+                pass
+        _DICIONARIO = palavras
+    return _DICIONARIO
+
+
+def _juntar_hifenizacao(texto: str) -> str:
+    """Remove hífens de quebra de linha quando o dicionário confirma a palavra.
+
+    PDFs antigos quebram palavras no fim da linha ("mes-\\nmo"). Se a junção for
+    uma palavra conhecida, o hífen é removido; caso contrário, ele é mantido
+    (protege compostos como "mão-de-obra", "ceder-lhes" e URLs).
+    """
+    dic = _carregar_dicionario()
+    if not dic:
+        return texto
+
+    def troca(m):
+        esq, direita = m.group(1), m.group(2)
+        # rótulos de tabela/siglas (I-X, X-II) não são palavras quebradas
+        if len(esq) <= 2 and esq.isupper():
+            return f"{esq}-{direita}"
+        if (esq + direita).lower() in dic:
+            return esq + direita
+        return f"{esq}-{direita}"
+
+    return re.sub(r"([A-Za-zÀ-ÿ]+)-\n([A-Za-zÀ-ÿ]+)", troca, texto)
+
+
 def limpar_texto(texto: str) -> str:
     """Sanitiza espaços e quebras redundantes sem perder formatação essencial."""
     if not isinstance(texto, str):
         return texto
     texto = re.sub(r'\r\n|\r', '\n', texto)
+    if '-\n' in texto:
+        texto = _juntar_hifenizacao(texto)
     texto = re.sub(r'[ \t]+', ' ', texto)
     texto = re.sub(r'\n{3,}', '\n\n', texto)
     return texto.strip()
@@ -169,7 +215,7 @@ def normalizar_e_auditar(dry_run: bool = False, sync_web: bool = True) -> bool:
 
     if not dry_run:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
-            json.dump(questoes_limpas, f, ensure_ascii=False, indent=2)
+            json.dump(questoes_limpas, f, ensure_ascii=False, separators=(",", ":"))
         print(f"\n[+] Base atualizada e formatada em: {DATA_FILE}")
 
         if sync_web:
