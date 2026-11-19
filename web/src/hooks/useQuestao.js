@@ -1,25 +1,26 @@
 import { useState, useEffect, useMemo } from 'react';
 
-const FILTROS_INICIAIS = {
-  banca: 'TODAS',
-  disciplina: 'TODAS',
-  assunto: 'TODOS',
-  cargo: 'TODOS',
-  orgao: 'TODOS',
-  ano: 'TODOS',
-  nivel: 'TODOS',
+// Lista vazia = "todas". Cada campo é um array de valores selecionados.
+const filtrosIniciais = () => ({
+  banca: [],
+  disciplina: [],
+  assunto: [],
+  cargo: [],
+  orgao: [],
+  ano: [],
+  nivel: [],
   status: 'TODAS', // TODAS, ACERTOS, ERROS, NAO_RESOLVIDAS, FAVORITAS, ANULADAS
   ocultarAnuladas: false,
   somenteComGabarito: false,
   busca: ''
-};
+});
 
 export function useQuestao(progresso) {
   const [todasQuestoes, setTodasQuestoes] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
 
-  const [filtros, setFiltros] = useState(FILTROS_INICIAIS);
+  const [filtros, setFiltros] = useState(filtrosIniciais);
 
   useEffect(() => {
     async function carregar() {
@@ -77,13 +78,13 @@ export function useQuestao(progresso) {
   // Aplicar filtros e busca
   const questoesFiltradas = useMemo(() => {
     return todasQuestoes.filter(q => {
-      if (filtros.banca !== 'TODAS' && q.banca !== filtros.banca) return false;
-      if (filtros.disciplina !== 'TODAS' && q.disciplina !== filtros.disciplina) return false;
-      if (filtros.assunto !== 'TODOS' && q.assunto !== filtros.assunto) return false;
-      if (filtros.cargo !== 'TODOS' && q.cargo !== filtros.cargo) return false;
-      if (filtros.orgao !== 'TODOS' && q.orgao !== filtros.orgao) return false;
-      if (filtros.ano !== 'TODOS' && String(q.ano) !== String(filtros.ano)) return false;
-      if (filtros.nivel !== 'TODOS' && q.nivel !== filtros.nivel) return false;
+      if (filtros.banca.length > 0 && !filtros.banca.includes(q.banca)) return false;
+      if (filtros.disciplina.length > 0 && !filtros.disciplina.includes(q.disciplina)) return false;
+      if (filtros.assunto.length > 0 && !filtros.assunto.includes(q.assunto)) return false;
+      if (filtros.cargo.length > 0 && !filtros.cargo.includes(q.cargo)) return false;
+      if (filtros.orgao.length > 0 && !filtros.orgao.includes(q.orgao)) return false;
+      if (filtros.ano.length > 0 && !filtros.ano.includes(String(q.ano))) return false;
+      if (filtros.nivel.length > 0 && !filtros.nivel.includes(q.nivel)) return false;
 
       // Ausência de gabarito (null) e questões anuladas
       if (filtros.ocultarAnuladas && q.anulada) return false;
@@ -129,7 +130,7 @@ export function useQuestao(progresso) {
   };
 
   const limparFiltros = () => {
-    setFiltros({ ...FILTROS_INICIAIS });
+    setFiltros(filtrosIniciais());
   };
 
   return {
