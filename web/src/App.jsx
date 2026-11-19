@@ -7,6 +7,7 @@ import { Estatisticas } from './components/Estatisticas';
 import Login from './components/Login';
 import ChooseNickname from './components/ChooseNickname';
 import Ranking from './components/Ranking';
+import Simulado from './components/Simulado';
 import { useProgress } from './hooks/useProgress';
 import { useQuestao } from './hooks/useQuestao';
 import { AlertCircle, Loader2, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/escolher-apelido" element={<ChooseNickname />} />
         <Route path="/ranking" element={<Ranking />} />
+        <Route path="/simulado" element={<Simulado />} />
         <Route path="/*" element={<Main />} />
       </Routes>
     </BrowserRouter>

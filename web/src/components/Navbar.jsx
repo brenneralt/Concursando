@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, LogIn, User } from 'lucide-react';
+import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, LogIn, User, Timer } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
@@ -35,6 +35,15 @@ export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
               </strong>
             </span>
           </div>
+
+          <Link
+            to="/simulado"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg transition-colors shadow-sm"
+            title="Montar um simulado cronometrado"
+          >
+            <Timer className="w-4 h-4" />
+            <span className="hidden sm:inline">Simulado</span>
+          </Link>
 
           <button
             onClick={() => navigate('/ranking')}

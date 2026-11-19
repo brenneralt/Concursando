@@ -125,7 +125,7 @@ python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.1
 - [x] **Primeiro push no GitHub:** `main` publicada em `github.com/brenneralt/Concursando`.
 - [x] **Deploy no GitHub Pages (18/11/2026):** site publicado em **https://brenneralt.github.io/Concursando/** com login/ranque ativos. Pages habilitado em modo *GitHub Actions* e os secrets `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` cadastrados; o bundle publicado contém o endpoint do Supabase e o `questoes.json` (**17.714 questões**).
 - [x] **Fluxo GitHub Actions:** `.github/workflows/deploy.yml` faz build (`npm ci` + `vite build`), confere `dist/questoes.json` e publica no GitHub Pages a cada push em `web/`. Pages já ligado (Source: GitHub Actions) e secrets `VITE_*` cadastrados.
-- [ ] **Modo Simulado / Cronômetro:** Adicionar temporizador de prova com relatório final de tempo por questão.
+- [x] **Modo Simulado / Cronômetro (18/11/2026):** rota `/simulado` com montagem do recorte (disciplina, ano, nível), quantidade (10/20/30/50) e tempo (sem limite/20/40/60 min). Durante a prova há cronômetro, navegador de questões, atalhos ← → e seleção sem feedback imediato; ao finalizar, calcula acertos/erros/em branco/tempo, mostra revisão com gabarito e grava as respostas no progresso (ranque).
 - [ ] **Rodar o patch de RLS de exclusão de progresso** no SQL Editor do Supabase (`progresso_delete_own`, já presente em `supabase/schema.sql`) e apagar as contas de teste.
 - [ ] **Caderno de Erros:** Aba dedicada para focar exclusivamente na repetição de questões marcadas com erro.
 - [ ] **Importador Drag-and-Drop no Frontend (Opcional):** Permitir upload local de novo `questoes.json` direto pela interface do usuário.
