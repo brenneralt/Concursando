@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+// HashRouter: GitHub Pages não faz fallback de SPA, então rotas com BrowserRouter
+// quebram fora da raiz (ex.: /Concursando/simulado → 404). Com HashRouter,
+// /Concursando/#/simulado funciona em qualquer host estático.
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Filtros } from './components/Filtros';
 import { CardQuestao } from './components/CardQuestao';
@@ -8,6 +11,7 @@ import Login from './components/Login';
 import ChooseNickname from './components/ChooseNickname';
 import Ranking from './components/Ranking';
 import Simulado from './components/Simulado';
+import RotaProtegida from './components/RotaProtegida';
 import { useProgress } from './hooks/useProgress';
 import { useQuestao } from './hooks/useQuestao';
 import { AlertCircle, Loader2, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -16,20 +20,30 @@ const ITENS_POR_PAGINA = 5;
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/escolher-apelido" element={<ChooseNickname />} />
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/simulado" element={<Simulado />} />
-        <Route path="/*" element={<Main />} />
+        {/* A conta é obrigatória: estas rotas só abrem com sessão ativa. */}
+        <Route element={<RotaProtegida />}>
+          <Route path="/escolher-apelido" element={<ChooseNickname />} />
+          <Route path="/ranking" element={<Ranking />} />
+          <Route path="/simulado" element={<Simulado />} />
+          <Route path="/*" element={<Main />} />
+        </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
 function LoginPage() {
   const { login, cadastrar, user, authLoading } = useProgress();
+  const location = useLocation();
+  const parametro = location.state?.de;
+  const destino =
+    typeof parametro === 'string' && parametro && !parametro.startsWith('/login')
+      ? parametro
+      : '/';
+
   if (authLoading) {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
@@ -37,9 +51,10 @@ function LoginPage() {
       </div>
     );
   }
-  if (user) return <Navigate to="/" replace />;
+  if (user) return <Navigate to={destino} replace />;
   return (
     <Login
+      destino={destino}
       onLogin={(email, senha, apelido) =>
         apelido ? cadastrar(email, senha, apelido) : login(email, senha)
       }
@@ -51,7 +66,6 @@ function Main() {
   const {
     progresso,
     user,
-    authLoading,
     logout,
     registrarResposta,
     limparResposta,
@@ -98,18 +112,6 @@ function Main() {
 
       {/* Conteúdo Principal */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Faixa de aviso */}
-        {!authLoading && !user && (
-          <div className="mb-4 px-4 py-2.5 bg-sky-50 border border-sky-200 rounded-lg text-xs text-sky-800 flex items-center justify-between gap-3">
-            <span>
-              Entre para aparecer no <strong>ranque</strong> e manter seu progresso salvo na nuvem.
-            </span>
-            <a href="/login" className="font-semibold underline hover:text-sky-900 whitespace-nowrap">
-              Entrar / criar conta
-            </a>
-          </div>
-        )}
-
         {/* Painel de Filtros e Busca */}
         <Filtros
           filtros={filtros}
@@ -223,8 +225,8 @@ function Main() {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-6 mt-12 text-center text-xs text-slate-500">
         <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>ConcursoQuestões © 2024 — Plataforma Aberta para Concurseiros</span>
-          <span>Pronto para deploy na Vercel e GitHub Pages</span>
+          <span>ConcursoQuestões © 2026 — Treino direcionado para concursos públicos</span>
+          <span>Uma conta, todo o seu progresso.</span>
         </div>
       </footer>
     </div>

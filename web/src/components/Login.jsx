@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Loader2 } from 'lucide-react';
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, destino = '/' }) {
   const [modo, setModo] = useState('cadastro'); // 'cadastro' | 'entrar'
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -29,7 +29,7 @@ export default function Login({ onLogin }) {
       } else {
         const { error: err } = await onLogin(email, senha);
         if (err) throw err;
-        navigate('/');
+        navigate(destino, { replace: true });
       }
     } catch (err) {
       setError(err.message || 'Falha na autenticação. Verifique email e senha.');
@@ -50,7 +50,8 @@ export default function Login({ onLogin }) {
           </h1>
         </div>
         <p className="text-xs text-slate-500 mb-6">
-          Entre para salvar seu progresso e aparecer no ranque de questões resolvidas.
+          A conta é obrigatória para usar a plataforma. Seu progresso fica salvo na nuvem e você
+          aparece no ranque de questões resolvidas.
         </p>
 
         {/* Abas */}

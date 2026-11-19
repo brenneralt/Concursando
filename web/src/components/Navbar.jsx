@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, LogIn, User, Timer } from 'lucide-react';
+import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, Timer } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
@@ -17,7 +17,7 @@ export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
             <h1 className="font-bold text-lg sm:text-xl text-slate-900 tracking-tight flex items-center gap-1.5">
               Concurso<span className="text-sky-600 font-extrabold">Questões</span>
             </h1>
-            <p className="text-xs text-slate-500 hidden sm:block">Plataforma aberta & focada em concurso público</p>
+            <p className="text-xs text-slate-500 hidden sm:block">Plataforma focada em concurso público</p>
           </div>
         </div>
 
@@ -73,7 +73,7 @@ export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
             </button>
           )}
 
-          {user ? (
+          {user && (
             <button
               onClick={onLogout}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors"
@@ -82,15 +82,6 @@ export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Sair</span>
             </button>
-          ) : (
-            <Link
-              to="/login"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-sky-700 bg-sky-50 hover:bg-sky-100 rounded-lg transition-colors"
-              title="Entrar ou criar conta"
-            >
-              <LogIn className="w-4 h-4" />
-              <span className="hidden sm:inline">Entrar</span>
-            </Link>
           )}
         </div>
       </div>
