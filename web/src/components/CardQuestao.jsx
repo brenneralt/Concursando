@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, X, Star, AlertTriangle, CheckCircle2, RotateCcw, HelpCircle } from 'lucide-react';
+import { Check, X, Star, AlertTriangle, CheckCircle2, RotateCcw, HelpCircle, Copy } from 'lucide-react';
 
 export function CardQuestao({
   questao,
@@ -11,6 +11,7 @@ export function CardQuestao({
   onAlternarFavorito
 }) {
   const [selecaoTemporaria, setSelecaoTemporaria] = useState(respostaUsuario?.resposta || null);
+  const [copiado, setCopiado] = useState(false);
 
   const jaRespondida = !!respostaUsuario;
   const acertou = respostaUsuario?.acertou;
@@ -36,6 +37,67 @@ export function CardQuestao({
   const separador = String(questao.enunciado || '').indexOf('\n\n');
   const textoApoio = separador > 0 ? questao.enunciado.slice(0, separador) : null;
   const comando = separador > 0 ? questao.enunciado.slice(separador + 2) : questao.enunciado;
+
+  // Monta um prompt pronto para colar em qualquer IA (ChatGPT, Claude, Gemini...).
+  const montarPrompt = () => {
+    const linhas = [
+      'Quero a explicação de uma questão de concurso público.',
+      `Banca: ${questao.banca || 'não informada'} | Ano: ${questao.ano || '?'} | Nível: ${questao.nivel || '?'}`,
+      `Órgão: ${questao.orgao || 'não informado'} | Cargo: ${questao.cargo || 'não informado'}`,
+      `Disciplina: ${questao.disciplina || 'não informada'} | Assunto: ${questao.assunto || 'não informado'}`,
+      '',
+      'ENUNCIADO:',
+      String(questao.enunciado || ''),
+      '',
+      'ALTERNATIVAS:',
+      ...alternativasList.map(([letra, textoAlt]) => `${letra}) ${textoAlt}`),
+      '',
+    ];
+    if (ehAnulada) {
+      linhas.push('Observação: esta questão foi ANULADA pela banca organizadora.');
+    } else if (temGabarito) {
+      linhas.push(`Gabarito oficial: ${questao.gabarito}.`);
+    } else {
+      linhas.push('Não há gabarito oficial disponível no acervo; por favor, resolva e indique a alternativa correta.');
+    }
+    if (respostaUsuario && !ehAnulada) {
+      linhas.push(
+        `Minha resposta: ${respostaUsuario.resposta} (${respostaUsuario.acertou ? 'acertei' : 'errei'}).`
+      );
+    }
+    linhas.push(
+      '',
+      'Explique, em português, de forma didática: por que a alternativa correta está certa; por que cada uma das demais está errada; e qual é a matéria-chave da questão. Se houver norma, jurisprudência ou entendimento que mudou desde a publicação da prova, avise.'
+    );
+    return linhas.join('\n');
+  };
+
+  const handleCopiarPrompt = async () => {
+    const texto = montarPrompt();
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(texto);
+      ok = true;
+    } catch {
+      // Fallback para navegadores/contextos sem a Clipboard API
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = texto;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch {
+        ok = false;
+      }
+    }
+    if (ok) {
+      setCopiado(true);
+      window.setTimeout(() => setCopiado(false), 2000);
+    }
+  };
 
   return (
     <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all hover:border-slate-300 mb-5">
@@ -64,7 +126,7 @@ export function CardQuestao({
           )}
         </div>
 
-        {/* Ações Topo: Anulada Badge & Favoritar */}
+        {/* Ações Topo: Anulada Badge, Copiar para IA & Favoritar */}
         <div className="flex items-center gap-2">
           {ehAnulada && (
             <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded">
@@ -72,6 +134,21 @@ export function CardQuestao({
               ANULADA PELA BANCA
             </span>
           )}
+
+          <button
+            type="button"
+            onClick={handleCopiarPrompt}
+            className={`flex items-center gap-1.5 p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+              copiado
+                ? 'text-emerald-700 bg-emerald-50 border border-emerald-300'
+                : 'text-sky-700 bg-sky-50 border border-sky-200 hover:bg-sky-100'
+            }`}
+            title="Copiar a questão com gabarito para pedir explicação a uma IA (ChatGPT, Claude, Gemini...)"
+            aria-label="Copiar questão para explicar com IA"
+          >
+            {copiado ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+            <span className="hidden sm:inline">{copiado ? 'Copiado!' : 'Copiar para IA'}</span>
+          </button>
 
           <button
             onClick={() => onAlternarFavorito(questao.id)}
