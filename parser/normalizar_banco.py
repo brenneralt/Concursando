@@ -2,7 +2,7 @@
 """
 Módulo de Normalização, Validação e Auditoria de Questões
 Garante conformidade estrita com o SCHEMA OFICIAL DO OBJETO (questoes.json),
-audita integridade, questões anuladas e sincroniza com web/public/questoes.json.
+audita integridade, questões anuladas e sincroniza com public/dados/questoes.json.
 """
 
 import json
@@ -13,7 +13,7 @@ from typing import List, Dict, Any, Tuple
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT_DIR / "data" / "questoes.json"
-WEB_PUBLIC_FILE = ROOT_DIR / "web" / "public" / "questoes.json"
+WEB_PUBLIC_FILE = ROOT_DIR / "public" / "dados" / "questoes.json"
 
 REQUIRED_FIELDS = [
     "id", "banca", "ano", "orgao", "cargo",

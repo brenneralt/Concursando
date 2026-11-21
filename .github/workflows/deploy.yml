@@ -1,11 +1,39 @@
-name: Deploy (GitHub Pages)
+name: CI/CD (GitHub Pages)
 
 on:
   push:
     branches: [main]
     paths:
-      - "web/**"
-      - ".github/workflows/deploy.yml"
+      - "src/**"
+      - "public/**"
+      - "scripts/**"
+      - "data/**"
+      - "index.html"
+      - "package.json"
+      - "package-lock.json"
+      - "vite.config.js"
+      - "vitest.config.js"
+      - "tailwind.config.js"
+      - "postcss.config.js"
+      - "jsconfig.json"
+      - "eslint.config.js"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "src/**"
+      - "public/**"
+      - "scripts/**"
+      - "data/**"
+      - "index.html"
+      - "package.json"
+      - "package-lock.json"
+      - "vite.config.js"
+      - "vitest.config.js"
+      - "tailwind.config.js"
+      - "postcss.config.js"
+      - "jsconfig.json"
+      - "eslint.config.js"
+      - ".github/workflows/**"
   workflow_dispatch:
 
 permissions:
@@ -18,43 +46,55 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  verificar:
+    name: Lint, tipos, testes, dados e build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
-          cache-dependency-path: web/package-lock.json
 
-      - name: Instalar dependências
-        working-directory: web
+      - name: Instalar dependências (lockfile)
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Testes
+        run: npm run test
+
+      - name: Validar banco de questões
+        run: npm run validar:dados
+
       - name: Build
-        working-directory: web
         env:
-          # Sem estes secrets o build continua válido: o app sobe sem login e
-          # usa o progresso local (localStorage). Cadastre em Settings → Secrets
-          # and variables → Actions para habilitar login/ranque.
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run build
 
-      - name: Conferir que o banco de questões foi para o pacote
-        working-directory: web
-        run: test -s dist/questoes.json
+      - name: Conferir artefato de dados
+        run: test -s dist/dados/questoes.json
 
-      - uses: actions/configure-pages@v5
+      - name: Preparar Pages
+        if: github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Enviar artefato
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: web/dist
+          path: dist
 
   deploy:
-    needs: build
+    name: Publicar no GitHub Pages
+    if: github.ref == 'refs/heads/main'
+    needs: verificar
     runs-on: ubuntu-latest
     environment:
       name: github-pages

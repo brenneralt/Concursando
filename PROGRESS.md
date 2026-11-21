@@ -7,13 +7,26 @@
 ## 🎯 Visão Geral do Projeto
 Plataforma web moderna, rápida e focada na resolução e treino de questões de concursos públicos (estilo QConcursos), com foco em catalogação limpa e sem ruídos, estruturada em:
 1. **Módulo Parser (`/parser`):** Extração de PDFs e gabaritos, validação e normalização do banco JSON de questões.
-2. **Módulo Web (`/web`):** Frontend SPA construído em React + Vite + Tailwind CSS, com persistência no `localStorage`, consumindo `questoes.json`. Hospedável gratuitamente na **Vercel** ou **GitHub Pages**.
+2. **Módulo Web (`src/`):** Frontend SPA construído em React + Vite + Tailwind CSS, com persistência no `localStorage`, consumindo `questoes.json`. Hospedável gratuitamente na **Vercel** ou **GitHub Pages**. (Antes ficava em `web/`; ver seção de reestruturação acima.)
+
+---
+
+## 🧱 Reestruturação (21/11/2026)
+
+- **Monólito reorganizado:** `web/` deixou de existir; o frontend está em `src/` na raiz, com `src/app`, `src/components`, `src/features/{conta,questoes,simulados,desempenho}`, `src/services` e `src/test`. O `package.json` e o lockfile ficam junto ao fonte e há **um único caminho de build** (`npm run build`).
+- **Dados como produto:** `data/questoes.json` é a fonte única; `public/dados/` é gerado por `scripts/preparar-dados.mjs` e não é versionado. `scripts/validar-questoes.mjs` valida schema, ids, alternativas, gabarito, anuladas e `material_id` (0 erros, 185 avisos no acervo atual).
+- **Texto de apoio × comando:** o frontend entende o formato legado (linha em branco) e o novo (`material_id` + `data/materiais.json`). `scripts/separar-materiais.mjs` gera proposta deduplicada para revisão; nada foi aplicado ao acervo ainda.
+- **Testes:** Vitest com 26 casos cobrindo filtros multiseleção/status/busca, correção de resposta, estatísticas, montagem e correção de simulado e separação do texto de apoio.
+- **CI/CD:** `deploy.yml` agora roda `npm ci`, lint, typecheck, testes, validação dos dados e build antes de publicar; dispara em mudanças de `src/`, `scripts/`, `data/`, configs e do próprio workflow. Publicação manual de `dist` na `main` está proibida na documentação.
+- **Incidente corrigido:** um `npx gh-pages -d dist -b main -f` havia substituído o `main` remoto por um commit raiz com apenas o build. A branch foi restaurada a partir do histórico local e o site voltou a servir o JSON reparado (22,3 MB, Q04 do BANRISUL com texto de apoio).
+- **Documentação:** `README.md`, `CONTRIBUTING.md`, `LICENSE` (MIT para código) e `docs/dados.md` (proveniência, direitos, limites e regras de qualidade).
+- **Supabase:** schema convertido em migration (`supabase/migrations/0001_schema_rls.sql`) e `supabase/seed.sql` vazio por design; variáveis públicas e secretas documentadas.
 
 ---
 
 ## 📊 Status Atual de Desenvolvimento
 
-- **Última Atualização:** 17/11/2026
+- **Última Atualização:** 21/11/2026
 - **Status Geral:** Módulo 1 (Parser) cobre IGECAP/CONTEMAX e Cesgranrio (duas colunas, gabarito por cargo, gabarito com uma coluna por versão e desambiguação por cor da prova, número do gabarito e blocos por versão). Módulo 2 (SPA) funcional com filtros no estilo QConcursos, login e ranque no Supabase. Módulo 3 (PCI Concursos) descobre e baixa provas do acervo inteiro. `main` publicada no GitHub em 17/11/2026. **Banco atual: 17.698 questões (17.034 Cesgranrio + 680 IGECAP/CONTEMAX menos 16 removidas no saneamento), 366 provas Cesgranrio, 47 órgãos (2004–2024), 99,8% gabaritadas.** A coleta do acervo Cesgranrio está **concluída: 1.230/1.230 cadernos do escopo com link liberado (1.199 com PDF, 2.581 arquivos)**. Os 2 cadernos que não entraram no banco têm gabarito ambíguo (versões conflitantes ou respostas de outro cargo) e foram descartados por segurança. O `questoes.json` pesa **19 MB** compacto (~4,0 MB gzip), o que ainda pesa no carregamento do app (plano: fatiar por disciplina/ano).
 
 ### ✅ O Que Já Está Feito e Testado

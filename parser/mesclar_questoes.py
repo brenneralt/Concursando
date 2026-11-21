@@ -12,7 +12,7 @@ Regras:
 - o resultado sai ordenado por banca, ano, orgao, cargo e id.
 
 Depois de mesclar, rode `python3 parser/normalizar_banco.py` para auditar e
-sincronizar `web/public/questoes.json`.
+sincronizar `public/dados/questoes.json` (gerado no build).
 """
 
 from __future__ import annotations

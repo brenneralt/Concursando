@@ -1,272 +1,137 @@
-# 🎯 Concurso-Questões
+# ConcursoQuestões
 
-Plataforma web moderna, rápida e responsiva para resolução e treino de questões de concursos públicos (estilo QConcursos), desenvolvida para eliminar o ruído visual e os problemas crônicos de catalogação dos sites tradicionais.
+Plataforma de treino para concursos públicos: catálogo de questões da **Cesgranrio** (nível médio/fundamental) e de bancas municipais **IGECAP/CONTEMAX**, com resolução comentada por alternativa, filtros combináveis, estatísticas por disciplina, simulado cronometrado e ranque entre contas.
 
-Desenvolvida para rodar com custo zero na **Vercel** ou no **GitHub Pages**.
+O app é uma SPA estática (React + Vite) servida pelo GitHub Pages. O catálogo é um JSON versionado; o Supabase guarda apenas **contas, perfis e progresso**.
 
 ---
 
-## 🗂️ Arquitetura do Repositório
+## Stack
+
+| Camada | Tecnologia |
+| --- | --- |
+| Frontend | React 18, Vite 6, Tailwind CSS 3, React Router (HashRouter) |
+| Dados | JSON estático em `data/questoes.json` (17.698 questões) |
+| Contas/progresso | Supabase (Auth + Postgres com RLS) |
+| Extração | Python 3 (`parser/`), pdfplumber e regras por banca |
+| Testes | Vitest |
+| CI/CD | GitHub Actions → GitHub Pages |
+
+---
+
+## Estrutura
 
 ```text
-concurso-questoes/
-├── PROGRESS.md                    # Tracker de status e handoff para outras IAs
-├── README.md                      # Instruções de setup e deploy
-├── opencode.json                  # MCP público da PCI Concursos para agentes
-├── data/
-│   ├── raw_pdfs/                  # PDFs originais de provas e gabaritos
-│   └── questoes.json              # Banco mestre normalizado de questões
-├── parser/                        # MÓDULO 1: Extrator e Normalizador (Python)
-│   ├── requirements.txt
-│   ├── extrair_questoes.py        # Extrai questões e pareia com gabarito
-│   ├── normalizar_banco.py        # Valida schema e sincroniza com o frontend
-│   ├── pci_mcp.py                 # Cliente do MCP público da PCI Concursos
-│   ├── buscar_provas.py           # Busca provas/concursos via MCP (até 50)
-│   └── raspador_pci.py            # Raspa o site do PCI (lista completa, sem limite de 50)
-└── web/                           # MÓDULO 2: Frontend SPA (React + Vite + Tailwind)
-    ├── package.json
-    ├── public/questoes.json       # Consumido via fetch pelo frontend
-    └── src/
-        ├── components/            # Filtros, CardQuestao, Estatisticas, Navbar
-        ├── hooks/                 # useQuestao, useLocalStorageProgress
-        └── App.jsx
+.
+├── src/
+│   ├── app/                 # entrada, rotas e layout principal
+│   ├── components/          # UI compartilhada (Navbar, MultiSelect, RotaProtegida)
+│   ├── features/
+│   │   ├── conta/           # login e escolha de apelido
+│   │   ├── questoes/        # card, filtros, texto de apoio e hook de catálogo
+│   │   ├── simulados/       # montagem, cronômetro e correção do simulado
+│   │   └── desempenho/      # progresso, estatísticas e ranque
+│   ├── services/            # Supabase e carregamento do catálogo
+│   └── test/                # testes de filtros, correção, estatísticas e simulado
+├── public/dados/            # GERADO no build (não versionado)
+├── scripts/
+│   ├── preparar-dados.mjs   # data/questoes.json → public/dados/
+│   ├── validar-questoes.mjs # validação do dado de produto (roda no CI)
+│   └── separar-materiais.mjs# proposta de migração para material_id/materiais
+├── data/                    # catálogo, relatórios e PDFs brutos (política em docs/dados.md)
+├── parser/                  # pipeline de extração/normalização em Python
+├── supabase/
+│   ├── migrations/          # schema + RLS versionados
+│   └── seed.sql             # vazio por design (catálogo não fica no Postgres)
+├── .github/workflows/       # CI + deploy do Pages
+└── docs/                    # políticas de dados e operação
 ```
+
+O frontend e o `package.json` ficam na **raiz**: existe um único caminho de build, usado tanto localmente quanto no CI.
 
 ---
 
-## 🚀 Como Executar Localmente
+## Como rodar
 
-### Pré-requisitos
-- **Node.js** >= 18
-- **Python** >= 3.10
+Pré-requisitos: **Node.js 22+** e **npm**.
 
-### 1. Backend/Parser (Normalização dos Dados)
 ```bash
-# Validar e sincronizar as questões para o frontend
-python3 parser/normalizar_banco.py
+npm ci
+cp .env.example .env   # preencha as variáveis públicas do Supabase (opcional para navegar)
+npm run dev            # http://localhost:3000
 ```
 
-### 2. Frontend Web
-```bash
-cd web
-npm install
-npm run dev
-```
-Acesse no seu navegador: `http://localhost:3000`
+`npm run dev` copia `data/questoes.json` para `public/dados/` antes de subir o Vite. O arquivo gerado não é versionado.
+
+### Scripts
+
+| Comando | O que faz |
+| --- | --- |
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Copia os dados e gera `dist/` |
+| `npm run preview` | Serve o build localmente |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | Checagem sintática/tipos com `tsc` (JS + JSDoc, sem migrar para TS) |
+| `npm run test` | Testes Vitest |
+| `npm run validar:dados` | Valida schema, ids, alternativas, gabaritos e materiais |
+| `npm run materiais:separar` | Gera proposta de separação texto de apoio × comando (dry-run) |
+| `npm run verificar` | Lint + typecheck + testes + validação + build (mesmo gate do CI) |
 
 ---
 
-## ☁️ Login e ranque (Supabase)
+## Dados
 
-O progresso de cada usuário fica salvo na nuvem (Supabase) e há um **ranque
-público de questões resolvidas** com apelido escolhido.
+- **Fonte:** provas oficiais publicadas pelas bancas, coletadas via acervo público do PCI Concursos e PDFs locais. O processo e os direitos de uso estão em [`docs/dados.md`](docs/dados.md).
+- **Escopo:** nível médio/fundamental; Cesgranrio (17.018 questões) + IGECAP/CONTEMAX (680). Enfermagem, fiscal, serviços gerais, limpeza, cozinha e merendeira ficam fora.
+- **Schema:** 12 campos obrigatórios por questão (`id`, `banca`, `ano`, `orgao`, `cargo`, `nivel`, `disciplina`, `assunto`, `enunciado`, `alternativas`, `gabarito`, `anulada`), mais o opcional `material_id`.
+- **Regras do validador:** ids únicos, alternativas contíguas A–E, gabarito existente entre as alternativas, questão anulada com `gabarito: null`, `ano` inteiro e enunciado não vazio. Questões-imagem e referências a texto ausente saem como **aviso**, para revisão humana.
+- **Atualização:** `python3 parser/normalizar_banco.py` audita e reescreve o banco; `python3 parser/anexar_textos_apoio.py` recupera textos de apoio a partir dos PDFs. Sempre rode `npm run validar:dados` e `npm run verificar` depois.
 
-1. Cole o arquivo [`supabase/schema.sql`](supabase/schema.sql) no **SQL Editor**
-   do seu projeto Supabase (Settings → API mostra a URL e a chave pública).
-2. Crie o arquivo de ambiente a partir do modelo e preencha com as credenciais
-   do projeto:
-   ```bash
-   cp web/.env.example web/.env
-   # edite web/.env e preencha VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY
-   ```
-   `web/.env` está no `.gitignore`; **nunca** comite as credenciais.
-3. No frontend, use **Entrar → Criar conta**, escolha o apelido e comece a
-   resolver questões. O ranque aparece no botão "Ranque" da navbar.
+### Texto de apoio × comando
 
-> Sem login, o app continua funcionando off-line usando `localStorage`.
-> Sem `web/.env`, o app também abre normalmente, mas login e ranque ficam
-> desativados com um aviso claro.
+O acervo atual guarda o texto de apoio no início do `enunciado`, separado do comando por uma linha em branco. O frontend entende os dois formatos:
+
+- **legado:** separa na primeira linha em branco;
+- **novo:** questão com `material_id` + registro em `data/materiais.json`
+  (`{ id, tipo, conteudo, fonte: { arquivo, pagina_inicial, pagina_final } }`), permitindo compartilhar o mesmo texto entre várias questões.
+
+`npm run materiais:separar` gera uma proposta em `data/migracao_materiais/` (questões, materiais deduplicados e relatório). Nada é aplicado sem revisão; `--aplicar` promove a proposta para `data/materiais.json` e `data/questoes.json`.
 
 ---
 
-## 🔎 Buscar provas e concursos (MCP da PCI Concursos)
+## Contas e Supabase
 
-O projeto usa o **MCP público da PCI Concursos** (`https://mcp.pciconcursos.com.br/mcp`)
-para descobrir provas anteriores (prova + gabarito) e concursos abertos.
+1. Crie um projeto gratuito no [Supabase](https://supabase.com).
+2. Rode as migrations de `supabase/migrations/` no SQL Editor (ou `supabase db push`).
+3. Copie `.env.example` para `.env` e preencha `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY`.
+4. No GitHub, cadastre os mesmos valores em **Settings → Secrets and variables → Actions**.
 
-### Pelo OpenCode
+Somente variáveis com prefixo `VITE_` chegam ao navegador — e isso é intencional para a URL e a **chave anônima**, que são públicas. A `service_role` **nunca** deve ir para o frontend nem para o CI de deploy: ela ignora RLS.
 
-O [opencode.json](opencode.json) já registra o servidor `pci-concursos`. Basta pedir
-ao agente, por exemplo:
+As policies em `supabase/migrations/0001_schema_rls.sql` garantem que:
 
-> "Pesquise provas da Cesgranrio para agente administrativo."
-> "Quais concursos para técnico legislativo estão abertos na Paraíba?"
+- `profiles` é legível por todos (ranque) e gravável apenas pelo dono;
+- `progresso` é privado (select/insert/update/delete só do próprio `user_id`);
+- `atualizar_perfil()` recalcula contadores e recusa atualizar perfil alheio.
 
-As ferramentas ficam disponíveis com o prefixo `pci-concursos`
-(`pci-concursos_pesquisar_provas`, `pci-concursos_pesquisar_concursos`,
-`pci-concursos_buscar_por_cargo`, `pci-concursos_buscar_por_cidade` e
-`pci-concursos_listar_concursos`). No Code Mode elas aparecem agrupadas em
-`tools["pci-concursos"]`.
-
-### Pelo terminal
-
-```bash
-# Provas anteriores (ano, órgão, cargo, banca e link da página no PCI)
-python3 parser/buscar_provas.py provas "cesgranrio agente administrativo"
-
-# Gera um painel HTML com links e nomes de arquivo sugeridos
-python3 parser/buscar_provas.py provas "cesgranrio agente administrativo" \
-  --html painel_provas.html --abrir
-
-# Exporta os resultados
-python3 parser/buscar_provas.py provas "cesgranrio" \
-  --json data/pci_cesgranrio.json --csv data/pci_cesgranrio.csv --limite 20
-
-# Concursos abertos / prestes a abrir
-python3 parser/buscar_provas.py concursos "legislativo" --uf pb
-python3 parser/buscar_provas.py cargo "agente administrativo" --uf pb
-python3 parser/buscar_provas.py cidade "Campina Grande" --uf pb
-
-# Lista as ferramentas disponíveis no servidor
-python3 parser/buscar_provas.py ferramentas
-```
-
-### Limitação importante
-
-O MCP devolve no máximo 50 provas por consulta. Para varrer o acervo inteiro
-(ex.: todas as 2.718 provas da Cesgranrio), use o raspador direto do site:
-
-```bash
-# Lista completa de um termo, com painel HTML, JSON e CSV
-python3 parser/raspador_pci.py "cesgranrio" \
-  --html painel_cesgranrio.html --json data/pci_cesgranrio.json --csv data/pci_cesgranrio.csv
-
-# Só as primeiras N páginas (cada página tem 50 provas)
-python3 parser/raspador_pci.py "cesgranrio agente administrativo" --paginas 5
-```
-
-O MCP **não entrega PDFs** e o site protege os arquivos com a verificação
-Cloudflare Turnstile. Num Chromium real a verificação é resolvida
-automaticamente e a página libera URLs assinadas
-(`/provas/<id>/<hash>/arquivo.pdf`); não há contorno de CAPTCHA, só o uso do
-link que o próprio site liberou. O fluxo tem duas etapas:
-
-1. **Coletar os links liberados** (feito pelo agente no navegador, uma vez por
-   lote) e salvar num JSON no formato:
-   ```json
-   [{"id": "<slug>", "ok": true,
-     "arquivos": [{"arquivo": "prova.pdf", "href": "https://..."}]}]
-   ```
-   O recorte já coletado do IBGE está em `data/links_pci_ibge.json`
-   (83 provas, 166 arquivos).
-2. **Baixar os PDFs** com o script:
-
-```bash
-python3 parser/baixar_provas_pci.py --links data/links_pci_ibge.json
-python3 parser/baixar_provas_pci.py --links data/links_pci_ibge.json --forcar
-```
-
-Os arquivos ficam em `data/raw_pdfs/<slug>_prova.pdf` e
-`<slug>_gabarito.pdf` (downloads já existentes são preservados, a menos que se
-use `--forcar`), com o registro em `data/raw_pdfs/manifest.json`. Depois:
-
-```bash
-python3 parser/extrair_questoes.py --dir data/raw_pdfs \
-  --out data/questoes_ibge.json --report data/relatorio_ibge.json \
-  --meta data/pci_cesgranrio.json --verbose
-python3 parser/normalizar_banco.py
-```
-
-Para lotes grandes (todo o acervo Cesgranrio), dá para recortar por nível e por
-cargo já na extração, e exigir cobertura mínima do gabarito para descartar
-cadernos mal extraídos:
-
-```bash
-python3 parser/extrair_questoes.py --dir data/raw_pdfs \
-  --out /tmp/questoes_cesgranrio.json --report data/relatorio_cesgranrio.json \
-  --meta data/pci_cesgranrio.json --all-cargos \
-  --excluir-cargos "enfermagem,fiscal,servicos gerais,limpeza,cozinha,merendeira" \
-  --niveis "Fundamental,Médio" --min-cobertura 0.95 --verbose
-
-python3 parser/mesclar_questoes.py --novo /tmp/questoes_cesgranrio.json
-python3 parser/normalizar_banco.py
-```
-
-> O parser já entende o caderno padrão da Cesgranrio: duas colunas (ordem de
-> leitura reconstruída via `pdftotext -bbox-layout`), numeração isolada,
-> alternativas `(A)` e gabarito com uma página por cargo. `--meta` usa o JSON
-> do raspador (`descricao`, `orgao`, `ano`) para corrigir cargo/órgão/ano —
-> o texto do PDF costuma truncar nomes de cargo.
-
-### Coleta resumível do PCI (acervo Cesgranrio)
-
-O acervo inteiro não cabe numa sessão: o Turnstile libera ~1 caderno a cada
-15–40 s. Por isso a coleta é uma fila persistente, e cada peça pode ser
-retomada depois de uma queda.
-
-```bash
-# 1. Gera/atualiza a fila de cadernos de médio e fundamental ainda sem PDF
-python3 parser/fila_pci.py            # grava data/pci_links/fila.json
-
-# 2. Sobe o receptor local (porta 8765) que guarda os links liberados
-python3 parser/receptor_links.py --porta 8765
-
-# 3. Abre a URL de download de qualquer prova no navegador real, instala o
-#    coletor e alimenta a fila (o agente faz isso via `browse evaluate`):
-#      fetch('http://127.0.0.1:8765/coletor.js').then(r => r.text()) ...
-#      __pciIniciar([{ id, link }], { concorrencia: 1 })
-#    O iframe do coletor precisa ficar VISÍVEL: fora da viewport o widget do
-#    Turnstile não renderiza e a página nunca libera os links. Concorrência 1.
-#    Guarde os resultados: __pciDrenar() e envie em POST /lote.
-
-# 4. Baixa os PDFs dos links já liberados (pode repetir a qualquer momento)
-python3 parser/baixar_provas_pci.py --links data/pci_links --pausa 0.2
-```
-
-`data/pci_links/fila.json` e `data/pci_links/coletados.json` são versionados;
-os `link_<slug>.json` não, porque as URLs assinadas expiram. O estado da coleta
-é sempre `fila − coletados`; rode `curl localhost:8765/status` para ver. Ao
-esvaziar a fila, repita do passo 1: ele recalcula o que ainda falta.
-
-#### Duas abas em paralelo (~2x)
-
-Concorrência >1 **dentro** da mesma aba derruba a taxa de sucesso (os iframes
-disputam a renderização do widget), mas abas separadas não se atrapalham. Divida
-a fila pelo servidor para os coletores não repetirem caderno:
-
-```bash
-# aba 1
-curl -s 'localhost:8765/fila?de=2&parte=0&limite=60'
-# aba 2
-curl -s 'localhost:8765/fila?de=2&parte=1&limite=60'
-```
-
-Com uma aba, o ritmo fica em ~8 cadernos/min; com duas, ~15–18/min. Uma página
-leve do site (a home) como base da aba deixa o coletor mais rápido do que a
-página de download, que carrega anúncios e desafios próprios.
-
-
+A conta é obrigatória em toda a navegação: sem sessão, o app redireciona para `/login` e volta ao destino original depois do acesso.
 
 ---
 
-## 📦 Build para Produção & Deploy
+## Deploy
 
-### Gerar os arquivos estáticos:
-```bash
-cd web
-npm run build
-```
-O build estático otimizado será gerado na pasta `web/dist/`.
+O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) roda em push para `main` (e em pull requests, apenas os checks):
 
-### Hospedagem na Vercel:
-- **Framework Preset:** Vite
-- **Root Directory:** `web`
-- **Build Command:** `npm run build`
-- **Output Directory:** `dist`
-- **Environment Variables:** cadastre `VITE_SUPABASE_URL` e
-  `VITE_SUPABASE_ANON_KEY` (Settings → Environment Variables) com os mesmos
-  valores do seu `web/.env`. Sem elas o site publica, mas login e ranque ficam
-  desativados.
+1. `npm ci` (instalação reproduzível pelo lockfile);
+2. lint, typecheck, testes, validação do banco e build;
+3. publicação do `dist/` como artefato do Pages **somente** se todos os passos passarem.
 
-### Hospedagem no GitHub Pages:
-- O Vite já está configurado com `base: './'` no [vite.config.js](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/web/vite.config.js), então o site funciona em qualquer subpasta.
-- O workflow [`.github/workflows/deploy.yml`](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/.github/workflows/deploy.yml) já faz build + publicação a cada push em `web/` (ou por `workflow_dispatch`). Para ativar:
-  1. **Settings → Pages → Source: GitHub Actions**.
-  2. **Settings → Secrets and variables → Actions**: cadastre `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` (sem elas o app publica e funciona off-line, com progresso no `localStorage`).
-- O workflow confere que `dist/questoes.json` saiu no pacote antes de publicar, para nunca subir um site sem banco.
-- Alternativa manual: rodar `npm run build` em `web/` e publicar `web/dist` em qualquer host estático.
+O Pages precisa estar configurado em **Settings → Pages → Source: GitHub Actions**. O Vite usa `base: './'`, então o app funciona em subpasta (`/Concursando/`), e o `HashRouter` evita 404 em rotas profundas.
+
+> Não publique `dist/` manualmente na branch `main`. Isso substitui o histórico do repositório pelo conteúdo do build.
 
 ---
 
-## 👥 Fluxo Multi-Agentes & Continuidade
-Consulte sempre o arquivo [PROGRESS.md](file:///home/brenneralt/.gemini/antigravity/scratch/concurso-questoes/PROGRESS.md) para verificar o checklist de status, decisões arquiteturais e tarefas pendentes.
+## Licença
+
+Código sob [MIT](LICENSE). Os enunciados, alternativas e textos de apoio pertencem às bancas organizadoras e são usados exclusivamente para estudo; consulte [`docs/dados.md`](docs/dados.md) antes de redistribuir o acervo.

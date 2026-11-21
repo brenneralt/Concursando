@@ -1,0 +1,40 @@
+{
+  "name": "concurso-questoes",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "predev": "node scripts/preparar-dados.mjs",
+    "build": "vite build",
+    "prebuild": "node scripts/preparar-dados.mjs",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "typecheck": "tsc -p jsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validar:dados": "node scripts/validar-questoes.mjs",
+    "materiais:separar": "node scripts/separar-materiais.mjs",
+    "verificar": "npm run lint && npm run typecheck && npm run test && npm run validar:dados && npm run build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^7.0.2",
+    "vite": "^6.0.1",
+    "vitest": "^5.1.1"
+  },
+  "description": "Plataforma de questões de concursos públicos — SPA React + Vite"
+}

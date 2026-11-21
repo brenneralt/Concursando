@@ -31,8 +31,13 @@ venv/
 ENV/
 
 # Production / Build
-web/dist/
 dist/
+
+# Dados derivados do build (gerados por scripts/preparar-dados.mjs)
+public/dados/
+
+# Propostas de migração de materiais (revisão local)
+data/migracao_materiais/
 
 # Logs
 *.log
