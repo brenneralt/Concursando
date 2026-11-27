@@ -118,6 +118,18 @@ A conta é obrigatória em toda a navegação: sem sessão, o app redireciona pa
 
 ---
 
+## Visão de produto e roadmap
+
+O objetivo de longo prazo é evoluir o Concursando de uma plataforma de questões para uma biblioteca comunitária que centralize, relacione e compartilhe conhecimento: questões, assuntos, aulas, documentos e referências.
+
+**Princípio central:** em vez de três pessoas organizarem o mesmo conteúdo separadamente, a comunidade constrói uma biblioteca compartilhada.
+
+O roadmap, as decisões de arquitetura, as etapas de implementação e os cuidados de acesso, privacidade e licenciamento estão registrados em [docs/visao-produto-biblioteca-conhecimento.md](docs/visao-produto-biblioteca-conhecimento.md).
+
+**Ordem de prioridade registrada:** (1) cadastro com confirmação de e-mail e aprovação administrativa; (2) biblioteca de recursos independente das questões e dos provedores; (3) contribuições moderadas e compartilhamento; (4) integrações com YouTube, Drive e Telegram; (5) melhorias de descoberta e inteligência. Não implementar os vídeos dos cursos antes de concluir o controle de acesso.
+
+---
+
 ## Deploy
 
 O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) roda em push para `main` (e em pull requests, apenas os checks):
