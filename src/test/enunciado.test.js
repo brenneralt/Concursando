@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   dividirEnunciado,
-  indexarMateriais
+  indexarMateriais,
+  extrairTermoBusca,
+  urlYoutubeBusca
 } from '../features/questoes/enunciado.js';
 import { criarQuestao } from './fixtures.js';
 
@@ -53,5 +55,53 @@ describe('texto de apoio', () => {
       enunciado: 'Apoio.\n\nComando.'
     });
     expect(dividirEnunciado(questao, []).textoApoio).toBe('Apoio.');
+  });
+});
+
+describe('termo de busca para YouTube', () => {
+  it('usa assunto + disciplina + palavras do comando', () => {
+    const q = criarQuestao({
+      disciplina: 'Língua Portuguesa',
+      assunto: 'Gramática Aplicada e Texto',
+      enunciado: 'Texto de apoio.\n\nAssinale a alternativa que apresenta o uso correto da crase.'
+    });
+    const termo = extrairTermoBusca(q);
+    expect(termo).toContain('Gramática Aplicada e Texto');
+    expect(termo).toContain('Língua Portuguesa');
+    expect(termo).toContain('crase');
+  });
+
+  it('limita a 80 caracteres', () => {
+    const q = criarQuestao({
+      disciplina: 'D',
+      assunto: 'A'.repeat(100),
+      enunciado: 'Comando ' + 'palavra '.repeat(50)
+    });
+    expect(extrairTermoBusca(q).length).toBeLessThanOrEqual(80);
+  });
+
+  it('gera URL válida do YouTube', () => {
+    const q = criarQuestao({
+      disciplina: 'Informática',
+      assunto: 'Sistemas Operacionais',
+      enunciado: 'Qual a função do kernel?'
+    });
+    const url = urlYoutubeBusca(q);
+    expect(url).toMatch(/^https:\/\/www\.youtube\.com\/results\?search_query=/);
+    expect(url).toContain('Sistemas%20Operacionais');
+    expect(url).toContain('Inform%C3%A1tica');
+  });
+
+  it('não quebra com acentos', () => {
+    const q = criarQuestao({
+      disciplina: 'Matemática',
+      assunto: 'Funções & Gráficos',
+      enunciado: 'Determine a raiz.'
+    });
+    const url = urlYoutubeBusca(q);
+    expect(url).toMatch(/^https:\/\/www\.youtube\.com\/results\?search_query=/);
+    expect(url).toContain('Fun%C3%A7%C3%B5es');
+    expect(url).toContain('Gr%C3%A1ficos');
+    expect(url).toContain('Matem%C3%A1tica');
   });
 });

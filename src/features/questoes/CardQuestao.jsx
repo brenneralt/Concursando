@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Check, X, Star, AlertTriangle, CheckCircle2, RotateCcw, HelpCircle, Copy } from 'lucide-react';
-import { dividirEnunciado } from './enunciado.js';
+import { Check, X, Star, AlertTriangle, CheckCircle2, RotateCcw, HelpCircle, Copy, Youtube } from 'lucide-react';
+import { dividirEnunciado, urlYoutubeBusca } from './enunciado.js';
 
 export function CardQuestao({
   questao,
@@ -127,7 +127,7 @@ export function CardQuestao({
           )}
         </div>
 
-        {/* Ações Topo: Anulada Badge, Copiar para IA & Favoritar */}
+        {/* Ações Topo: Anulada Badge, Copiar para IA, Teoria (YouTube) & Favoritar */}
         <div className="flex items-center gap-2">
           {ehAnulada && (
             <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded">
@@ -150,6 +150,18 @@ export function CardQuestao({
             {copiado ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             <span className="hidden sm:inline">{copiado ? 'Copiado!' : 'Copiar para IA'}</span>
           </button>
+
+          <a
+            href={urlYoutubeBusca(questao)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg text-xs font-semibold transition-colors text-red-700 bg-red-50 border border-red-200 hover:bg-red-100"
+            title="Pesquisar teoria desta questão no YouTube"
+            aria-label="Pesquisar teoria no YouTube"
+          >
+            <Youtube className="w-4 h-4" />
+            <span className="hidden sm:inline">Teoria</span>
+          </a>
 
           <button
             onClick={() => onAlternarFavorito(questao.id)}
