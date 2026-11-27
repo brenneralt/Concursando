@@ -11,6 +11,17 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 
 ---
 
+## 🔐 Controle de acesso por aprovação (Etapa 1) — implementado
+
+- Migration `supabase/migrations/0002_user_access.sql`: tabela separada `user_access` com estados `pending`/`approved`/`blocked`, `is_admin`, rastreabilidade de quem aprovou/bloqueou e quando.
+- Trigger cria `user_access` (pending) ao cadastrar; backfill das contas existentes.
+- RLS: usuário lê apenas o próprio status; `progresso` e `ranque` apenas para `approved`; admin via RPCs `security definer` que verificam `is_admin` no banco.
+- Conta bloqueada perde acesso mesmo com sessão ativa (RotaProtegida revalida ao navegar).
+- Frontend: `RotaProtegida` mostra telas de aguardando/bloqueado; painel `/admin` com busca, abas por status, contadores, aprovar/bloquear/reativar/promover/rebaixar; link Admin no Navbar só para admin.
+- `src/features/conta/permissoes.js` + `src/test/permissoes.test.js` (8 casos).
+- Nenhum `service_role` no front; chave anônima + RLS decidem.
+- Bootstrap do admin via SQL manual (documentado no README).
+
 ## 🧱 Reestruturação (21/11/2026)
 
 - **Monólito reorganizado:** `web/` deixou de existir; o frontend está em `src/` na raiz, com `src/app`, `src/components`, `src/features/{conta,questoes,simulados,desempenho}`, `src/services` e `src/test`. O `package.json` e o lockfile ficam junto ao fonte e há **um único caminho de build** (`npm run build`).

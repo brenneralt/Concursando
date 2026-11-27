@@ -26,8 +26,9 @@ function clienteInativo() {
     select: () => consulta,
     eq: () => consulta,
     order: () => consulta,
-    upsert: semSuporte,
+    maybeSingle: semSuporte,
     single: semSuporte,
+    upsert: semSuporte,
     delete: () => consulta,
     insert: semSuporte,
     then: (ok, falha) => semSuporte().then(ok, falha),
@@ -46,6 +47,12 @@ function clienteInativo() {
     },
     from: () => consulta,
     rpc: semSuporte,
+    storage: {
+      from: () => ({
+        list: semSuporte,
+        createSignedUrl: semSuporte,
+      }),
+    },
   };
 }
 

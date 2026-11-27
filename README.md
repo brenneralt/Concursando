@@ -114,6 +114,24 @@ As policies em `supabase/migrations/0001_schema_rls.sql` garantem que:
 - `progresso` é privado (select/insert/update/delete só do próprio `user_id`);
 - `atualizar_perfil()` recalcula contadores e recusa atualizar perfil alheio.
 
+A migration `supabase/migrations/0002_user_access.sql` adiciona o **controle de acesso por aprovação**:
+
+- Tabela separada `user_access` (status `pending` / `approved` / `blocked`, `is_admin`, quem aprovou/bloqueou e quando).
+- Novo cadastro nasce `pending` e não acessa as áreas protegidas.
+- `progresso` e `ranque` só funcionam para contas `approved`.
+- Ações administrativas (`listar_usuarios`, `definir_acesso`, `definir_admin`) verificam `is_admin` no próprio banco.
+- Conta bloqueada perde acesso mesmo com sessão ativa.
+
+**Bootstrap do administrador (rode uma vez no SQL Editor, após aplicar as migrations):**
+
+```sql
+update public.user_access
+set status = 'approved', is_admin = true, updated_at = now()
+where user_id = (select id from auth.users where lower(email) = lower('SEU_EMAIL@email.com'));
+```
+
+Depois disso, acesse `/admin` no site para aprovar os demais cadastros.
+
 A conta é obrigatória em toda a navegação: sem sessão, o app redireciona para `/login` e volta ao destino original depois do acesso.
 
 ---

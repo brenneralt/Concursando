@@ -40,7 +40,7 @@ A ordem abaixo é intencional. Não implementar a biblioteca de cursos ou expor 
 
 ### Etapa 1 — Cadastro com aprovação administrativa
 
-**Prioridade imediata — ainda não implementada.**
+**Implementada em código (branch `feat/aprovacao-usuarios`) — aguardando aplicação das migrations e validação de segurança no Supabase real.**
 
 Fluxo esperado:
 

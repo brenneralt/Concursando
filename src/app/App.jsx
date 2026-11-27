@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // HashRouter: GitHub Pages não faz fallback de SPA, então rotas com BrowserRouter
 // quebram fora da raiz (ex.: /Concursando/simulado → 404). Com HashRouter,
 // /Concursando/#/simulado funciona em qualquer host estático.
-import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Filtros } from '../features/questoes/Filtros';
 import { CardQuestao } from '../features/questoes/CardQuestao';
 import { Estatisticas } from '../features/desempenho/Estatisticas';
 import Login from '../features/conta/Login';
 import ChooseNickname from '../features/conta/ChooseNickname';
+import Admin from '../features/admin/Admin';
+import AguardandoAprovacao from '../features/conta/AguardandoAprovacao';
+import { useAcesso } from '../features/conta/useAcesso';
 import Ranking from '../features/desempenho/Ranking';
 import Simulado from '../features/simulados/Simulado';
 import RotaProtegida from '../components/RotaProtegida';
@@ -27,12 +30,46 @@ export default function App() {
         {/* A conta é obrigatória: estas rotas só abrem com sessão ativa. */}
         <Route element={<RotaProtegida />}>
           <Route path="/escolher-apelido" element={<ChooseNickname />} />
+          <Route path="/aguardando-aprovacao" element={<AguardandoAprovacaoRoute />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/simulado" element={<Simulado />} />
           <Route path="/*" element={<Main />} />
         </Route>
       </Routes>
     </HashRouter>
+  );
+}
+
+function AguardandoAprovacaoRoute() {
+  const { user, logout, authLoading } = useProgress();
+  const { acesso, carregando, recarregar } = useAcesso(user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!authLoading && !user) navigate('/login', { replace: true });
+    if (!carregando && acesso?.status === 'approved') navigate('/', { replace: true });
+    if (!carregando && acesso?.status === 'blocked') navigate('/', { replace: true });
+  }, [authLoading, user, carregando, acesso, navigate]);
+
+  if (authLoading || carregando) {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-sky-600 animate-spin" />
+      </div>
+    );
+  }
+
+  return (
+    <AguardandoAprovacao
+      user={user}
+      carregando={carregando}
+      onRecarregar={recarregar}
+      onLogout={async () => {
+        await logout();
+        navigate('/login', { replace: true });
+      }}
+    />
   );
 }
 
@@ -74,6 +111,8 @@ function Main() {
     resetarProgresso,
     stats
   } = useProgress();
+  const { acesso } = useAcesso(user);
+  const isAdmin = acesso?.status === 'approved' && acesso?.is_admin === true;
 
   const {
     questoes,
@@ -111,6 +150,7 @@ function Main() {
         onReset={resetarProgresso}
         user={user}
         onLogout={logout}
+        isAdmin={isAdmin}
       />
 
       {/* Conteúdo Principal */}
