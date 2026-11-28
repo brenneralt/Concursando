@@ -30,6 +30,12 @@ const CAMPOS_OBRIGATORIOS = [
 ];
 const CAMPOS_OPCIONAIS = ['material_id'];
 const LETRAS = ['A', 'B', 'C', 'D', 'E'];
+const ASSUNTO_GENERICOS = [
+  'a definir',
+  'não categorizado',
+  'nao categorizado',
+  'desconhecido',
+];
 
 const REFERENCIA_A_TEXTO =
   /(com base no (texto|trecho|poema|quadro|tabela|gr[áa]fico)|de acordo com o texto|no texto (a seguir|acima)|texto (a seguir|acima)|observe o (texto|quadro|gr[áa]fico|poema))/i;
@@ -74,6 +80,12 @@ function validarQuestao(q, indice, contexto) {
 
   for (const campo of ['banca', 'orgao', 'cargo', 'nivel', 'disciplina', 'assunto']) {
     if (!texto(q[campo])) erros.push(`${rotulo}: "${campo}" vazio`);
+  }
+
+  // Verificação adicional para "assunto" genérico
+  const assuntoNormalizado = String(q.assunto || '').trim().toLowerCase();
+  if (assuntoNormalizado && ASSUNTO_GENERICOS.includes(assuntoNormalizado)) {
+    erros.push(`${rotulo}: "assunto" genérico não permitido: "${q.assunto}"`);
   }
 
   if (!Number.isInteger(q.ano) || q.ano < 1990 || q.ano > 2100) {

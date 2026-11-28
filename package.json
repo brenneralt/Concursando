@@ -13,9 +13,11 @@
     "typecheck": "tsc -p jsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:db": "node scripts/testar-acesso-db.mjs",
     "validar:dados": "node scripts/validar-questoes.mjs",
+    "assunto:enriquecer": "node scripts/enriquecer-assunto.mjs",
     "materiais:separar": "node scripts/separar-materiais.mjs",
-    "verificar": "npm run lint && npm run typecheck && npm run test && npm run validar:dados && npm run build"
+    "verificar": "npm run lint && npm run typecheck && npm run test && npm run test:db && npm run validar:dados && npm run build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
@@ -28,6 +30,7 @@
     "@eslint/js": "^10.0.1",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "embedded-postgres": "^17.12.0-beta.19",
     "eslint": "^10.15.0",
     "globals": "^17.14.0",
     "postcss": "^8.4.49",

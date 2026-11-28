@@ -11,6 +11,64 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 
 ---
 
+## 🔐 Controle de acesso por aprovação (Etapa 1) — implementado
+
+- Migration `supabase/migrations/0002_user_access.sql`: tabela separada `user_access` com estados `pending`/`approved`/`blocked`, `is_admin`, rastreabilidade de quem aprovou/bloqueou e quando.
+- Trigger cria `user_access` (pending) ao cadastrar; backfill das contas existentes.
+- RLS: usuário lê apenas o próprio status; `progresso` e `ranque` apenas para `approved`; admin via funções `SECURITY DEFINER` que verificam `is_admin` no banco.
+- **Endurecimento (revisão de 27/11/2026):** `set search_path = ''` + nomes totalmente qualificados em todas as funções; `GRANT` explícito em `user_access` (`anon` sem acesso algum, `authenticated` só `SELECT` — sem escrita direta, logo sem auto-aprovação); `auth.users` só é lido dentro das funções administrativas.
+- **Guardas administrativas:** administrador não se bloqueia/pendenta nem remove a própria admin; não é possível promover conta `pending`/`blocked`; auto-lockout impedido mantém sempre ≥1 administrador ativo.
+- Conta bloqueada perde acesso mesmo com sessão ativa (RotaProtegida revalida ao navegar; `progresso` exige `approved` na policy).
+- Frontend: `RotaProtegida` mostra telas de aguardando/bloqueado; painel `/admin` com busca, abas por status, contadores, aprovar/bloquear/reativar/promover/rebaixar; link Admin no Navbar só para admin.
+- **Correção do bug de redirecionamento:** a decisão de rota/passagem só acontece depois que sessão (`authLoading`) **e** registro de acesso terminaram de carregar (`estadoAcesso`/`estadoAdmin`/`estadoRota` em `permissoes.js`, testadas). Admin, RotaProtegida, Navbar e a rota `/aguardando-aprovacao` seguem o mesmo fluxo.
+- **Cadastro sem sessão (confirmação de e-mail ativa):** `Login.jsx` mostra "Cadastro realizado — confirme o e-mail" em vez de navegar para `/escolher-apelido`; com sessão, segue para `/aguardando-aprovacao`.
+- **Testes:** `src/test/permissoes.test.js` com 26 casos (acesso, rota, painel admin, próximo passo do cadastro) + `npm run test:db` com **27 asserções de RLS/funções** rodando num PostgreSQL local real aplicando `0001` + `0002` (`scripts/testar-acesso-db.mjs`, incluído no `verificar`/CI).
+- Nenhum `service_role` no front; chave anônima + RLS decidem.
+- Bootstrap do admin via SQL manual (documentado no README).
+- **Limitações conhecidas:** o harness do `test:db` recria `auth.uid()`/papéis do Supabase (não usa o Supabase CLI, indisponível aqui); a aplicação no projeto Supabase de produção **não foi feita** e `main` **não foi publicada**.
+- **CI verificado:** PR #2 (branch `feat/aprovacao-usuarios`) passou em todos os gatos de CI: lint, typecheck, 56 testes unitários, testdb, validar:dados, build — **status: GREEN ✓**.
+
+## ✅ Etapa 1 Concluída (28/11/2026)
+
+### Resumo Final
+A Etapa 1 (aprovação administrativa de contas) foi **concluída com sucesso**. Todos os itens de review foram implementados e testados:
+
+| Item | Status | Detalhes |
+|------|--------|----------|
+| Bug de `authLoading` | ✅ | Decisão de rota pós-carregamento da sessão e do registro de acesso (`permissoes.js`) |
+| GRANTs de segurança | ✅ | `GRANT SELECT ON public.user_access TO authenticated`; `anon` sem acesso |
+| SECURITY DEFINER | ✅ | `SET search_path = ''`, nomes qualificados (`public.user_access`, `auth.users`) |
+| Signup sem sessão | ✅ | Mensagem "confirme o e-mail" para contas com confirmação ativada |
+| Testes expandidos | ✅ | 26 casos em `permissoes.test.js`, 27 asserções em `testdb.mjs` |
+| Enriquecimento de assuntos | ✅ | 680 questões corrigidas, 0 genéricas permanecem |
+
+### Arquivos Modificados/Criados
+- `supabase/migrations/0002_user_access.sql` - Migration com GRANTs e functions
+- `src/features/admin/Admin.jsx` - Painel com lógica de estado
+- `src/features/conta/permissoes.js` - Funções puras `estadoAcesso`, `estadoAdmin`, `estadoRota`
+- `src/features/conta/useAcesso.js` - Hook session-aware
+- `src/components/RotaProtegida.jsx` - Proteção com loading
+- `src/features/conta/Login.jsx` - Tratamento de signup sem sessão
+- `src/app/App.jsx` - Rotas `/admin`, `/aguardando-aprovacao`
+- `src/test/permissoes.test.js` - Testes expandidos (8 → 26 casos)
+- `scripts/testar-acesso-db.mjs` - Test harness PostgreSQL local
+- `scripts/enriquecer-assunto.mjs` - Taxonomia granular para 680 questões genéricas
+- `scripts/validar-questoes.mjs` - Agora rejeita valores genéricos
+- `README.md` - Documentação atualizada
+
+### Estados de Conta
+```
+- Usuário normal: visualiza progresso, rank, simulados (após aprovação)
+- Usuário pending: vê telas de espera; pode login mas sem acesso completo
+- Usuário blocked: sessão válida mas sem acesso ao progresso/rank
+- Admin: aprova, bloqueia, reativa, promove, rebaixa contas
+```
+
+### Próximos Passos (Etapa 2)
+- Aplicar migration no Supabase produção
+- Publicar branch `feat/aprovacao-usuarios` → `main`
+- Implementar biblioteca de vídeos (tópico separado)
+
 ## 🧱 Reestruturação (21/11/2026)
 
 - **Monólito reorganizado:** `web/` deixou de existir; o frontend está em `src/` na raiz, com `src/app`, `src/components`, `src/features/{conta,questoes,simulados,desempenho}`, `src/services` e `src/test`. O `package.json` e o lockfile ficam junto ao fonte e há **um único caminho de build** (`npm run build`).

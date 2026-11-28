@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // HashRouter: GitHub Pages não faz fallback de SPA, então rotas com BrowserRouter
 // quebram fora da raiz (ex.: /Concursando/simulado → 404). Com HashRouter,
 // /Concursando/#/simulado funciona em qualquer host estático.
-import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Filtros } from '../features/questoes/Filtros';
 import { CardQuestao } from '../features/questoes/CardQuestao';
 import { Estatisticas } from '../features/desempenho/Estatisticas';
 import Login from '../features/conta/Login';
 import ChooseNickname from '../features/conta/ChooseNickname';
+import Admin from '../features/admin/Admin';
+import AguardandoAprovacao from '../features/conta/AguardandoAprovacao';
+import { useAcesso } from '../features/conta/useAcesso';
+import { estadoAcesso, podeAdministrar } from '../features/conta/permissoes';
 import Ranking from '../features/desempenho/Ranking';
 import Simulado from '../features/simulados/Simulado';
 import RotaProtegida from '../components/RotaProtegida';
@@ -27,12 +31,68 @@ export default function App() {
         {/* A conta é obrigatória: estas rotas só abrem com sessão ativa. */}
         <Route element={<RotaProtegida />}>
           <Route path="/escolher-apelido" element={<ChooseNickname />} />
+          <Route path="/aguardando-aprovacao" element={<AguardandoAprovacaoRoute />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/simulado" element={<Simulado />} />
           <Route path="/*" element={<Main />} />
         </Route>
       </Routes>
     </HashRouter>
+  );
+}
+
+function AguardandoAprovacaoRoute() {
+  const { user, logout, authLoading } = useProgress();
+  const { acesso, erro, carregando, recarregar } = useAcesso(user);
+  const navigate = useNavigate();
+
+  const estado = estadoAcesso({ authLoading, user, acesso, erro, carregando });
+
+  useEffect(() => {
+    if (estado === 'login') navigate('/login', { replace: true });
+    // Aprovado não pertence a esta tela; bloqueado volta para a rota protegida,
+    // que exibe a tela de conta suspensa.
+    if (estado === 'approved' || estado === 'blocked') navigate('/', { replace: true });
+  }, [estado, navigate]);
+
+  if (estado === 'aguardar') {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-sky-600 animate-spin" />
+      </div>
+    );
+  }
+
+  if (estado === 'erro') {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4">
+        <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8 w-full max-w-md text-center">
+          <AlertCircle className="w-8 h-8 text-rose-500 mx-auto mb-3" />
+          <p className="text-sm text-slate-700 mb-4">Não foi possível verificar o seu acesso.</p>
+          <p className="text-xs text-slate-500 mb-5">{erro}</p>
+          <button
+            type="button"
+            onClick={() => recarregar()}
+            className="px-4 py-2 text-xs font-semibold bg-sky-600 text-white rounded-lg hover:bg-sky-700"
+          >
+            Tentar novamente
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <AguardandoAprovacao
+      user={user}
+      carregando={false}
+      onRecarregar={() => recarregar()}
+      onLogout={async () => {
+        await logout();
+        navigate('/login', { replace: true });
+      }}
+    />
   );
 }
 
@@ -74,6 +134,9 @@ function Main() {
     resetarProgresso,
     stats
   } = useProgress();
+  const { acesso, carregando: carregandoAcesso } = useAcesso(user);
+  // Evita exibir o link de admin antes do registro de acesso chegar.
+  const isAdmin = !carregandoAcesso && podeAdministrar(acesso);
 
   const {
     questoes,
@@ -111,6 +174,7 @@ function Main() {
         onReset={resetarProgresso}
         user={user}
         onLogout={logout}
+        isAdmin={isAdmin}
       />
 
       {/* Conteúdo Principal */}

@@ -1,8 +1,8 @@
 import React from 'react';
-import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, Timer } from 'lucide-react';
+import { BookOpen, BarChart2, Star, CheckCircle, RotateCcw, Users, LogOut, Timer, ShieldCheck } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
-export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
+export function Navbar({ stats, onOpenStats, onReset, user, onLogout, isAdmin }) {
   const navigate = useNavigate();
 
   return (
@@ -53,6 +53,17 @@ export function Navbar({ stats, onOpenStats, onReset, user, onLogout }) {
             <Users className="w-4 h-4 text-sky-600" />
             <span className="hidden sm:inline">Ranque</span>
           </button>
+
+          {isAdmin && (
+            <button
+              onClick={() => navigate('/admin')}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-sky-700 bg-sky-50 hover:bg-sky-100 rounded-lg transition-colors"
+              title="Painel administrativo"
+            >
+              <ShieldCheck className="w-4 h-4 text-sky-600" />
+              <span className="hidden sm:inline">Admin</span>
+            </button>
+          )}
 
           <button
             onClick={onOpenStats}
