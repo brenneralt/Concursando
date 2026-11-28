@@ -27,7 +27,6 @@ try {
     'portuguesa': 'Linguagem',
     'portugues': 'Linguagem',
     'matemática': 'Matemática',
-    'matemática': 'Matemática',
     'história': 'História',
     'geografia': 'Geografia',
     'biologia': 'Biologia',
@@ -49,7 +48,6 @@ try {
     'linguagens': 'Outra',
     'outra': 'Outra',
     'outra disciplina': 'Outra',
-    'outra': 'Outra',
   };
 
   // Helper: find keyword in text
