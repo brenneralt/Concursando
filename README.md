@@ -85,8 +85,14 @@ npm run dev            # http://localhost:3000
 - **Fonte:** provas oficiais publicadas pelas bancas, coletadas via acervo público do PCI Concursos e PDFs locais. O processo e os direitos de uso estão em [`docs/dados.md`](docs/dados.md).
 - **Escopo:** nível médio/fundamental; Cesgranrio (17.018 questões) + IGECAP/CONTEMAX (680). Enfermagem, fiscal, serviços gerais, limpeza, cozinha e merendeira ficam fora.
 - **Schema:** 12 campos obrigatórios por questão (`id`, `banca`, `ano`, `orgao`, `cargo`, `nivel`, `disciplina`, `assunto`, `enunciado`, `alternativas`, `gabarito`, `anulada`), mais o opcional `material_id`.
-- **Regras do validador:** ids únicos, alternativas contíguas A–E, gabarito existente entre as alternativas, questão anulada com `gabarito: null`, `ano` inteiro e enunciado não vazio. Questões-imagem e referências a texto ausente saem como **aviso**, para revisão humana.
+- **Regras do validador:** ids únicos, alternativas contíguas A–E, gabarito existente entre as alternativas, questão anulada com `gabarito: null`, `ano` inteiro e enunciado não vazio. Questões-imagem e referências a texto ausente saem como **aviso**, para revisão humana. **Adicionado:** verificação rigorosa para o campo `assunto` — valores genéricos (`"A definir"`, `"Não categorizado"`, vazios) são **erros**, não apenas avisos.
 - **Atualização:** `python3 parser/normalizar_banco.py` audita e reescreve o banco; `python3 parser/anexar_textos_apoio.py` recupera textos de apoio a partir dos PDFs. Sempre rode `npm run validar:dados` e `npm run verificar` depois.
+
+> **⚠️ Campo `assunto`**  
+> - Obrigatório e deve descrever o foco da questão (ex.: "Redação", "Matemática", "História").  
+> - Valores genéricos como `"A definir"`, `" "`, `"Não categorizado"` são **não permitidos** e gerarão erro de validação.  
+> - O campo é **enriquecido automaticamente** pelo script `scripts/enriquecer-assunto.mjs` (execute após atualizar o banco de questões).  
+> - **Recomendação**: Revise manualmente questões com `disciplina` ausente ou `enunciado` muito genérico.
 
 ### Texto de apoio × comando
 
