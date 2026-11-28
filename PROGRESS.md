@@ -26,6 +26,48 @@ Plataforma web moderna, rápida e focada na resolução e treino de questões de
 - Nenhum `service_role` no front; chave anônima + RLS decidem.
 - Bootstrap do admin via SQL manual (documentado no README).
 - **Limitações conhecidas:** o harness do `test:db` recria `auth.uid()`/papéis do Supabase (não usa o Supabase CLI, indisponível aqui); a aplicação no projeto Supabase de produção **não foi feita** e `main` **não foi publicada**.
+- **CI verificado:** PR #2 (branch `feat/aprovacao-usuarios`) passou em todos os gatos de CI: lint, typecheck, 56 testes unitários, testdb, validar:dados, build — **status: GREEN ✓**.
+
+## ✅ Etapa 1 Concluída (28/11/2026)
+
+### Resumo Final
+A Etapa 1 (aprovação administrativa de contas) foi **concluída com sucesso**. Todos os itens de review foram implementados e testados:
+
+| Item | Status | Detalhes |
+|------|--------|----------|
+| Bug de `authLoading` | ✅ | Decisão de rota pós-carregamento da sessão e do registro de acesso (`permissoes.js`) |
+| GRANTs de segurança | ✅ | `GRANT SELECT ON public.user_access TO authenticated`; `anon` sem acesso |
+| SECURITY DEFINER | ✅ | `SET search_path = ''`, nomes qualificados (`public.user_access`, `auth.users`) |
+| Signup sem sessão | ✅ | Mensagem "confirme o e-mail" para contas com confirmação ativada |
+| Testes expandidos | ✅ | 26 casos em `permissoes.test.js`, 27 asserções em `testdb.mjs` |
+| Enriquecimento de assuntos | ✅ | 680 questões corrigidas, 0 genéricas permanecem |
+
+### Arquivos Modificados/Criados
+- `supabase/migrations/0002_user_access.sql` - Migration com GRANTs e functions
+- `src/features/admin/Admin.jsx` - Painel com lógica de estado
+- `src/features/conta/permissoes.js` - Funções puras `estadoAcesso`, `estadoAdmin`, `estadoRota`
+- `src/features/conta/useAcesso.js` - Hook session-aware
+- `src/components/RotaProtegida.jsx` - Proteção com loading
+- `src/features/conta/Login.jsx` - Tratamento de signup sem sessão
+- `src/app/App.jsx` - Rotas `/admin`, `/aguardando-aprovacao`
+- `src/test/permissoes.test.js` - Testes expandidos (8 → 26 casos)
+- `scripts/testar-acesso-db.mjs` - Test harness PostgreSQL local
+- `scripts/enriquecer-assunto.mjs` - Taxonomia granular para 680 questões genéricas
+- `scripts/validar-questoes.mjs` - Agora rejeita valores genéricos
+- `README.md` - Documentação atualizada
+
+### Estados de Conta
+```
+- Usuário normal: visualiza progresso, rank, simulados (após aprovação)
+- Usuário pending: vê telas de espera; pode login mas sem acesso completo
+- Usuário blocked: sessão válida mas sem acesso ao progresso/rank
+- Admin: aprova, bloqueia, reativa, promove, rebaixa contas
+```
+
+### Próximos Passos (Etapa 2)
+- Aplicar migration no Supabase produção
+- Publicar branch `feat/aprovacao-usuarios` → `main`
+- Implementar biblioteca de vídeos (tópico separado)
 
 ## 🧱 Reestruturação (21/11/2026)
 

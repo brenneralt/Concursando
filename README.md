@@ -75,6 +75,7 @@ npm run dev            # http://localhost:3000
 | `npm run test` | Testes Vitest (regras puras: acesso, rotas, filtros, simulados) |
 | `npm run test:db` | Sobe um PostgreSQL local e testa RLS + funções de acesso de verdade (substituto do `supabase test db`) |
 | `npm run validar:dados` | Valida schema, ids, alternativas, gabaritos e materiais |
+| `npm run assunto:enriquecer` | Enriquece automaticamente assuntos genéricos (`"A definir"`, `"Não categorizado"`) usando taxações granulares por disciplina |
 | `npm run materiais:separar` | Gera proposta de separação texto de apoio × comando (dry-run) |
 | `npm run verificar` | Lint + typecheck + testes + testes de banco + validação + build (mesmo gate do CI) |
 
