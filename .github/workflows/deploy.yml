@@ -7,6 +7,7 @@ on:
       - "src/**"
       - "public/**"
       - "scripts/**"
+      - "supabase/**"
       - "data/**"
       - "index.html"
       - "package.json"
@@ -23,6 +24,7 @@ on:
       - "src/**"
       - "public/**"
       - "scripts/**"
+      - "supabase/**"
       - "data/**"
       - "index.html"
       - "package.json"
@@ -68,6 +70,9 @@ jobs:
 
       - name: Testes
         run: npm run test
+
+      - name: Testes de banco (RLS + funções de acesso)
+        run: npm run test:db
 
       - name: Validar banco de questões
         run: npm run validar:dados

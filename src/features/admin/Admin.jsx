@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { supabase } from '../../services/supabase.js';
-import { podeAdministrar } from '../conta/permissoes.js';
+import { estadoAdmin } from '../conta/permissoes.js';
 import { useAcesso } from '../conta/useAcesso.js';
 import { useProgress } from '../desempenho/useProgress.js';
 import {
-  ShieldCheck, Users, Clock, CheckCircle2, Ban, RefreshCw, Loader2, Search,
-  UserCog, ArrowLeft
+  ShieldCheck, Clock, CheckCircle2, Ban, RefreshCw, Loader2, Search,
+  UserCog, ArrowLeft, AlertTriangle
 } from 'lucide-react';
 
 const STATUS_TABS = [
@@ -26,8 +26,15 @@ function formatarData(iso) {
 }
 
 export default function Admin() {
-  const { user } = useProgress();
-  const { acesso, carregando: carregandoAcesso } = useAcesso(user);
+  // useProgress inicia com user=null e recupera a sessão de forma assíncrona:
+  // sem authLoading a decisão abaixo redirigiria um administrador legítimo.
+  const { user, authLoading } = useProgress();
+  const {
+    acesso,
+    erro: erroAcesso,
+    carregando: carregandoAcesso,
+    recarregar: recarregarAcesso,
+  } = useAcesso(user);
 
   const [usuarios, setUsuarios] = useState([]);
   const [carregando, setCarregando] = useState(true);
@@ -36,7 +43,7 @@ export default function Admin() {
   const [aba, setAba] = useState('pending');
   const [acaoEmAndamento, setAcaoEmAndamento] = useState(null);
 
-  const carregar = async () => {
+  const carregar = useCallback(async () => {
     setCarregando(true);
     setErro('');
     const { data, error } = await supabase.rpc('listar_usuarios');
@@ -47,13 +54,22 @@ export default function Admin() {
       setUsuarios(data || []);
     }
     setCarregando(false);
-  };
+  }, []);
+
+  // Só decide quando sessão + registro de acesso já foram resolvidos.
+  const estado = estadoAdmin({
+    authLoading,
+    user,
+    acesso,
+    erro: erroAcesso,
+    carregando: carregandoAcesso,
+  });
 
   useEffect(() => {
-    if (podeAdministrar(acesso)) carregar();
-  }, [acesso]);
+    if (estado === 'admin') carregar();
+  }, [estado, carregar]);
 
-  if (carregandoAcesso) {
+  if (estado === 'aguardar') {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
         <Loader2 className="w-8 h-8 text-sky-600 animate-spin" />
@@ -61,7 +77,33 @@ export default function Admin() {
     );
   }
 
-  if (!podeAdministrar(acesso)) {
+  if (estado === 'login') {
+    return <Navigate to="/login" replace />;
+  }
+
+  // Falha ao consultar permissões: fechado, sem redirecionar silenciosamente.
+  if (estado === 'erro') {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4">
+        <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8 w-full max-w-md text-center">
+          <AlertTriangle className="w-8 h-8 text-rose-500 mx-auto mb-3" />
+          <h1 className="font-bold text-lg text-slate-900 mb-2">Não foi possível verificar suas permissões</h1>
+          <p className="text-xs text-slate-500 mb-5">{erroAcesso}</p>
+          <button
+            type="button"
+            onClick={() => recarregarAcesso()}
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-sky-600 text-white rounded-lg hover:bg-sky-700"
+          >
+            <RefreshCw className="w-4 h-4" />
+            Tentar novamente
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (estado !== 'admin') {
+    // Comum, pendente ou bloqueado: sem acesso ao painel.
     return <Navigate to="/" replace />;
   }
 

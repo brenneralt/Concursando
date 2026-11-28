@@ -72,10 +72,11 @@ npm run dev            # http://localhost:3000
 | `npm run preview` | Serve o build localmente |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Checagem sintática/tipos com `tsc` (JS + JSDoc, sem migrar para TS) |
-| `npm run test` | Testes Vitest |
+| `npm run test` | Testes Vitest (regras puras: acesso, rotas, filtros, simulados) |
+| `npm run test:db` | Sobe um PostgreSQL local e testa RLS + funções de acesso de verdade (substituto do `supabase test db`) |
 | `npm run validar:dados` | Valida schema, ids, alternativas, gabaritos e materiais |
 | `npm run materiais:separar` | Gera proposta de separação texto de apoio × comando (dry-run) |
-| `npm run verificar` | Lint + typecheck + testes + validação + build (mesmo gate do CI) |
+| `npm run verificar` | Lint + typecheck + testes + testes de banco + validação + build (mesmo gate do CI) |
 
 ---
 
@@ -122,6 +123,15 @@ A migration `supabase/migrations/0002_user_access.sql` adiciona o **controle de 
 - Ações administrativas (`listar_usuarios`, `definir_acesso`, `definir_admin`) verificam `is_admin` no próprio banco.
 - Conta bloqueada perde acesso mesmo com sessão ativa.
 
+Garantias aplicadas no banco (independem do frontend):
+
+- `GRANT` explícito: `anon` **não** tem acesso algum a `user_access`; `authenticated` só tem `SELECT` (restrito à própria linha pelo RLS) — não existe caminho de escrita direta, logo ninguém se auto-aprova.
+- Todas as funções são `SECURITY DEFINER` com `set search_path = ''` e referências qualificadas por schema (`public.*`, `auth.*`).
+- Regras administrativas: administrador não se bloqueia/pendenta nem remove a própria admin; não é possível promover conta `pending`/`blocked`; o auto-lockout impedido mantém sempre pelo menos um administrador ativo.
+- `auth.users` não é legível pela API: `listar_usuarios()` junta internamente (com `search_path` vazio) e só devolve para administradores.
+
+**Testes do banco:** `npm run test:db` sobe um PostgreSQL descartável local (via `embedded-postgres`), aplica `0001` + `0002` e executa ~27 asserções de RLS/funções (é o equivalente ao `supabase test db` sem exigir Docker/CLI). Roda dentro de `npm run verificar` e no CI. **Limitação:** o harness recria `auth.uid()`/papéis do Supabase; a validação final no projeto Supabase real (SQL Editor + `supabase db push`) continua sendo um passo manual de publicação.
+
 **Bootstrap do administrador (rode uma vez no SQL Editor, após aplicar as migrations):**
 
 ```sql
@@ -129,6 +139,8 @@ update public.user_access
 set status = 'approved', is_admin = true, updated_at = now()
 where user_id = (select id from auth.users where lower(email) = lower('SEU_EMAIL@email.com'));
 ```
+
+Este `UPDATE` é intencionalmente manual e só funciona para quem tem acesso ao SQL Editor (dono das tabelas, fora da API). Enquanto não existir nenhum administrador aprovado, **não existe painel** que consiga aprovar ninguém — por isso este passo é obrigatório antes de publicar a Etapa 1.
 
 Depois disso, acesse `/admin` no site para aprovar os demais cadastros.
 

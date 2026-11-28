@@ -1,54 +1,45 @@
 import { useEffect, useState } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { Loader2 } from 'lucide-react';
+import { Loader2, AlertTriangle, RefreshCw } from 'lucide-react';
 import { supabase } from '../services/supabase.js';
-import { podeAcessar } from '../features/conta/permissoes.js';
+import { estadoRota } from '../features/conta/permissoes.js';
+import { useAcesso } from '../features/conta/useAcesso.js';
 import AguardandoAprovacao from '../features/conta/AguardandoAprovacao.jsx';
 import ContaBloqueada from '../features/conta/ContaBloqueada.jsx';
 
 /**
- * Rotas que um usuário autenticado (mesmo pendente/bloqueado) pode abrir:
- * - /login é tratado fora desta rota
- * - /escolher-apelido e /aguardando-aprovacao são permitidos para pendentes
+ * Rotas que um usuário autenticado (mesmo pendente/bloqueado) pode abrir.
+ * /login é tratado fora desta rota.
  */
-const ROTAS_PERMITIDAS_PENDENTE = new Set(['/escolher-apelido', '/aguardando-aprovacao']);
+const ROTAS_PERMITIDAS_PENDENTE = ['/escolher-apelido', '/aguardando-aprovacao'];
 
 export default function RotaProtegida() {
-  const [verificando, setVerificando] = useState(true);
   const [user, setUser] = useState(null);
-  const [acesso, setAcesso] = useState(null);
+  const [sessaoVerificada, setSessaoVerificada] = useState(false);
   const location = useLocation();
-
-  const carregarAcesso = async (uid) => {
-    if (!uid) {
-      setAcesso(null);
-      return;
-    }
-    const { data, error } = await supabase
-      .from('user_access')
-      .select('status, is_admin')
-      .eq('user_id', uid)
-      .maybeSingle();
-    if (error) console.warn('Falha ao carregar acesso:', error.message);
-    setAcesso(data ?? { status: 'pending', is_admin: false });
-  };
+  const { acesso, erro, carregando, recarregar } = useAcesso(user);
 
   useEffect(() => {
     let ativo = true;
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!ativo) return;
-      setUser(session?.user ?? null);
-      carregarAcesso(session?.user?.id).finally(() => {
-        if (ativo) setVerificando(false);
-      });
-    });
+    supabase.auth.getSession().then(
+      ({ data: { session } }) => {
+        if (!ativo) return;
+        setUser(session?.user ?? null);
+        setSessaoVerificada(true);
+      },
+      () => {
+        if (!ativo) return;
+        setUser(null);
+        setSessaoVerificada(true);
+      }
+    );
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_evento, session) => {
       setUser(session?.user ?? null);
-      carregarAcesso(session?.user?.id).finally(() => setVerificando(false));
+      setSessaoVerificada(true);
     });
 
     return () => {
@@ -57,12 +48,23 @@ export default function RotaProtegida() {
     };
   }, []);
 
-  // Revalida o status ao navegar (conta bloqueada perde acesso mesmo com sessão ativa).
+  // Revalida o status a cada navegação em segundo plano: uma conta que for
+  // bloqueada com a sessão aberta perde o acesso ao próximo roteamento.
   useEffect(() => {
-    if (user) carregarAcesso(user.id);
-  }, [location.pathname, user]);
+    if (user) recarregar({ silencioso: true });
+  }, [location.pathname, user, recarregar]);
 
-  if (verificando) {
+  const estado = estadoRota({
+    verificando: !sessaoVerificada,
+    user,
+    acesso,
+    erro,
+    carregando,
+    caminho: location.pathname,
+    permitidas: ROTAS_PERMITIDAS_PENDENTE,
+  });
+
+  if (estado === 'aguardar') {
     return (
       <div className="min-h-screen bg-slate-100 flex flex-col items-center justify-center gap-3">
         <Loader2 className="w-8 h-8 text-sky-600 animate-spin" />
@@ -71,7 +73,7 @@ export default function RotaProtegida() {
     );
   }
 
-  if (!user) {
+  if (estado === 'login') {
     return (
       <Navigate
         to="/login"
@@ -81,20 +83,48 @@ export default function RotaProtegida() {
     );
   }
 
-  const status = acesso?.status ?? 'pending';
+  // Falha ao consultar permissões: fechado, sem expor conteúdo.
+  if (estado === 'erro') {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4">
+        <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8 w-full max-w-md text-center">
+          <AlertTriangle className="w-8 h-8 text-rose-500 mx-auto mb-3" />
+          <h1 className="font-bold text-lg text-slate-900 mb-2">Não foi possível verificar seu acesso</h1>
+          <p className="text-xs text-slate-500 mb-5">
+            {erro || 'Registro de acesso não encontrado.'}
+          </p>
+          <div className="flex gap-2 justify-center">
+            <button
+              type="button"
+              onClick={() => recarregar()}
+              className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-sky-600 text-white rounded-lg hover:bg-sky-700"
+            >
+              <RefreshCw className="w-4 h-4" />
+              Tentar novamente
+            </button>
+            <button
+              type="button"
+              onClick={() => supabase.auth.signOut()}
+              className="px-4 py-2 text-xs font-semibold bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200"
+            >
+              Sair
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  // Bloqueado: perde acesso em qualquer rota.
-  if (status === 'blocked') {
+  if (estado === 'bloqueado') {
     return <ContaBloqueada user={user} onLogout={() => supabase.auth.signOut()} />;
   }
 
-  // Pendente: só pode acessar rotas permitidas.
-  if (status !== 'approved' && !ROTAS_PERMITIDAS_PENDENTE.has(location.pathname)) {
+  if (estado === 'pendente') {
     return (
       <AguardandoAprovacao
         user={user}
-        carregando={false}
-        onRecarregar={() => carregarAcesso(user.id)}
+        carregando={carregando}
+        onRecarregar={() => recarregar()}
         onLogout={() => supabase.auth.signOut()}
       />
     );
